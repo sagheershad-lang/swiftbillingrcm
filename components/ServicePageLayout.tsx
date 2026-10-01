@@ -1,10 +1,11 @@
 'use client'
-import { type ReactElement, type CSSProperties } from 'react'
+import { useState, type ReactElement, type CSSProperties } from 'react'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import Image from 'next/image'
 import Nav from './Nav'
 import Footer from './Footer'
+import { AccordionItem } from './FAQ'
 import type { ServiceData } from '@/lib/services-data'
 import { servicesData } from '@/lib/services-data'
 
@@ -225,6 +226,67 @@ function ServiceHeroGraphic({ service, heroImage, heroImageDesktop, heroImageTab
         </motion.div>
       </motion.div>
     </div>
+  )
+}
+
+/* ─── Service FAQ — visible copy of the FAQPage JSON-LD (same service.faqs) ─── */
+function ServiceFAQ({ service }: { service: ServiceData }) {
+  const [open, setOpen] = useState<number | null>(0)
+
+  return (
+    <section id="service-faq" className="py-16 md:py-24 bg-[#F8FAFC] relative overflow-hidden">
+      {/* Ambient glow top-right */}
+      <div
+        className="pointer-events-none absolute -top-16 right-0 w-[500px] h-[360px] opacity-40"
+        style={{ background: 'radial-gradient(ellipse at top right, rgba(46,196,182,0.09) 0%, transparent 65%)' }}
+      />
+
+      <div className="relative z-10 max-w-[1200px] mx-auto px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="mb-10"
+        >
+          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
+            <div>
+              <p className="text-[11.5px] font-extrabold uppercase tracking-[0.16em] text-[#2EC4B6] mb-3">
+                Common Questions
+              </p>
+              <h2 className="text-[clamp(28px,3.5vw,44px)] font-extrabold text-[#0F172A] leading-[1.08] tracking-tight">
+                Questions About{' '}
+                <span style={{
+                  background: 'linear-gradient(90deg, #0B3C5D 0%, #2EC4B6 100%)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text',
+                }}>
+                  {service.name}
+                </span>
+              </h2>
+            </div>
+            <p className="text-[15px] text-[#64748B] leading-relaxed max-w-[360px] lg:text-right lg:pb-1">
+              Straight answers to what practices ask us most about {service.name}.
+            </p>
+          </div>
+          <div className="mt-7 h-px" style={{ background: 'linear-gradient(90deg, #2EC4B6, rgba(46,196,182,0.15), transparent)' }} />
+        </motion.div>
+
+        <div className="flex flex-col gap-3 max-w-[880px]">
+          {service.faqs.map((faq, i) => (
+            <AccordionItem
+              key={faq.q}
+              faq={faq}
+              index={i}
+              isOpen={open === i}
+              onToggle={() => setOpen(open === i ? null : i)}
+              idPrefix="service-faq-answer"
+            />
+          ))}
+        </div>
+      </div>
+    </section>
   )
 }
 
@@ -719,7 +781,10 @@ export default function ServicePageLayout({ service, heroImage, heroImageDesktop
         </section>
       )}
 
-      {/* ══ 6. CTA BANNER ════════════════════════════════════════════ */}
+      {/* ══ 6. FAQ ═══════════════════════════════════════════════════ */}
+      {service.faqs.length > 0 && <ServiceFAQ service={service} />}
+
+      {/* ══ 7. CTA BANNER ════════════════════════════════════════════ */}
       <section
         className="py-[60px] relative overflow-hidden"
         style={{ background: '#0a1e33', borderTop: '1px solid rgba(255,255,255,0.06)' }}

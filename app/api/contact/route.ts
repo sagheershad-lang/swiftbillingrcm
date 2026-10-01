@@ -92,8 +92,8 @@ export async function POST(req: NextRequest) {
   const specialty     = sanitizeLine(body.specialty, 100)
   const message       = sanitize(body.message, 2000)
 
-  if (!name || !email) {
-    return NextResponse.json({ error: 'Name and email are required.' }, { status: 400 })
+  if (!name || !practice_name || !email || !phone) {
+    return NextResponse.json({ error: 'Name, practice name, email and phone are required.' }, { status: 400 })
   }
   if (!isValidEmail(email)) {
     return NextResponse.json({ error: 'Please provide a valid email address.' }, { status: 400 })

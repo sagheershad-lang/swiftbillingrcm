@@ -73,10 +73,11 @@ export default function Contact() {
     e.preventDefault()
     if (sendingRef.current) return
     const form = e.currentTarget
-    const nameVal  = (form.elements.namedItem('name')  as HTMLInputElement).value.trim()
-    const emailVal = (form.elements.namedItem('email') as HTMLInputElement).value.trim()
-    if (!nameVal || !emailVal) {
-      setErrorMsg('Please fill in your name and email address.')
+    const required = ['name', 'practice_name', 'email', 'phone'].map(
+      n => (form.elements.namedItem(n) as HTMLInputElement).value.trim()
+    )
+    if (required.some(v => !v)) {
+      setErrorMsg('Please fill in your name, practice name, email and phone number.')
       setStatus('error')
       return
     }
@@ -282,11 +283,11 @@ export default function Contact() {
                     {/* Honeypot — hidden from real users, traps bots */}
                     <input type="text" name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" className="hidden" />
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      <CField label="Your Name *"     name="name"          type="text"  placeholder="Dr. Jane Smith"        required />
-                      <CField label="Practice Name *" name="practice_name" type="text"  placeholder="Smith Medical Group"   required />
-                      <CField label="Work Email *"    name="email"         type="email" placeholder="jane@practice.com"     required />
-                      <CField label="Phone Number *"  name="phone"         type="tel"   placeholder="+1 (512) 000-0000"     required />
-                      <CField label="Specialty"       name="specialty"     type="text"  placeholder="e.g. Internal Medicine" />
+                      <CField label="Your Name *"     name="name"          type="text"  placeholder="Dr. Jane Smith"         maxLength={100} required />
+                      <CField label="Practice Name *" name="practice_name" type="text"  placeholder="Smith Medical Group"    maxLength={150} required />
+                      <CField label="Work Email *"    name="email"         type="email" placeholder="jane@practice.com"      maxLength={254} required />
+                      <CField label="Phone Number *"  name="phone"         type="tel"   placeholder="+1 (512) 000-0000"      maxLength={30}  required />
+                      <CField label="Specialty"       name="specialty"     type="text"  placeholder="e.g. Internal Medicine" maxLength={100} />
                     </div>
 
                     <div className="flex flex-col gap-1.5">
@@ -297,6 +298,7 @@ export default function Contact() {
                         id="message"
                         name="message"
                         rows={3}
+                        maxLength={2000}
                         placeholder="e.g. High denial rates, slow reimbursements, AR backlog..."
                         className="bg-[#F8FAFC] border border-[#D1DBE8] rounded-xl px-4 py-3
                           text-[14px] text-[#0F172A] placeholder:text-[#94A3B8]
@@ -346,11 +348,12 @@ export default function Contact() {
 }
 
 /* ── Reusable field ─────────────────────────────────────────────── */
-function CField({ label, name, type, placeholder, required }: {
+function CField({ label, name, type, placeholder, maxLength, required }: {
   label: string
   name: string
   type: string
   placeholder: string
+  maxLength: number
   required?: boolean
 }) {
   return (
@@ -363,6 +366,7 @@ function CField({ label, name, type, placeholder, required }: {
         type={type}
         name={name}
         placeholder={placeholder}
+        maxLength={maxLength}
         required={required}
         className="bg-[#F8FAFC] border border-[#D1DBE8] rounded-xl px-4 py-3
           text-[14px] text-[#0F172A] placeholder:text-[#94A3B8]

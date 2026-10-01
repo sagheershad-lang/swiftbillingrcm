@@ -30,17 +30,19 @@ const faqs = [
   },
 ]
 
-/* ── Single accordion item ── */
-function AccordionItem({
+/* ── Single accordion item (also used for service page FAQs) ── */
+export function AccordionItem({
   faq,
   index,
   isOpen,
   onToggle,
+  idPrefix = 'faq-answer',
 }: {
   faq: { q: string; a: string }
   index: number
   isOpen: boolean
   onToggle: () => void
+  idPrefix?: string
 }) {
   const num = String(index + 1).padStart(2, '0')
 
@@ -67,7 +69,7 @@ function AccordionItem({
         className="w-full flex items-start gap-4 text-left px-6 py-5 pl-8"
         onClick={onToggle}
         aria-expanded={isOpen}
-        aria-controls={`faq-answer-${index}`}
+        aria-controls={`${idPrefix}-${index}`}
       >
         {/* Question number */}
         <span
@@ -113,7 +115,7 @@ function AccordionItem({
         {isOpen && (
           <motion.div
             key="answer"
-            id={`faq-answer-${index}`}
+            id={`${idPrefix}-${index}`}
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}

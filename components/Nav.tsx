@@ -37,6 +37,14 @@ export default function Nav() {
     return () => window.removeEventListener('scroll', fn)
   }, [])
 
+  // Lock page scroll behind the open mobile menu (html is the scroller because of its overflow-x rule)
+  useEffect(() => {
+    if (!open) return
+    const html = document.documentElement
+    html.style.overflow = 'hidden'
+    return () => { html.style.overflow = '' }
+  }, [open])
+
   return (
     <nav className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
       scrolled

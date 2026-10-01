@@ -62,6 +62,7 @@ app/
   services/page.tsx     Services hub (uses ServicesHero)
   services/<slug>/page.tsx   11 service pages, each renders <ServicePageLayout service={getService(SLUG)} heroImage=... />
   privacy-policy/page.tsx, terms/page.tsx
+  not-found.tsx         Branded 404: Nav, "Page not found", Back to Home + View Our Services, Footer (noindex)
   sitemap.ts, robots.ts, icon.tsx, apple-icon.tsx, opengraph-image.tsx
 components/
   Nav, Hero, TrustStrip, TrustBar, Results, Services, Specialties, About,
@@ -119,6 +120,7 @@ Data lives in `lib/services-data.ts` (`ServiceData` type: slug, name, shortDescr
 **`ServicePageLayout` props:** `service`, `heroImage`, `heroImageDesktop/Tablet/Mobile`, `heroObjectPosition`, `heroObjectPositionDesktop`, `heroImageStyleDesktop`, `heroTopFade`, `heroBottomFade`, `heroFilter`, `heroRevealDelay`.
 Hero conventions: full-bleed image, top fade 15% and bottom fade 25%, H1 + one-line description (1–1.5 lines max), teal checkmark feature list instead of CTA buttons, staggered bouncy spring text animation (0.3s delay, 0.3s stagger). Cards use frosted glass (blur 20px, bg 0.12, border 0.18).
 Each page outputs JSON-LD: BreadcrumbList + Service + FAQPage.
+Visible FAQ accordion on every service page (`#service-faq`, light section after Related Services, before the closing CTA). It renders the same `service.faqs` as the FAQPage JSON-LD and reuses `AccordionItem` exported from `components/FAQ.tsx`.
 The **Services hub** (`/services`) uses `ServicesHero` with `/Service.png` and the same bouncy text animation.
 
 ---
@@ -174,6 +176,8 @@ The **Services hub** (`/services`) uses `ServicesHero` with `/Service.png` and t
 - Added Vercel Analytics (`@vercel/analytics`).
 - Pushed to GitHub with a fresh single-commit history. Old history backed up at C:\Users\Sagheer\swiftbillings-backup\.git-backup. .claude/worktrees/ and .claude/settings.local.json are gitignored.
 - QA Phase 1: removed unused images, unused props, added ESLint.
+- QA Phase 2 (security): upgraded Next.js to 16.3.8 and Resend to 6.31.0 (npm audit: 0 vulnerabilities); contact API escapes HTML, caps field lengths, rejects bad bodies and includes the phone number in lead emails; report-only Content-Security-Policy; Vercel Firewall rate limit on /api/contact; robots blocks /api/.
+- QA Phase 3 (functionality): fixed dead Get Started / Footer contact links on non-home pages, scroll to late-loaded homepage sections from other pages, blocked double form submits, added visible service-page FAQs, a branded 404 page, mobile menu scroll lock, and required Practice Name + Phone with maxLength on every form field.
 
 ---
 
