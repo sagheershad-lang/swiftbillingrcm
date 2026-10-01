@@ -49,6 +49,16 @@ function escapeHtml(val: string): string {
     .replace(/'/g, '&#39;')
 }
 
+/** Send via Resend; returns the error (returned or thrown) or null, so a failure never becomes a raw 500 */
+async function sendEmail(payload: Parameters<typeof resend.emails.send>[0]): Promise<unknown> {
+  try {
+    const { error } = await resend.emails.send(payload)
+    return error
+  } catch (err) {
+    return err
+  }
+}
+
 /** Validate email format */
 function isValidEmail(email: string): boolean {
   return email.length <= 254 && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
@@ -77,6 +87,7 @@ export async function POST(req: NextRequest) {
 
   const name          = sanitizeLine(body.name, 100)
   const email         = sanitizeLine(body.email, 254)
+  const phone         = sanitizeLine(body.phone, 30)
   const practice_name = sanitizeLine(body.practice_name, 150)
   const specialty     = sanitizeLine(body.specialty, 100)
   const message       = sanitize(body.message, 2000)
@@ -97,13 +108,14 @@ export async function POST(req: NextRequest) {
   const safe = {
     name:          escapeHtml(name),
     email:         escapeHtml(email),
+    phone:         escapeHtml(phone),
     practice_name: escapeHtml(practice_name),
     specialty:     escapeHtml(specialty),
     message:       escapeHtml(message),
   }
 
-  // 1. Notify owner — critical; fail the request if Resend returns an error
-  const { error: ownerError } = await resend.emails.send({
+  // 1. Notify owner — critical; fail the request if Resend returns or throws an error
+  const ownerError = await sendEmail({
     from: FROM,
     to: OWNER_EMAIL,
     replyTo: email,
@@ -117,6 +129,7 @@ export async function POST(req: NextRequest) {
           <table style="width:100%;border-collapse:collapse;">
             <tr><td style="padding:10px 0;border-bottom:1px solid #f1f5f9;color:#64748b;font-size:13px;width:140px;">Name</td><td style="padding:10px 0;border-bottom:1px solid #f1f5f9;font-weight:bold;color:#0f172a;">${safe.name}</td></tr>
             <tr><td style="padding:10px 0;border-bottom:1px solid #f1f5f9;color:#64748b;font-size:13px;">Email</td><td style="padding:10px 0;border-bottom:1px solid #f1f5f9;font-weight:bold;color:#0f172a;"><a href="mailto:${safe.email}" style="color:#2EC4B6;">${safe.email}</a></td></tr>
+            <tr><td style="padding:10px 0;border-bottom:1px solid #f1f5f9;color:#64748b;font-size:13px;">Phone</td><td style="padding:10px 0;border-bottom:1px solid #f1f5f9;font-weight:bold;color:#0f172a;">${safe.phone || '—'}</td></tr>
             <tr><td style="padding:10px 0;border-bottom:1px solid #f1f5f9;color:#64748b;font-size:13px;">Practice</td><td style="padding:10px 0;border-bottom:1px solid #f1f5f9;font-weight:bold;color:#0f172a;">${safe.practice_name || '—'}</td></tr>
             <tr><td style="padding:10px 0;border-bottom:1px solid #f1f5f9;color:#64748b;font-size:13px;">Specialty</td><td style="padding:10px 0;border-bottom:1px solid #f1f5f9;font-weight:bold;color:#0f172a;">${safe.specialty || '—'}</td></tr>
             <tr><td style="padding:10px 0;color:#64748b;font-size:13px;vertical-align:top;">Message</td><td style="padding:10px 0;color:#0f172a;">${safe.message || '—'}</td></tr>
@@ -136,7 +149,7 @@ export async function POST(req: NextRequest) {
   }
 
   // 2. Auto-reply to the lead — best-effort, never block success
-  const { error: replyError } = await resend.emails.send({
+  const replyError = await sendEmail({
     from: FROM,
     to: email,
     subject: 'Thank you for contacting SwiftBilling RCM',

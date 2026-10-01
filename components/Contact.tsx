@@ -183,7 +183,6 @@ export default function Contact() {
                     {c.href ? (
                       <a
                         href={c.href}
-                        target="_blank"
                         rel="noopener noreferrer"
                         className="text-[14.5px] font-bold text-[#0B3C5D] hover:text-[#2EC4B6] transition-colors block leading-tight"
                       >

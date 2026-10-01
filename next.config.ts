@@ -1,6 +1,24 @@
 import type { NextConfig } from 'next'
 
+const isDev = process.env.NODE_ENV === 'development'
+
+// Report-only for now: violations are logged in the browser console, nothing is blocked.
+const contentSecurityPolicy = [
+  "default-src 'self'",
+  `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ''} https://www.googletagmanager.com https://va.vercel-scripts.com https://*.hs-scripts.com https://*.hs-analytics.net https://*.hs-banner.com https://*.usemessages.com https://*.hsforms.net https://*.hscollectedforms.net`,
+  "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+  "font-src 'self' https://fonts.gstatic.com",
+  "img-src 'self' data: blob: https://images.pexels.com https://*.google-analytics.com https://*.googletagmanager.com https://*.hubspot.com https://*.hsforms.com https://*.hubapi.com https://static.hsappstatic.net",
+  "connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://*.hubspot.com https://*.hubapi.com https://*.hs-banner.com https://*.hscollectedforms.net https://*.hsforms.com wss://*.hubspot.com",
+  'frame-src https://*.hubspot.com https://*.usemessages.com',
+  "frame-ancestors 'self'",
+  "base-uri 'self'",
+  "form-action 'self'",
+  "object-src 'none'",
+].join('; ')
+
 const securityHeaders = [
+  { key: 'Content-Security-Policy-Report-Only', value: contentSecurityPolicy },
   { key: 'X-DNS-Prefetch-Control',     value: 'on' },
   { key: 'X-Frame-Options',            value: 'SAMEORIGIN' },
   { key: 'X-Content-Type-Options',     value: 'nosniff' },
