@@ -39,6 +39,7 @@
 | Font | **Manrope** via `next/font/google` (`--font-manrope`) |
 | Email | **Resend v6** — `app/api/contact/route.ts` |
 | Hosting | **Vercel** (`vercel.json` → `framework: nextjs`) |
+| Repo | GitHub, private: https://github.com/sagheershad-lang/swiftbillingrcm (branch main) |
 | Analytics | Google Analytics `G-TGX12BWNWT` · HubSpot `js-na2.hs-scripts.com/246275410.js` · **Vercel Analytics** (`@vercel/analytics`, `<Analytics />` in layout — added Oct 2026; must be enabled in the Vercel dashboard) |
 | Env vars | `RESEND_API_KEY` (in `.env.local` locally and in Vercel project settings) |
 
@@ -168,18 +169,16 @@ The **Services hub** (`/services`) uses `ServicesHero` with `/Service.png` and t
 **Oct 2026**
 - QA pass: fixed the doubled "SwiftBilling RCM RCM" in JSON-LD, added logo alt text, removed invalid Tailwind classes, deleted the dead `ICP.tsx` / `Pain.tsx`.
 - Added Vercel Analytics (`@vercel/analytics`).
+- Pushed to GitHub with a fresh single-commit history. Old history backed up at C:\Users\Sagheer\swiftbillings-backup\.git-backup. .claude/worktrees/ and .claude/settings.local.json are gitignored.
 
 ---
 
 ## 8. Known issues / to-do
 
-1. **Not on GitHub.** The repo has no remote. Deploys go straight to Vercel.
-2. **`node_modules/` (12k files) and `.next/` (2k files) are tracked in git.** Add both to `.gitignore` and run `git rm -r --cached node_modules .next` before any push. `out/` (old static export, includes a ZIP) should probably go too.
-3. **Filename casing mismatch in git** (fine on Windows, breaks on Linux/Vercel if deployed from GitHub): git records `public/Provider credentialing.png`, `Medical Billing-tab.png` and `Medical Billing-mobile.png`, but the code and disk use `Provider Credentialing.png`, `-TAB.png` and `-MOBILE.png`. Fix with `git mv` before connecting GitHub.
-4. Resend: the `swiftbillingrcm.com` domain must be verified in Resend, or contact form emails fail.
-5. `About.tsx` floating badges combine `animate` with `whileInView` behind `// @ts-ignore`, so the float loop may not run.
-6. FAQ accordion buttons have no `aria-controls`.
-7. Duplicate or unused files in `public/`: `about-photo.png.png`, `signature.png.png`, `Eligibility-v2.png`, `pp.png`.
+1. Resend: the `swiftbillingrcm.com` domain must be verified in Resend, or contact form emails fail.
+2. `About.tsx` floating badges combine `animate` with `whileInView` behind `// @ts-ignore`, so the float loop may not run.
+3. FAQ accordion buttons have no `aria-controls`.
+4. Duplicate or unused files in `public/`: `about-photo.png.png`, `signature.png.png`, `Eligibility-v2.png`, `pp.png`.
 
 ---
 
