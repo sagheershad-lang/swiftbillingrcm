@@ -66,9 +66,12 @@ export default function Contact() {
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
   const [errorMsg, setErrorMsg] = useState('')
   const formRef = useRef<HTMLFormElement>(null)
+  // Set synchronously so a fast double click can't send twice before the button re-renders as disabled
+  const sendingRef = useRef(false)
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
+    if (sendingRef.current) return
     const form = e.currentTarget
     const nameVal  = (form.elements.namedItem('name')  as HTMLInputElement).value.trim()
     const emailVal = (form.elements.namedItem('email') as HTMLInputElement).value.trim()
@@ -84,6 +87,7 @@ export default function Contact() {
       formRef.current?.reset()
       return
     }
+    sendingRef.current = true
     setStatus('submitting')
     setErrorMsg('')
     const data = {
@@ -112,6 +116,8 @@ export default function Contact() {
     } catch {
       setErrorMsg('Network error. Please check your connection and try again.')
       setStatus('error')
+    } finally {
+      sendingRef.current = false
     }
   }
 

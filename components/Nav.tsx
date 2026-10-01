@@ -94,13 +94,13 @@ export default function Nav() {
           </div>
 
           {/* Primary CTA */}
-          <a
-            href="#audit"
+          <Link
+            href="/#audit"
             className="inline-flex items-center gap-1.5 bg-[#2EC4B6] text-[#0B3C5D] font-extrabold text-[14px] px-5 py-[10px] rounded-xl hover:bg-[#3dd9cb] hover:-translate-y-0.5 transition-all duration-200 shadow-[0_4px_14px_rgba(46,196,182,0.35)] whitespace-nowrap"
           >
             Get Started
             <svg width="12" height="12" viewBox="0 0 13 13" fill="none"><path d="M2 6.5h9M7.5 3L11 6.5 7.5 10" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"/></svg>
-          </a>
+          </Link>
 
         </div>
 
@@ -149,13 +149,13 @@ export default function Nav() {
                   </svg>
                   +1 (512) 737-7488
                 </a>
-                <a
-                  href="#audit"
+                <Link
+                  href="/#audit"
                   onClick={() => setOpen(false)}
                   className="text-center bg-[#2EC4B6] text-[#0B3C5D] font-bold text-[14px] px-5 py-3.5 rounded-xl shadow-[0_4px_14px_rgba(46,196,182,0.3)] hover:bg-[#3dd9cb] hover:shadow-[0_6px_20px_rgba(46,196,182,0.45)] active:scale-[0.98] transition-all duration-200"
                 >
                   Get Started
-                </a>
+                </Link>
               </div>
             </div>
           </motion.div>

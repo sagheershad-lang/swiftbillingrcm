@@ -68,8 +68,8 @@ export default function Footer() {
                 Join practices across the US who trust SwiftBilling RCM.
               </p>
             </div>
-            <a
-              href="#contact"
+            <Link
+              href="/#contact"
               className="inline-flex items-center justify-center gap-2 bg-[#2EC4B6] text-[#0B3C5D] font-extrabold text-[14px]
                 px-6 py-3 rounded-xl hover:bg-[#3dd9cb] hover:-translate-y-0.5 transition-all duration-200
                 w-full sm:w-auto sm:shrink-0"
@@ -79,7 +79,7 @@ export default function Footer() {
               <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
                 <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
-            </a>
+            </Link>
           </div>
         </div>
 
@@ -307,8 +307,8 @@ export default function Footer() {
                 </div>
               ))}
 
-              <a
-                href="#contact"
+              <Link
+                href="/#contact"
                 className="mt-1 w-full inline-flex items-center justify-center gap-2
                   bg-[#2EC4B6] text-[#0B3C5D] font-extrabold text-[13.5px]
                   px-5 py-2.5 rounded-xl hover:bg-[#3dd9cb] hover:-translate-y-0.5
@@ -319,7 +319,7 @@ export default function Footer() {
                 <svg width="13" height="13" viewBox="0 0 14 14" fill="none">
                   <path d="M2.5 7h9M8 3.5L11.5 7 8 10.5" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
-              </a>
+              </Link>
             </div>
           </div>
         </div>
