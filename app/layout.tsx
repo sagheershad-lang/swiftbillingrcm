@@ -117,43 +117,6 @@ const jsonLd = {
       name: 'SwiftBilling RCM',
       publisher: { '@id': 'https://www.swiftbillingrcm.com/#business' },
     },
-    {
-      '@type': 'FAQPage',
-      mainEntity: [
-        {
-          '@type': 'Question',
-          name: 'How do you ensure HIPAA compliance?',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: 'We operate under a signed Business Associate Agreement (BAA) with every client. All patient data is handled through HIPAA-compliant systems with 256-bit encryption, strict access controls, and audit logging.',
-          },
-        },
-        {
-          '@type': 'Question',
-          name: 'How quickly can I see results?',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: 'Most clients see measurable improvement within 30–60 days. Clean claim rates typically improve within the first billing cycle.',
-          },
-        },
-        {
-          '@type': 'Question',
-          name: 'Do you handle denied claims?',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: 'Yes. We identify, appeal, and resubmit every denied claim with documented reasons and track denial trends by payer to fix root causes.',
-          },
-        },
-        {
-          '@type': 'Question',
-          name: 'How do you charge for your services?',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: 'We charge 4–9% of monthly collections — no flat fees, no hidden costs. You only pay when you get paid.',
-          },
-        },
-      ],
-    },
   ],
 }
 
