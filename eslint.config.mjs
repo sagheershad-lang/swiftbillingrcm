@@ -6,10 +6,9 @@ export default defineConfig([
   ...nextVitals,
   ...nextTs,
   {
-    // Reported as warnings until fixed (QA Phase 1 follow-up)
     rules: {
-      '@next/next/no-html-link-for-pages': 'warn',
-      'react-hooks/set-state-in-effect': 'warn',
+      '@next/next/no-html-link-for-pages': 'error',
+      'react-hooks/set-state-in-effect': 'error',
     },
   },
   globalIgnores(['.next/**', 'out/**', 'node_modules/**', '.claude/**', 'next-env.d.ts']),

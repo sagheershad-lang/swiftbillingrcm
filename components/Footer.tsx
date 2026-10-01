@@ -1,4 +1,5 @@
 'use client'
+import Link from 'next/link'
 
 const quickLinks = [
   { label: 'Services',       href: '/services' },
@@ -87,7 +88,7 @@ export default function Footer() {
 
           {/* Brand column */}
           <div>
-            <a href="/" className="inline-flex items-center gap-2.5 mb-5 group">
+            <Link href="/" className="inline-flex items-center gap-2.5 mb-5 group">
               <div
                 className="w-9 h-9 rounded-xl flex items-center justify-center border border-white/10
                   group-hover:border-[#2EC4B6]/40 transition-colors duration-300"
@@ -101,7 +102,7 @@ export default function Footer() {
               <span className="font-extrabold text-[18px] text-white tracking-[-0.02em] leading-none">
                 SwiftBilling<span className="text-[#2EC4B6]"> RCM</span>
               </span>
-            </a>
+            </Link>
 
             <p className="text-[13.5px] text-white/45 leading-relaxed max-w-[260px] mb-6">
               Expert medical billing and revenue cycle management for independent US healthcare practices. HIPAA compliant. Results-driven.

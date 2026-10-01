@@ -17,16 +17,16 @@ function CountUp({ target, prefix = '', suffix = '', isStatic = false, staticVal
 }) {
   // Start at target so SSR & initial client render show the real number (no 0 flash)
   const [n, setN] = useState(target)
-  const [animated, setAnimated] = useState(false)
+  const hasRun = useRef(false)
   const ref = useRef<HTMLSpanElement>(null)
   const inView = useInView(ref as React.RefObject<Element>, { once: true })
 
   useEffect(() => {
-    if (!inView || isStatic || animated) return
-    setAnimated(true)
-    setN(0)
+    if (!inView || isStatic || hasRun.current) return
+    hasRun.current = true
     let start: number | null = null
     const duration = 1800
+    // First frame has progress 0, so it resets the number to 0 before counting up
     const step = (ts: number) => {
       if (!start) start = ts
       const progress = Math.min((ts - start) / duration, 1)
@@ -35,7 +35,7 @@ function CountUp({ target, prefix = '', suffix = '', isStatic = false, staticVal
       if (progress < 1) requestAnimationFrame(step)
     }
     requestAnimationFrame(step)
-  }, [inView, target, isStatic, animated])
+  }, [inView, target, isStatic])
 
   return (
     <span ref={ref} className="tabular-nums">

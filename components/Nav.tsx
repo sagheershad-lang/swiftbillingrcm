@@ -1,6 +1,7 @@
 'use client'
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import Link from 'next/link'
 
 const links = [
   { href: '/services',       label: 'Services' },
@@ -12,7 +13,7 @@ const links = [
 
 function Logo({ scrolled }: { scrolled: boolean }) {
   return (
-    <a href="/" className="flex items-center gap-2.5 group shrink-0">
+    <Link href="/" className="flex items-center gap-2.5 group shrink-0">
       <div className="w-8 h-8 rounded-lg bg-[#0B3C5D] flex items-center justify-center shadow-md group-hover:shadow-[0_0_16px_rgba(46,196,182,0.4)] transition-shadow duration-300">
         <svg width="18" height="18" viewBox="0 0 20 20" fill="none">
           <path d="M3 14L7.5 8.5L11 11.5L17 4.5" stroke="#2EC4B6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -22,7 +23,7 @@ function Logo({ scrolled }: { scrolled: boolean }) {
       <span className={`font-extrabold text-[17px] tracking-[-0.02em] leading-none transition-colors duration-300 group-hover:text-[#2EC4B6] ${scrolled ? 'text-[#0B3C5D]' : 'text-white'}`}>
         SwiftBilling<span className="text-[#2EC4B6]"> RCM</span>
       </span>
-    </a>
+    </Link>
   )
 }
 

@@ -16,17 +16,17 @@ function AnimatedNumber({
 }) {
   // Start at target so SSR & initial client render show the real number (no 0 flash)
   const [n, setN] = useState(target)
-  const [animated, setAnimated] = useState(false)
+  const hasRun = useRef(false)
   const ref = useRef<HTMLSpanElement>(null)
   const inView = useInView(ref as React.RefObject<Element>, { once: true })
 
   useEffect(() => {
-    if (!inView || animated) return
-    setAnimated(true)
-    setN(0)
+    if (!inView || hasRun.current) return
+    hasRun.current = true
     let start: number | null = null
     const total = duration * 1000
 
+    // First frame has progress 0, so it resets the number to 0 before counting up
     const step = (ts: number) => {
       if (!start) start = ts
       const progress = Math.min((ts - start) / total, 1)
@@ -35,7 +35,7 @@ function AnimatedNumber({
       if (progress < 1) requestAnimationFrame(step)
     }
     requestAnimationFrame(step)
-  }, [inView, animated, target, duration])
+  }, [inView, target, duration])
 
   return (
     <span ref={ref} className="tabular-nums">
