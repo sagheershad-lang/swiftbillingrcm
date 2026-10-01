@@ -92,7 +92,7 @@ export default function About() {
               Our certified billing team specializes in CAQH credentialing, multi-state provider enrollment, and insurance panel setup — helping practices get contracted and start billing faster across all major payers.
             </p>
             <p className="text-[15.5px] text-[#64748B] leading-[1.8] mb-9">
-              We're committed to one goal: maximizing your revenue. Every client gets a dedicated account manager, transparent monthly reporting, and a billing team that treats your practice like their own.
+              We&apos;re committed to one goal: maximizing your revenue. Every client gets a dedicated account manager, transparent monthly reporting, and a billing team that treats your practice like their own.
             </p>
 
             {/* Bullets */}

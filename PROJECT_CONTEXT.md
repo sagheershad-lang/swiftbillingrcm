@@ -43,7 +43,9 @@
 | Analytics | Google Analytics `G-TGX12BWNWT` · HubSpot `js-na2.hs-scripts.com/246275410.js` · **Vercel Analytics** (`@vercel/analytics`, `<Analytics />` in layout — added Oct 2026; must be enabled in the Vercel dashboard) |
 | Env vars | `RESEND_API_KEY` (in `.env.local` locally and in Vercel project settings) |
 
-**Commands:** `npm run dev` (localhost:3000) · `npm run build` · type check: `npx tsc --noEmit --skipLibCheck`
+| Linting | **ESLint 9** + `eslint-config-next` (flat config `eslint.config.mjs`; ignores `.next`, `out`, `node_modules`, `.claude`) |
+
+**Commands:** `npm run dev` (localhost:3000) · `npm run build` · `npm run lint` · type check: `npx tsc --noEmit --skipLibCheck`
 **Shell:** Windows — use PowerShell; `npx` isn't available in Git Bash on this machine.
 
 ---
@@ -170,15 +172,14 @@ The **Services hub** (`/services`) uses `ServicesHero` with `/Service.png` and t
 - QA pass: fixed the doubled "SwiftBilling RCM RCM" in JSON-LD, added logo alt text, removed invalid Tailwind classes, deleted the dead `ICP.tsx` / `Pain.tsx`.
 - Added Vercel Analytics (`@vercel/analytics`).
 - Pushed to GitHub with a fresh single-commit history. Old history backed up at C:\Users\Sagheer\swiftbillings-backup\.git-backup. .claude/worktrees/ and .claude/settings.local.json are gitignored.
+- QA Phase 1: removed unused images, unused props, added ESLint.
 
 ---
 
 ## 8. Known issues / to-do
 
 1. Resend: the `swiftbillingrcm.com` domain must be verified in Resend, or contact form emails fail.
-2. `About.tsx` floating badges combine `animate` with `whileInView` behind `// @ts-ignore`, so the float loop may not run.
-3. FAQ accordion buttons have no `aria-controls`.
-4. Duplicate or unused files in `public/`: `about-photo.png.png`, `signature.png.png`, `Eligibility-v2.png`, `pp.png`.
+2. FAQ accordion buttons have no `aria-controls`.
 
 ---
 

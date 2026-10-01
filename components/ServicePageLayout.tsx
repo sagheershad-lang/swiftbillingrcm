@@ -90,7 +90,7 @@ const heroIcons: Record<string, ReactElement> = {
 }
 
 /* ─── Hero right-side graphic ────────────────────────────────────── */
-function ServiceHeroGraphic({ service, heroImage, heroImageDesktop, heroImageTablet, heroImageMobile, heroObjectPosition = 'center center', heroObjectPositionDesktop, heroTopFade = '20%', heroBottomFade = '15%', heroFilter = 'brightness(0.9) saturate(1.1)' }: { service: ServiceData; heroImage?: string; heroImageDesktop?: string; heroImageTablet?: string; heroImageMobile?: string; heroObjectPosition?: string; heroObjectPositionDesktop?: string; heroTopFade?: string; heroBottomFade?: string; heroFilter?: string }) {
+function ServiceHeroGraphic({ service, heroImage, heroImageDesktop, heroImageTablet, heroImageMobile, heroObjectPosition = 'center center', heroFilter = 'brightness(0.9) saturate(1.1)' }: { service: ServiceData; heroImage?: string; heroImageDesktop?: string; heroImageTablet?: string; heroImageMobile?: string; heroObjectPosition?: string; heroFilter?: string }) {
   const icon = heroIcons[service.slug] ?? heroIcons['medical-billing']
   const stat1 = service.stats[0]
   const stat2 = service.stats[1]
@@ -513,7 +513,7 @@ export default function ServicePageLayout({ service, heroImage, heroImageDesktop
             </motion.div>
 
             {/* Right — hero graphic */}
-            <ServiceHeroGraphic service={service} heroImage={heroImage} heroImageDesktop={heroImageDesktop} heroImageTablet={heroImageTablet} heroImageMobile={heroImageMobile} heroObjectPosition={heroObjectPosition} heroObjectPositionDesktop={heroObjectPositionDesktop} heroTopFade={heroTopFade} heroBottomFade={heroBottomFade} heroFilter={heroFilter} />
+            <ServiceHeroGraphic service={service} heroImage={heroImage} heroImageDesktop={heroImageDesktop} heroImageTablet={heroImageTablet} heroImageMobile={heroImageMobile} heroObjectPosition={heroObjectPosition} heroFilter={heroFilter} />
           </div>
         </div>
       </section>

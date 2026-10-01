@@ -40,9 +40,9 @@ export default function Terms() {
 
           <section>
             <p>
-              Please read these Terms &amp; Conditions ("Terms") carefully before using the website
-              located at <strong>www.swiftbillingrcm.com</strong> (the "Site") or engaging the services of{' '}
-              <strong>{COMPANY}</strong> ("Company," "we," "us," or "our"). By accessing the Site or
+              Please read these Terms &amp; Conditions (&quot;Terms&quot;) carefully before using the website
+              located at <strong>www.swiftbillingrcm.com</strong> (the &quot;Site&quot;) or engaging the services of{' '}
+              <strong>{COMPANY}</strong> (&quot;Company,&quot; &quot;we,&quot; &quot;us,&quot; or &quot;our&quot;). By accessing the Site or
               inquiring about our services, you agree to be bound by these Terms.
             </p>
           </section>
@@ -162,12 +162,12 @@ export default function Terms() {
           <section>
             <h2 className="text-[18px] font-extrabold text-[#0B3C5D] mb-3">7. Disclaimer of Warranties</h2>
             <p>
-              This Site and all content are provided on an <strong>"as is" and "as available"</strong> basis
+              This Site and all content are provided on an <strong>&quot;as is&quot; and &quot;as available&quot;</strong> basis
               without warranties of any kind, either express or implied, including but not limited to implied
               warranties of merchantability, fitness for a particular purpose, or non-infringement.
             </p>
             <p className="mt-3">
-              Statistical claims (e.g., "up to 35% increase in collections") are based on reported client
+              Statistical claims (e.g., &quot;up to 35% increase in collections&quot;) are based on reported client
               outcomes and are illustrative. Individual results will vary based on practice size, specialty,
               payer mix, current billing performance, and other factors. No specific outcome is guaranteed.
             </p>
@@ -218,7 +218,7 @@ export default function Terms() {
             <h2 className="text-[18px] font-extrabold text-[#0B3C5D] mb-3">11. Changes to These Terms</h2>
             <p>
               We reserve the right to update these Terms at any time. Changes will be effective upon posting
-              to the Site with an updated "Last updated" date. Your continued use of the Site after changes
+              to the Site with an updated &quot;Last updated&quot; date. Your continued use of the Site after changes
               are posted constitutes acceptance of the revised Terms.
             </p>
           </section>

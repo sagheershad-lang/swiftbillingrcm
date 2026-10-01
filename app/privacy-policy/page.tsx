@@ -40,7 +40,7 @@ export default function PrivacyPolicy() {
 
           <section>
             <p>
-              {COMPANY} ("we," "us," or "our") is committed to protecting your privacy. This Privacy Policy
+              {COMPANY} (&quot;we,&quot; &quot;us,&quot; or &quot;our&quot;) is committed to protecting your privacy. This Privacy Policy
               explains how we collect, use, disclose, and safeguard your information when you visit our website
               at <strong>www.swiftbillingrcm.com</strong> or contact us regarding our medical billing and revenue
               cycle management services.
@@ -206,7 +206,7 @@ export default function PrivacyPolicy() {
           <hr className="border-[#E4EDF5]" />
 
           <section>
-            <h2 className="text-[18px] font-extrabold text-[#0B3C5D] mb-3">9. Children's Privacy</h2>
+            <h2 className="text-[18px] font-extrabold text-[#0B3C5D] mb-3">9. Children&apos;s Privacy</h2>
             <p>
               Our website is not directed to individuals under the age of 18. We do not knowingly collect
               personal information from children. If you believe we have inadvertently collected such information,
@@ -236,7 +236,7 @@ export default function PrivacyPolicy() {
           <section>
             <h2 className="text-[18px] font-extrabold text-[#0B3C5D] mb-3">11. Changes to This Policy</h2>
             <p>
-              We may update this Privacy Policy from time to time. When we do, we will update the "Last updated"
+              We may update this Privacy Policy from time to time. When we do, we will update the &quot;Last updated&quot;
               date at the top of this page. We encourage you to review this policy periodically for any changes.
               Continued use of our website after changes constitutes your acceptance of the updated policy.
             </p>
