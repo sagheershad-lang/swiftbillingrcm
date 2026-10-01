@@ -39,6 +39,7 @@
 | Font | **Manrope** via `next/font/google` (`--font-manrope`) |
 | Email | **Resend v6** — `app/api/contact/route.ts` |
 | Hosting | **Vercel** (`vercel.json` → `framework: nextjs`) |
+| Rate limiting | Vercel Firewall rule on `/api/contact`: 5 requests/min per IP on the live site (added Oct 2026). `route.ts` also keeps its own in-memory limit as a backup |
 | Repo | GitHub, private: https://github.com/sagheershad-lang/swiftbillingrcm (branch main) |
 | Analytics | Google Analytics `G-TGX12BWNWT` · HubSpot `js-na2.hs-scripts.com/246275410.js` · **Vercel Analytics** (`@vercel/analytics`, `<Analytics />` in layout — added Oct 2026; must be enabled in the Vercel dashboard) |
 | Env vars | `RESEND_API_KEY` (in `.env.local` locally and in Vercel project settings) |
