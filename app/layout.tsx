@@ -152,11 +152,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </Script>
           </>
         )}
-        {/* HubSpot Tracking */}
+        {/* HubSpot Tracking — lazyOnload: loads after the page has finished loading so its
+            ~3s of main-thread work on mobile doesn't delay the hero; tracking and chat still run */}
         <Script
           id="hs-script-loader"
           src="https://js-na2.hs-scripts.com/246275410.js"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
       </body>
     </html>

@@ -167,7 +167,7 @@ export default function About() {
                   fill
                   priority={false}
                   loading="lazy"
-                  sizes="(max-width: 768px) 100vw, 50vw"
+                  sizes="(min-width: 1280px) 600px, (min-width: 1024px) 50vw, 100vw"
                   quality={85}
                   className="object-cover object-center"
                 />
