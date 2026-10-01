@@ -1,0 +1,76 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #0B3C5D;
+  --color-primary-dark: #082d46;
+  --color-primary-light: #1a5276;
+  --color-secondary: #2EC4B6;
+  --color-secondary-hover: #26b0a3;
+  --color-canvas: #F8FAFC;
+  --color-surface: #FFFFFF;
+  --color-ink: #0F172A;
+  --color-dim: #64748B;
+  --color-border: #E2E8F0;
+  --color-border-hover: #CBD5E1;
+
+  --font-display: var(--font-manrope), sans-serif;
+  --font-body: var(--font-manrope), sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  /* iOS safe area — top (notch) handled by viewport-fit:cover */
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: #F8FAFC;
+  color: #0F172A;
+  overflow-x: hidden;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection { background: rgba(46, 196, 182, 0.2); color: #0F172A; }
+
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: #F8FAFC; }
+::-webkit-scrollbar-thumb { background: #2EC4B6; border-radius: 3px; }
+
+/* ── iOS safe area — home bar gutter ──────────────────────────── */
+footer {
+  padding-bottom: max(1.5rem, env(safe-area-inset-bottom));
+}
+
+/* ── Hero image responsive focal point ────────────────────────── */
+.hero-image { object-position: 35% 30%; }
+@media (min-width: 640px) {
+  .hero-image { object-position: 58% 25%; }
+}
+@media (min-width: 1024px) {
+  .hero-image { object-position: 72% 35%; }
+}
+
+/* ── Global card hover effects ─────────────────────────────────── */
+.card,
+[class*="card"],
+[class*="Card"] {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.card:hover,
+[class*="card"]:hover,
+[class*="Card"]:hover {
+  transform: translateY(-8px);
+  border-color: rgba(46, 196, 182, 0.6);
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.4),
+    0 0 30px rgba(46, 196, 182, 0.2),
+    0 0 60px rgba(46, 196, 182, 0.08);
+}
+
