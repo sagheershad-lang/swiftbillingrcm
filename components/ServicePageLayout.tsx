@@ -1,6 +1,6 @@
 'use client'
 import { useState, type ReactElement, type CSSProperties } from 'react'
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 import Link from 'next/link'
 import BreakpointImage from './BreakpointImage'
 import Nav from './Nav'
@@ -159,7 +159,7 @@ function ServiceHeroGraphic({ service, heroImage, heroImageDesktop, heroImageTab
   /* ── Icon/graphic variant (default) ──────────────────────────── */
   return (
     <div className="hidden lg:flex self-stretch py-8 xl:py-10 items-center justify-center">
-      <motion.div
+      <m.div
         initial={{ opacity: 0, x: 40, scale: 0.97 }}
         animate={{ opacity: 1, x: 0, scale: 1 }}
         transition={{ duration: 1.0, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
@@ -206,7 +206,7 @@ function ServiceHeroGraphic({ service, heroImage, heroImageDesktop, heroImageTab
         </div>
 
         {/* Floating stat — top right */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, scale: 0.85, y: -8 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.9 }}
@@ -215,10 +215,10 @@ function ServiceHeroGraphic({ service, heroImage, heroImageDesktop, heroImageTab
         >
           <div className="text-[22px] font-extrabold leading-none" style={{ color: '#2EC4B6' }}>{stat1.value}</div>
           <div className="text-[11px] font-medium mt-0.5" style={{ color: 'rgba(255,255,255,0.45)' }}>{stat1.label}</div>
-        </motion.div>
+        </m.div>
 
         {/* Floating stat — bottom left */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, scale: 0.85, y: 8 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 1.1 }}
@@ -227,8 +227,8 @@ function ServiceHeroGraphic({ service, heroImage, heroImageDesktop, heroImageTab
         >
           <div className="text-[22px] font-extrabold leading-none" style={{ color: '#2EC4B6' }}>{stat2.value}</div>
           <div className="text-[11px] font-medium mt-0.5" style={{ color: 'rgba(255,255,255,0.45)' }}>{stat2.label}</div>
-        </motion.div>
-      </motion.div>
+        </m.div>
+      </m.div>
     </div>
   )
 }
@@ -246,7 +246,7 @@ function ServiceFAQ({ service }: { service: ServiceData }) {
       />
 
       <div className="relative z-10 max-w-[1200px] mx-auto px-6">
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -275,7 +275,7 @@ function ServiceFAQ({ service }: { service: ServiceData }) {
             </p>
           </div>
           <div className="mt-7 h-px" style={{ background: 'linear-gradient(90deg, #2EC4B6, rgba(46,196,182,0.15), transparent)' }} />
-        </motion.div>
+        </m.div>
 
         <div className="flex flex-col gap-3 max-w-[880px]">
           {service.faqs.map((faq, i) => (
@@ -405,7 +405,7 @@ export default function ServicePageLayout({ service, heroImage, heroImageDesktop
 
         {/* Desktop hero image — full-bleed, text overlaps on left like home page */}
         {(heroImageDesktop ?? heroImage) && (
-          <motion.div
+          <m.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1.0, delay: 0.15 }}
@@ -442,7 +442,7 @@ export default function ServicePageLayout({ service, heroImage, heroImageDesktop
               />
             </div>
             {/* Left → right gradient: dark on left so text is readable, fades to reveal image */}
-            <motion.div
+            <m.div
               className="absolute inset-0"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -454,14 +454,14 @@ export default function ServicePageLayout({ service, heroImage, heroImageDesktop
             {/* Bottom fade */}
             <div className="absolute inset-x-0 bottom-0" style={{ height: heroBottomFade ?? '18%', background: 'linear-gradient(to top, #0d2137 0%, transparent 100%)', zIndex: 2 }} />
 
-          </motion.div>
+          </m.div>
         )}
 
         <div className="relative z-10 max-w-[1240px] mx-auto px-6">
           <div className="grid lg:grid-cols-[1.1fr_0.9fr] items-stretch gap-6 lg:gap-10 xl:gap-14 pt-[96px] pb-10">
 
             {/* Left — text */}
-            <motion.div
+            <m.div
               className="flex flex-col justify-center py-10 lg:py-14"
               variants={textContainer}
               initial="hidden"
@@ -469,7 +469,7 @@ export default function ServicePageLayout({ service, heroImage, heroImageDesktop
             >
 
               {/* Breadcrumb */}
-              <motion.div
+              <m.div
                 variants={textItem}
                 className="self-start"
                 style={{
@@ -509,10 +509,10 @@ export default function ServicePageLayout({ service, heroImage, heroImageDesktop
                 <span style={{ color: '#2EC4B6', fontWeight: 600 }}>
                   {service.name}
                 </span>
-              </motion.div>
+              </m.div>
 
               {/* Badge */}
-              <motion.div
+              <m.div
                 variants={textItem}
                 className="inline-flex self-start items-center gap-2 rounded-full px-3 py-[5px] mb-5"
                 style={{ background: 'rgba(46,196,182,0.10)', border: '1px solid rgba(46,196,182,0.26)' }}
@@ -521,19 +521,19 @@ export default function ServicePageLayout({ service, heroImage, heroImageDesktop
                 <span className="text-[9.5px] font-extrabold uppercase tracking-[0.2em] text-[#2EC4B6]">
                   {service.badge}
                 </span>
-              </motion.div>
+              </m.div>
 
               {/* H1 */}
-              <motion.h1
+              <m.h1
                 variants={textItem}
                 className="font-extrabold leading-[1.04] tracking-[-0.028em] text-white mb-5"
                 style={{ fontSize: 'clamp(36px, 5.5vw, 62px)' }}
               >
                 {service.name}
-              </motion.h1>
+              </m.h1>
 
               {/* Tagline */}
-              <motion.p
+              <m.p
                 variants={textItem}
                 className="font-bold mb-6"
                 style={{
@@ -545,19 +545,19 @@ export default function ServicePageLayout({ service, heroImage, heroImageDesktop
                 }}
               >
                 {service.tagline}
-              </motion.p>
+              </m.p>
 
               {/* Description */}
-              <motion.p
+              <m.p
                 variants={textItem}
                 className="text-[14.5px] leading-[1.75] max-w-[320px] mb-10"
                 style={{ color: 'rgba(255,255,255,0.52)' }}
               >
                 {service.description}
-              </motion.p>
+              </m.p>
 
               {/* Feature checklist */}
-              <motion.div
+              <m.div
                 variants={textItem}
                 className="flex flex-col gap-3 mb-10"
               >
@@ -576,9 +576,9 @@ export default function ServicePageLayout({ service, heroImage, heroImageDesktop
                     </span>
                   </div>
                 ))}
-              </motion.div>
+              </m.div>
 
-            </motion.div>
+            </m.div>
 
             {/* Right — hero graphic */}
             <ServiceHeroGraphic service={service} heroImage={heroImage} heroImageDesktop={heroImageDesktop} heroImageTablet={heroImageTablet} heroImageMobile={heroImageMobile} heroObjectPosition={heroObjectPosition} heroFilter={heroFilter} />
@@ -589,7 +589,7 @@ export default function ServicePageLayout({ service, heroImage, heroImageDesktop
       {/* ══ 2. WHAT WE DO ════════════════════════════════════════════ */}
       <section className="py-[60px]" style={{ background: '#0a1e33' }}>
         <div className="max-w-[1200px] mx-auto px-6">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -603,11 +603,11 @@ export default function ServicePageLayout({ service, heroImage, heroImageDesktop
             <p className="text-[15px] mt-2 max-w-[520px]" style={{ color: 'rgba(255,255,255,0.5)' }}>
               Complete coverage of every step — nothing falls through the cracks.
             </p>
-          </motion.div>
+          </m.div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {service.features.map((f, i) => (
-              <motion.div
+              <m.div
                 key={f.title}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -628,7 +628,7 @@ export default function ServicePageLayout({ service, heroImage, heroImageDesktop
                     {f.description}
                   </p>
                 </div>
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>
@@ -637,7 +637,7 @@ export default function ServicePageLayout({ service, heroImage, heroImageDesktop
       {/* ══ 3. HOW IT WORKS ══════════════════════════════════════════ */}
       <section className="py-[60px]" style={{ background: '#0d2137' }}>
         <div className="max-w-[1200px] mx-auto px-6">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -646,11 +646,11 @@ export default function ServicePageLayout({ service, heroImage, heroImageDesktop
           >
             <p className="text-[11.5px] font-extrabold uppercase tracking-[0.16em] mb-2 text-[#2EC4B6]">Process</p>
             <h2 className="text-[clamp(22px,3vw,32px)] font-extrabold text-white tracking-tight">How It Works</h2>
-          </motion.div>
+          </m.div>
 
           <div className={`grid gap-8 ${service.process.length <= 3 ? 'sm:grid-cols-3' : 'sm:grid-cols-2 lg:grid-cols-4'}`}>
             {service.process.map((step, i) => (
-              <motion.div
+              <m.div
                 key={step.step}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -684,7 +684,7 @@ export default function ServicePageLayout({ service, heroImage, heroImageDesktop
                 <p className="text-[13px] leading-[1.7]" style={{ color: 'rgba(255,255,255,0.5)' }}>
                   {step.description}
                 </p>
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>
@@ -693,7 +693,7 @@ export default function ServicePageLayout({ service, heroImage, heroImageDesktop
       {/* ══ 4. WHY IT MATTERS ════════════════════════════════════════ */}
       <section className="py-[60px]" style={{ background: '#0a1e33' }}>
         <div className="max-w-[1200px] mx-auto px-6">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -746,7 +746,7 @@ export default function ServicePageLayout({ service, heroImage, heroImageDesktop
                 </p>
               </div>
             </div>
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
@@ -802,7 +802,7 @@ export default function ServicePageLayout({ service, heroImage, heroImageDesktop
           />
         </div>
         <div className="relative z-10 max-w-[620px] mx-auto px-6 text-center">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -859,7 +859,7 @@ export default function ServicePageLayout({ service, heroImage, heroImageDesktop
                 View All Services
               </Link>
             </div>
-          </motion.div>
+          </m.div>
         </div>
       </section>
 

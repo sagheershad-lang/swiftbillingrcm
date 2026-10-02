@@ -1,5 +1,5 @@
 'use client'
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 import FadeIn from './FadeIn'
 
 const steps = [
@@ -124,7 +124,7 @@ export default function Process() {
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {steps.map((s, i) => (
-              <motion.div
+              <m.div
                 key={s.title}
                 initial={{ opacity: 0, y: 28 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -133,7 +133,7 @@ export default function Process() {
                 className="relative z-10 flex flex-col items-center text-center"
               >
                 {/* Icon badge */}
-                <motion.div
+                <m.div
                   whileHover={{ scale: 1.08 }}
                   transition={{ duration: 0.2 }}
                   className="w-[64px] h-[64px] rounded-2xl mb-4 flex items-center justify-center shrink-0 relative"
@@ -148,10 +148,10 @@ export default function Process() {
                     className="absolute -top-1 -right-1 w-5 h-5 rounded-full pointer-events-none"
                     style={{ background: 'radial-gradient(circle, rgba(46,196,182,0.55) 0%, transparent 70%)' }}
                   />
-                </motion.div>
+                </m.div>
 
                 {/* Card */}
-                <motion.div
+                <m.div
                   whileHover={{ y: -4, boxShadow: '0 18px 44px rgba(11,60,93,0.11), 0 0 0 1px rgba(46,196,182,0.16)' }}
                   transition={{ duration: 0.25 }}
                   className="group w-full bg-white border border-[#E4EDF5] rounded-2xl px-5 pt-5 pb-5 flex flex-col
@@ -193,8 +193,8 @@ export default function Process() {
                     </svg>
                     {s.outcome}
                   </div>
-                </motion.div>
-              </motion.div>
+                </m.div>
+              </m.div>
             ))}
           </div>
         </div>

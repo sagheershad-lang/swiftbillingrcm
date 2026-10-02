@@ -1,6 +1,6 @@
 'use client'
 import { useEffect, useRef, useState } from 'react'
-import { motion, useInView } from 'framer-motion'
+import { m, useInView } from 'framer-motion'
 import FadeIn from './FadeIn'
 
 const stats = [
@@ -104,7 +104,7 @@ export default function TrustBar() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {stats.map((s, i) => (
             <FadeIn key={s.label} delay={i * 0.08}>
-              <motion.div
+              <m.div
                 whileHover={{ y: -5, boxShadow: '0 16px 40px rgba(11,60,93,0.13)' }}
                 transition={{ duration: 0.2 }}
                 className="group bg-[#F8FAFC] border-2 border-[#E2E8F0] rounded-2xl p-5 sm:p-7 text-center cursor-default hover:border-[#2EC4B6]/40 transition-colors duration-300"
@@ -117,7 +117,7 @@ export default function TrustBar() {
                 </div>
                 <p className="text-[15px] font-bold text-[#0F172A] mb-1">{s.label}</p>
                 <p className="text-[13px] text-[#64748B] leading-snug">{s.desc}</p>
-              </motion.div>
+              </m.div>
             </FadeIn>
           ))}
         </div>

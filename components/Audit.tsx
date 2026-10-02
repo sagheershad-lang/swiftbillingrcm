@@ -1,5 +1,5 @@
 'use client'
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 import FadeIn from './FadeIn'
 
 export default function Audit() {
@@ -31,7 +31,7 @@ export default function Audit() {
           </p>
 
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-4 mb-10 sm:mb-14 max-w-sm sm:max-w-none mx-auto w-full sm:w-auto px-0">
-            <motion.a
+            <m.a
               href="#contact"
               whileHover={{ scale: 1.03, y: -2 }}
               whileTap={{ scale: 0.98 }}
@@ -40,15 +40,15 @@ export default function Audit() {
             >
               Get Free Audit in 24 Hours
               <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3.5 9h11M9.5 4.5L14 9l-4.5 4.5" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/></svg>
-            </motion.a>
-            <motion.a
+            </m.a>
+            <m.a
               href="tel:+15127377488"
               whileHover={{ y: -2 }}
               transition={{ duration: 0.2 }}
               className="inline-flex items-center justify-center gap-2 bg-white/10 text-white font-bold text-[14px] sm:text-[15px] px-7 sm:px-8 py-4 sm:py-[18px] rounded-xl border border-white/20 hover:bg-white/16 hover:border-white/35 transition-all duration-200 backdrop-blur-sm"
             >
               Call Us Now
-            </motion.a>
+            </m.a>
           </div>
 
           <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 pt-8 sm:pt-10 border-t border-white/10">

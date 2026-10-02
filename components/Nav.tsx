@@ -1,6 +1,6 @@
 'use client'
 import { useState, useEffect } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { m, AnimatePresence } from 'framer-motion'
 import Link from 'next/link'
 
 const links = [
@@ -127,7 +127,7 @@ export default function Nav() {
       {/* Mobile drawer */}
       <AnimatePresence>
         {open && (
-          <motion.div
+          <m.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
@@ -166,7 +166,7 @@ export default function Nav() {
                 </Link>
               </div>
             </div>
-          </motion.div>
+          </m.div>
         )}
       </AnimatePresence>
     </nav>

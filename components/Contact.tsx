@@ -1,7 +1,7 @@
 'use client'
 import { useState, FormEvent, useRef } from 'react'
 import FadeIn from './FadeIn'
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 
 const contactDetails = [
   {
@@ -167,7 +167,7 @@ export default function Contact() {
             {/* Contact detail cards */}
             <div className="flex flex-col gap-3 mb-4">
               {contactDetails.map((c) => (
-                <motion.div
+                <m.div
                   key={c.title}
                   whileHover={{ x: 4 }}
                   transition={{ duration: 0.2 }}
@@ -200,7 +200,7 @@ export default function Contact() {
                     )}
                     <p className="text-[12.5px] text-[#64748B] mt-0.5">{c.sub}</p>
                   </div>
-                </motion.div>
+                </m.div>
               ))}
             </div>
 

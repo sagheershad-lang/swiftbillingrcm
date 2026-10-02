@@ -1,5 +1,5 @@
 'use client'
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 import BreakpointImage from './BreakpointImage'
 
 const HERO_BLUR =
@@ -241,7 +241,7 @@ export default function Hero() {
       {/* ════════════════════════════════════════════════
           SINGLE FLOATING CARD — bottom-right, inside image
       ════════════════════════════════════════════════ */}
-      <motion.div
+      <m.div
         initial={{ opacity: 0, scale: 0.88, y: 12 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
         transition={{ duration: 0.65, delay: 1.1 }}
@@ -266,7 +266,7 @@ export default function Hero() {
         <div className="text-[10px] mt-0.5" style={{ color: 'rgba(255,255,255,0.28)' }}>
           Top clients: 14 business days
         </div>
-      </motion.div>
+      </m.div>
 
       {/* ── Bottom wave ── */}
       <div className="absolute bottom-0 left-0 right-0 z-30 pointer-events-none">

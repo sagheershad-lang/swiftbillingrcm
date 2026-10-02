@@ -1,6 +1,6 @@
 'use client'
 import { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { m, AnimatePresence } from 'framer-motion'
 import FadeIn from './FadeIn'
 
 const faqs = [
@@ -47,7 +47,7 @@ export function AccordionItem({
   const num = String(index + 1).padStart(2, '0')
 
   return (
-    <motion.div
+    <m.div
       initial={{ opacity: 0, y: 16 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-20px' }}
@@ -90,7 +90,7 @@ export function AccordionItem({
         </span>
 
         {/* Toggle button */}
-        <motion.div
+        <m.div
           animate={{ rotate: isOpen ? 45 : 0 }}
           transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
           className={`w-7 h-7 rounded-full border-[1.5px] flex items-center justify-center shrink-0 mt-[1px] transition-all duration-200 ${
@@ -107,13 +107,13 @@ export function AccordionItem({
               strokeLinecap="round"
             />
           </svg>
-        </motion.div>
+        </m.div>
       </button>
 
       {/* Answer */}
       <AnimatePresence initial={false}>
         {isOpen && (
-          <motion.div
+          <m.div
             key="answer"
             id={`${idPrefix}-${index}`}
             initial={{ height: 0, opacity: 0 }}
@@ -125,10 +125,10 @@ export function AccordionItem({
             <div className="px-5 sm:px-6 pl-8 sm:pl-[52px] pb-5 sm:pb-6 border-t border-[#EEF2F7]">
               <p className="pt-4 text-[14px] text-[#64748B] leading-[1.8]">{faq.a}</p>
             </div>
-          </motion.div>
+          </m.div>
         )}
       </AnimatePresence>
-    </motion.div>
+    </m.div>
   )
 }
 

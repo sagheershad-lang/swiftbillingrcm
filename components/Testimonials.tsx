@@ -1,5 +1,5 @@
 'use client'
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 import FadeIn from './FadeIn'
 
 const trustCards = [
@@ -121,7 +121,7 @@ export default function Testimonials() {
         {/* ── Trust cards 3×2 grid ───────────────────────────────────── */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
           {trustCards.map((c, i) => (
-            <motion.div
+            <m.div
               key={c.title}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -155,7 +155,7 @@ export default function Testimonials() {
               <p className="text-[13.5px] text-[#64748B] leading-[1.75] flex-1 relative z-10">
                 {c.desc}
               </p>
-            </motion.div>
+            </m.div>
           ))}
         </div>
 

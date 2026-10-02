@@ -1,7 +1,7 @@
 'use client'
 import Image from 'next/image'
 import { useEffect, useRef, useState } from 'react'
-import { useInView, motion } from 'framer-motion'
+import { useInView, m } from 'framer-motion'
 import FadeIn from './FadeIn'
 
 const bullets = [
@@ -98,7 +98,7 @@ export default function About() {
             {/* Bullets */}
             <div className="flex flex-col gap-3.5 mb-10">
               {bullets.map((b, i) => (
-                <motion.div
+                <m.div
                   key={b.title}
                   initial={{ opacity: 0, x: -16 }}
                   whileInView={{ opacity: 1, x: 0 }}
@@ -123,7 +123,7 @@ export default function About() {
                     <span className="text-[14.5px] font-bold text-[#0F172A]">{b.title}</span>
                     <span className="text-[14.5px] text-[#64748B] font-normal"> — {b.desc}</span>
                   </div>
-                </motion.div>
+                </m.div>
               ))}
             </div>
 
@@ -192,14 +192,14 @@ export default function About() {
               </div>
 
               {/* HIPAA floating badge */}
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, scale: 0.85 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.5 }}
                 className="absolute -top-3 sm:-top-4 right-2 sm:-right-4"
               >
-              <motion.div
+              <m.div
                 animate={{ y: [0, -6, 0] }}
                 transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut', delay: 0.8 }}
                 className="bg-white rounded-2xl border border-[#E2E8F0] px-4 py-3 flex items-center gap-2.5"
@@ -215,18 +215,18 @@ export default function About() {
                   <p className="text-[12px] font-extrabold text-[#0F172A] leading-tight">HIPAA Certified</p>
                   <p className="text-[10px] text-[#64748B] font-medium">100% Compliant</p>
                 </div>
-              </motion.div>
-              </motion.div>
+              </m.div>
+              </m.div>
 
               {/* CPC badge */}
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, scale: 0.85 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.65 }}
                 className="absolute -bottom-3 sm:-bottom-4 left-2 sm:-left-4"
               >
-              <motion.div
+              <m.div
                 animate={{ y: [0, -7, 0] }}
                 transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
                 className="bg-white rounded-2xl border border-[#E2E8F0] px-4 py-3 flex items-center gap-2.5"
@@ -242,8 +242,8 @@ export default function About() {
                   <p className="text-[12px] font-extrabold text-[#0F172A] leading-tight">CPC Certified</p>
                   <p className="text-[10px] text-[#64748B] font-medium">ICD-10 · CPT Coders</p>
                 </div>
-              </motion.div>
-              </motion.div>
+              </m.div>
+              </m.div>
             </div>
           </FadeIn>
 

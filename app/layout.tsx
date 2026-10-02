@@ -2,6 +2,8 @@ import type { Metadata, Viewport } from 'next'
 import { Manrope } from 'next/font/google'
 import Script from 'next/script'
 import { Analytics } from '@vercel/analytics/next'
+import MotionProvider from '@/components/MotionProvider'
+import HubSpotLoader from '@/components/HubSpotLoader'
 import './globals.css'
 
 // ─── Paste your Google Analytics Measurement ID here (format: G-XXXXXXXXXX) ───
@@ -134,7 +136,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name="apple-mobile-web-app-title" content="SwiftBilling RCM" />
       </head>
       <body>
-        {children}
+        <MotionProvider>{children}</MotionProvider>
         <Analytics />
         {GA_ID && (
           <>
@@ -152,13 +154,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </Script>
           </>
         )}
-        {/* HubSpot Tracking — lazyOnload: loads after the page has finished loading so its
-            ~3s of main-thread work on mobile doesn't delay the hero; tracking and chat still run */}
-        <Script
-          id="hs-script-loader"
-          src="https://js-na2.hs-scripts.com/246275410.js"
-          strategy="lazyOnload"
-        />
+        {/* HubSpot Tracking — loads on first interaction or after 8s (see HubSpotLoader) */}
+        <HubSpotLoader />
       </body>
     </html>
   )

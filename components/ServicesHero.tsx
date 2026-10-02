@@ -1,5 +1,5 @@
 'use client'
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -70,7 +70,7 @@ export default function ServicesHero() {
       </div>
 
       {/* ── Desktop full-bleed hero image — covers right half ───── */}
-      <motion.div
+      <m.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1.0, delay: 0.15 }}
@@ -98,14 +98,14 @@ export default function ServicesHero() {
         <div className="absolute inset-x-0 top-0" style={{ height: '15%', background: 'linear-gradient(to bottom, #0d2137 0%, transparent 100%)', zIndex: 2 }} />
         {/* Bottom fade */}
         <div className="absolute inset-x-0 bottom-0" style={{ height: '25%', background: 'linear-gradient(to top, #0d2137 0%, transparent 100%)', zIndex: 2 }} />
-      </motion.div>
+      </m.div>
 
       {/* ── Main grid ──────────────────────────────────────────── */}
       <div className="relative z-10 max-w-[1240px] mx-auto px-6">
         <div className="grid lg:grid-cols-[1.1fr_0.9fr] items-stretch gap-10 xl:gap-14 pt-[96px] pb-10">
 
           {/* ════ LEFT — text ════════════════════════════════════ */}
-          <motion.div
+          <m.div
             className="flex flex-col justify-center py-10 lg:py-14 min-w-0"
             variants={textContainer}
             initial="hidden"
@@ -113,7 +113,7 @@ export default function ServicesHero() {
           >
 
             {/* Breadcrumb */}
-            <motion.div
+            <m.div
               variants={textItem}
               className="flex items-center gap-2 text-[12px] text-white/32 mb-7"
             >
@@ -122,10 +122,10 @@ export default function ServicesHero() {
                 <path d="M3.5 2L6.5 5 3.5 8" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round"/>
               </svg>
               <span className="text-white/55">Services</span>
-            </motion.div>
+            </m.div>
 
             {/* Badge */}
-            <motion.div
+            <m.div
               variants={textItem}
               className="inline-flex self-start items-center gap-2 rounded-full px-3 py-[5px] mb-5"
               style={{
@@ -137,10 +137,10 @@ export default function ServicesHero() {
               <span className="text-[9.5px] font-extrabold uppercase tracking-[0.2em] text-[#2EC4B6]">
                 Full-Service Revenue Cycle Management
               </span>
-            </motion.div>
+            </m.div>
 
             {/* H1 */}
-            <motion.h1
+            <m.h1
               variants={textItem}
               className="font-extrabold leading-[1.04] tracking-[-0.028em] mb-5"
               style={{ fontSize: 'clamp(36px, 5.5vw, 62px)' }}
@@ -157,19 +157,19 @@ export default function ServicesHero() {
               >
                 Expertly Managed.
               </span>
-            </motion.h1>
+            </m.h1>
 
             {/* Subtext */}
-            <motion.p
+            <m.p
               variants={textItem}
               className="text-[14.5px] leading-[1.75] text-white/52 max-w-[360px] mb-10"
             >
               One partner for your complete revenue cycle — from charge entry to
               practice growth — so you focus entirely on care.
-            </motion.p>
+            </m.p>
 
             {/* Feature checklist */}
-            <motion.div
+            <m.div
               variants={textItem}
               className="flex flex-col gap-3"
             >
@@ -189,8 +189,8 @@ export default function ServicesHero() {
                   </span>
                 </div>
               ))}
-            </motion.div>
-          </motion.div>
+            </m.div>
+          </m.div>
 
           {/* Right column — empty spacer; image is full-bleed behind */}
           <div className="hidden lg:block" />

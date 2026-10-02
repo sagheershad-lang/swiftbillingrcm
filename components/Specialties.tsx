@@ -1,6 +1,6 @@
 'use client'
 import { useState } from 'react'
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 import FadeIn from './FadeIn'
 
 const featured = [
@@ -258,7 +258,7 @@ function SpecialtyCard({
   }
 
   return (
-    <motion.div
+    <m.div
       {...(useViewport ? viewportProps : controlledProps)}
       whileHover={{ y: -4 }}
       className="group relative flex flex-col items-center text-center
@@ -294,7 +294,7 @@ function SpecialtyCard({
           <path d="M2.5 6.5h8M7 3l3.5 3.5L7 10" stroke="#2EC4B6" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
         </svg>
       </div>
-    </motion.div>
+    </m.div>
   )
 }
 
@@ -342,7 +342,7 @@ export default function Specialties() {
         </div>
 
         {/* Expandable extra specialties */}
-        <motion.div
+        <m.div
           initial={false}
           animate={{ height: expanded ? 'auto' : 0, opacity: expanded ? 1 : 0 }}
           transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
@@ -353,7 +353,7 @@ export default function Specialties() {
               <SpecialtyCard key={s.name} s={s} i={i} useViewport={false} expanded={expanded} />
             ))}
           </div>
-        </motion.div>
+        </m.div>
 
         {/* Dark banner */}
         <FadeIn delay={0.15}>
@@ -407,13 +407,13 @@ export default function Specialties() {
                 style={{ boxShadow: '0 0 22px rgba(46,196,182,0.18)' }}
               >
                 {expanded ? 'Show Less' : 'View All Specialties'}
-                <motion.svg
+                <m.svg
                   animate={{ rotate: expanded ? 180 : 0 }}
                   transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
                   width="15" height="15" viewBox="0 0 16 16" fill="none"
                 >
                   <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
-                </motion.svg>
+                </m.svg>
               </button>
             </div>
           </div>
