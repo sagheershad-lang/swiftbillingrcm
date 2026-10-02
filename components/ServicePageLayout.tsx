@@ -2,7 +2,7 @@
 import { useState, type ReactElement, type CSSProperties } from 'react'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
-import Image from 'next/image'
+import BreakpointImage from './BreakpointImage'
 import Nav from './Nav'
 import Footer from './Footer'
 import { AccordionItem } from './FAQ'
@@ -106,11 +106,13 @@ function ServiceHeroGraphic({ service, heroImage, heroImageDesktop, heroImageTab
       <>
       {/* Mobile hero image — shown on small screens (< md) */}
       <div className="md:hidden relative w-full h-[280px] overflow-hidden my-4 mx-0">
-        <Image
+        <BreakpointImage
+          media="(max-width: 767px)"
           src={effectiveMobile!}
           alt={`${service.name} services — SwiftBilling RCM medical billing`}
           fill
-          priority
+          loading="eager"
+          fetchPriority="high"
           className="object-cover"
           sizes="100vw"
           style={{ objectPosition: heroObjectPosition, filter: heroFilter }}
@@ -127,11 +129,13 @@ function ServiceHeroGraphic({ service, heroImage, heroImageDesktop, heroImageTab
 
       {/* Tablet hero image — shown on md to lg screens */}
       <div className="hidden md:block lg:hidden relative w-full h-[320px] overflow-hidden my-4 mx-0">
-        <Image
+        <BreakpointImage
+          media="(min-width: 768px) and (max-width: 1023px)"
           src={effectiveTablet!}
           alt={`${service.name} services — SwiftBilling RCM medical billing`}
           fill
-          priority
+          loading="eager"
+          fetchPriority="high"
           className="object-cover"
           sizes="100vw"
           style={{ objectPosition: heroObjectPosition, filter: heroFilter }}
@@ -422,11 +426,13 @@ export default function ServicePageLayout({ service, heroImage, heroImageDesktop
               right:  (heroImageStyleDesktop?.right  as string) ?? '0',
               bottom: (heroImageStyleDesktop?.bottom as string) ?? '0',
             }}>
-              <Image
+              <BreakpointImage
+                media="(min-width: 1024px)"
                 src={(heroImageDesktop ?? heroImage)!}
                 alt="service hero"
                 fill
-                priority
+                loading="eager"
+                fetchPriority="high"
                 className="object-cover"
                 sizes="100vw"
                 style={{
@@ -764,7 +770,7 @@ export default function ServicePageLayout({ service, heroImage, heroImageDesktop
                     <p className="text-[14px] font-extrabold text-white group-hover:text-[#2EC4B6] transition-colors duration-200">
                       {s.name}
                     </p>
-                    <p className="text-[12px] mt-1 leading-[1.5]" style={{ color: 'rgba(255,255,255,0.4)' }}>
+                    <p className="text-[12px] mt-1 leading-[1.5]" style={{ color: 'rgba(255,255,255,0.6)' }}>
                       {s.shortDescription.slice(0, 58)}…
                     </p>
                   </div>

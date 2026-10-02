@@ -168,7 +168,6 @@ export default function About() {
                   priority={false}
                   loading="lazy"
                   sizes="(min-width: 1280px) 600px, (min-width: 1024px) 50vw, 100vw"
-                  quality={85}
                   className="object-cover object-center"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0B3C5D]/60 via-transparent to-transparent" />

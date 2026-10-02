@@ -1,21 +1,9 @@
 'use client'
-import Image from 'next/image'
 import { motion } from 'framer-motion'
+import BreakpointImage from './BreakpointImage'
 
 const HERO_BLUR =
   'data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wAARCAAKAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAABQT/xAAjEAACAQMDBAMAAAAAAAAAAAABAgMABREEITEGE1GhIkFC/8QAFAEBAAAAAAAAAAAAAAAAAAAAAf/EABURAQEAAAAAAAAAAAAAAAAAAABB/9oADAMBAAIRAxEAPwCi336d9BPcJpDiJHXskEqx859UeeodZk418wHjbb1R84xbIANg8yhsfr5S80c7sHYBjyfumh//2Q=='
-
-const slideUp = (delay = 0) => ({
-  initial: { y: 30 },
-  animate: { y: 0 },
-  transition: { duration: 0.8, delay, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] },
-})
-
-const fadeUp = (delay = 0) => ({
-  initial: { opacity: 0, y: 24 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.7, delay, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] },
-})
 
 const inlineStats = [
   { value: '98%+',  label: 'Clean Claim Rate'  },
@@ -37,15 +25,16 @@ export default function Hero() {
           FULL-BLEED BACKGROUND IMAGE
       ════════════════════════════════════════════════ */}
       <div className="absolute inset-0">
-        {/* Desktop / tablet image */}
-        <Image
+        {/* Desktop / tablet image — only downloaded at md+ where it is shown */}
+        <BreakpointImage
+          media="(min-width: 768px)"
           src="/hero-home.png"
           alt="SwiftBilling RCM medical billing team"
           fill
-          priority
+          loading="eager"
+          fetchPriority="high"
           placeholder="blur"
           blurDataURL={HERO_BLUR}
-          quality={90}
           className="object-cover hero-image hidden md:block"
           sizes="100vw"
           style={{ filter: 'brightness(1.08) contrast(1.06) saturate(1.18)' }}
@@ -111,19 +100,17 @@ export default function Hero() {
           <div style={{ maxWidth: '580px' }}>
 
             {/* Badge */}
-            <motion.div
-              {...fadeUp(0)}
-              className="inline-flex items-center gap-2 text-[11px] sm:text-[12px] font-bold tracking-[0.06em] uppercase text-[#2EC4B6] bg-[#2EC4B6]/10 border border-[#2EC4B6]/28 rounded-full px-4 py-2 mb-7"
+            <div
+              className="hero-fade-up inline-flex items-center gap-2 text-[11px] sm:text-[12px] font-bold tracking-[0.06em] uppercase text-[#2EC4B6] bg-[#2EC4B6]/10 border border-[#2EC4B6]/28 rounded-full px-4 py-2 mb-7"
             >
               <span className="w-1.5 h-1.5 rounded-full bg-[#2EC4B6] animate-pulse shrink-0" />
               <span className="sm:hidden">HIPAA Compliant · US Billing Experts</span>
               <span className="hidden sm:inline">HIPAA Compliant · US Healthcare Billing Experts</span>
-            </motion.div>
+            </div>
 
             {/* ── Headline — bigger, bolder, LCP-safe ── */}
-            <motion.h1
-              {...slideUp(0)}
-              className="text-white mb-6"
+            <h1
+              className="hero-slide-up text-white mb-6"
               style={{
                 fontSize: 'clamp(36px, 4vw, 52px)',
                 lineHeight: 1.1,
@@ -144,13 +131,13 @@ export default function Hero() {
               >
                 We Recover It Fast.
               </span>
-            </motion.h1>
+            </h1>
 
             {/* Subheading */}
-            <motion.p
-              {...fadeUp(0.2)}
-              className="mb-8"
+            <p
+              className="hero-fade-up mb-8"
               style={{
+                animationDelay: '0.2s',
                 fontSize: 'clamp(15px, 1.55vw, 18px)',
                 lineHeight: 1.75,
                 fontWeight: 400,
@@ -160,13 +147,12 @@ export default function Hero() {
             >
               From charge entry to payment posting — we manage your entire revenue cycle
               so you focus on patients, not paperwork.
-            </motion.p>
+            </p>
 
             {/* ── Stats row — more prominent ── */}
-            <motion.div
-              {...fadeUp(0.32)}
-              className="grid grid-cols-2 sm:flex sm:flex-wrap sm:items-center mb-9"
-              style={{ gap: '10px 0' }}
+            <div
+              className="hero-fade-up grid grid-cols-2 sm:flex sm:flex-wrap sm:items-center mb-9"
+              style={{ animationDelay: '0.32s', gap: '10px 0' }}
             >
               {inlineStats.map((s, i) => (
                 <div key={s.label} className="flex items-center">
@@ -192,10 +178,10 @@ export default function Hero() {
                   )}
                 </div>
               ))}
-            </motion.div>
+            </div>
 
             {/* ── CTAs ── */}
-            <motion.div {...fadeUp(0.44)} className="flex flex-col gap-3">
+            <div className="hero-fade-up flex flex-col gap-3" style={{ animationDelay: '0.44s' }}>
               <div className="flex flex-col sm:flex-row gap-3">
                 <a
                   href="#audit"
@@ -224,12 +210,12 @@ export default function Hero() {
               <p className="text-[12px] text-white/32 font-medium pl-1 leading-relaxed">
                 No contracts · No upfront fees · Response within 24 hours
               </p>
-            </motion.div>
+            </div>
           </div>
         </div>
 
         {/* ── Trust row — anchors the bottom ── */}
-        <motion.div {...fadeUp(0.62)}>
+        <div className="hero-fade-up" style={{ animationDelay: '0.62s' }}>
           <div className="h-px mb-5" style={{ background: 'linear-gradient(90deg, rgba(255,255,255,0.13) 0%, transparent 60%)' }} />
           <p className="text-[10.5px] font-bold uppercase tracking-[0.14em] mb-3" style={{ color: 'rgba(255,255,255,0.28)' }}>
             Serving practices across all 50 states
@@ -249,7 +235,7 @@ export default function Hero() {
               </span>
             ))}
           </div>
-        </motion.div>
+        </div>
       </div>
 
       {/* ════════════════════════════════════════════════

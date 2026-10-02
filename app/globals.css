@@ -55,6 +55,21 @@ footer {
   .hero-image { object-position: 72% 35%; }
 }
 
+/* ── Homepage hero text entrance ─────────────────────────────────
+   CSS instead of framer-motion so it runs from first paint, before JS.
+   Same values as the old motion props: ease [0.16, 1, 0.3, 1],
+   fade-up 0.7s / 24px, headline slide 0.8s / 30px; delay set inline. */
+@keyframes hero-fade-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes hero-slide-up {
+  from { transform: translateY(30px); }
+  to   { transform: none; }
+}
+.hero-fade-up  { animation: hero-fade-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.hero-slide-up { animation: hero-slide-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) both; }
+
 /* ── Global card hover effects ─────────────────────────────────── */
 .card,
 [class*="card"],

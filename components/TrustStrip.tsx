@@ -17,20 +17,23 @@ type Platform = {
   logoH?: number
   /** Extra scale on top of logoH for fine optical nudging (default 1). */
   scale?: number
+  /** Intrinsic file size — lets the browser reserve the width before load (no layout shift). */
+  w: number
+  h: number
 }
 
 const platforms: Platform[] = [
-  { name: 'Epic',           logoUrl: '/logos/site-logo.png',              color: '#CC1230', logoH: 40 },
-  { name: 'athenahealth',   logoUrl: '/logos/athenahealth-logo.png',      color: '#00A0B0', logoH: 52 },
-  { name: 'Tebra',          logoUrl: '/logos/tebra-logo.png',             color: '#FF6B00', logoH: 68 },
-  { name: 'eClinicalWorks', logoUrl: '/logos/eclinicalworks-logo.png',    color: '#00A650', logoH: 68 },
-  { name: 'AdvancedMD',     logoUrl: '/logos/advance%20md.png',           color: '#003087', logoH: 62 },
-  { name: 'drchrono',       logoUrl: '/logos/dr%20chrono%20logo.png',     color: '#2563EB', logoH: 44 },
-  { name: 'NextGen',        logoUrl: '/logos/next%20gen%20logo.png',      color: '#00A850', logoH: 52 },
-  { name: 'Availity',       logoUrl: '/logos/availity%20logo.png',        color: '#612583', logoH: 48 },
-  { name: 'Office Ally',    logoUrl: '/logos/office%20ally%20logo.png',   color: '#005EB8', logoH: 52 },
-  { name: 'Waystar',        logoUrl: '/logos/waystar%20logo.png',         color: '#1A1A5E', logoH: 44 },
-  { name: 'CAQH',           logoUrl: '/logos/caqh%20logo.png',            color: '#005DAA', logoH: 46 },
+  { name: 'Epic',           logoUrl: '/logos/site-logo.png',              color: '#CC1230', logoH: 40, w: 106, h: 41 },
+  { name: 'athenahealth',   logoUrl: '/logos/athenahealth-logo.png',      color: '#00A0B0', logoH: 52, w: 300, h: 300 },
+  { name: 'Tebra',          logoUrl: '/logos/tebra-logo.png',             color: '#FF6B00', logoH: 68, w: 300, h: 300 },
+  { name: 'eClinicalWorks', logoUrl: '/logos/eclinicalworks-logo.png',    color: '#00A650', logoH: 68, w: 300, h: 300 },
+  { name: 'AdvancedMD',     logoUrl: '/logos/advance%20md.png',           color: '#003087', logoH: 62, w: 269, h: 188 },
+  { name: 'drchrono',       logoUrl: '/logos/dr%20chrono%20logo.png',     color: '#2563EB', logoH: 44, w: 300, h: 90 },
+  { name: 'NextGen',        logoUrl: '/logos/next%20gen%20logo.png',      color: '#00A850', logoH: 52, w: 300, h: 225 },
+  { name: 'Availity',       logoUrl: '/logos/availity%20logo.png',        color: '#612583', logoH: 48, w: 300, h: 167 },
+  { name: 'Office Ally',    logoUrl: '/logos/office%20ally%20logo.png',   color: '#005EB8', logoH: 52, w: 256, h: 256 },
+  { name: 'Waystar',        logoUrl: '/logos/waystar%20logo.png',         color: '#1A1A5E', logoH: 44, w: 300, h: 127 },
+  { name: 'CAQH',           logoUrl: '/logos/caqh%20logo.png',            color: '#005DAA', logoH: 46, w: 300, h: 157 },
 ]
 
 /* ── Individual logo (no card, no label) ─────────────────────────────── */
@@ -46,6 +49,8 @@ function PlatformCard({ p }: { p: Platform }) {
         <img
           src={p.logoUrl}
           alt={`${p.name} logo`}
+          width={p.w}
+          height={p.h}
           loading="lazy"
           draggable={false}
           style={{
