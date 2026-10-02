@@ -29,7 +29,7 @@ const trustCards = [
   },
   {
     title: 'Faster Claim Resolution',
-    desc: 'Systematic AR follow-up and proactive denial management keeps claims moving through the cycle — so revenue reaches your account faster, not months later.',
+    desc: 'Systematic AR follow-up and proactive denial management keep claims moving through the cycle — so revenue reaches your account faster, not months later.',
     icon: (
       <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
         <circle cx="11" cy="11" r="8.5" stroke="#2EC4B6" strokeWidth="1.5"/>

@@ -2,13 +2,14 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import ServicePageLayout from '@/components/ServicePageLayout'
 import { getService } from '@/lib/services-data'
+import { pageMetadata } from '@/lib/seo'
 
 const SLUG = 'payment-posting'
 
 export async function generateMetadata(): Promise<Metadata> {
   const s = getService(SLUG)
   if (!s) return {}
-  return { title: { absolute: s.metaTitle }, description: s.metaDescription }
+  return pageMetadata({ title: s.metaTitle, description: s.metaDescription, path: `/services/${SLUG}` })
 }
 
 export default function ServicePage() {

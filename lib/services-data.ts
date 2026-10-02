@@ -55,7 +55,7 @@ export const servicesData: ServiceData[] = [
     features: [
       { icon: 'specialty', title: 'Multi-Specialty Coding', description: 'Certified coders trained in 20+ specialties — from internal medicine to orthopedics, psychiatry, and beyond.' },
       { icon: 'clock', title: 'Same-Day Submission', description: 'Claims submitted within 24 hours of charge entry — no backlogs, no delays.' },
-      { icon: 'integration', title: 'EHR Integration', description: 'Works with Epic, Athena, eClinicalWorks, Tebra, AdvancedMD, drchrono, and more.' },
+      { icon: 'integration', title: 'EHR Integration', description: 'Works with Epic, Athena, eClinicalWorks, Tebra, AdvancedMD, DrChrono, and more.' },
       { icon: 'modifier', title: 'Modifier & Bundling Expertise', description: 'Correct application of modifiers (25, 59, 95, GT, etc.) to protect against improper bundling rejections.' },
       { icon: 'paper', title: 'Electronic & Paper Claims', description: 'EDI 837 electronic submission for speed plus paper CMS-1500/UB-04 when required.' },
       { icon: 'track', title: 'Real-Time Claim Tracking', description: 'Every submitted claim tracked through acceptance, adjudication, and payment.' },
@@ -74,12 +74,12 @@ export const servicesData: ServiceData[] = [
     ],
     faqs: [
       { q: 'How do you handle coding for my specific specialty?', a: 'We assign a billing specialist with specific training in your specialty. They understand the nuances — from E&M level selection to procedure-specific modifiers — so your claims are coded accurately for maximum reimbursement.' },
-      { q: 'What EHR systems do you work with?', a: 'We integrate with all major EHR and practice management systems including Epic, Athenahealth, eClinicalWorks, Tebra, AdvancedMD, drchrono, NextGen, and others. If you use it, we can work with it.' },
+      { q: 'What EHR systems do you work with?', a: 'We integrate with all major EHR and practice management systems including Epic, athenahealth, eClinicalWorks, Tebra, AdvancedMD, DrChrono, NextGen, and others. If you use it, we can work with it.' },
       { q: 'How will I know when claims are submitted and paid?', a: 'You receive weekly claim status updates and a monthly dashboard showing submission volume, acceptance rates, payments received, and any pending items. Your account manager is also available for any real-time questions.' },
       { q: 'Do you handle both facility and professional billing?', a: 'Yes. We handle professional billing (CMS-1500) for physician practices as well as facility billing (UB-04) for ambulatory surgery centers and outpatient facilities.' },
     ],
     relatedSlugs: ['ar-follow-up', 'denial-management', 'payment-posting'],
-    metaTitle: 'Medical Billing Services | SwiftBilling RCM',
+    metaTitle: 'Medical Billing & Coding Services | SwiftBilling RCM',
     metaDescription: 'Expert medical billing and charge entry with 98%+ clean claim rates. CPC-certified coders, same-day submission, EHR integration. Free audit.',
   },
 
@@ -106,7 +106,7 @@ export const servicesData: ServiceData[] = [
       { step: '01', title: 'AR Audit', description: 'We pull a full aging report and categorize every open claim by priority, age, and dollar value.' },
       { step: '02', title: 'Payer Follow-Up', description: 'Direct calls and portal checks for each open claim — we get real status, not just "in process."' },
       { step: '03', title: 'Resolution', description: 'Claims resolved by payment, resubmission, corrected billing, or escalation to appeal.' },
-      { step: '04', title: 'Report & Prevent', description: 'Monthly AR trends reported with root cause analysis to prevent the same issues recurring.' },
+      { step: '04', title: 'Report & Prevent', description: 'Monthly AR trends reported with root cause analysis to prevent the same issues from recurring.' },
     ],
     stats: [
       { value: '35%', label: 'Avg Reduction in AR Days' },
@@ -120,8 +120,8 @@ export const servicesData: ServiceData[] = [
       { q: 'How do you report on AR follow-up progress?', a: 'You receive a monthly AR aging report comparing current vs. prior month, a breakdown by payer and age bucket, and notes on major recoveries. Your account manager also presents findings during your monthly review call.' },
     ],
     relatedSlugs: ['denial-management', 'payment-posting', 'medical-billing'],
-    metaTitle: 'Medical AR Follow-Up Services | SwiftBilling RCM',
-    metaDescription: 'Dedicated AR follow-up that recovers unpaid insurance claims. 35% average reduction in AR days. Free audit for your practice.',
+    metaTitle: 'Medical Billing AR Follow-Up Services | SwiftBilling RCM',
+    metaDescription: 'Dedicated AR follow-up that recovers unpaid insurance claims, from 30-day to 120-day aged receivables. 35% average reduction in AR days. Free audit.',
   },
 
   {
@@ -162,7 +162,7 @@ export const servicesData: ServiceData[] = [
     ],
     relatedSlugs: ['prior-authorization', 'eligibility-verification', 'ar-follow-up'],
     metaTitle: 'Medical Billing Denial Management | SwiftBilling RCM',
-    metaDescription: 'Expert denial management with 95% overturn rate. Every denied claim reviewed, appealed, and resubmitted within 72 hours. Free audit.',
+    metaDescription: 'Expert denial management with a 95% overturn rate. Every denied claim reviewed, appealed, and resubmitted within 72 hours, with root-cause tracking. Free audit.',
   },
 
   {
@@ -177,7 +177,7 @@ export const servicesData: ServiceData[] = [
     problem: 'Delayed or inaccurate payment posting creates a ripple effect: your AR reports are wrong, secondary billing is delayed, patient balances aren\'t generated, and payer underpayments go undetected for months — sometimes forever.',
     solution: 'We post every ERA and EOB the same day it\'s received, reconcile every payment against your contracted rates, generate patient balances immediately, and flag underpayments for immediate follow-up. Your financial picture is always accurate and up to date.',
     features: [
-      { icon: 'lightning', title: 'Same-Day ERA Processing', description: 'All Electronic Remittance Advices posted the same day received — no batch-of-the-week delays.' },
+      { icon: 'lightning', title: 'Same-Day ERA Processing', description: 'All Electronic Remittance Advices posted the same day they\'re received — no batch-of-the-week delays.' },
       { icon: 'eob', title: 'Manual EOB Posting', description: 'Paper EOBs manually posted with the same accuracy as electronic remittances.' },
       { icon: 'secondary', title: 'Secondary & Tertiary Billing', description: 'Patient balance and secondary payer claims generated immediately after primary adjudication.' },
       { icon: 'reconcile', title: 'Contract Reconciliation', description: 'Every payment compared against your contracted rate — underpayments flagged for appeal.' },
@@ -185,7 +185,7 @@ export const servicesData: ServiceData[] = [
       { icon: 'accuracy', title: '99.9% Posting Accuracy', description: 'Triple-check process ensures payments are applied to the correct claim, patient, and provider.' },
     ],
     process: [
-      { step: '01', title: 'Receive', description: 'ERA files pulled daily; paper EOBs scanned and indexed same day received.' },
+      { step: '01', title: 'Receive', description: 'ERA files pulled daily; paper EOBs scanned and indexed the same day they\'re received.' },
       { step: '02', title: 'Post', description: 'Payment applied to correct claim with all adjustment codes captured accurately.' },
       { step: '03', title: 'Reconcile', description: 'Payment compared to contracted rate — underpayments and discrepancies flagged.' },
       { step: '04', title: 'Balance & Bill', description: 'Patient responsibility posted; secondary claims or patient statements generated.' },
@@ -203,7 +203,7 @@ export const servicesData: ServiceData[] = [
     ],
     relatedSlugs: ['ar-follow-up', 'medical-billing', 'patient-calling'],
     metaTitle: 'Medical Billing Payment Posting Services | SwiftBilling RCM',
-    metaDescription: 'Same-day payment posting with 99.9% accuracy. Full ERA/EOB reconciliation and underpayment detection. Free billing audit.',
+    metaDescription: 'Same-day payment posting with 99.9% accuracy. Full ERA/EOB reconciliation, underpayment detection, and secondary billing for your practice. Free billing audit.',
   },
 
   {
@@ -244,7 +244,7 @@ export const servicesData: ServiceData[] = [
     ],
     relatedSlugs: ['medical-billing', 'eligibility-verification', 'prior-authorization'],
     metaTitle: 'Provider Credentialing Services | SwiftBilling RCM',
-    metaDescription: 'Fast provider credentialing with 50+ payer networks. 5-7 day onboarding, weekly payer follow-up, no revenue gaps. Free consultation.',
+    metaDescription: 'Fast provider credentialing with 50+ payer networks, including CAQH setup. 5–7 day onboarding, weekly payer follow-up, no revenue gaps. Free consultation.',
   },
 
   {
@@ -267,7 +267,7 @@ export const servicesData: ServiceData[] = [
       { icon: 'custom', title: 'Custom Report Requests', description: 'Need a specific view? We build custom reports on request — included in your service.' },
     ],
     process: [
-      { step: '01', title: 'Track', description: 'All billing activity, payments, and denials captured in real-time throughout the month.' },
+      { step: '01', title: 'Track', description: 'All billing activity, payments, and denials captured in real time throughout the month.' },
       { step: '02', title: 'Compile', description: 'Monthly metrics aggregated, anomalies identified, and trends compared to prior periods.' },
       { step: '03', title: 'Deliver', description: 'Full dashboard delivered by the 10th of each month via email and your client portal.' },
       { step: '04', title: 'Review', description: 'Optional monthly review call with your account manager to walk through findings and action items.' },
@@ -291,7 +291,7 @@ export const servicesData: ServiceData[] = [
   {
     slug: 'prior-authorization',
     name: 'Prior Authorization',
-    shortDescription: 'Proactive PA submission, tracking, and appeals — so services are always pre-approved before rendered.',
+    shortDescription: 'Proactive PA submission, tracking, and appeals — so services are always pre-approved before they\'re rendered.',
     badge: 'New Service',
     isNew: true,
     tagline: 'No Authorization Gaps. No Last-Minute Denials.',
@@ -320,13 +320,13 @@ export const servicesData: ServiceData[] = [
       { value: '100%', label: 'Auth Numbers Verified Before Billing' },
     ],
     faqs: [
-      { q: 'How do you know which procedures require prior authorization?', a: 'We maintain an up-to-date payer-specific PA requirement database and verify requirements in real-time for each payer, CPT code, and diagnosis combination. PA requirements change frequently — we track those changes so you don\'t have to.' },
+      { q: 'How do you know which procedures require prior authorization?', a: 'We maintain an up-to-date payer-specific PA requirement database and verify requirements in real time for each payer, CPT code, and diagnosis combination. PA requirements change frequently — we track those changes so you don\'t have to.' },
       { q: 'What if a prior authorization is denied?', a: 'We immediately initiate an appeal with supporting clinical documentation. For complex cases, we coordinate a peer-to-peer review between the payer\'s medical reviewer and your clinical team — these are often the most effective path to overturning a PA denial.' },
       { q: 'How does this work with our scheduling team?', a: 'We work alongside your scheduling staff. When an appointment is booked for a PA-required service, we\'re notified (via your EHR or a simple referral form) and take it from there — your team doesn\'t need to manage the PA process at all.' },
     ],
     relatedSlugs: ['eligibility-verification', 'denial-management', 'medical-billing'],
     metaTitle: 'Prior Authorization Management Services | SwiftBilling RCM',
-    metaDescription: 'Proactive prior authorization management with 90%+ approval rate. Same-day submission, daily tracking, PA denial appeals. Free audit.',
+    metaDescription: 'Proactive prior authorization management with a 90%+ approval rate. Same-day submission, daily status tracking, and PA denial appeals. Free audit.',
   },
 
   {
@@ -350,7 +350,7 @@ export const servicesData: ServiceData[] = [
     ],
     process: [
       { step: '01', title: 'Schedule', description: 'Patient appointment booked in your EHR — we pick up the schedule daily.' },
-      { step: '02', title: 'Verify', description: 'Insurance eligibility checked in real-time 24–48 hours before the appointment.' },
+      { step: '02', title: 'Verify', description: 'Insurance eligibility checked in real time 24–48 hours before the appointment.' },
       { step: '03', title: 'Benefits Pull', description: 'Full benefits summary pulled: deductible, copay, OOP max, and covered services.' },
       { step: '04', title: 'Alert & Update', description: 'Issues flagged to front desk; patient record updated with verified insurance data.' },
     ],
@@ -449,7 +449,7 @@ export const servicesData: ServiceData[] = [
     ],
     relatedSlugs: ['eligibility-verification', 'prior-authorization', 'patient-calling'],
     metaTitle: 'Virtual Patient Scheduling Services | SwiftBilling RCM',
-    metaDescription: 'Virtual front desk and patient scheduling — reduce no-shows by 30%, increase fill rate, handle new patient intake. Free consultation.',
+    metaDescription: 'Virtual front desk and patient scheduling for medical practices — reduce no-shows by 30%, increase fill rate, and handle new patient intake. Free consultation.',
   },
   {
     slug: 'patient-acquisition',
@@ -458,7 +458,7 @@ export const servicesData: ServiceData[] = [
     badge: 'New Service',
     isNew: true,
     tagline: 'More Patients. More Revenue. Handled.',
-    description: 'Google Ads, local SEO, and GBP that fills your schedule and grows your practice.',
+    description: 'Google Ads, local SEO, and GBP that fill your schedule and grows your practice.',
     category: 'extended',
     problem: 'Most medical billing companies help you collect revenue from existing patients — but nobody helps you grow your patient panel. New providers can wait months to fill their schedule, and established practices lose patients to better-marketed competitors every day, all while paying a separate marketing agency that doesn\'t understand healthcare.',
     solution: 'We combine our deep healthcare knowledge with proven digital marketing strategies — Google Ads targeted to patients actively searching for your specialty, local SEO to dominate "near me" searches, and a fully optimized Google Business Profile. You get more patients, and we handle their billing too — one partner for the full revenue cycle.',
@@ -483,7 +483,7 @@ export const servicesData: ServiceData[] = [
       { value: '100%', label: 'Healthcare-Focused Strategy' },
     ],
     faqs: [
-      { q: 'Is this service legal and compliant for medical practices?', a: 'Absolutely. Google Ads and local SEO for medical practices is completely legitimate and widely used by hospitals, health systems, and private practices across the US. We follow all Google healthcare advertising policies and ensure all ad content is accurate and compliant.' },
+      { q: 'Is this service legal and compliant for medical practices?', a: 'Absolutely. Google Ads and local SEO for medical practices are completely legitimate and widely used by hospitals, health systems, and private practices across the US. We follow all Google healthcare advertising policies and ensure all ad content is accurate and compliant.' },
       { q: 'What specialties does this work best for?', a: 'It works exceptionally well for any specialty where patients actively search online — primary care, urgent care, dermatology, orthopedics, mental health, OB-GYN, pediatrics, and concierge medicine. We tailor the strategy to your specialty and local market.' },
       { q: 'How is this different from a regular marketing agency?', a: 'A regular agency doesn\'t understand medical billing, insurance mix, or what a "high-value" patient looks like for your specialty. We do — because we\'re already managing your revenue cycle. We optimize for the patients who are most likely to be insured, compliant, and revenue-positive for your practice.' },
       { q: 'Do I need a website already?', a: 'Not necessarily. We can build a focused patient landing page as part of this service. If you have an existing website, we optimize it for local SEO. A full website build is available as an add-on.' },

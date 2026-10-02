@@ -152,6 +152,7 @@ export async function POST(req: NextRequest) {
   const replyError = await sendEmail({
     from: FROM,
     to: email,
+    replyTo: OWNER_EMAIL, // the email invites a reply; without this it would go to the noreply address
     subject: 'Thank you for contacting SwiftBilling RCM',
     html: `
       <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;background:#f8fafc;padding:32px;border-radius:12px;">

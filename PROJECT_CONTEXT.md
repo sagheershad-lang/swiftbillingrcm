@@ -55,8 +55,8 @@
 
 ```
 app/
-  layout.tsx            Root layout: metadata, JSON-LD (LocalBusiness + WebSite + FAQPage), GA, HubSpot, Vercel Analytics
-  page.tsx              Homepage (section order below)
+  layout.tsx            Root layout: default metadata, JSON-LD (LocalBusiness + WebSite), GA, HubSpot, Vercel Analytics
+  page.tsx              Homepage (section order below), homepage canonical + FAQPage JSON-LD
   globals.css
   api/contact/route.ts  Contact form → Resend (owner notification + auto-reply), rate limit 5/min/IP, honeypot field "website", sanitize + email validation
   services/page.tsx     Services hub (uses ServicesHero)
@@ -74,6 +74,8 @@ components/
   MotionProvider (LazyMotion + domAnimation wrapper in layout; components use `m.*`, not `motion.*`),
   HubSpotLoader (loads HubSpot on first interaction or after 8s)
 lib/services-data.ts    Single source of truth for all 11 services (copy, features, process, stats, FAQs, meta)
+lib/seo.ts              pageMetadata(): per-page title, description, canonical, Open Graph and Twitter tags (use it on every new page)
+lib/home-faqs.ts        Homepage FAQ data, used by the visible FAQ and the homepage FAQPage JSON-LD (keeps them identical)
 public/                 Hero images, about photo, logos/, signature.png
 next.config.ts          Image formats/sizes, remotePatterns (images.pexels.com), security headers
 ```
@@ -193,6 +195,7 @@ The **Services hub** (`/services`) uses `ServicesHero` with `/Service.png` and t
 - QA Phase 3 (functionality): fixed dead Get Started / Footer contact links on non-home pages, scroll to late-loaded homepage sections from other pages, blocked double form submits, added visible service-page FAQs, a branded 404 page, mobile menu scroll lock, and required Practice Name + Phone with maxLength on every form field.
 - QA Phase 4 (performance): HubSpot on first interaction and GA lazyOnload, CSS hero text animation, per-breakpoint hero images, sized platform logos, server-rendered below-fold sections, LazyMotion, AccordionItem split. Lighthouse mobile went from Performance 24–33 / LCP 7.6–7.8s / CLS 0.23 to 67–72 / 3.5–3.8s / 0.
 - QA Phase 5 (accessibility): skip link, visible focus rings, Escape closes the mobile menu, reduced-motion support, announced form errors, 44px mobile tap targets, 15px minimum mobile body text, `#0a756c` hover text on light backgrounds, marquee copies hidden from screen readers and descriptive hero alt text on all breakpoints.
+- QA Phase 6 (content and SEO): every page now has its own canonical, Open Graph and Twitter tags (they all pointed to the homepage before); titles 50–60 and descriptions 140–160 characters with no duplicates; homepage FAQ JSON-LD now matches the visible FAQ; JSON-LD logo fixed (old `/og-image.png` was a 404) and "Charge Entry" renamed to "Medical Billing"; grammar and brand-name fixes; auto-reply email now replies to info@. Numbers, claims, pricing, CST and legal text left for the owner.
 
 ---
 

@@ -2,10 +2,14 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
+import { pageMetadata } from '@/lib/seo'
 
 export const metadata: Metadata = {
-  title: 'Terms & Conditions',
-  description: 'Terms and Conditions for SwiftBilling RCM — the rules governing use of our website and services.',
+  ...pageMetadata({
+    title: 'Terms & Conditions — Website and Services | SwiftBilling RCM',
+    description: 'Terms and Conditions for SwiftBilling RCM — the rules governing use of our website, our free revenue audit, and our medical billing and RCM services.',
+    path: '/terms',
+  }),
   robots: { index: true, follow: true },
 }
 

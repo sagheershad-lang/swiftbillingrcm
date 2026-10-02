@@ -28,7 +28,7 @@ const platforms: Platform[] = [
   { name: 'Tebra',          logoUrl: '/logos/tebra-logo.png',             color: '#FF6B00', logoH: 68, w: 300, h: 300 },
   { name: 'eClinicalWorks', logoUrl: '/logos/eclinicalworks-logo.png',    color: '#00A650', logoH: 68, w: 300, h: 300 },
   { name: 'AdvancedMD',     logoUrl: '/logos/advance%20md.png',           color: '#003087', logoH: 62, w: 269, h: 188 },
-  { name: 'drchrono',       logoUrl: '/logos/dr%20chrono%20logo.png',     color: '#2563EB', logoH: 44, w: 300, h: 90 },
+  { name: 'DrChrono',       logoUrl: '/logos/dr%20chrono%20logo.png',     color: '#2563EB', logoH: 44, w: 300, h: 90 },
   { name: 'NextGen',        logoUrl: '/logos/next%20gen%20logo.png',      color: '#00A850', logoH: 52, w: 300, h: 225 },
   { name: 'Availity',       logoUrl: '/logos/availity%20logo.png',        color: '#612583', logoH: 48, w: 300, h: 167 },
   { name: 'Office Ally',    logoUrl: '/logos/office%20ally%20logo.png',   color: '#005EB8', logoH: 52, w: 256, h: 256 },

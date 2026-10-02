@@ -2,10 +2,14 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
+import { pageMetadata } from '@/lib/seo'
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy',
-  description: 'Privacy Policy for SwiftBilling RCM — how we collect, use, and protect your information.',
+  ...pageMetadata({
+    title: 'Privacy Policy — How We Protect Your Data | SwiftBilling RCM',
+    description: 'Privacy Policy for SwiftBilling RCM — how we collect, use, and protect your information when you visit our website or contact us about our services.',
+    path: '/privacy-policy',
+  }),
   robots: { index: true, follow: true },
 }
 

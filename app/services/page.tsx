@@ -5,11 +5,13 @@ import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
 import ServicesHero from '@/components/ServicesHero'
 import { coreServices, extendedServices } from '@/lib/services-data'
+import { pageMetadata } from '@/lib/seo'
 
-export const metadata: Metadata = {
-  title: 'Medical Billing Services',
-  description: 'Comprehensive medical billing services — charge entry, AR follow-up, denial management, credentialing, prior authorization, eligibility verification, and more. Free audit.',
-}
+export const metadata: Metadata = pageMetadata({
+  title: 'Medical Billing & Revenue Cycle Services | SwiftBilling RCM',
+  description: 'Comprehensive RCM services: medical billing, AR follow-up, denial management, credentialing, prior authorization, eligibility verification and more. Free audit.',
+  path: '/services',
+})
 
 const serviceIcons: Record<string, ReactElement> = {
   'medical-billing': (

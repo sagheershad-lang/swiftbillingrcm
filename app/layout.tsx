@@ -33,9 +33,7 @@ export const metadata: Metadata = {
     'Expert medical billing and revenue cycle management for US healthcare practices. Reduce denials, increase collections, get paid faster. Free 24-hour audit.',
   keywords: 'medical billing, revenue cycle management, RCM, healthcare billing, medical coding, HIPAA compliant billing, denial management, AR follow-up, credentialing, medical billing company USA, medical billing Austin Texas, outsource medical billing, physician billing services, EHR billing, insurance claim submission, clean claim rate, medical billing specialists',
   metadataBase: new URL('https://www.swiftbillingrcm.com'),
-  alternates: {
-    canonical: 'https://www.swiftbillingrcm.com',
-  },
+  // Canonical URLs are set per page (homepage in app/page.tsx, others via lib/seo.ts), so they don't all point to the homepage
   openGraph: {
     type: 'website',
     url: 'https://www.swiftbillingrcm.com',
@@ -80,7 +78,7 @@ const jsonLd = {
       '@id': 'https://www.swiftbillingrcm.com/#business',
       name: 'SwiftBilling RCM',
       url: 'https://www.swiftbillingrcm.com',
-      logo: 'https://www.swiftbillingrcm.com/og-image.png',
+      logo: 'https://www.swiftbillingrcm.com/apple-icon',
       description: 'Expert medical billing and revenue cycle management for US healthcare practices. HIPAA compliant. 98% clean claim rate. Free 24-hour audit.',
       telephone: '+1-512-737-7488',
       email: 'info@swiftbillingrcm.com',
@@ -103,7 +101,7 @@ const jsonLd = {
         '@type': 'OfferCatalog',
         name: 'Medical Billing Services',
         itemListElement: [
-          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Charge Entry' } },
+          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Medical Billing' } },
           { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'AR Follow-Up' } },
           { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Denial Management' } },
           { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Payment Posting' } },
