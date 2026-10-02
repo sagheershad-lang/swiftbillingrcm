@@ -41,7 +41,7 @@
 | Hosting | **Vercel** (`vercel.json` → `framework: nextjs`) |
 | Rate limiting | Vercel Firewall rule on `/api/contact`: 5 requests/min per IP on the live site (added Oct 2026). `route.ts` also keeps its own in-memory limit as a backup |
 | Repo | GitHub, private: https://github.com/sagheershad-lang/swiftbillingrcm (branch main) |
-| Analytics | Google Analytics `G-TGX12BWNWT` · HubSpot `js-na2.hs-scripts.com/246275410.js` · **Vercel Analytics** (`@vercel/analytics`, `<Analytics />` in layout — added Oct 2026; must be enabled in the Vercel dashboard) |
+| Analytics | Google Analytics `G-PHYRLHP00K` (next/script `lazyOnload`: loads after the page finishes loading) · HubSpot `js-na2.hs-scripts.com/246275410.js` (loaded by `components/HubSpotLoader.tsx` on the first scroll, click, touch or keypress, or after 8 seconds) · **Vercel Analytics** (`@vercel/analytics`, `<Analytics />` in layout — added Oct 2026; must be enabled in the Vercel dashboard) |
 | Env vars | `RESEND_API_KEY` (in `.env.local` locally and in Vercel project settings) |
 
 | Linting | **ESLint 9** + `eslint-config-next` (flat config `eslint.config.mjs`; ignores `.next`, `out`, `node_modules`, `.claude`) |
@@ -66,9 +66,13 @@ app/
   sitemap.ts, robots.ts, icon.tsx, apple-icon.tsx, opengraph-image.tsx
 components/
   Nav, Hero, TrustStrip, TrustBar, Results, Services, Specialties, About,
-  BelowFold (lazy-loads Process, Testimonials, FAQ, Audit, Contact with ssr:false),
+  BelowFold (Process, Testimonials, FAQ, Audit, Contact: server-rendered, each in its own code chunk),
   Process, Testimonials, FAQ, Audit, Contact, Footer, FadeIn,
-  ServicePageLayout (template for all service pages), ServicesHero (services hub hero)
+  ServicePageLayout (template for all service pages), ServicesHero (services hub hero),
+  AccordionItem (single FAQ accordion item, used by the homepage FAQ and service page FAQs),
+  BreakpointImage (next/image that only downloads at one breakpoint via <picture>; used for the homepage and service heroes),
+  MotionProvider (LazyMotion + domAnimation wrapper in layout; components use `m.*`, not `motion.*`),
+  HubSpotLoader (loads HubSpot on first interaction or after 8s)
 lib/services-data.ts    Single source of truth for all 11 services (copy, features, process, stats, FAQs, meta)
 public/                 Hero images, about photo, logos/, signature.png
 next.config.ts          Image formats/sizes, remotePatterns (images.pexels.com), security headers
@@ -178,6 +182,7 @@ The **Services hub** (`/services`) uses `ServicesHero` with `/Service.png` and t
 - QA Phase 1: removed unused images, unused props, added ESLint.
 - QA Phase 2 (security): upgraded Next.js to 16.3.8 and Resend to 6.31.0 (npm audit: 0 vulnerabilities); contact API escapes HTML, caps field lengths, rejects bad bodies and includes the phone number in lead emails; report-only Content-Security-Policy; Vercel Firewall rate limit on /api/contact; robots blocks /api/.
 - QA Phase 3 (functionality): fixed dead Get Started / Footer contact links on non-home pages, scroll to late-loaded homepage sections from other pages, blocked double form submits, added visible service-page FAQs, a branded 404 page, mobile menu scroll lock, and required Practice Name + Phone with maxLength on every form field.
+- QA Phase 4 (performance): HubSpot on first interaction and GA lazyOnload, CSS hero text animation, per-breakpoint hero images, sized platform logos, server-rendered below-fold sections, LazyMotion, AccordionItem split. Lighthouse mobile went from Performance 24–33 / LCP 7.6–7.8s / CLS 0.23 to 67–72 / 3.5–3.8s / 0.
 
 ---
 

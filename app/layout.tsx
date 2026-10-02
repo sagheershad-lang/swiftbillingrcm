@@ -138,13 +138,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <MotionProvider>{children}</MotionProvider>
         <Analytics />
+        {/* Google Analytics — lazyOnload: gtag.js loads after the page has finished loading, so its
+            174 KB download and execution no longer sit before first paint (~2s of mobile LCP).
+            Page views are still sent; only visitors who leave before load completes are missed. */}
         {GA_ID && (
           <>
             <Script
               src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
-              strategy="afterInteractive"
+              strategy="lazyOnload"
             />
-            <Script id="ga-init" strategy="afterInteractive">
+            <Script id="ga-init" strategy="lazyOnload">
               {`
                 window.dataLayer = window.dataLayer || [];
                 function gtag(){dataLayer.push(arguments);}
