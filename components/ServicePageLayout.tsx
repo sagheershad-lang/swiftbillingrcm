@@ -5,7 +5,7 @@ import Link from 'next/link'
 import BreakpointImage from './BreakpointImage'
 import Nav from './Nav'
 import Footer from './Footer'
-import { AccordionItem } from './FAQ'
+import AccordionItem from './AccordionItem'
 import type { ServiceData } from '@/lib/services-data'
 import { servicesData } from '@/lib/services-data'
 
