@@ -177,7 +177,7 @@ export default function Services() {
               </h3>
 
               {/* Description */}
-              <p className="text-[13.5px] text-[#64748B] leading-relaxed flex-1 mb-5">
+              <p className="text-[15px] md:text-[13.5px] text-[#64748B] leading-relaxed flex-1 mb-5">
                 {s.desc}
               </p>
 
@@ -199,13 +199,12 @@ export default function Services() {
                   color: '#2EC4B6',
                   fontSize: '13px',
                   fontWeight: 500,
-                  marginTop: '12px',
                   display: 'inline-flex',
                   alignItems: 'center',
                   gap: '4px',
                   transition: 'gap 0.2s ease',
                 }}
-                className="hover:underline"
+                className="hover:underline mt-3 max-md:mt-0 max-md:min-h-[44px]"
               >
                 Explore {s.linkLabel} →
               </Link>
@@ -244,7 +243,7 @@ export default function Services() {
                 <p className="text-[17px] font-extrabold text-white leading-tight mb-1">
                   Not sure where your revenue is leaking?
                 </p>
-                <p className="text-[13px] text-white/55">
+                <p className="text-[15px] md:text-[13px] text-white/55">
                   Get a free audit in 24 hours — we&apos;ll show you exactly what&apos;s being left on the table.
                 </p>
               </div>

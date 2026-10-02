@@ -162,7 +162,7 @@ export default function ServicesHero() {
             {/* Subtext */}
             <m.p
               variants={textItem}
-              className="text-[14.5px] leading-[1.75] text-white/52 max-w-[360px] mb-10"
+              className="text-[15px] md:text-[14.5px] leading-[1.75] text-white/52 max-w-[360px] mb-10"
             >
               One partner for your complete revenue cycle — from charge entry to
               practice growth — so you focus entirely on care.

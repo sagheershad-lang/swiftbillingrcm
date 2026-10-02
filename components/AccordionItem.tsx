@@ -94,7 +94,7 @@ export default function AccordionItem({
             className="overflow-hidden"
           >
             <div className="px-5 sm:px-6 pl-8 sm:pl-[52px] pb-5 sm:pb-6 border-t border-[#EEF2F7]">
-              <p className="pt-4 text-[14px] text-[#64748B] leading-[1.8]">{faq.a}</p>
+              <p className="pt-4 text-[15px] md:text-[14px] text-[#64748B] leading-[1.8]">{faq.a}</p>
             </div>
           </m.div>
         )}

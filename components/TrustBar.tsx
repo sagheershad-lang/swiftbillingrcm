@@ -118,7 +118,7 @@ export default function TrustBar() {
                   <Counter target={s.value} suffix={s.suffix} staticVal={s.staticVal} />
                 </div>
                 <p className="text-[15px] font-bold text-[#0F172A] mb-1">{s.label}</p>
-                <p className="text-[13px] text-[#64748B] leading-snug">{s.desc}</p>
+                <p className="text-[15px] md:text-[13px] text-[#64748B] leading-snug">{s.desc}</p>
               </m.div>
             </FadeIn>
           ))}

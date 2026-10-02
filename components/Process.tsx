@@ -180,7 +180,7 @@ export default function Process() {
                   </h3>
 
                   {/* Description */}
-                  <p className="text-[12.5px] text-[#64748B] leading-relaxed flex-1 mb-4 relative z-10">
+                  <p className="text-[15px] md:text-[12.5px] text-[#64748B] leading-relaxed flex-1 mb-4 relative z-10">
                     {s.desc}
                   </p>
 

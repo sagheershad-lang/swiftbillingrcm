@@ -429,7 +429,7 @@ export default function ServicePageLayout({ service, heroImage, heroImageDesktop
               <BreakpointImage
                 media="(min-width: 1024px)"
                 src={(heroImageDesktop ?? heroImage)!}
-                alt="service hero"
+                alt={`${service.name} services — SwiftBilling RCM medical billing`}
                 fill
                 loading="eager"
                 fetchPriority="high"
@@ -550,7 +550,7 @@ export default function ServicePageLayout({ service, heroImage, heroImageDesktop
               {/* Description */}
               <m.p
                 variants={textItem}
-                className="text-[14.5px] leading-[1.75] max-w-[320px] mb-10"
+                className="text-[15px] md:text-[14.5px] leading-[1.75] max-w-[320px] mb-10"
                 style={{ color: 'rgba(255,255,255,0.52)' }}
               >
                 {service.description}
@@ -624,7 +624,7 @@ export default function ServicePageLayout({ service, heroImage, heroImageDesktop
                 </div>
                 <div>
                   <h3 className="text-[15px] font-extrabold text-white mb-2">{f.title}</h3>
-                  <p className="text-[13.5px] leading-[1.7]" style={{ color: 'rgba(255,255,255,0.55)' }}>
+                  <p className="text-[15px] md:text-[13.5px] leading-[1.7]" style={{ color: 'rgba(255,255,255,0.55)' }}>
                     {f.description}
                   </p>
                 </div>
@@ -681,7 +681,7 @@ export default function ServicePageLayout({ service, heroImage, heroImageDesktop
                   {step.step}
                 </div>
                 <h3 className="text-[15px] font-extrabold text-white mb-2">{step.title}</h3>
-                <p className="text-[13px] leading-[1.7]" style={{ color: 'rgba(255,255,255,0.5)' }}>
+                <p className="text-[15px] md:text-[13px] leading-[1.7]" style={{ color: 'rgba(255,255,255,0.5)' }}>
                   {step.description}
                 </p>
               </m.div>
@@ -770,7 +770,7 @@ export default function ServicePageLayout({ service, heroImage, heroImageDesktop
                     <p className="text-[14px] font-extrabold text-white group-hover:text-[#2EC4B6] transition-colors duration-200">
                       {s.name}
                     </p>
-                    <p className="text-[12px] mt-1 leading-[1.5]" style={{ color: 'rgba(255,255,255,0.6)' }}>
+                    <p className="text-[15px] md:text-[12px] mt-1 leading-[1.5]" style={{ color: 'rgba(255,255,255,0.6)' }}>
                       {s.shortDescription.slice(0, 58)}…
                     </p>
                   </div>

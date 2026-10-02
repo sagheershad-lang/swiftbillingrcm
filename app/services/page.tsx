@@ -65,7 +65,7 @@ function ServiceCard({ slug, name, shortDescription, isNew }: { slug: string; na
       </div>
       <div className="flex-1">
         <h3 className="text-[16px] font-extrabold text-white mb-2">{name}</h3>
-        <p className="text-[13.5px] leading-[1.7]" style={{ color: 'rgba(255,255,255,0.55)' }}>{shortDescription}</p>
+        <p className="text-[15px] md:text-[13.5px] leading-[1.7]" style={{ color: 'rgba(255,255,255,0.55)' }}>{shortDescription}</p>
       </div>
       <div className="flex items-center gap-1.5 text-[13px] font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-200" style={{ color: '#2EC4B6' }}>
         Learn More

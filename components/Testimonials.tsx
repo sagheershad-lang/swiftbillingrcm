@@ -152,7 +152,7 @@ export default function Testimonials() {
               <h3 className="text-[15px] font-extrabold text-[#0F172A] leading-snug mb-2.5 relative z-10">
                 {c.title}
               </h3>
-              <p className="text-[13.5px] text-[#64748B] leading-[1.75] flex-1 relative z-10">
+              <p className="text-[15px] md:text-[13.5px] text-[#64748B] leading-[1.75] flex-1 relative z-10">
                 {c.desc}
               </p>
             </m.div>
@@ -232,14 +232,14 @@ export default function Testimonials() {
                   <path d="M2 5l2.5 2.5 4-4" stroke="#2EC4B6" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
               </div>
-              <p className="text-[13px] text-[#64748B] font-medium">
+              <p className="text-[15px] md:text-[13px] text-[#64748B] font-medium">
                 Serving internal medicine, cardiology, family practice, urgent care, psychiatry, and 15+ other specialties.
               </p>
             </div>
             <a
               href="#contact"
               className="inline-flex items-center gap-1.5 text-[13px] font-bold text-[#0B3C5D]
-                hover:text-[#2EC4B6] transition-colors duration-200"
+                hover:text-[#0a756c] transition-colors duration-200"
             >
               See if we&apos;re right for your practice
               <svg width="13" height="13" viewBox="0 0 13 13" fill="none">

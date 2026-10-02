@@ -20,7 +20,7 @@ function Logo({ scrolled }: { scrolled: boolean }) {
           <path d="M14 4.5H17V7.5" stroke="#2EC4B6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
         </svg>
       </div>
-      <span className={`font-extrabold text-[17px] tracking-[-0.02em] leading-none transition-colors duration-300 group-hover:text-[#2EC4B6] ${scrolled ? 'text-[#0B3C5D]' : 'text-white'}`}>
+      <span className={`font-extrabold text-[17px] tracking-[-0.02em] leading-none transition-colors duration-300 ${scrolled ? 'text-[#0B3C5D] group-hover:text-[#0a756c]' : 'text-white group-hover:text-[#2EC4B6]'}`}>
         SwiftBilling<span className="text-[#2EC4B6]"> RCM</span>
       </span>
     </Link>
@@ -74,7 +74,7 @@ export default function Nav() {
             <li key={l.href}>
               <a
                 href={l.href}
-                className={`relative text-[14.5px] font-semibold whitespace-nowrap transition-colors duration-200 hover:text-[#2EC4B6] group/link ${scrolled ? 'text-[#475569]' : 'text-white/80'}`}
+                className={`relative text-[14.5px] font-semibold whitespace-nowrap transition-colors duration-200 group/link ${scrolled ? 'text-[#475569] hover:text-[#0a756c]' : 'text-white/80 hover:text-[#2EC4B6]'}`}
               >
                 {l.label}
                 {/* Animated underline */}
@@ -92,7 +92,7 @@ export default function Nav() {
             {/* Email — hidden on smaller lg screens, visible on xl+ */}
             <a
               href="mailto:info@swiftbillingrcm.com"
-              className={`hidden xl:flex items-center gap-1.5 font-medium transition-all duration-200 hover:text-[#2EC4B6] hover:bg-[#2EC4B6]/10 rounded-lg px-2 py-1 -mx-2 -my-1 ${scrolled ? 'text-[#64748B]' : 'text-white/65'}`}
+              className={`hidden xl:flex items-center gap-1.5 font-medium transition-all duration-200 hover:bg-[#2EC4B6]/10 rounded-lg px-2 py-1 -mx-2 -my-1 ${scrolled ? 'text-[#64748B] hover:text-[#0a756c]' : 'text-white/65 hover:text-[#2EC4B6]'}`}
             >
               <svg width="13" height="13" viewBox="0 0 14 14" fill="none">
                 <rect x="1" y="2.5" width="12" height="9" rx="1.5" stroke="currentColor" strokeWidth="1.3"/>
@@ -105,7 +105,7 @@ export default function Nav() {
 
             <a
               href="tel:+15127377488"
-              className={`flex items-center gap-1.5 font-semibold transition-all duration-200 hover:text-[#2EC4B6] hover:bg-[#2EC4B6]/10 rounded-lg px-2 py-1 -mx-2 -my-1 ${scrolled ? 'text-[#0B3C5D]' : 'text-white/90'}`}
+              className={`flex items-center gap-1.5 font-semibold transition-all duration-200 hover:bg-[#2EC4B6]/10 rounded-lg px-2 py-1 -mx-2 -my-1 ${scrolled ? 'text-[#0B3C5D] hover:text-[#0a756c]' : 'text-white/90 hover:text-[#2EC4B6]'}`}
             >
               <svg width="13" height="13" viewBox="0 0 14 14" fill="none">
                 <path d="M2.5 2h2.8l1.2 3-1.8 1.1a8 8 0 003.2 3.2L9 7.5l3 1.2V11a1 1 0 01-1 1A10.5 10.5 0 011.5 3a1 1 0 011-1z" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round"/>
@@ -127,7 +127,7 @@ export default function Nav() {
 
         {/* Mobile toggle */}
         <button
-          className={`lg:hidden ml-auto w-9 h-9 flex flex-col justify-center items-center gap-[5px] rounded-lg hover:bg-[#2EC4B6]/12 transition-colors duration-200 ${scrolled ? 'text-[#0B3C5D]' : 'text-white'}`}
+          className={`lg:hidden ml-auto -mr-1 w-11 h-11 flex flex-col justify-center items-center gap-[5px] rounded-lg hover:bg-[#2EC4B6]/12 transition-colors duration-200 ${scrolled ? 'text-[#0B3C5D]' : 'text-white'}`}
           ref={toggleRef}
           onClick={() => setOpen(v => !v)}
           aria-label="Toggle menu"
@@ -167,7 +167,7 @@ export default function Nav() {
                 <a
                   href="tel:+15127377488"
                   onClick={() => setOpen(false)}
-                  className="flex items-center gap-2 text-[14px] font-semibold text-[#0B3C5D] hover:text-[#2EC4B6] transition-colors duration-200 py-1"
+                  className="flex items-center gap-2 text-[14px] font-semibold text-[#0B3C5D] hover:text-[#0a756c] transition-colors duration-200 min-h-[44px]"
                 >
                   <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
                     <path d="M2.5 2h2.8l1.2 3-1.8 1.1a8 8 0 003.2 3.2L9 7.5l3 1.2V11a1 1 0 01-1 1A10.5 10.5 0 011.5 3a1 1 0 011-1z" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round"/>

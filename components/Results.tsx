@@ -140,7 +140,7 @@ export default function Results() {
               </div>
 
               <h3 className="text-[16px] sm:text-[18px] font-extrabold text-white mb-2 leading-tight">{s.label}</h3>
-              <p className="text-[12.5px] sm:text-[13px] text-white/50 leading-relaxed">{s.desc}</p>
+              <p className="text-[15px] md:text-[13px] text-white/50 leading-relaxed">{s.desc}</p>
             </m.div>
           ))}
         </div>
@@ -159,7 +159,7 @@ export default function Results() {
             >
               <div className="text-[28px] sm:text-[38px] font-extrabold text-[#2EC4B6] leading-none tracking-tight mb-2">{s.value}</div>
               <h3 className="text-[13px] font-bold text-white mb-1.5">{s.label}</h3>
-              <p className="text-[12px] text-white/40 leading-relaxed">{s.desc}</p>
+              <p className="text-[15px] md:text-[12px] text-white/40 leading-relaxed">{s.desc}</p>
             </m.div>
           ))}
         </div>

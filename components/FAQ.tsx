@@ -80,7 +80,7 @@ export default function FAQ() {
                       <path d="M2 5l2.5 2.5 4-4" stroke="#2EC4B6" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
                   </div>
-                  <span className="text-[13px] text-[#475569] font-medium">{t.text}</span>
+                  <span className="text-[15px] md:text-[13px] text-[#475569] font-medium">{t.text}</span>
                 </div>
               ))}
             </div>
@@ -89,7 +89,7 @@ export default function FAQ() {
             <div className="h-px mb-7" style={{ background: 'linear-gradient(90deg, rgba(46,196,182,0.4), transparent)' }} />
 
             {/* CTA */}
-            <p className="text-[13px] text-[#64748B] mb-3">Still have questions? We&apos;re happy to help.</p>
+            <p className="text-[15px] md:text-[13px] text-[#64748B] mb-3">Still have questions? We&apos;re happy to help.</p>
             <a
               href="#contact"
               className="inline-flex items-center gap-2 bg-[#0B3C5D] text-white font-bold text-[14px]

@@ -284,7 +284,7 @@ function SpecialtyCard({
         group-hover:text-[#0B3C5D] transition-colors duration-300">
         {s.name}
       </p>
-      <p className="text-[12px] text-[#64748B] leading-relaxed flex-1 mb-3.5 px-0.5">
+      <p className="text-[15px] md:text-[12px] text-[#64748B] leading-relaxed flex-1 mb-3.5 px-0.5">
         {s.desc}
       </p>
 
@@ -390,7 +390,7 @@ export default function Specialties() {
                   <p className="text-[17px] font-extrabold text-white leading-tight mb-0.5">
                     {expanded ? `All ${featured.length + extra.length} specialties shown.` : 'Many more specialties.'}
                   </p>
-                  <p className="text-[13px] text-white/55">
+                  <p className="text-[15px] md:text-[13px] text-white/55">
                     {expanded ? 'Click below to collapse the list.' : 'We support a wide range of healthcare providers.'}
                   </p>
                 </div>
@@ -435,7 +435,7 @@ export default function Specialties() {
             <a
               href="#contact"
               className="inline-flex items-center gap-1.5 text-[13px] text-[#64748B] font-medium
-                hover:text-[#2EC4B6] transition-colors duration-200 whitespace-nowrap"
+                hover:text-[#0a756c] transition-colors duration-200 whitespace-nowrap"
             >
               Not sure if we support your specialty?{' '}
               <span className="text-[#2EC4B6] font-semibold">Contact us</span>

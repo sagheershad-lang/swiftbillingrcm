@@ -200,14 +200,14 @@ export default function Contact() {
                       <a
                         href={c.href}
                         rel="noopener noreferrer"
-                        className="text-[14.5px] font-bold text-[#0B3C5D] hover:text-[#2EC4B6] transition-colors block leading-tight"
+                        className="relative text-[14.5px] font-bold text-[#0B3C5D] hover:text-[#0a756c] transition-colors block leading-tight max-md:py-[13px] max-md:-my-[13px]"
                       >
                         {c.value}
                       </a>
                     ) : (
                       <p className="text-[14.5px] font-bold text-[#0F172A] leading-tight">{c.value}</p>
                     )}
-                    <p className="text-[12.5px] text-[#64748B] mt-0.5">{c.sub}</p>
+                    <p className="text-[15px] md:text-[12.5px] text-[#64748B] mt-0.5">{c.sub}</p>
                   </div>
                 </m.div>
               ))}
@@ -244,7 +244,7 @@ export default function Contact() {
                           <path d="M2 5l2.5 2.5 4-4" stroke="#2EC4B6" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                         </svg>
                       </div>
-                      <span className="text-[12.5px] font-medium text-white/65">{b}</span>
+                      <span className="text-[15px] md:text-[12.5px] font-medium text-white/65">{b}</span>
                     </div>
                   ))}
                 </div>
@@ -275,7 +275,7 @@ export default function Contact() {
                     </svg>
                   </div>
                   <h3 className="text-[22px] font-extrabold text-[#0F172A] mb-3">Thank You!</h3>
-                  <p className="text-[14.5px] text-[#64748B] leading-relaxed max-w-[320px] mx-auto">
+                  <p className="text-[15px] md:text-[14.5px] text-[#64748B] leading-relaxed max-w-[320px] mx-auto">
                     We&apos;ll review your information and reach out within 24 hours with your free revenue audit findings.
                   </p>
                 </div>
@@ -284,7 +284,7 @@ export default function Contact() {
                   <h3 className="text-[20px] font-extrabold text-[#0F172A] mb-1 leading-tight">
                     Book Free Consultation
                   </h3>
-                  <p className="text-[13.5px] text-[#64748B] mb-5 sm:mb-7">
+                  <p className="text-[15px] md:text-[13.5px] text-[#64748B] mb-5 sm:mb-7">
                     Fill out the form and we&apos;ll get back to you within 24 hours with a free revenue audit.
                   </p>
 

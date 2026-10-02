@@ -122,8 +122,8 @@ export default function About() {
 
                   {/* Text */}
                   <div>
-                    <span className="text-[14.5px] font-bold text-[#0F172A]">{b.title}</span>
-                    <span className="text-[14.5px] text-[#64748B] font-normal"> — {b.desc}</span>
+                    <span className="text-[15px] md:text-[14.5px] font-bold text-[#0F172A]">{b.title}</span>
+                    <span className="text-[15px] md:text-[14.5px] text-[#64748B] font-normal"> — {b.desc}</span>
                   </div>
                 </m.div>
               ))}

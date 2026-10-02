@@ -151,6 +151,15 @@ The **Services hub** (`/services`) uses `ServicesHero` with `/Service.png` and t
 - **Animation:** `FadeIn` wrapper (`direction: 'up' | 'left' | 'right' | 'none'`, `delay`). Cards use `initial / whileInView / viewport={{ once: true }}` with ease `[0.16, 1, 0.3, 1]` and a stagger of `i * 0.07`.
 - Section padding: `py-16 md:py-24`; container: `max-w-[1200px] mx-auto px-6`.
 
+**Accessibility rules (keep these on every new component)**
+- **Mobile body text min 15px:** under 768px, body paragraphs, section descriptions, card text, FAQ answers and Footer text are at least 15px. Pattern: `text-[15px] md:text-[13.5px]` (desktop keeps its original size). Headings, eyebrows, badges, pills, stat labels, buttons and fine-print microcopy are not affected.
+- **Tap targets min 44px:** on mobile every link and button is at least 44x44 tappable (`max-md:min-h-[44px]`, or padding plus a matching negative margin when the layout must not move). Visible text and icon sizes stay the same; e.g. the Footer social tiles stay 32px inside a 44px link.
+- **Hover text on light backgrounds:** use `#0a756c`, not `#2EC4B6` (teal text on white is ~2:1 contrast). Teal hover stays on dark backgrounds.
+- **Focus ring:** global `:focus-visible` in `globals.css`: 2px teal `#2EC4B6` outline, 2px offset, plus a 2px navy `#0B3C5D` box-shadow so it shows on light and dark sections. Don't remove outlines.
+- **Skip link:** "Skip to content" (`.skip-link` in `layout.tsx`) is the first focusable element and jumps to `#main-content`; every page's hero/header needs `id="main-content"`.
+- **Reduced motion:** `MotionConfig reducedMotion="user"` for Framer Motion, a `prefers-reduced-motion` rule in `globals.css` for CSS animations and smooth scroll, and counters show the final number straight away (`useReducedMotion`).
+- Decorative duplicates (e.g. the TrustStrip marquee copies) get `aria-hidden="true"`; images get descriptive alt text on every breakpoint.
+
 ---
 
 ## 7. Build history (git log summary)
@@ -183,6 +192,7 @@ The **Services hub** (`/services`) uses `ServicesHero` with `/Service.png` and t
 - QA Phase 2 (security): upgraded Next.js to 16.3.8 and Resend to 6.31.0 (npm audit: 0 vulnerabilities); contact API escapes HTML, caps field lengths, rejects bad bodies and includes the phone number in lead emails; report-only Content-Security-Policy; Vercel Firewall rate limit on /api/contact; robots blocks /api/.
 - QA Phase 3 (functionality): fixed dead Get Started / Footer contact links on non-home pages, scroll to late-loaded homepage sections from other pages, blocked double form submits, added visible service-page FAQs, a branded 404 page, mobile menu scroll lock, and required Practice Name + Phone with maxLength on every form field.
 - QA Phase 4 (performance): HubSpot on first interaction and GA lazyOnload, CSS hero text animation, per-breakpoint hero images, sized platform logos, server-rendered below-fold sections, LazyMotion, AccordionItem split. Lighthouse mobile went from Performance 24–33 / LCP 7.6–7.8s / CLS 0.23 to 67–72 / 3.5–3.8s / 0.
+- QA Phase 5 (accessibility): skip link, visible focus rings, Escape closes the mobile menu, reduced-motion support, announced form errors, 44px mobile tap targets, 15px minimum mobile body text, `#0a756c` hover text on light backgrounds, marquee copies hidden from screen readers and descriptive hero alt text on all breakpoints.
 
 ---
 

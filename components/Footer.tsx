@@ -64,7 +64,7 @@ export default function Footer() {
               <p className="text-[17px] font-extrabold text-white leading-tight mb-0.5">
                 Ready to recover lost revenue?
               </p>
-              <p className="text-[13px] text-white/50">
+              <p className="text-[15px] md:text-[13px] text-white/50">
                 Join practices across the US who trust SwiftBilling RCM.
               </p>
             </div>
@@ -88,7 +88,7 @@ export default function Footer() {
 
           {/* Brand column */}
           <div>
-            <Link href="/" className="inline-flex items-center gap-2.5 mb-5 group">
+            <Link href="/" className="inline-flex items-center gap-2.5 mb-5 group max-md:min-h-[44px]">
               <div
                 className="w-9 h-9 rounded-xl flex items-center justify-center border border-white/10
                   group-hover:border-[#2EC4B6]/40 transition-colors duration-300"
@@ -104,7 +104,7 @@ export default function Footer() {
               </span>
             </Link>
 
-            <p className="text-[13.5px] text-white/45 leading-relaxed max-w-[260px] mb-6">
+            <p className="text-[15px] md:text-[13.5px] text-white/45 leading-relaxed max-w-[260px] mb-6">
               Expert medical billing and revenue cycle management for independent US healthcare practices. HIPAA compliant. Results-driven.
             </p>
 
@@ -123,9 +123,9 @@ export default function Footer() {
             </div>
 
             {/* Contact quick-access */}
-            <div className="flex flex-col gap-2 mb-5">
+            <div className="flex flex-col gap-2 max-md:gap-0 mb-5">
               <a href="mailto:info@swiftbillingrcm.com"
-                className="text-[13px] text-white/40 hover:text-[#2EC4B6] transition-colors duration-200 font-medium flex items-center gap-2">
+                className="text-[15px] md:text-[13px] text-white/40 hover:text-[#2EC4B6] transition-colors duration-200 font-medium flex items-center gap-2 max-md:min-h-[44px]">
                 <svg width="12" height="12" viewBox="0 0 14 14" fill="none">
                   <rect x="1" y="3" width="12" height="8" rx="1.5" stroke="currentColor" strokeWidth="1.3"/>
                   <path d="M1 5l6 3.5L13 5" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round"/>
@@ -133,7 +133,7 @@ export default function Footer() {
                 info@swiftbillingrcm.com
               </a>
               <a href="tel:+15127377488"
-                className="text-[13px] text-white/40 hover:text-[#2EC4B6] transition-colors duration-200 font-medium flex items-center gap-2">
+                className="text-[15px] md:text-[13px] text-white/40 hover:text-[#2EC4B6] transition-colors duration-200 font-medium flex items-center gap-2 max-md:min-h-[44px]">
                 <svg width="12" height="12" viewBox="0 0 14 14" fill="none">
                   <path d="M2.5 2.5h2.5l1 2.5-1.5 1a7 7 0 003.5 3.5l1-1.5 2.5 1v2.5A1 1 0 0110 12.5 8.5 8.5 0 011.5 4a1 1 0 011-1z" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
@@ -142,19 +142,24 @@ export default function Footer() {
             </div>
 
             {/* Social links */}
-            <div className="flex items-center gap-2">
+            {/* Each link is a 44px tap area on mobile around the same 32px tile */}
+            <div className="flex items-center gap-2 max-md:gap-0 max-md:-ml-1.5">
               {/* LinkedIn */}
               <a
                 href="https://www.linkedin.com/company/swiftbilling-rcm/"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="SwiftBilling RCM on LinkedIn"
-                className="w-8 h-8 rounded-lg flex items-center justify-center border border-white/10 hover:border-[#0A66C2]/60 hover:bg-[#0A66C2]/20 transition-all duration-200"
-                style={{ background: 'rgba(255,255,255,0.05)' }}
+                className="group w-8 h-8 max-md:w-11 max-md:h-11 flex items-center justify-center rounded-lg"
               >
+                <span
+                  className="w-8 h-8 rounded-lg flex items-center justify-center border border-white/10 group-hover:border-[#0A66C2]/60 group-hover:bg-[#0A66C2]/20 transition-all duration-200"
+                  style={{ background: 'rgba(255,255,255,0.05)' }}
+                >
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="#0A66C2">
                   <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
                 </svg>
+                </span>
               </a>
               {/* Facebook */}
               <a
@@ -162,12 +167,16 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="SwiftBilling RCM on Facebook"
-                className="w-8 h-8 rounded-lg flex items-center justify-center border border-white/10 hover:border-[#1877F2]/60 hover:bg-[#1877F2]/20 transition-all duration-200"
-                style={{ background: 'rgba(255,255,255,0.05)' }}
+                className="group w-8 h-8 max-md:w-11 max-md:h-11 flex items-center justify-center rounded-lg"
               >
+                <span
+                  className="w-8 h-8 rounded-lg flex items-center justify-center border border-white/10 group-hover:border-[#1877F2]/60 group-hover:bg-[#1877F2]/20 transition-all duration-200"
+                  style={{ background: 'rgba(255,255,255,0.05)' }}
+                >
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="#1877F2">
                   <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
                 </svg>
+                </span>
               </a>
               {/* Instagram */}
               <a
@@ -175,9 +184,12 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="SwiftBilling RCM on Instagram"
-                className="w-8 h-8 rounded-lg flex items-center justify-center border border-white/10 hover:border-[#E1306C]/60 hover:bg-[#E1306C]/20 transition-all duration-200"
-                style={{ background: 'rgba(255,255,255,0.05)' }}
+                className="group w-8 h-8 max-md:w-11 max-md:h-11 flex items-center justify-center rounded-lg"
               >
+                <span
+                  className="w-8 h-8 rounded-lg flex items-center justify-center border border-white/10 group-hover:border-[#E1306C]/60 group-hover:bg-[#E1306C]/20 transition-all duration-200"
+                  style={{ background: 'rgba(255,255,255,0.05)' }}
+                >
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="url(#ig-grad)">
                   <defs>
                     <linearGradient id="ig-grad" x1="0%" y1="100%" x2="100%" y2="0%">
@@ -190,6 +202,7 @@ export default function Footer() {
                   </defs>
                   <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
                 </svg>
+                </span>
               </a>
             </div>
           </div>
@@ -197,12 +210,12 @@ export default function Footer() {
           {/* Quick Links */}
           <div>
             <p className="text-[11px] font-black uppercase tracking-[0.14em] text-white/70 mb-5">Quick Links</p>
-            <div className="flex flex-col gap-2.5">
+            <div className="flex flex-col gap-2.5 max-md:gap-0">
               {quickLinks.map(l => (
                 <a
                   key={l.label}
                   href={l.href}
-                  className="text-[13.5px] text-white/45 hover:text-[#2EC4B6] transition-colors duration-200 font-medium
+                  className="text-[15px] md:text-[13.5px] text-white/45 hover:text-[#2EC4B6] transition-colors duration-200 font-medium max-md:min-h-[44px]
                     flex items-center gap-1.5 group"
                 >
                   <svg width="8" height="8" viewBox="0 0 8 8" fill="none"
@@ -218,12 +231,12 @@ export default function Footer() {
           {/* Legal */}
           <div>
             <p className="text-[11px] font-black uppercase tracking-[0.14em] text-white/70 mb-5">Legal</p>
-            <div className="flex flex-col gap-2.5">
+            <div className="flex flex-col gap-2.5 max-md:gap-0">
               {legalLinks.map(l => (
                 <a
                   key={l.label}
                   href={l.href}
-                  className="text-[13.5px] text-white/45 hover:text-[#2EC4B6] transition-colors duration-200 font-medium
+                  className="text-[15px] md:text-[13.5px] text-white/45 hover:text-[#2EC4B6] transition-colors duration-200 font-medium max-md:min-h-[44px]
                     flex items-center gap-1.5 group"
                 >
                   <svg width="8" height="8" viewBox="0 0 8 8" fill="none"
@@ -239,12 +252,12 @@ export default function Footer() {
           {/* Services */}
           <div>
             <p className="text-[11px] font-black uppercase tracking-[0.14em] text-white/70 mb-5">Services</p>
-            <div className="flex flex-col gap-2.5">
+            <div className="flex flex-col gap-2.5 max-md:gap-0">
               {services.map(s => (
                 <a
                   key={s.label}
                   href={s.href}
-                  className="text-[13.5px] text-white/45 hover:text-[#2EC4B6] transition-colors duration-200 font-medium
+                  className="text-[15px] md:text-[13.5px] text-white/45 hover:text-[#2EC4B6] transition-colors duration-200 font-medium max-md:min-h-[44px]
                     flex items-center gap-1.5 group"
                 >
                   <svg width="8" height="8" viewBox="0 0 8 8" fill="none"
@@ -276,14 +289,14 @@ export default function Footer() {
                   icon: <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M2.5 2.5h2.5l1 2.5-1.5 1a7 7 0 003.5 3.5l1-1.5 2.5 1v2.5A1 1 0 0110 12.5 8.5 8.5 0 011.5 4a1 1 0 011-1z" stroke="#2EC4B6" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/></svg>,
                 },
               ].map(({ href, label, value, icon }) => (
-                <a key={label} href={href} className="flex items-start gap-3 group">
+                <a key={label} href={href} className="flex items-start gap-3 group max-md:min-h-[44px]">
                   <div className="w-7 h-7 rounded-lg bg-white/[0.06] border border-white/[0.10] flex items-center justify-center shrink-0 mt-0.5
                     group-hover:border-[#2EC4B6]/40 group-hover:bg-[#2EC4B6]/[0.08] transition-all duration-200">
                     {icon}
                   </div>
                   <div>
                     <p className="text-[11px] text-white/30 font-medium mb-0.5">{label}</p>
-                    <p className="text-[13px] text-white/60 font-medium group-hover:text-[#2EC4B6] transition-colors duration-200">{value}</p>
+                    <p className="text-[15px] md:text-[13px] text-white/60 font-medium group-hover:text-[#2EC4B6] transition-colors duration-200">{value}</p>
                   </div>
                 </a>
               ))}
@@ -302,7 +315,7 @@ export default function Footer() {
                   </div>
                   <div>
                     <p className="text-[11px] text-white/30 font-medium mb-0.5">{label}</p>
-                    <p className="text-[13px] text-white/60 font-medium">{value}</p>
+                    <p className="text-[15px] md:text-[13px] text-white/60 font-medium">{value}</p>
                   </div>
                 </div>
               ))}
@@ -311,7 +324,7 @@ export default function Footer() {
                 href="/#contact"
                 className="mt-1 w-full inline-flex items-center justify-center gap-2
                   bg-[#2EC4B6] text-[#0B3C5D] font-extrabold text-[13.5px]
-                  px-5 py-2.5 rounded-xl hover:bg-[#3dd9cb] hover:-translate-y-0.5
+                  px-5 py-2.5 max-md:min-h-[44px] rounded-xl hover:bg-[#3dd9cb] hover:-translate-y-0.5
                   transition-all duration-200"
                 style={{ boxShadow: '0 0 20px rgba(46,196,182,0.25)' }}
               >
@@ -326,14 +339,14 @@ export default function Footer() {
 
         {/* ── Bottom bar ──────────────────────────────────────────────── */}
         <div className="border-t border-white/[0.07] pt-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4">
-          <p className="text-[12.5px] text-white/30 font-medium">
+          <p className="text-[15px] md:text-[12.5px] text-white/30 font-medium">
             © {new Date().getFullYear()} SwiftBilling RCM. All rights reserved. · Austin, TX
           </p>
-          <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
-            <a href="/privacy-policy" className="text-[12px] text-white/30 hover:text-[#2EC4B6] font-medium transition-colors duration-200">Privacy Policy</a>
-            <a href="/terms" className="text-[12px] text-white/30 hover:text-[#2EC4B6] font-medium transition-colors duration-200">Terms &amp; Conditions</a>
-            <span className="text-[12px] text-white/25 font-medium">HIPAA Compliant</span>
-            <span className="text-[12px] text-white/25 font-medium">BAA Signed With Every Client</span>
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-2 max-md:gap-y-0">
+            <a href="/privacy-policy" className="text-[15px] md:text-[12px] text-white/30 hover:text-[#2EC4B6] font-medium transition-colors duration-200 max-md:min-h-[44px] max-md:inline-flex max-md:items-center">Privacy Policy</a>
+            <a href="/terms" className="text-[15px] md:text-[12px] text-white/30 hover:text-[#2EC4B6] font-medium transition-colors duration-200 max-md:min-h-[44px] max-md:inline-flex max-md:items-center">Terms &amp; Conditions</a>
+            <span className="text-[15px] md:text-[12px] text-white/25 font-medium">HIPAA Compliant</span>
+            <span className="text-[15px] md:text-[12px] text-white/25 font-medium">BAA Signed With Every Client</span>
           </div>
         </div>
       </div>

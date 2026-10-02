@@ -145,7 +145,7 @@ export default function TrustStrip() {
           </span>
         </h2>
 
-        <p className="text-[13.5px] text-[#5A7A96] font-medium leading-relaxed max-w-[480px] mx-auto">
+        <p className="text-[15px] md:text-[13.5px] text-[#5A7A96] font-medium leading-relaxed max-w-[480px] mx-auto">
           We work seamlessly across all major EHR, EMR, and clearinghouse systems — no migration required.
         </p>
 
@@ -189,8 +189,9 @@ export default function TrustStrip() {
 
         <div className="plat-outer overflow-hidden">
           <div className="plat-track">
+            {/* Only the first copy is announced; the 3 repeats exist for the seamless loop */}
             {track.map((p, i) => (
-              <div key={i} className="plat-cell shrink-0">
+              <div key={i} className="plat-cell shrink-0" aria-hidden={i >= platforms.length ? 'true' : undefined}>
                 <PlatformCard p={p} />
               </div>
             ))}
