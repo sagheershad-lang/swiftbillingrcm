@@ -37,6 +37,45 @@ body {
 
 ::selection { background: rgba(46, 196, 182, 0.2); color: #0F172A; }
 
+/* ── Keyboard focus ring ──────────────────────────────────────────
+   Teal outline + navy inner ring: teal alone is ~2:1 on the light sections,
+   navy gives 3:1+ there and teal gives 3:1+ on the dark ones (WCAG 1.4.11).
+   Unlayered, so it wins over Tailwind's outline-none / focus:ring utilities. */
+:focus-visible {
+  outline: 2px solid #2EC4B6;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 2px #0B3C5D;
+}
+
+/* ── Skip link — off-screen until it receives keyboard focus ─────── */
+.skip-link {
+  position: absolute;
+  left: 16px;
+  top: -100px;
+  z-index: 100;
+  padding: 12px 18px;
+  border-radius: 10px;
+  background: #0B3C5D;
+  color: #FFFFFF;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+}
+.skip-link:focus { top: 12px; }
+
+/* ── Reduced motion: stop CSS animations (marquee, hero text, pulses) and
+   smooth scrolling; elements jump to their final, visible state.
+   framer-motion follows the same setting via MotionConfig in MotionProvider. */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0s !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
 ::-webkit-scrollbar { width: 5px; }
 ::-webkit-scrollbar-track { background: #F8FAFC; }
 ::-webkit-scrollbar-thumb { background: #2EC4B6; border-radius: 3px; }

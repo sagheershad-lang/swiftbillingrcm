@@ -14,6 +14,7 @@ export default function NotFound() {
       <Nav />
 
       <section
+        id="main-content"
         className="relative overflow-hidden pt-[140px] pb-24 md:pt-[180px] md:pb-32"
         style={{ background: 'linear-gradient(115deg, #061d2e 0%, #0B3C5D 55%, #0e4f73 100%)' }}
       >

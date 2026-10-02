@@ -65,6 +65,8 @@ const guarantees = [
 export default function Contact() {
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
   const [errorMsg, setErrorMsg] = useState('')
+  // Fields flagged with aria-invalid (and pointed at the error message) after a failed submit
+  const [invalidFields, setInvalidFields] = useState<string[]>([])
   const formRef = useRef<HTMLFormElement>(null)
   // Set synchronously so a fast double click can't send twice before the button re-renders as disabled
   const sendingRef = useRef(false)
@@ -73,14 +75,19 @@ export default function Contact() {
     e.preventDefault()
     if (sendingRef.current) return
     const form = e.currentTarget
-    const required = ['name', 'practice_name', 'email', 'phone'].map(
-      n => (form.elements.namedItem(n) as HTMLInputElement).value.trim()
-    )
-    if (required.some(v => !v)) {
+    const field = (n: string) => form.elements.namedItem(n) as HTMLInputElement
+    const flag = (names: string[]) => {
+      setInvalidFields(names)
+      field(names[0])?.focus()
+    }
+    const empty = ['name', 'practice_name', 'email', 'phone'].filter(n => !field(n).value.trim())
+    if (empty.length) {
       setErrorMsg('Please fill in your name, practice name, email and phone number.')
       setStatus('error')
+      flag(empty)
       return
     }
+    setInvalidFields([])
     // Honeypot check — bots fill hidden fields, humans don't
     const honeypot = (form.elements.namedItem('website') as HTMLInputElement)?.value
     if (honeypot) {
@@ -111,8 +118,10 @@ export default function Contact() {
         formRef.current?.reset()
       } else {
         const json = await res.json().catch(() => ({}))
-        setErrorMsg(json?.error || 'Something went wrong. Please try again or email us directly.')
+        const msg: string = json?.error || 'Something went wrong. Please try again or email us directly.'
+        setErrorMsg(msg)
         setStatus('error')
+        if (/valid email/i.test(msg)) flag(['email'])
       }
     } catch {
       setErrorMsg('Network error. Please check your connection and try again.')
@@ -283,10 +292,10 @@ export default function Contact() {
                     {/* Honeypot — hidden from real users, traps bots */}
                     <input type="text" name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" className="hidden" />
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      <CField label="Your Name *"     name="name"          type="text"  placeholder="Dr. Jane Smith"         maxLength={100} required />
-                      <CField label="Practice Name *" name="practice_name" type="text"  placeholder="Smith Medical Group"    maxLength={150} required />
-                      <CField label="Work Email *"    name="email"         type="email" placeholder="jane@practice.com"      maxLength={254} required />
-                      <CField label="Phone Number *"  name="phone"         type="tel"   placeholder="+1 (512) 000-0000"      maxLength={30}  required />
+                      <CField label="Your Name *"     name="name"          type="text"  placeholder="Dr. Jane Smith"         maxLength={100} required invalid={invalidFields.includes('name')} />
+                      <CField label="Practice Name *" name="practice_name" type="text"  placeholder="Smith Medical Group"    maxLength={150} required invalid={invalidFields.includes('practice_name')} />
+                      <CField label="Work Email *"    name="email"         type="email" placeholder="jane@practice.com"      maxLength={254} required invalid={invalidFields.includes('email')} />
+                      <CField label="Phone Number *"  name="phone"         type="tel"   placeholder="+1 (512) 000-0000"      maxLength={30}  required invalid={invalidFields.includes('phone')} />
                       <CField label="Specialty"       name="specialty"     type="text"  placeholder="e.g. Internal Medicine" maxLength={100} />
                     </div>
 
@@ -301,14 +310,14 @@ export default function Contact() {
                         maxLength={2000}
                         placeholder="e.g. High denial rates, slow reimbursements, AR backlog..."
                         className="bg-[#F8FAFC] border border-[#D1DBE8] rounded-xl px-4 py-3
-                          text-[14px] text-[#0F172A] placeholder:text-[#94A3B8]
+                          text-[16px] sm:text-[14px] text-[#0F172A] placeholder:text-[#94A3B8]
                           outline-none focus:border-[#2EC4B6] focus:ring-2 focus:ring-[#2EC4B6]/10
                           transition-all duration-200 resize-none w-full font-medium"
                       />
                     </div>
 
                     {status === 'error' && (
-                      <p className="text-[13px] text-red-600 font-medium bg-red-50 border border-red-200 rounded-xl px-4 py-3">
+                      <p id="contact-form-error" role="alert" className="text-[13px] text-red-600 font-medium bg-red-50 border border-red-200 rounded-xl px-4 py-3">
                         {errorMsg}
                       </p>
                     )}
@@ -348,13 +357,14 @@ export default function Contact() {
 }
 
 /* ── Reusable field ─────────────────────────────────────────────── */
-function CField({ label, name, type, placeholder, maxLength, required }: {
+function CField({ label, name, type, placeholder, maxLength, required, invalid }: {
   label: string
   name: string
   type: string
   placeholder: string
   maxLength: number
   required?: boolean
+  invalid?: boolean
 }) {
   return (
     <div className="flex flex-col gap-1.5">
@@ -368,8 +378,10 @@ function CField({ label, name, type, placeholder, maxLength, required }: {
         placeholder={placeholder}
         maxLength={maxLength}
         required={required}
+        aria-invalid={invalid || undefined}
+        aria-describedby={invalid ? 'contact-form-error' : undefined}
         className="bg-[#F8FAFC] border border-[#D1DBE8] rounded-xl px-4 py-3
-          text-[14px] text-[#0F172A] placeholder:text-[#94A3B8]
+          text-[16px] sm:text-[14px] text-[#0F172A] placeholder:text-[#94A3B8]
           outline-none focus:border-[#2EC4B6] focus:ring-2 focus:ring-[#2EC4B6]/10
           transition-all duration-200 font-medium"
       />

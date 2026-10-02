@@ -1,6 +1,6 @@
 'use client'
 import { useEffect, useRef, useState } from 'react'
-import { m, useInView } from 'framer-motion'
+import { m, useInView, useReducedMotion } from 'framer-motion'
 import FadeIn from './FadeIn'
 
 const stats = [
@@ -64,9 +64,10 @@ function Counter({ target, suffix, staticVal }: { target: number; suffix: string
   const [n, setN] = useState(0)
   const ref = useRef<HTMLSpanElement>(null)
   const inView = useInView(ref as React.RefObject<Element>, { once: true })
+  const reduceMotion = useReducedMotion()
 
   useEffect(() => {
-    if (!inView || staticVal) return
+    if (!inView || staticVal || reduceMotion) return
     let frame = 0
     const total = 55
     const id = setInterval(() => {
@@ -76,10 +77,11 @@ function Counter({ target, suffix, staticVal }: { target: number; suffix: string
       if (frame >= total) clearInterval(id)
     }, 20)
     return () => clearInterval(id)
-  }, [inView, target, staticVal])
+  }, [inView, target, staticVal, reduceMotion])
 
   if (staticVal) return <span ref={ref}>{staticVal}</span>
-  return <span ref={ref} className="tabular-nums">{n}{suffix}</span>
+  // Reduced motion: show the final number straight away
+  return <span ref={ref} className="tabular-nums">{reduceMotion ? target : n}{suffix}</span>
 }
 
 export default function TrustBar() {

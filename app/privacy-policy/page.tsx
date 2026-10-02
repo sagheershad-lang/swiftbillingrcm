@@ -21,7 +21,7 @@ export default function PrivacyPolicy() {
       <Nav />
 
       {/* Header */}
-      <div className="bg-[#0B3C5D] text-white py-12 px-6 pt-[100px]">
+      <div id="main-content" className="bg-[#0B3C5D] text-white py-12 px-6 pt-[100px]">
         <div className="max-w-[800px] mx-auto">
           <Link href="/" className="inline-flex items-center gap-2 text-[#2EC4B6] text-sm font-semibold mb-6 hover:opacity-80 transition-opacity">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">

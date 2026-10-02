@@ -1,5 +1,5 @@
 'use client'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { m, AnimatePresence } from 'framer-motion'
 import Link from 'next/link'
 
@@ -30,6 +30,7 @@ function Logo({ scrolled }: { scrolled: boolean }) {
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
+  const toggleRef = useRef<HTMLButtonElement>(null)
 
   useEffect(() => {
     const fn = () => setScrolled(window.scrollY > 30)
@@ -43,6 +44,18 @@ export default function Nav() {
     const html = document.documentElement
     html.style.overflow = 'hidden'
     return () => { html.style.overflow = '' }
+  }, [open])
+
+  // Escape closes the mobile menu and returns focus to the menu button
+  useEffect(() => {
+    if (!open) return
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key !== 'Escape') return
+      setOpen(false)
+      toggleRef.current?.focus()
+    }
+    document.addEventListener('keydown', onKey)
+    return () => document.removeEventListener('keydown', onKey)
   }, [open])
 
   return (
@@ -115,8 +128,11 @@ export default function Nav() {
         {/* Mobile toggle */}
         <button
           className={`lg:hidden ml-auto w-9 h-9 flex flex-col justify-center items-center gap-[5px] rounded-lg hover:bg-[#2EC4B6]/12 transition-colors duration-200 ${scrolled ? 'text-[#0B3C5D]' : 'text-white'}`}
+          ref={toggleRef}
           onClick={() => setOpen(v => !v)}
           aria-label="Toggle menu"
+          aria-expanded={open}
+          aria-controls="mobile-menu"
         >
           <span className={`block h-[1.5px] w-5 bg-current rounded transition-all duration-300 ${open ? 'rotate-45 translate-y-[6.5px]' : ''}`} />
           <span className={`block h-[1.5px] w-5 bg-current rounded transition-all duration-300 ${open ? 'opacity-0' : ''}`} />
@@ -128,6 +144,7 @@ export default function Nav() {
       <AnimatePresence>
         {open && (
           <m.div
+            id="mobile-menu"
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}

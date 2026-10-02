@@ -1,6 +1,6 @@
 'use client'
 import { useEffect, useRef, useState } from 'react'
-import { m, useInView } from 'framer-motion'
+import { m, useInView, useReducedMotion } from 'framer-motion'
 import FadeIn from './FadeIn'
 
 function AnimatedNumber({
@@ -19,9 +19,11 @@ function AnimatedNumber({
   const hasRun = useRef(false)
   const ref = useRef<HTMLSpanElement>(null)
   const inView = useInView(ref as React.RefObject<Element>, { once: true })
+  const reduceMotion = useReducedMotion()
 
   useEffect(() => {
-    if (!inView || hasRun.current) return
+    // Reduced motion: keep showing the final number, no count-up
+    if (!inView || hasRun.current || reduceMotion) return
     hasRun.current = true
     let start: number | null = null
     const total = duration * 1000
@@ -35,7 +37,7 @@ function AnimatedNumber({
       if (progress < 1) requestAnimationFrame(step)
     }
     requestAnimationFrame(step)
-  }, [inView, target, duration])
+  }, [inView, target, duration, reduceMotion])
 
   return (
     <span ref={ref} className="tabular-nums">

@@ -19,7 +19,7 @@ const specialties = [
 
 export default function Hero() {
   return (
-    <section className="relative w-full min-h-screen overflow-hidden" style={{ background: '#071e2e' }}>
+    <section id="main-content" className="relative w-full min-h-screen overflow-hidden" style={{ background: '#071e2e' }}>
 
       {/* ════════════════════════════════════════════════
           FULL-BLEED BACKGROUND IMAGE

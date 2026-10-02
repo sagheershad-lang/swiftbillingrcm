@@ -136,6 +136,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name="apple-mobile-web-app-title" content="SwiftBilling RCM" />
       </head>
       <body>
+        <a href="#main-content" className="skip-link">Skip to content</a>
         <MotionProvider>{children}</MotionProvider>
         <Analytics />
         {/* Google Analytics — lazyOnload: gtag.js loads after the page has finished loading, so its

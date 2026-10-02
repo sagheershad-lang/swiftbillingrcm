@@ -36,7 +36,7 @@ const textItem = {
 
 export default function ServicesHero() {
   return (
-    <section className="relative overflow-hidden" style={{ background: '#0d2137' }}>
+    <section id="main-content" className="relative overflow-hidden" style={{ background: '#0d2137' }}>
       {/* ── Background effects ─────────────────────────────────── */}
       <div className="pointer-events-none absolute inset-0">
         <div

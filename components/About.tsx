@@ -1,7 +1,7 @@
 'use client'
 import Image from 'next/image'
 import { useEffect, useRef, useState } from 'react'
-import { useInView, m } from 'framer-motion'
+import { useInView, useReducedMotion, m } from 'framer-motion'
 import FadeIn from './FadeIn'
 
 const bullets = [
@@ -20,9 +20,11 @@ function CountUp({ target, prefix = '', suffix = '', isStatic = false, staticVal
   const hasRun = useRef(false)
   const ref = useRef<HTMLSpanElement>(null)
   const inView = useInView(ref as React.RefObject<Element>, { once: true })
+  const reduceMotion = useReducedMotion()
 
   useEffect(() => {
-    if (!inView || isStatic || hasRun.current) return
+    // Reduced motion: keep showing the final number, no count-up
+    if (!inView || isStatic || hasRun.current || reduceMotion) return
     hasRun.current = true
     let start: number | null = null
     const duration = 1800
@@ -35,7 +37,7 @@ function CountUp({ target, prefix = '', suffix = '', isStatic = false, staticVal
       if (progress < 1) requestAnimationFrame(step)
     }
     requestAnimationFrame(step)
-  }, [inView, target, isStatic])
+  }, [inView, target, isStatic, reduceMotion])
 
   return (
     <span ref={ref} className="tabular-nums">
