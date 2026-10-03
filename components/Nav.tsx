@@ -3,11 +3,13 @@ import { useState, useEffect, useRef } from 'react'
 import { m, AnimatePresence } from 'framer-motion'
 import Link from 'next/link'
 
+// mobileOnly: shown in the mobile menu only (the desktop bar has no room for it at 1280px)
 const links = [
   { href: '/services',       label: 'Services' },
   { href: '/#specialties',   label: 'Specialties' },
   { href: '/#process',       label: 'Process' },
-  { href: '/#testimonials',  label: 'Why Us' },
+  { href: '/#why-us',        label: 'Why Us' },
+  { href: '/#testimonials',  label: 'Our Approach', mobileOnly: true },
   { href: '/#faq',           label: 'FAQ' },
 ]
 
@@ -70,7 +72,7 @@ export default function Nav() {
 
         {/* Nav links */}
         <ul className="hidden lg:flex items-center gap-9 list-none flex-1">
-          {links.map(l => (
+          {links.filter(l => !l.mobileOnly).map(l => (
             <li key={l.href}>
               <a
                 href={l.href}

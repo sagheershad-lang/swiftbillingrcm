@@ -102,7 +102,6 @@ const jsonLd = {
       },
       serviceType: 'Medical Billing & Revenue Cycle Management',
       priceRange: '4% to 9% of collections',
-      openingHours: 'Mo-Fr 08:00-18:00',
       openingHoursSpecification: {
         '@type': 'OpeningHoursSpecification',
         dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],

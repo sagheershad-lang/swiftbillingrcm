@@ -6,7 +6,7 @@ const quickLinks = [
   { label: 'Why Choose Us',  href: '/#why-us' },
   { label: 'How It Works',   href: '/#process' },
   { label: 'Specialties',    href: '/#specialties' },
-  { label: 'Why Us',         href: '/#testimonials' },
+  { label: 'Our Approach',   href: '/#testimonials' },
   { label: 'Free Audit',     href: '/#audit' },
 ]
 

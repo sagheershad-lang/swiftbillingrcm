@@ -215,7 +215,7 @@ export default function About() {
                 </div>
                 <div>
                   <p className="text-[12px] font-extrabold text-[#0F172A] leading-tight">HIPAA Compliant</p>
-                  <p className="text-[10px] text-[#64748B] font-medium">100% Compliant</p>
+                  <p className="text-[10px] text-[#64748B] font-medium">BAA with every client</p>
                 </div>
               </m.div>
               </m.div>
