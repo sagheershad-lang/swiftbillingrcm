@@ -44,7 +44,7 @@ export default function FAQ() {
             <div className="flex flex-col gap-2.5 mb-8">
               {[
                 { icon: '🔒', text: 'HIPAA compliant, with a BAA signed for every client' },
-                { icon: '📋', text: 'No contracts, no upfront fees' },
+                { icon: '📋', text: 'No long-term contracts, no upfront fees' },
                 { icon: '⚡', text: 'Onboarding in 5 to 7 business days' },
                 { icon: '📞', text: 'Dedicated account manager for every practice' },
               ].map((t) => (

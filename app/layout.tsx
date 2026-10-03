@@ -74,11 +74,17 @@ const jsonLd = {
   '@context': 'https://schema.org',
   '@graph': [
     {
-      '@type': ['LocalBusiness', 'MedicalBusiness'],
+      '@type': ['LocalBusiness', 'ProfessionalService'],
       '@id': 'https://www.swiftbillingrcm.com/#business',
       name: 'SwiftBilling RCM',
       url: 'https://www.swiftbillingrcm.com',
       logo: 'https://www.swiftbillingrcm.com/apple-icon',
+      image: 'https://www.swiftbillingrcm.com/opengraph-image',
+      sameAs: [
+        'https://www.linkedin.com/company/swiftbilling-rcm/',
+        'https://www.facebook.com/swiftbilling',
+        'https://www.instagram.com/swiftbillingrcm/',
+      ],
       description: 'Expert medical billing and revenue cycle management for US healthcare practices. HIPAA compliant. 98% clean claim rate. Free 24-hour audit.',
       telephone: '+1-512-737-7488',
       email: 'info@swiftbillingrcm.com',
@@ -97,6 +103,12 @@ const jsonLd = {
       serviceType: 'Medical Billing & Revenue Cycle Management',
       priceRange: '4% to 9% of collections',
       openingHours: 'Mo-Fr 08:00-18:00',
+      openingHoursSpecification: {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+        opens: '08:00',
+        closes: '18:00',
+      },
       hasOfferCatalog: {
         '@type': 'OfferCatalog',
         name: 'Medical Billing Services',
@@ -105,7 +117,7 @@ const jsonLd = {
           { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'AR Follow-Up' } },
           { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Denial Management' } },
           { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Payment Posting' } },
-          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Credentialing' } },
+          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Provider Credentialing' } },
           { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Reporting & Analytics' } },
         ],
       },

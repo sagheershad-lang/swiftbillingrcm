@@ -6,7 +6,7 @@ const quickLinks = [
   { label: 'Why Choose Us',  href: '/#why-us' },
   { label: 'How It Works',   href: '/#process' },
   { label: 'Specialties',    href: '/#specialties' },
-  { label: 'Testimonials',   href: '/#testimonials' },
+  { label: 'Why Us',         href: '/#testimonials' },
   { label: 'Free Audit',     href: '/#audit' },
 ]
 
@@ -20,7 +20,7 @@ const services = [
   { label: 'AR Follow-Up',          href: '/services/ar-follow-up' },
   { label: 'Denial Management',     href: '/services/denial-management' },
   { label: 'Payment Posting',       href: '/services/payment-posting' },
-  { label: 'Credentialing',         href: '/services/credentialing' },
+  { label: 'Provider Credentialing', href: '/services/credentialing' },
   { label: 'Reporting & Analytics', href: '/services/reporting-analytics' },
 ]
 
@@ -303,7 +303,7 @@ export default function Footer() {
 
               {/* Hours + Coverage (non-link) */}
               {[
-                { label: 'Hours',    value: 'Mon to Fri · 8am to 6pm CST' },
+                { label: 'Hours',    value: 'Mon to Fri · 8am to 6pm Central Time' },
                 { label: 'Coverage', value: 'All 50 US States' },
               ].map(({ label, value }) => (
                 <div key={label} className="flex items-start gap-3">

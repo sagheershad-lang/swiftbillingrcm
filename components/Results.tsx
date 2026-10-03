@@ -192,7 +192,7 @@ export default function Results() {
               Call Us Now
             </a>
           </div>
-          <p className="text-[12px] text-white/30 mt-4 font-medium">No contracts · No upfront fees · Response within 24 hours</p>
+          <p className="text-[12px] text-white/30 mt-4 font-medium"><span className="whitespace-nowrap">No long-term contracts</span> · <span className="whitespace-nowrap">No upfront fees</span> · <span className="whitespace-nowrap">Response within 24 hours</span></p>
         </FadeIn>
       </div>
     </section>

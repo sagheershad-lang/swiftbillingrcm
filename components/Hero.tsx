@@ -14,7 +14,7 @@ const inlineStats = [
 
 const specialties = [
   'Internal Medicine', 'Cardiology', 'Orthopedics',
-  'Psychiatry', 'OB-GYN', 'Urgent Care', '+14 more',
+  'Psychiatry', 'OB/GYN', 'Urgent Care', '+14 more',
 ]
 
 export default function Hero() {
@@ -29,7 +29,7 @@ export default function Hero() {
         <BreakpointImage
           media="(min-width: 768px)"
           src="/hero-home.png"
-          alt="SwiftBilling RCM medical billing team"
+          alt="Three people in a bright office reviewing financial charts on a computer monitor"
           fill
           loading="eager"
           fetchPriority="high"
@@ -208,7 +208,8 @@ export default function Hero() {
                 </a>
               </div>
               <p className="text-[12px] text-white/32 font-medium pl-1 leading-relaxed">
-                No contracts · No upfront fees · Response within 24 hours
+                {/* Each item stays whole so narrow screens only break between items */}
+                <span className="whitespace-nowrap">No long-term contracts</span> · <span className="whitespace-nowrap">No upfront fees</span> · <span className="whitespace-nowrap">Response within 24 hours</span>
               </p>
             </div>
           </div>

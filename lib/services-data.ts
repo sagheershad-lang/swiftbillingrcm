@@ -55,7 +55,7 @@ export const servicesData: ServiceData[] = [
     features: [
       { icon: 'specialty', title: 'Multi-Specialty Coding', description: 'Certified coders trained in 20+ specialties, from internal medicine to orthopedics, psychiatry, and beyond.' },
       { icon: 'clock', title: 'Fast Claim Submission', description: 'Claims submitted within 24 to 48 hours of charge entry, with no backlogs or delays.' },
-      { icon: 'integration', title: 'EHR Integration', description: 'Works with Epic, Athena, eClinicalWorks, Tebra, AdvancedMD, DrChrono, and more.' },
+      { icon: 'integration', title: 'EHR Integration', description: 'Works with Epic, athenahealth, eClinicalWorks, Tebra, AdvancedMD, DrChrono, and more.' },
       { icon: 'modifier', title: 'Modifier & Bundling Expertise', description: 'Correct application of modifiers (25, 59, 95, GT, etc.) to protect against improper bundling rejections.' },
       { icon: 'paper', title: 'Electronic & Paper Claims', description: 'EDI 837 electronic submission for speed plus paper CMS-1500/UB-04 when required.' },
       { icon: 'track', title: 'Real-Time Claim Tracking', description: 'Every submitted claim tracked through acceptance, adjudication, and payment.' },
@@ -199,7 +199,7 @@ export const servicesData: ServiceData[] = [
     faqs: [
       { q: 'How do you handle payer underpayments?', a: 'Every payment is compared against your contracted fee schedule. When a payer pays less than contracted, we flag it, document it, and submit a payment dispute or balance billing request. Most practices are losing 3 to 7% of revenue to undetected underpayments.' },
       { q: 'Do you handle secondary billing after the primary payer posts?', a: 'Yes. Immediately after the primary insurance pays, we generate and submit the secondary (and tertiary) claim with the primary EOB attached. We also generate the patient statement for any remaining patient responsibility.' },
-      { q: 'How does this integrate with our EHR or practice management system?', a: 'We post directly into your existing practice management system, so no migration is needed. We work inside Epic, Athena, eClinicalWorks, Tebra, AdvancedMD, and all major systems.' },
+      { q: 'How does this integrate with our EHR or practice management system?', a: 'We post directly into your existing practice management system, so no migration is needed. We work inside Epic, athenahealth, eClinicalWorks, Tebra, AdvancedMD, and all major systems.' },
     ],
     relatedSlugs: ['ar-follow-up', 'medical-billing', 'patient-calling'],
     metaTitle: 'Medical Billing Payment Posting Services | SwiftBilling RCM',
@@ -303,7 +303,7 @@ export const servicesData: ServiceData[] = [
       { icon: 'verify', title: 'PA Requirement Verification', description: 'Real-time check at scheduling to confirm whether a PA is required before the patient arrives.' },
       { icon: 'submit', title: 'Same-Day PA Submission', description: 'Authorization requests submitted the same day they\'re identified, with no waiting.' },
       { icon: 'track', title: 'Daily Status Tracking', description: 'We check PA status every day until a decision is received, so no authorization gets lost in limbo.' },
-      { icon: 'attach', title: 'Auth-to-Claim Matching', description: 'Authorization number verified and attached to every claim before submission. Nothing is billed without an auth.' },
+      { icon: 'attach', title: 'Auth-to-Claim Matching', description: 'Authorization number verified and attached to every claim before submission. Nothing is billed without authorization.' },
       { icon: 'retro', title: 'Retroactive PA Requests', description: 'Emergency services rendered without prior auth? We pursue retroactive authorization on your behalf.' },
       { icon: 'appeal', title: 'PA Denial Appeals', description: 'Denied prior auths are appealed immediately with clinical documentation, and peer-to-peer reviews are coordinated.' },
     ],
@@ -444,7 +444,7 @@ export const servicesData: ServiceData[] = [
     ],
     faqs: [
       { q: 'How do you learn our scheduling protocols?', a: 'During onboarding (5 to 7 days), we shadow your current scheduling process, document your appointment types, provider availability, and rules, and configure your EHR access. By go-live, we schedule just like your own team would.' },
-      { q: 'What EHR systems do you work with for scheduling?', a: 'We work with all major EHR and practice management systems that allow external access, including Epic, Athena, eClinicalWorks, Tebra, AdvancedMD, and others. We schedule directly in your system, not a parallel one.' },
+      { q: 'What EHR systems do you work with for scheduling?', a: 'We work with all major EHR and practice management systems that allow external access, including Epic, athenahealth, eClinicalWorks, Tebra, AdvancedMD, and others. We schedule directly in your system, not a parallel one.' },
       { q: 'Do you handle after-hours calls?', a: 'We monitor after-hours voicemail and action appointment requests first thing the next business day. For practices that need live after-hours coverage, we can discuss extended coverage options.' },
     ],
     relatedSlugs: ['eligibility-verification', 'prior-authorization', 'patient-calling'],
@@ -454,11 +454,11 @@ export const servicesData: ServiceData[] = [
   {
     slug: 'patient-acquisition',
     name: 'Patient Acquisition',
-    shortDescription: 'Profile optimization, directory listings, and online presence setup so new and growing practices attract the right patients.',
+    shortDescription: 'Google Ads, local SEO, and Google Business Profile setup that attract new patients, while we handle their billing too.',
     badge: 'New Service',
     isNew: true,
     tagline: 'More Patients. More Revenue. Handled.',
-    description: 'Google Ads, local SEO, and GBP that fill your schedule and grows your practice.',
+    description: 'Google Ads, local SEO, and GBP that fill your schedule and grow your practice.',
     category: 'extended',
     problem: 'Most medical billing companies help you collect revenue from existing patients, but nobody helps you grow your patient panel. New providers can wait months to fill their schedule, and established practices lose patients to better-marketed competitors every day, all while paying a separate marketing agency that doesn\'t understand healthcare.',
     solution: 'We combine our deep healthcare knowledge with proven digital marketing strategies: Google Ads targeted to patients actively searching for your specialty, local SEO to dominate "near me" searches, and a fully optimized Google Business Profile. You get more patients, and we handle their billing too, so you have one partner for the full revenue cycle.',
@@ -484,7 +484,7 @@ export const servicesData: ServiceData[] = [
     ],
     faqs: [
       { q: 'Is this service legal and compliant for medical practices?', a: 'Absolutely. Google Ads and local SEO for medical practices are completely legitimate and widely used by hospitals, health systems, and private practices across the US. We follow all Google healthcare advertising policies and ensure all ad content is accurate and compliant.' },
-      { q: 'What specialties does this work best for?', a: 'It works exceptionally well for any specialty where patients actively search online, including primary care, urgent care, dermatology, orthopedics, mental health, OB-GYN, pediatrics, and concierge medicine. We tailor the strategy to your specialty and local market.' },
+      { q: 'What specialties does this work best for?', a: 'It works exceptionally well for any specialty where patients actively search online, including primary care, urgent care, dermatology, orthopedics, mental health, OB/GYN, pediatrics, and concierge medicine. We tailor the strategy to your specialty and local market.' },
       { q: 'How is this different from a regular marketing agency?', a: 'A regular agency doesn\'t understand medical billing, insurance mix, or what a "high-value" patient looks like for your specialty. We do, because we\'re already managing your revenue cycle. We optimize for the patients who are most likely to be insured, compliant, and revenue-positive for your practice.' },
       { q: 'Do I need a website already?', a: 'Not necessarily. We can build a focused patient landing page as part of this service. If you have an existing website, we optimize it for local SEO. A full website build is available as an add-on.' },
     ],

@@ -61,9 +61,9 @@ const services = [
     ),
   },
   {
-    title: 'Credentialing',
+    title: 'Provider Credentialing',
     slug: 'credentialing',
-    linkLabel: 'Credentialing',
+    linkLabel: 'Provider Credentialing',
     desc: 'Complete provider enrollment with all major commercial payers and Medicare/Medicaid. We handle all the paperwork so you can start billing sooner.',
     tag: 'All Major Payers',
     icon: (
@@ -244,7 +244,7 @@ export default function Services() {
                   Not sure where your revenue is leaking?
                 </p>
                 <p className="text-[15px] md:text-[13px] text-white/55">
-                  Get a free audit in 24 hours and we&apos;ll show you exactly where it&apos;s going.
+                  Get a free audit in 24 hours and we&apos;ll show you exactly where your revenue is going.
                 </p>
               </div>
 

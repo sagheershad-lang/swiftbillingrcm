@@ -77,7 +77,7 @@ const pillars = [
   { n: '98%', label: 'Clean Claim Rate' },
   { n: '< 30', label: 'Days to First Payment' },
   { n: '20+', label: 'Specialties Served' },
-  { n: '5 Days', label: 'Onboarding Timeline' },
+  { n: '5 to 7', label: 'Business Days to Onboard' },
 ]
 
 export default function Testimonials() {

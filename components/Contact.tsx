@@ -19,7 +19,8 @@ const contactDetails = [
   {
     title: 'Call Us',
     value: '+1 (512) 737-7488',
-    sub: 'Mon to Fri · 8am to 6pm CST',
+    // Non-breaking spaces so narrow cards only wrap after the "·", never inside "Central Time"
+    sub: 'Mon to Fri · 8am to 6pm Central Time',
     href: 'tel:+15127377488',
     icon: (
       <svg width="20" height="20" viewBox="0 0 20 20" fill="none">

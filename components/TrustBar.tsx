@@ -33,7 +33,7 @@ const stats = [
     value: 0,
     suffix: '',
     label: 'HIPAA Compliant',
-    desc: 'Fully certified & secure workflows',
+    desc: 'Secure, HIPAA-compliant workflows',
     staticVal: '100%',
     icon: (
       <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
@@ -61,13 +61,16 @@ const stats = [
 ]
 
 function Counter({ target, suffix, staticVal }: { target: number; suffix: string; staticVal?: string }) {
-  const [n, setN] = useState(0)
+  // Start at target so SSR & initial client render show the real number (no 0 flash)
+  const [n, setN] = useState(target)
   const ref = useRef<HTMLSpanElement>(null)
   const inView = useInView(ref as React.RefObject<Element>, { once: true })
   const reduceMotion = useReducedMotion()
 
   useEffect(() => {
     if (!inView || staticVal || reduceMotion) return
+    // First frame resets the number to 0, then it counts up as before
+    const raf = requestAnimationFrame(() => setN(0))
     let frame = 0
     const total = 55
     const id = setInterval(() => {
@@ -76,7 +79,7 @@ function Counter({ target, suffix, staticVal }: { target: number; suffix: string
       setN(Math.round(t * target))
       if (frame >= total) clearInterval(id)
     }, 20)
-    return () => clearInterval(id)
+    return () => { cancelAnimationFrame(raf); clearInterval(id) }
   }, [inView, target, staticVal, reduceMotion])
 
   if (staticVal) return <span ref={ref}>{staticVal}</span>

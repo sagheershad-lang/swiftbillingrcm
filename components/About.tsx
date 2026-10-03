@@ -9,7 +9,7 @@ const bullets = [
   { title: 'Transparent Reporting', desc: 'KPI dashboards delivered every month, with full visibility into claims, payments, and AR.' },
   { title: 'Dedicated Manager',     desc: 'A single point of contact who knows your practice, your payers, and your goals.' },
   { title: 'Proven Track Record',   desc: '98% clean claim rate and measurable revenue improvements from the first month.' },
-  { title: 'Fast Onboarding',       desc: 'Actively billing within 5 business days of sign-up. Credentialing is handled in parallel.' },
+  { title: 'Fast Onboarding',       desc: 'Actively billing within 5 to 7 business days of sign-up. Credentialing is handled in parallel.' },
 ]
 
 function CountUp({ target, prefix = '', suffix = '', isStatic = false, staticVal = '' }: {
@@ -214,7 +214,7 @@ export default function About() {
                   </svg>
                 </div>
                 <div>
-                  <p className="text-[12px] font-extrabold text-[#0F172A] leading-tight">HIPAA Certified</p>
+                  <p className="text-[12px] font-extrabold text-[#0F172A] leading-tight">HIPAA Compliant</p>
                   <p className="text-[10px] text-[#64748B] font-medium">100% Compliant</p>
                 </div>
               </m.div>

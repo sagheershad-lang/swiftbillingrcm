@@ -171,8 +171,8 @@ export default function Terms() {
               warranties of merchantability, fitness for a particular purpose, or non-infringement.
             </p>
             <p className="mt-3">
-              Statistical claims (e.g., &quot;up to 35% increase in collections&quot;) are based on reported client
-              outcomes and are illustrative. Individual results will vary based on practice size, specialty,
+              Statistical claims (e.g., &quot;up to 35% increase in collections&quot;) are based on our billing team&apos;s results across multiple
+              practices and are illustrative. Individual results will vary based on practice size, specialty,
               payer mix, current billing performance, and other factors. No specific outcome is guaranteed.
             </p>
           </section>
