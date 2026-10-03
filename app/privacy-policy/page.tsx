@@ -185,8 +185,13 @@ export default function PrivacyPolicy() {
                 features, such as the chat, may not work without them.
               </li>
               <li>
-                <strong>HubSpot cookie banner:</strong> when the banner appears, you can use it to accept or
-                decline cookies.
+                <strong>Cookie banner:</strong> when you first visit, a banner lets you accept or decline
+                cookies. You can change your choice any time using the Cookie Settings link in the website
+                footer.
+              </li>
+              <li>
+                <strong>Global Privacy Control:</strong> if your browser sends a Global Privacy Control signal,
+                we treat it as a request to opt out of cookie tracking.
               </li>
               <li>
                 <strong>Google Analytics opt out:</strong> you can install the{' '}
