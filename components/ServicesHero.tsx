@@ -5,7 +5,7 @@ import Link from 'next/link'
 
 const stats = [
   { value: '98%+', label: 'Clean Claim Rate' },
-  { value: '<24h', label: 'Submission Speed' },
+  { value: '24–48h', label: 'Submission Speed' },
   { value: '11',   label: 'Services' },
   { value: '50+',  label: 'Payer Networks' },
 ]

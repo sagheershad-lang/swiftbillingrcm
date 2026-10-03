@@ -51,10 +51,10 @@ export const servicesData: ServiceData[] = [
     description: 'Charge entry, coding, clean claim submission, and real-time tracking — handled end-to-end so you get paid faster.',
     category: 'core',
     problem: 'A single coding error or missed modifier can turn a legitimate claim into a denial or underpayment — costing your practice thousands each month without you even realizing it. Most in-house billing teams are overwhelmed and undertrained for specialty-specific nuances.',
-    solution: 'Our CPC-certified coders review every charge, apply the right CPT and ICD-10 codes for your specialty, and submit clean claims within 24 hours of service. We handle the full payer lifecycle so your team never has to chase a claim.',
+    solution: 'Our CPC-certified coders review every charge, apply the right CPT and ICD-10 codes for your specialty, and submit clean claims within 24–48 hours of service. We handle the full payer lifecycle so your team never has to chase a claim.',
     features: [
       { icon: 'specialty', title: 'Multi-Specialty Coding', description: 'Certified coders trained in 20+ specialties — from internal medicine to orthopedics, psychiatry, and beyond.' },
-      { icon: 'clock', title: 'Same-Day Submission', description: 'Claims submitted within 24 hours of charge entry — no backlogs, no delays.' },
+      { icon: 'clock', title: 'Fast Claim Submission', description: 'Claims submitted within 24–48 hours of charge entry — no backlogs, no delays.' },
       { icon: 'integration', title: 'EHR Integration', description: 'Works with Epic, Athena, eClinicalWorks, Tebra, AdvancedMD, DrChrono, and more.' },
       { icon: 'modifier', title: 'Modifier & Bundling Expertise', description: 'Correct application of modifiers (25, 59, 95, GT, etc.) to protect against improper bundling rejections.' },
       { icon: 'paper', title: 'Electronic & Paper Claims', description: 'EDI 837 electronic submission for speed plus paper CMS-1500/UB-04 when required.' },
@@ -64,11 +64,11 @@ export const servicesData: ServiceData[] = [
       { step: '01', title: 'Charge Capture', description: 'Provider documents service in EHR. Our team pulls charges daily — no batch delays.' },
       { step: '02', title: 'Coding Review', description: 'CPC-certified coder reviews, corrects, and optimizes codes for your specialty.' },
       { step: '03', title: 'Clean Claim Build', description: 'Claim built to each payer\'s specific requirements to maximize first-pass acceptance.' },
-      { step: '04', title: 'Electronic Submission', description: 'Clean claim submitted electronically within 24 hours — tracked to confirmation.' },
+      { step: '04', title: 'Electronic Submission', description: 'Clean claim submitted electronically within 24–48 hours — tracked to confirmation.' },
     ],
     stats: [
       { value: '98%+', label: 'Clean Claim Rate' },
-      { value: '<24h', label: 'Submission Turnaround' },
+      { value: '24–48h', label: 'Submission Turnaround' },
       { value: '20+', label: 'Specialties Covered' },
       { value: '$0', label: 'Setup Fee' },
     ],
@@ -80,7 +80,7 @@ export const servicesData: ServiceData[] = [
     ],
     relatedSlugs: ['ar-follow-up', 'denial-management', 'payment-posting'],
     metaTitle: 'Medical Billing & Coding Services | SwiftBilling RCM',
-    metaDescription: 'Expert medical billing and charge entry with 98%+ clean claim rates. CPC-certified coders, same-day submission, EHR integration. Free audit.',
+    metaDescription: 'Expert medical billing and charge entry with 98%+ clean claim rates. CPC-certified coders, claims submitted in 24–48 hours, EHR integration. Free audit.',
   },
 
   {
@@ -194,7 +194,7 @@ export const servicesData: ServiceData[] = [
       { value: 'Same Day', label: 'Posting Turnaround' },
       { value: '99.9%', label: 'Posting Accuracy' },
       { value: '100%', label: 'Payments Reconciled' },
-      { value: '0', label: 'Underpayments Missed' },
+      { value: 'Every', label: 'Payment Checked Against Your Fee Schedule' },
     ],
     faqs: [
       { q: 'How do you handle payer underpayments?', a: 'Every payment is compared against your contracted fee schedule. When a payer pays less than contracted, we flag it, document it, and submit a payment dispute or balance billing request. Most practices are losing 3–7% of revenue to undetected underpayments.' },
@@ -234,7 +234,7 @@ export const servicesData: ServiceData[] = [
     stats: [
       { value: '5–7', label: 'Day Onboarding' },
       { value: '50+', label: 'Payer Networks' },
-      { value: '0', label: 'Revenue Lost to Lapsed Creds' },
+      { value: 'Ongoing', label: 'Re-Credentialing Dates Tracked' },
       { value: '100%', label: 'Applications Tracked to Completion' },
     ],
     faqs: [
@@ -275,7 +275,7 @@ export const servicesData: ServiceData[] = [
     stats: [
       { value: '15+', label: 'KPIs Tracked Monthly' },
       { value: '10th', label: 'Dashboard Delivered By' },
-      { value: '100%', label: 'Transparency — No Black Boxes' },
+      { value: 'Every', label: 'Number Explained by Your Account Manager' },
       { value: 'Custom', label: 'Reports on Request' },
     ],
     faqs: [
@@ -440,7 +440,7 @@ export const servicesData: ServiceData[] = [
       { value: '30%', label: 'Reduction in No-Shows' },
       { value: '25%', label: 'Increase in Appointment Fill Rate' },
       { value: '5–7', label: 'Day Setup' },
-      { value: '100%', label: 'Calls Answered — None Missed' },
+      { value: 'Next Day', label: 'After-Hours Messages Actioned' },
     ],
     faqs: [
       { q: 'How do you learn our scheduling protocols?', a: 'During onboarding (5–7 days), we shadow your current scheduling process, document your appointment types, provider availability, and rules, and configure your EHR access. By go-live, we schedule just like your own team would.' },
@@ -478,8 +478,8 @@ export const servicesData: ServiceData[] = [
     ],
     stats: [
       { value: '7–10', label: 'Days to Launch' },
-      { value: '3x', label: 'Average Return on Ad Spend' },
-      { value: '#1', label: 'Differentiator vs. Other RCM Companies' },
+      { value: 'Monthly', label: 'Leads, Cost, and ROI Reported' },
+      { value: 'One', label: 'Partner for Marketing and Billing' },
       { value: '100%', label: 'Healthcare-Focused Strategy' },
     ],
     faqs: [

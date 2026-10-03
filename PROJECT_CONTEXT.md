@@ -18,9 +18,9 @@
 | Address | 5900 Balcones Dr #7192, Austin, TX 78731, USA |
 | Hours | Mon–Fri · 8am–6pm CST |
 | Coverage | All 50 US states, 20+ specialties |
-| Pricing (for copy/FAQ) | 4–7% of collections, no setup fee, no long-term contracts |
+| Pricing (for copy/FAQ) | 4–9% of collections, no setup fee, no long-term contracts |
 | Key claims used in copy | 98% clean claim rate · free 24-hour revenue audit · 5–7 day onboarding · HIPAA compliant, BAA signed with every client · CPC-certified coders · CAQH credentialing |
-| Socials | LinkedIn `linkedin.com/company/swiftbilling-rcm/` · Facebook `facebook.com/swiftbillingrcm/` · Instagram `instagram.com/swiftbillingrcm/` |
+| Socials | LinkedIn `linkedin.com/company/swiftbilling-rcm/` · Facebook `facebook.com/swiftbilling` · Instagram `instagram.com/swiftbillingrcm/` |
 
 **Content rules decided along the way**
 - No fake testimonials, no invented client names, no five-star review widgets. The old testimonials section was replaced with a "Why Practices Choose Us" trust section.
@@ -196,6 +196,7 @@ The **Services hub** (`/services`) uses `ServicesHero` with `/Service.png` and t
 - QA Phase 4 (performance): HubSpot on first interaction and GA lazyOnload, CSS hero text animation, per-breakpoint hero images, sized platform logos, server-rendered below-fold sections, LazyMotion, AccordionItem split. Lighthouse mobile went from Performance 24–33 / LCP 7.6–7.8s / CLS 0.23 to 67–72 / 3.5–3.8s / 0.
 - QA Phase 5 (accessibility): skip link, visible focus rings, Escape closes the mobile menu, reduced-motion support, announced form errors, 44px mobile tap targets, 15px minimum mobile body text, `#0a756c` hover text on light backgrounds, marquee copies hidden from screen readers and descriptive hero alt text on all breakpoints.
 - QA Phase 6 (content and SEO): every page now has its own canonical, Open Graph and Twitter tags (they all pointed to the homepage before); titles 50–60 and descriptions 140–160 characters with no duplicates; homepage FAQ JSON-LD now matches the visible FAQ; JSON-LD logo fixed (old `/og-image.png` was a 404) and "Charge Entry" renamed to "Medical Billing"; grammar and brand-name fixes; auto-reply email now replies to info@. Numbers, claims, pricing, CST and legal text left for the owner.
+- QA Phase 6 Round B (owner-approved): pricing 4–9% everywhere incl. Terms; claim submission 24–48 hours everywhere; headline stats reworded as the billing team's own results (not company-wide client data); absolute stat cards in services-data.ts replaced with process statements; About photo alt made neutral (AI-generated image, not the real team); Facebook URL now facebook.com/swiftbilling.
 
 ---
 

@@ -165,7 +165,7 @@ export default function About() {
               <div className="relative rounded-3xl overflow-hidden h-full min-h-[280px] sm:min-h-[420px] lg:min-h-[580px]">
                 <Image
                   src="/about-photo.png"
-                  alt="SwiftBilling RCM experienced medical billing professionals"
+                  alt="People wearing headsets working at computers in a bright open-plan office"
                   fill
                   priority={false}
                   loading="lazy"

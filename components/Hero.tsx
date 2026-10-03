@@ -7,7 +7,7 @@ const HERO_BLUR =
 
 const inlineStats = [
   { value: '98%+',  label: 'Clean Claim Rate'  },
-  { value: '<24h',  label: 'Claim Submission'  },
+  { value: '24–48h', label: 'Claim Submission' },
   { value: '20+',   label: 'Specialties'       },
   { value: '4–9%',  label: 'Cost to Collect'   },
 ]
@@ -264,7 +264,7 @@ export default function Hero() {
           Avg Reimbursement
         </div>
         <div className="text-[10px] mt-0.5" style={{ color: 'rgba(255,255,255,0.28)' }}>
-          Top clients: 14 business days
+          Fastest claims: 14 business days
         </div>
       </m.div>
 

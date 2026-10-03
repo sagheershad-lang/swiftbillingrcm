@@ -163,7 +163,7 @@ export default function Footer() {
               </a>
               {/* Facebook */}
               <a
-                href="https://www.facebook.com/swiftbillingrcm/"
+                href="https://www.facebook.com/swiftbilling"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="SwiftBilling RCM on Facebook"

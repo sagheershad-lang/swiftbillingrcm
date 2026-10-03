@@ -109,7 +109,7 @@ export default function Terms() {
             <h2 className="text-[18px] font-extrabold text-[#0B3C5D] mb-3">4. Pricing & Payment</h2>
             <p>
               Our billing services are priced as a percentage of monthly collections, typically between
-              4% and 7% depending on specialty, volume, and scope of work. Exact pricing is confirmed in
+              4% and 9% depending on specialty, volume, and scope of work. Exact pricing is confirmed in
               the written service agreement.
             </p>
             <p className="mt-3">

@@ -10,7 +10,7 @@ export const homeFaqs = [
   },
   {
     q: 'How quickly can I see results?',
-    a: 'Most clients begin seeing measurable improvements within the first 30–60 days. Clients have reported up to 35% increases in collections and 40% reductions in AR days within 90 days — individual results vary by practice size and starting point. Onboarding takes 5–7 business days, after which we begin submitting claims immediately with clear KPI benchmarks set from day one.',
+    a: 'Most clients begin seeing measurable improvements within the first 30–60 days. Our billing team has delivered up to 35% increases in collections and 40% reductions in AR days within 90 days across multiple practices — individual results vary by practice size and starting point. Onboarding takes 5–7 business days, after which we begin submitting claims immediately with clear KPI benchmarks set from day one.',
   },
   {
     q: 'How do you handle denied claims?',

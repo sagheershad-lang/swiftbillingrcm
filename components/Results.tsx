@@ -52,21 +52,21 @@ const heroStats = [
     value: 35,
     suffix: '%',
     label: 'Increase in Collections',
-    desc: 'Reported revenue increase practices experience within 90 days. Individual results vary by practice.',
+    desc: 'Revenue increase our team has delivered within 90 days. Individual results vary by practice.',
   },
   {
     prefix: '−',
     value: 40,
     suffix: '%',
     label: 'Reduction in AR Days',
-    desc: 'Reported reduction in AR days after our dedicated AR team takes over. Results vary by starting AR age.',
+    desc: 'Reduction in AR days our dedicated AR team has delivered. Results vary by starting AR age.',
   },
   {
     prefix: '<',
     value: 30,
     suffix: ' Days',
     label: 'Average Reimbursement',
-    desc: 'Most claims paid within 30 days. Top clients collect in as few as 14 business days.',
+    desc: 'Most claims our team handles are paid within 30 days, some in as few as 14 business days.',
   },
 ]
 
@@ -110,7 +110,7 @@ export default function Results() {
             Numbers That Speak for Themselves
           </h2>
           <p className="text-[16px] text-white/50 max-w-[480px] mx-auto leading-relaxed">
-            Real averages across our active client base — measurable improvements from the very first month.
+            Based on our billing team&apos;s results across multiple practices — measurable improvements from the very first month.
           </p>
         </FadeIn>
 
