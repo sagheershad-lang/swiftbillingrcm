@@ -2,6 +2,7 @@
 import { useState, FormEvent, useRef } from 'react'
 import FadeIn from './FadeIn'
 import { m } from 'framer-motion'
+import { MONTHLY_COLLECTIONS, US_STATES } from '@/lib/form-options'
 
 const contactDetails = [
   {
@@ -105,6 +106,8 @@ export default function Contact() {
       phone:         (form.elements.namedItem('phone')         as HTMLInputElement).value,
       practice_name: (form.elements.namedItem('practice_name') as HTMLInputElement).value,
       specialty:     (form.elements.namedItem('specialty')     as HTMLInputElement).value,
+      state:         (form.elements.namedItem('state')         as HTMLSelectElement).value,
+      monthly_collections: (form.elements.namedItem('monthly_collections') as HTMLSelectElement).value,
       message:       (form.elements.namedItem('message')       as HTMLTextAreaElement).value,
     }
 
@@ -298,6 +301,10 @@ export default function Contact() {
                       <CField label="Work Email *"    name="email"         type="email" placeholder="jane@practice.com"      maxLength={254} required invalid={invalidFields.includes('email')} />
                       <CField label="Phone Number *"  name="phone"         type="tel"   placeholder="+1 (512) 000-0000"      maxLength={30}  required invalid={invalidFields.includes('phone')} />
                       <CField label="Specialty"       name="specialty"     type="text"  placeholder="e.g. Internal Medicine" maxLength={100} />
+                      <CSelect label="State" name="state" placeholder="Select a state" options={US_STATES} />
+                      <div className="sm:col-span-2">
+                        <CSelect label="Monthly Collections" name="monthly_collections" placeholder="Select a range" options={MONTHLY_COLLECTIONS} />
+                      </div>
                     </div>
 
                     <div className="flex flex-col gap-1.5">
@@ -364,6 +371,40 @@ export default function Contact() {
         </div>
       </div>
     </section>
+  )
+}
+
+/* ── Optional select (same look as CField; the API accepts only these options) ── */
+function CSelect({ label, name, placeholder, options }: {
+  label: string
+  name: string
+  placeholder: string
+  options: readonly string[]
+}) {
+  return (
+    <div className="flex flex-col gap-1.5">
+      <label htmlFor={name} className="text-[11.5px] font-bold text-[#0F172A] uppercase tracking-[0.08em]">
+        {label}
+      </label>
+      <div className="relative">
+        <select
+          id={name}
+          name={name}
+          defaultValue=""
+          className="w-full appearance-none bg-[#F8FAFC] border border-[#D1DBE8] rounded-xl pl-4 pr-10 py-3
+            text-[16px] sm:text-[14px] text-[#0F172A]
+            outline-none focus:border-[#2EC4B6] focus:ring-2 focus:ring-[#2EC4B6]/10
+            transition-all duration-200 font-medium cursor-pointer"
+        >
+          <option value="">{placeholder}</option>
+          {options.map(o => <option key={o} value={o}>{o}</option>)}
+        </select>
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"
+          className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2">
+          <path d="M3 4.5l3 3 3-3" stroke="#64748B" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        </svg>
+      </div>
+    </div>
   )
 }
 

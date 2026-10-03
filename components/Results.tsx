@@ -79,7 +79,7 @@ const supportingStats = [
   {
     value: '4 to 9%',
     label: 'Cost to Collect',
-    desc: 'Versus 14 to 18% in-house. You keep far more of every dollar collected.',
+    desc: 'A percentage of what we collect for you, so you only pay when you get paid.',
   },
   {
     value: '20+',

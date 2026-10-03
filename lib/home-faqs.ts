@@ -24,4 +24,16 @@ export const homeFaqs = [
     q: 'Can you handle multi-provider or multi-location practices?',
     a: 'Absolutely. We specialize in managing billing across multiple providers and locations. Each provider gets their own credentialing setup, and we consolidate reporting into a single dashboard so you have one clear view of your entire practice\'s financial performance, whether you have 2 providers or 20.',
   },
+  {
+    q: 'What happens to my old AR when I switch to you?',
+    a: 'We take over your existing AR along with your new claims. Older claims are sorted by age and payer and worked systematically, so they keep getting followed up during and after the switch.',
+  },
+  {
+    q: 'How long does it take to switch billing companies?',
+    a: 'Onboarding takes 5 to 7 business days. We follow a clear checklist and plan the handoff with your current biller and EHR, so claims keep moving while we take over.',
+  },
+  {
+    q: 'Do you work with my current EHR?',
+    a: 'Yes. We work inside the EHR and practice management system you already use, including Epic, athenahealth, eClinicalWorks, Tebra, AdvancedMD and DrChrono, so there is no new software for your team to learn.',
+  },
 ]

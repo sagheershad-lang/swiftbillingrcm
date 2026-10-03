@@ -59,17 +59,19 @@ app/
   layout.tsx            Root layout: default metadata, JSON-LD (LocalBusiness + WebSite), GA, HubSpot, Vercel Analytics
   page.tsx              Homepage (section order below), homepage canonical + FAQPage JSON-LD
   globals.css
-  api/contact/route.ts  Contact form → Resend (owner notification + auto-reply), rate limit 5/min/IP, honeypot field "website", sanitize + email validation
+  api/contact/route.ts  Contact form → Resend (owner notification + auto-reply), rate limit 5/min/IP, honeypot field "website", sanitize + email validation; state and monthly collections accepted only if they match lib/form-options.ts
   services/page.tsx     Services hub (uses ServicesHero)
   services/<slug>/page.tsx   11 service pages, each renders <ServicePageLayout service={getService(SLUG)} heroImage=... />
-  book-a-call/page.tsx  Book a Call page: services-hub style hero + HubSpot meetings scheduler in a light card
+  book-a-call/page.tsx  Book a Call page: PageHero + HubSpot meetings scheduler in a light card
+  pricing/page.tsx      Pricing page: PageHero, how pricing works, what affects your rate, core services included, no setup fee / no contracts, 4 question FAQ (FAQPage JSON-LD), audit CTA
   privacy-policy/page.tsx, terms/page.tsx
   not-found.tsx         Branded 404: Nav, "Page not found", Back to Home + View Our Services, Footer (noindex)
   sitemap.ts, robots.ts, icon.tsx, apple-icon.tsx, opengraph-image.tsx
 components/
   Nav, Hero, TrustStrip, TrustBar, Results, Services, Specialties, About,
-  BelowFold (Process, Testimonials, FAQ, Audit, Contact: server-rendered, each in its own code chunk),
-  Process, Testimonials, FAQ, Audit, Contact, Footer, FadeIn,
+  BelowFold (Process, Switching, Testimonials, FAQ, Audit, Contact: server-rendered, each in its own code chunk),
+  Process, Switching ("Switching Billing Companies?" section), Testimonials, FAQ, Audit, Contact, Footer, FadeIn,
+  PageHero (dark services-hub style hero for simple pages: Book a Call, Pricing), PricingFAQ (pricing page accordion),
   ServicePageLayout (template for all service pages), ServicesHero (services hub hero),
   AccordionItem (single FAQ accordion item, used by the homepage FAQ and service page FAQs),
   BreakpointImage (next/image that only downloads at one breakpoint via <picture>; used for the homepage and service heroes),
@@ -79,6 +81,7 @@ components/
 lib/services-data.ts    Single source of truth for all 11 services (copy, features, process, stats, FAQs, meta)
 lib/seo.ts              pageMetadata(): per-page title, description, canonical, Open Graph and Twitter tags (use it on every new page)
 lib/home-faqs.ts        Homepage FAQ data, used by the visible FAQ and the homepage FAQPage JSON-LD (keeps them identical)
+lib/form-options.ts     Contact form select options (monthly collections ranges, 50 states) and pickOption(), shared by the form and the API
 public/                 Hero images, about photo, logos/, signature.png
 next.config.ts          Image formats/sizes, remotePatterns (images.pexels.com), security headers
 ```
@@ -89,7 +92,7 @@ next.config.ts          Image formats/sizes, remotePatterns (images.pexels.com),
 
 | # | Component | Section id | Notes |
 |---|---|---|---|
-| 1 | `Nav` | — | Fixed; transparent → white on scroll. Links: Services (`/services`), Specialties, Process, Why Us (`/#testimonials`), FAQ. Email + phone + "Get Started" CTA → `#audit`. Mobile drawer. |
+| 1 | `Nav` | — | Fixed; transparent → white on scroll. Desktop links: Services (`/services`), Specialties, Process, Why Us (`/#why-us`), FAQ. Mobile menu also has Our Approach (`/#testimonials`) and Pricing (`/pricing`); the desktop bar has only about 8px spare at 1280px. Email + phone + "Get Started" CTA → `#audit`. |
 | 2 | `Hero` | — | Full-bleed `/hero-home.png` (+ mobile version) |
 | 3 | `TrustStrip` | — | "Compatible With Leading Healthcare Platforms": infinite logo marquee of 11 EHR/clearinghouse platforms, grayscale → color on hover, fallback letter badge, disclaimer |
 | 4 | `TrustBar` | `stats` | Stat cards |
@@ -98,13 +101,14 @@ next.config.ts          Image formats/sizes, remotePatterns (images.pexels.com),
 | 7 | `Specialties` | `specialties` | Specialty cards + textured dark CTA banner (medical cross grid, EKG line, circuit rings) |
 | 8 | `About` | `why-us` | "Experienced Billing Professionals You Can Trust": 5 bullet points, `/about-photo.png` with stat overlay + floating HIPAA/CPC badges |
 | 9 | `Process` | `process` | 4 steps with time badges (Same Day / 24–48 Hours / Ongoing / < 30 Days), connector line, CTA strip |
-| 10 | `Testimonials` | `testimonials` | **Not testimonials anymore.** "Built Around Transparency & Performance": 6 trust cards (Reporting, Account Mgmt, Faster Claims, Specialty Expertise, HIPAA, Denial Reduction) + dark philosophy strip with founder line and 4 stat tiles |
-| 11 | `FAQ` | `faq` | Sticky left column + 6-item accordion |
-| 12 | `Audit` | `audit` | Free audit CTA, dark gradient |
-| 13 | `Contact` | `contact` | Contact cards + guarantees strip + form (name, practice_name, email, specialty, message) → `/api/contact` |
-| 14 | `Footer` | — | Pre-footer CTA band, links, socials, Privacy/Terms, HIPAA · BAA · 50 States |
+| 10 | `Switching` | `switching` | "Switching Billing Companies?": 4 light cards (existing AR covered, planned handoff, 5 to 7 business days, no long-term contracts) + dark CTA strip → `/#audit` |
+| 11 | `Testimonials` | `testimonials` | **Not testimonials anymore.** "Built Around Transparency & Performance": 6 trust cards (Reporting, Account Mgmt, Faster Claims, Specialty Expertise, HIPAA, Denial Reduction) + dark philosophy strip with founder line and 4 stat tiles |
+| 12 | `FAQ` | `faq` | Sticky left column + 9-item accordion (last 3 are about switching) |
+| 13 | `Audit` | `audit` | Free audit CTA, dark gradient |
+| 14 | `Contact` | `contact` | Contact cards + guarantees strip + form (name, practice_name, email, phone required; specialty, state, monthly_collections, message optional) → `/api/contact`; "Get My Free Audit" submit; "Book a 30 minute call" link |
+| 15 | `Footer` | — | Pre-footer CTA band, links, socials, Privacy/Terms, HIPAA · BAA · 50 States |
 
-Sections 9–13 are loaded through `BelowFold.tsx` (dynamic import, `ssr: false`) for performance.
+Sections 9 to 14 are loaded through `BelowFold.tsx`: server-rendered (in the initial HTML), but each section's JS is in its own chunk.
 
 ---
 
@@ -206,6 +210,7 @@ The **Services hub** (`/services`) uses `ServicesHero` with `/Service.png` and t
 - Privacy Policy and Terms rewritten in plain English (text only, same layout): Clink Nexus LLC named as the operator; "Originally published 2023. Last updated October 3, 2026."; Privacy now covers the contact form, HubSpot chat and cookies, Google Analytics, Vercel Analytics, server logs, service providers, state privacy rights and children under 13; Terms list all 11 services (rendered from lib/services-data.ts), 4 to 9% fees with the service agreement governing, results wording, Texas law and Travis County courts.
 - Footer "Cookie Settings" button (`showHubSpotCookieBanner` in components/HubSpotLoader.tsx) loads HubSpot if needed and reopens the consent banner. The HubSpot cookie banner is restyled in app/globals.css (frosted navy, teal accent, site buttons; selectors #hs-banner-parent #hs-eu-cookie-confirmation ...). HubSpot only shows the banner on the live domain, not on localhost. Under 960px it sits 104px from the bottom so it clears the chat bubble.
 - Book a Call page (`/book-a-call`): HubSpot meetings scheduler (30 minutes, Google Meet, visitor's time zone). Every "Book a Free Consultation" link (Hero, Services CTA strip, FAQ, Footer contact column) now goes there; "Get Free Audit" buttons still go to the audit form; the Contact form submit button is unchanged. Contact has a "Prefer to talk? Book a 30 minute call" line, the Footer has a "Book a Call" link, and the page is in the sitemap. CSP report-only allows static.hsappstatic.net (script) and meetings-na2.hubspot.com (frame). The HubSpot iframe has a fixed 756px height because HubSpot's auto resize does not accept the na2 domain.
+- Phase 7 Round 1: removed the unsourced "Versus 14 to 18% in-house" line from Results (Cost to Collect card now explains the percentage model); new homepage "Switching Billing Companies?" section after Process plus 3 switching FAQs (FAQ JSON-LD follows automatically); new `/pricing` page (Footer link, sitemap, mobile menu only because the desktop Nav has no room at 1280px); contact form has optional State and Monthly Collections selects, included in the owner email and validated against fixed lists on the server; Privacy Policy lists the two new optional fields; shared `PageHero` now used by Book a Call and Pricing. Contact submit button reads "Get My Free Audit".
 
 ---
 

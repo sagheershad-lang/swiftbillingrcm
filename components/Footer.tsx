@@ -4,6 +4,7 @@ import { showHubSpotCookieBanner } from './HubSpotLoader'
 
 const quickLinks = [
   { label: 'Services',       href: '/services' },
+  { label: 'Pricing',        href: '/pricing' },
   { label: 'Why Choose Us',  href: '/#why-us' },
   { label: 'How It Works',   href: '/#process' },
   { label: 'Specialties',    href: '/#specialties' },

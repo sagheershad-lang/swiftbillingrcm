@@ -88,6 +88,8 @@ export default function PrivacyPolicy() {
               <li>Your email address</li>
               <li>Your phone number</li>
               <li>Your medical specialty (optional)</li>
+              <li>Your state (optional)</li>
+              <li>Your practice&apos;s approximate monthly collections (optional)</li>
               <li>Your message (optional)</li>
             </ul>
 

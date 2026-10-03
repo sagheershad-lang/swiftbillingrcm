@@ -86,6 +86,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.85,
     },
     {
+      url: 'https://www.swiftbillingrcm.com/pricing',
+      lastModified: LAST_MODIFIED,
+      changeFrequency: 'monthly',
+      priority: 0.85,
+    },
+    {
       url: 'https://www.swiftbillingrcm.com/book-a-call',
       lastModified: LAST_MODIFIED,
       changeFrequency: 'monthly',

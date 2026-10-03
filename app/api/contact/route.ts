@@ -1,5 +1,6 @@
 import { Resend } from 'resend'
 import { NextRequest, NextResponse } from 'next/server'
+import { MONTHLY_COLLECTIONS, US_STATES, pickOption } from '@/lib/form-options'
 
 // ─── Guard: catch missing API key before any request hits Resend ───
 if (!process.env.RESEND_API_KEY) {
@@ -91,6 +92,9 @@ export async function POST(req: NextRequest) {
   const practice_name = sanitizeLine(body.practice_name, 150)
   const specialty     = sanitizeLine(body.specialty, 100)
   const message       = sanitize(body.message, 2000)
+  // Optional selects: anything that is not one of the listed options is dropped
+  const state               = pickOption(sanitizeLine(body.state, 30), US_STATES)
+  const monthly_collections = pickOption(sanitizeLine(body.monthly_collections, 30), MONTHLY_COLLECTIONS)
 
   if (!name || !practice_name || !email || !phone) {
     return NextResponse.json({ error: 'Name, practice name, email and phone are required.' }, { status: 400 })
@@ -111,6 +115,8 @@ export async function POST(req: NextRequest) {
     phone:         escapeHtml(phone),
     practice_name: escapeHtml(practice_name),
     specialty:     escapeHtml(specialty),
+    state:         escapeHtml(state),
+    monthly_collections: escapeHtml(monthly_collections),
     message:       escapeHtml(message),
   }
 
@@ -132,6 +138,8 @@ export async function POST(req: NextRequest) {
             <tr><td style="padding:10px 0;border-bottom:1px solid #f1f5f9;color:#64748b;font-size:13px;">Phone</td><td style="padding:10px 0;border-bottom:1px solid #f1f5f9;font-weight:bold;color:#0f172a;">${safe.phone || 'Not provided'}</td></tr>
             <tr><td style="padding:10px 0;border-bottom:1px solid #f1f5f9;color:#64748b;font-size:13px;">Practice</td><td style="padding:10px 0;border-bottom:1px solid #f1f5f9;font-weight:bold;color:#0f172a;">${safe.practice_name || 'Not provided'}</td></tr>
             <tr><td style="padding:10px 0;border-bottom:1px solid #f1f5f9;color:#64748b;font-size:13px;">Specialty</td><td style="padding:10px 0;border-bottom:1px solid #f1f5f9;font-weight:bold;color:#0f172a;">${safe.specialty || 'Not provided'}</td></tr>
+            <tr><td style="padding:10px 0;border-bottom:1px solid #f1f5f9;color:#64748b;font-size:13px;">State</td><td style="padding:10px 0;border-bottom:1px solid #f1f5f9;font-weight:bold;color:#0f172a;">${safe.state || 'Not provided'}</td></tr>
+            <tr><td style="padding:10px 0;border-bottom:1px solid #f1f5f9;color:#64748b;font-size:13px;">Monthly collections</td><td style="padding:10px 0;border-bottom:1px solid #f1f5f9;font-weight:bold;color:#0f172a;">${safe.monthly_collections || 'Not provided'}</td></tr>
             <tr><td style="padding:10px 0;color:#64748b;font-size:13px;vertical-align:top;">Message</td><td style="padding:10px 0;color:#0f172a;">${safe.message || 'Not provided'}</td></tr>
           </table>
           <a href="mailto:${safe.email}" style="display:inline-block;margin-top:24px;background:#2EC4B6;color:#0B3C5D;font-weight:bold;padding:12px 28px;border-radius:8px;text-decoration:none;font-size:15px;">Reply to Lead</a>
