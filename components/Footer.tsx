@@ -1,5 +1,6 @@
 'use client'
 import Link from 'next/link'
+import { showHubSpotCookieBanner } from './HubSpotLoader'
 
 const quickLinks = [
   { label: 'Services',       href: '/services' },
@@ -345,6 +346,7 @@ export default function Footer() {
           <div className="flex flex-wrap items-center gap-x-4 gap-y-2 max-md:gap-y-0">
             <a href="/privacy-policy" className="text-[15px] md:text-[12px] text-white/30 hover:text-[#2EC4B6] font-medium transition-colors duration-200 max-md:min-h-[44px] max-md:inline-flex max-md:items-center">Privacy Policy</a>
             <a href="/terms" className="text-[15px] md:text-[12px] text-white/30 hover:text-[#2EC4B6] font-medium transition-colors duration-200 max-md:min-h-[44px] max-md:inline-flex max-md:items-center">Terms &amp; Conditions</a>
+            <button type="button" onClick={showHubSpotCookieBanner} className="text-[15px] md:text-[12px] text-white/30 hover:text-[#2EC4B6] font-medium transition-colors duration-200 max-md:min-h-[44px] max-md:inline-flex max-md:items-center cursor-pointer">Cookie Settings</button>
             <span className="text-[15px] md:text-[12px] text-white/25 font-medium">HIPAA Compliant</span>
             <span className="text-[15px] md:text-[12px] text-white/25 font-medium">BAA Signed With Every Client</span>
           </div>
