@@ -346,6 +346,16 @@ export default function Contact() {
                       🔒 HIPAA Compliant · No spam · No obligation whatsoever
                     </p>
                   </form>
+
+                  <p className="mt-4 pt-4 border-t border-[#E4EDF5] text-center text-[15px] md:text-[13.5px] text-[#64748B]">
+                    Prefer to talk?{' '}
+                    <a
+                      href="/book-a-call"
+                      className="font-bold text-[#0B3C5D] hover:text-[#0a756c] underline underline-offset-2 transition-colors duration-200 max-md:inline-flex max-md:min-h-[44px] max-md:items-center"
+                    >
+                      Book a 30 minute call
+                    </a>
+                  </p>
                 </>
               )}
             </div>

@@ -9,6 +9,7 @@ const quickLinks = [
   { label: 'Specialties',    href: '/#specialties' },
   { label: 'Our Approach',   href: '/#testimonials' },
   { label: 'Free Audit',     href: '/#audit' },
+  { label: 'Book a Call',    href: '/book-a-call' },
 ]
 
 const legalLinks = [
@@ -322,7 +323,7 @@ export default function Footer() {
               ))}
 
               <Link
-                href="/#contact"
+                href="/book-a-call"
                 className="mt-1 w-full inline-flex items-center justify-center gap-2
                   bg-[#2EC4B6] text-[#0B3C5D] font-extrabold text-[13.5px]
                   px-5 py-2.5 max-md:min-h-[44px] rounded-xl hover:bg-[#3dd9cb] hover:-translate-y-0.5

@@ -62,6 +62,7 @@ app/
   api/contact/route.ts  Contact form → Resend (owner notification + auto-reply), rate limit 5/min/IP, honeypot field "website", sanitize + email validation
   services/page.tsx     Services hub (uses ServicesHero)
   services/<slug>/page.tsx   11 service pages, each renders <ServicePageLayout service={getService(SLUG)} heroImage=... />
+  book-a-call/page.tsx  Book a Call page: services-hub style hero + HubSpot meetings scheduler in a light card
   privacy-policy/page.tsx, terms/page.tsx
   not-found.tsx         Branded 404: Nav, "Page not found", Back to Home + View Our Services, Footer (noindex)
   sitemap.ts, robots.ts, icon.tsx, apple-icon.tsx, opengraph-image.tsx
@@ -73,7 +74,8 @@ components/
   AccordionItem (single FAQ accordion item, used by the homepage FAQ and service page FAQs),
   BreakpointImage (next/image that only downloads at one breakpoint via <picture>; used for the homepage and service heroes),
   MotionProvider (LazyMotion + domAnimation wrapper in layout; components use `m.*`, not `motion.*`),
-  HubSpotLoader (loads HubSpot on first interaction or after 8s)
+  HubSpotLoader (loads HubSpot on first interaction or after 8s; also exports showHubSpotCookieBanner)
+  BookingScheduler (HubSpot meetings embed for https://meetings-na2.hubspot.com/michael219; loads MeetingsEmbedCode.js only on /book-a-call, with a loading state and an "open in a new tab" fallback)
 lib/services-data.ts    Single source of truth for all 11 services (copy, features, process, stats, FAQs, meta)
 lib/seo.ts              pageMetadata(): per-page title, description, canonical, Open Graph and Twitter tags (use it on every new page)
 lib/home-faqs.ts        Homepage FAQ data, used by the visible FAQ and the homepage FAQPage JSON-LD (keeps them identical)
@@ -203,6 +205,7 @@ The **Services hub** (`/services`) uses `ServicesHero` with `/Service.png` and t
 - Nav cleanup: "Why Us" now links to #why-us (About section); "Our Approach" links to #testimonials and is in the mobile menu only (`mobileOnly` in components/Nav.tsx) because the desktop bar overflows at 1280px with it; Footer has "Why Choose Us" (#why-us) and "Our Approach" (#testimonials); About badge reads "HIPAA Compliant / BAA with every client"; JSON-LD uses only openingHoursSpecification.
 - Privacy Policy and Terms rewritten in plain English (text only, same layout): Clink Nexus LLC named as the operator; "Originally published 2023. Last updated October 3, 2026."; Privacy now covers the contact form, HubSpot chat and cookies, Google Analytics, Vercel Analytics, server logs, service providers, state privacy rights and children under 13; Terms list all 11 services (rendered from lib/services-data.ts), 4 to 9% fees with the service agreement governing, results wording, Texas law and Travis County courts.
 - Footer "Cookie Settings" button (`showHubSpotCookieBanner` in components/HubSpotLoader.tsx) loads HubSpot if needed and reopens the consent banner. The HubSpot cookie banner is restyled in app/globals.css (frosted navy, teal accent, site buttons; selectors #hs-banner-parent #hs-eu-cookie-confirmation ...). HubSpot only shows the banner on the live domain, not on localhost. Under 960px it sits 104px from the bottom so it clears the chat bubble.
+- Book a Call page (`/book-a-call`): HubSpot meetings scheduler (30 minutes, Google Meet, visitor's time zone). Every "Book a Free Consultation" link (Hero, Services CTA strip, FAQ, Footer contact column) now goes there; "Get Free Audit" buttons still go to the audit form; the Contact form submit button is unchanged. Contact has a "Prefer to talk? Book a 30 minute call" line, the Footer has a "Book a Call" link, and the page is in the sitemap. CSP report-only allows static.hsappstatic.net (script) and meetings-na2.hubspot.com (frame). The HubSpot iframe has a fixed 756px height because HubSpot's auto resize does not accept the na2 domain.
 
 ---
 

@@ -261,15 +261,15 @@ export default function Services() {
                     <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
                 </a>
-                <a
-                  href="#contact"
+                <Link
+                  href="/book-a-call"
                   className="inline-flex items-center justify-center gap-2 bg-white/[0.10] text-white font-bold text-[14px]
                     px-5 py-3 rounded-xl border border-white/20
                     hover:bg-white/[0.16] hover:border-white/35 hover:-translate-y-0.5
                     transition-all duration-200"
                 >
                   Book Consultation
-                </a>
+                </Link>
               </div>
             </div>
           </div>

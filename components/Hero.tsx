@@ -193,7 +193,7 @@ export default function Hero() {
                   </svg>
                 </a>
                 <a
-                  href="#contact"
+                  href="/book-a-call"
                   className="inline-flex items-center justify-center gap-2 font-bold text-[14px] sm:text-[15px] transition-all duration-200 hover:-translate-y-0.5 w-full sm:w-auto"
                   style={{
                     background: 'rgba(255,255,255,0.08)',

@@ -65,7 +65,7 @@ export default function FAQ() {
             {/* CTA */}
             <p className="text-[15px] md:text-[13px] text-[#64748B] mb-3">Still have questions? We&apos;re happy to help.</p>
             <a
-              href="#contact"
+              href="/book-a-call"
               className="inline-flex items-center gap-2 bg-[#0B3C5D] text-white font-bold text-[14px]
                 px-6 py-3 rounded-xl hover:bg-[#082d46] hover:-translate-y-0.5
                 transition-all duration-200 shadow-[0_4px_20px_rgba(11,60,93,0.22)]"
