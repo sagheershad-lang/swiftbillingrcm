@@ -51,8 +51,8 @@ const values = [
     icon: <path d="M12 2v20M17 6H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>,
   },
   {
-    title: 'No Fake Reviews',
-    desc: 'We do not publish fake testimonials or invented client names. The results on this site are our billing team’s own work across multiple practices.',
+    title: 'Honest Results',
+    desc: 'We only share results from our billing team’s own work across multiple practices, and we never use invented reviews or client names.',
     icon: <path d="M12 3l7 3v6c0 4.5-3 8-7 9-4-1-7-4.5-7-9V6l7-3zM9 12l2 2 4-4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>,
   },
 ]
