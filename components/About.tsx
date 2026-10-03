@@ -1,5 +1,6 @@
 'use client'
 import Image from 'next/image'
+import Link from 'next/link'
 import { useEffect, useRef, useState } from 'react'
 import { useInView, useReducedMotion, m } from 'framer-motion'
 import FadeIn from './FadeIn'
@@ -201,10 +202,12 @@ export default function About() {
                 transition={{ duration: 0.5, delay: 0.5 }}
                 className="absolute -top-3 sm:-top-4 right-2 sm:-right-4"
               >
+              {/* Links to the Security and HIPAA page */}
+              <Link href="/security" className="group block rounded-2xl" aria-label="HIPAA compliant, BAA with every client: see our security and HIPAA page">
               <m.div
                 animate={{ y: [0, -6, 0] }}
                 transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut', delay: 0.8 }}
-                className="bg-white rounded-2xl border border-[#E2E8F0] px-4 py-3 flex items-center gap-2.5"
+                className="bg-white rounded-2xl border border-[#E2E8F0] px-4 py-3 flex items-center gap-2.5 group-hover:border-[#2EC4B6]/50 transition-colors duration-200"
                 style={{ boxShadow: '0 12px 40px rgba(11,60,93,0.16)' }}
               >
                 <div className="w-8 h-8 rounded-xl bg-[#2EC4B6]/15 flex items-center justify-center shrink-0">
@@ -218,6 +221,7 @@ export default function About() {
                   <p className="text-[10px] text-[#64748B] font-medium">BAA with every client</p>
                 </div>
               </m.div>
+              </Link>
               </m.div>
 
               {/* CPC badge */}

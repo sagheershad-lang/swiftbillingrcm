@@ -435,7 +435,7 @@ export default function Specialties() {
             <a
               href="#contact"
               className="inline-flex items-center gap-1.5 text-[13px] text-[#64748B] font-medium
-                hover:text-[#0a756c] transition-colors duration-200 whitespace-nowrap"
+                hover:text-[#0a756c] transition-colors duration-200 whitespace-nowrap max-md:min-h-[44px]"
             >
               Not sure if we support your specialty?{' '}
               <span className="text-[#2EC4B6] font-semibold">Contact us</span>

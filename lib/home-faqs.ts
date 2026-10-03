@@ -2,7 +2,7 @@
 export const homeFaqs = [
   {
     q: 'How do you ensure HIPAA compliance?',
-    a: 'We operate under a signed Business Associate Agreement (BAA) with every client. All patient data is handled through HIPAA-compliant systems with 256-bit encryption, strict access controls, and audit logging. Our entire team is trained on HIPAA requirements and we conduct regular security reviews to stay HIPAA compliant.',
+    a: 'We operate under a signed Business Associate Agreement (BAA) with every client. All patient data is handled through HIPAA-compliant systems with encrypted connections, access limited to the billing staff assigned to your account, and access you can revoke at any time. Our entire team is trained on HIPAA requirements.',
   },
   {
     q: 'Do you work with my specialty?',

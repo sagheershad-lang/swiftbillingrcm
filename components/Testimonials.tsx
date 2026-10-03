@@ -239,7 +239,7 @@ export default function Testimonials() {
             <a
               href="#contact"
               className="inline-flex items-center gap-1.5 text-[13px] font-bold text-[#0B3C5D]
-                hover:text-[#0a756c] transition-colors duration-200"
+                hover:text-[#0a756c] transition-colors duration-200 max-md:min-h-[44px]"
             >
               See if we&apos;re right for your practice
               <svg width="13" height="13" viewBox="0 0 13 13" fill="none">

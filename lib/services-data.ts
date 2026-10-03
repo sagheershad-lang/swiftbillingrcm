@@ -74,7 +74,7 @@ export const servicesData: ServiceData[] = [
     ],
     faqs: [
       { q: 'How do you handle coding for my specific specialty?', a: 'We assign a billing specialist with specific training in your specialty. They understand the nuances, from E&M level selection to procedure-specific modifiers, so your claims are coded accurately for maximum reimbursement.' },
-      { q: 'What EHR systems do you work with?', a: 'We integrate with all major EHR and practice management systems including Epic, athenahealth, eClinicalWorks, Tebra, AdvancedMD, DrChrono, NextGen, and others. If you use it, we can work with it.' },
+      { q: 'What EHR systems do you work with?', a: 'We integrate with all major EHR and practice management systems including Epic, athenahealth, eClinicalWorks, Tebra, AdvancedMD, DrChrono, NextGen, and others. Most EHRs work with our process. Ask us about yours.' },
       { q: 'How will I know when claims are submitted and paid?', a: 'You receive weekly claim status updates and a monthly dashboard showing submission volume, acceptance rates, payments received, and any pending items. Your account manager is also available for any real-time questions.' },
       { q: 'Do you handle both facility and professional billing?', a: 'Yes. We handle professional billing (CMS-1500) for physician practices as well as facility billing (UB-04) for ambulatory surgery centers and outpatient facilities.' },
     ],

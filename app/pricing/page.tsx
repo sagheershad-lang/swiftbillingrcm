@@ -1,11 +1,11 @@
 import type { Metadata } from 'next'
-import type { ReactNode } from 'react'
 import Link from 'next/link'
 import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
 import FadeIn from '@/components/FadeIn'
 import PageHero from '@/components/PageHero'
-import PricingFAQ from '@/components/PricingFAQ'
+import PageFAQ from '@/components/PageFAQ'
+import { SectionHeader, CheckBadge, LightCard, CtaBand, faqJsonLd } from '@/components/PageSections'
 import { coreServices } from '@/lib/services-data'
 import { pageMetadata } from '@/lib/seo'
 
@@ -34,16 +34,6 @@ const pricingFaqs = [
   },
 ]
 
-const faqJsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: pricingFaqs.map(f => ({
-    '@type': 'Question',
-    name: f.q,
-    acceptedAnswer: { '@type': 'Answer', text: f.a },
-  })),
-}
-
 const howItWorks = [
   { title: 'Typically 4 to 9%', desc: 'Your fee is a percentage of the collections we bring in for your practice, typically 4 to 9%.' },
   { title: 'Only When You Get Paid', desc: 'You only pay when we collect for you, so our incentives match yours.' },
@@ -57,48 +47,10 @@ const rateFactors = [
   { title: 'AR Backlog', desc: 'The size and age of any unpaid claims you want us to take over.' },
 ]
 
-function SectionHeader({ eyebrow, title, accent, desc }: { eyebrow: string; title: string; accent: string; desc: ReactNode }) {
-  return (
-    <FadeIn className="mb-10 sm:mb-12">
-      <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
-        <div>
-          <p className="text-[11.5px] font-extrabold uppercase tracking-[0.16em] text-[#2EC4B6] mb-3">{eyebrow}</p>
-          <h2 className="text-[clamp(28px,3.5vw,44px)] font-extrabold text-[#0F172A] leading-[1.08] tracking-tight">
-            {title}{' '}
-            <span style={{
-              background: 'linear-gradient(90deg, #0B3C5D 0%, #2EC4B6 100%)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text',
-            }}>
-              {accent}
-            </span>
-          </h2>
-        </div>
-        <p className="text-[15px] text-[#64748B] leading-relaxed max-w-[380px] lg:text-right lg:pb-1">{desc}</p>
-      </div>
-      <div className="mt-7 h-px" style={{ background: 'linear-gradient(90deg, #2EC4B6, rgba(46,196,182,0.15), transparent)' }} />
-    </FadeIn>
-  )
-}
-
-function Check() {
-  return (
-    <span className="w-6 h-6 rounded-full bg-[#EBF9F8] border border-[#BAE8E4] flex items-center justify-center shrink-0">
-      <svg width="11" height="11" viewBox="0 0 12 12" fill="none" aria-hidden="true">
-        <path d="M2 6l3 3 5-5" stroke="#0a756c" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
-      </svg>
-    </span>
-  )
-}
-
-const lightCard = 'group relative bg-white border border-[#E4EDF5] rounded-2xl p-6 overflow-hidden shadow-[0_1px_14px_rgba(11,60,93,0.06)] hover:-translate-y-[5px] hover:border-[#2EC4B6]/35 hover:shadow-[0_18px_44px_rgba(11,60,93,0.11)] transition-all duration-300'
-const cardLine = <div className="absolute top-0 left-6 h-[2px] w-0 rounded-full bg-[#2EC4B6] group-hover:w-14 transition-all duration-500 ease-out" />
-
 export default function Pricing() {
   return (
     <div className="min-h-screen bg-[#F8FAFC]">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd(pricingFaqs)) }} />
       <Nav />
 
       <PageHero crumb="Pricing" badge="Simple, Transparent Pricing" titleTop="Medical Billing" titleAccent="Pricing">
@@ -117,11 +69,10 @@ export default function Pricing() {
           <div className="grid md:grid-cols-3 gap-5">
             {howItWorks.map((c, i) => (
               <FadeIn key={c.title} delay={i * 0.07} className="h-full">
-                <div className={`${lightCard} h-full`}>
-                  {cardLine}
+                <LightCard className="h-full">
                   <h3 className="text-[17px] font-extrabold text-[#0F172A] mb-2 leading-tight">{c.title}</h3>
                   <p className="text-[15px] md:text-[13.5px] text-[#64748B] leading-relaxed">{c.desc}</p>
-                </div>
+                </LightCard>
               </FadeIn>
             ))}
           </div>
@@ -140,12 +91,11 @@ export default function Pricing() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {rateFactors.map((c, i) => (
               <FadeIn key={c.title} delay={i * 0.07} className="h-full">
-                <div className={`${lightCard} h-full`}>
-                  {cardLine}
+                <LightCard className="h-full">
                   <span className="text-[11px] font-black tracking-[0.1em] text-[#2EC4B6]">{String(i + 1).padStart(2, '0')}</span>
                   <h3 className="text-[16px] font-extrabold text-[#0F172A] mt-2 mb-2 leading-tight">{c.title}</h3>
                   <p className="text-[15px] md:text-[13.5px] text-[#64748B] leading-relaxed">{c.desc}</p>
-                </div>
+                </LightCard>
               </FadeIn>
             ))}
           </div>
@@ -169,7 +119,7 @@ export default function Pricing() {
                     href={`/services/${s.slug}`}
                     className="group flex items-start gap-3 bg-white border border-[#E4EDF5] rounded-2xl p-4 shadow-[0_1px_10px_rgba(11,60,93,0.05)] hover:border-[#2EC4B6]/35 transition-colors duration-300 h-full"
                   >
-                    <Check />
+                    <CheckBadge />
                     <span>
                       <span className="block text-[15px] font-extrabold text-[#0F172A] group-hover:text-[#0a756c] transition-colors duration-200">{s.name}</span>
                       <span className="block text-[15px] md:text-[13px] text-[#64748B] leading-relaxed mt-0.5">{s.shortDescription}</span>
@@ -221,7 +171,7 @@ export default function Pricing() {
             desc="Straight answers about how we charge."
           />
           <div className="max-w-[860px]">
-            <PricingFAQ faqs={pricingFaqs} />
+            <PageFAQ faqs={pricingFaqs} idPrefix="pricing-faq-answer" />
           </div>
         </div>
       </section>
@@ -229,46 +179,12 @@ export default function Pricing() {
       {/* ── CTA ───────────────────────────────────────────────────────── */}
       <section className="py-16 md:py-20 bg-[#F8FAFC]">
         <div className="max-w-[1200px] mx-auto px-6">
-          <FadeIn>
-            <div
-              className="relative rounded-2xl overflow-hidden"
-              style={{ background: 'linear-gradient(115deg, #061d2e 0%, #0B3C5D 55%, #0e4f73 100%)' }}
-            >
-              <div
-                className="absolute inset-0 pointer-events-none"
-                style={{
-                  backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28'%3E%3Ccircle cx='14' cy='14' r='1.1' fill='rgba(255%2C255%2C255%2C0.04)'/%3E%3C/svg%3E")`,
-                  backgroundSize: '28px 28px',
-                }}
-              />
-              <div
-                className="absolute right-0 top-0 w-[300px] h-[150px] pointer-events-none"
-                style={{ background: 'radial-gradient(ellipse, rgba(46,196,182,0.20) 0%, transparent 65%)' }}
-              />
-              <div
-                className="absolute top-0 left-0 right-0 h-[2px] pointer-events-none"
-                style={{ background: 'linear-gradient(90deg, #2EC4B6 0%, rgba(46,196,182,0.2) 60%, transparent 100%)' }}
-              />
-              <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6 px-6 py-8 sm:px-10 sm:py-10">
-                <div className="text-center md:text-left">
-                  <h2 className="text-[clamp(22px,2.6vw,30px)] font-extrabold text-white leading-tight mb-2">Get a clear rate for your practice</h2>
-                  <p className="text-[15px] text-white/60">Start with a free revenue audit. We reply within 24 hours, with no obligation.</p>
-                </div>
-                <Link
-                  href="/#audit"
-                  className="inline-flex items-center justify-center gap-2 bg-[#2EC4B6] text-[#0B3C5D] font-extrabold text-[15px]
-                    px-7 py-4 rounded-xl hover:bg-[#3dd9cb] hover:-translate-y-0.5 transition-all duration-200
-                    w-full md:w-auto shrink-0"
-                  style={{ boxShadow: '0 0 24px rgba(46,196,182,0.35)' }}
-                >
-                  Get Your Free Audit
-                  <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                    <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                </Link>
-              </div>
-            </div>
-          </FadeIn>
+          <CtaBand
+            title="Get a clear rate for your practice"
+            text="Start with a free revenue audit. We reply within 24 hours, with no obligation."
+            href="/#audit"
+            label="Get Your Free Audit"
+          />
         </div>
       </section>
 

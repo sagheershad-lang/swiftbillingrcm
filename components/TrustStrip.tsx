@@ -1,5 +1,7 @@
 'use client'
 import { useState } from 'react'
+import Link from 'next/link'
+import { platforms, PLATFORM_DISCLAIMER, type Platform } from '@/lib/platforms'
 
 /* ─────────────────────────────────────────────────────────────────────────────
    TrustStrip — EHR/EMR platform logo marquee
@@ -7,34 +9,6 @@ import { useState } from 'react'
    Fallback: Coloured initial-letter badge if image fails to load
    "Experienced with" framing + disclaimer = nominative fair use
 ───────────────────────────────────────────────────────────────────────────── */
-
-type Platform = {
-  name: string
-  logoUrl: string   /* empty string → skip straight to badge */
-  color: string     /* brand colour for fallback badge */
-  /** Explicit rendered height in px for the img (default 32).
-   *  Drives optical balance — adjust per logo aspect ratio. */
-  logoH?: number
-  /** Extra scale on top of logoH for fine optical nudging (default 1). */
-  scale?: number
-  /** Intrinsic file size — lets the browser reserve the width before load (no layout shift). */
-  w: number
-  h: number
-}
-
-const platforms: Platform[] = [
-  { name: 'Epic',           logoUrl: '/logos/site-logo.png',              color: '#CC1230', logoH: 40, w: 106, h: 41 },
-  { name: 'athenahealth',   logoUrl: '/logos/athenahealth-logo.png',      color: '#00A0B0', logoH: 52, w: 300, h: 300 },
-  { name: 'Tebra',          logoUrl: '/logos/tebra-logo.png',             color: '#FF6B00', logoH: 68, w: 300, h: 300 },
-  { name: 'eClinicalWorks', logoUrl: '/logos/eclinicalworks-logo.png',    color: '#00A650', logoH: 68, w: 300, h: 300 },
-  { name: 'AdvancedMD',     logoUrl: '/logos/advance%20md.png',           color: '#003087', logoH: 62, w: 269, h: 188 },
-  { name: 'DrChrono',       logoUrl: '/logos/dr%20chrono%20logo.png',     color: '#2563EB', logoH: 44, w: 300, h: 90 },
-  { name: 'NextGen',        logoUrl: '/logos/next%20gen%20logo.png',      color: '#00A850', logoH: 52, w: 300, h: 225 },
-  { name: 'Availity',       logoUrl: '/logos/availity%20logo.png',        color: '#612583', logoH: 48, w: 300, h: 167 },
-  { name: 'Office Ally',    logoUrl: '/logos/office%20ally%20logo.png',   color: '#005EB8', logoH: 52, w: 256, h: 256 },
-  { name: 'Waystar',        logoUrl: '/logos/waystar%20logo.png',         color: '#1A1A5E', logoH: 44, w: 300, h: 127 },
-  { name: 'CAQH',           logoUrl: '/logos/caqh%20logo.png',            color: '#005DAA', logoH: 46, w: 300, h: 157 },
-]
 
 /* ── Individual logo (no card, no label) ─────────────────────────────── */
 function PlatformCard({ p }: { p: Platform }) {
@@ -202,7 +176,13 @@ export default function TrustStrip() {
       {/* Disclaimer */}
       <div className="text-center pb-4 px-6">
         <p className="text-[10px] text-[#94ABBE] font-medium tracking-wide leading-relaxed">
-          SwiftBilling RCM is an independent service provider and is not affiliated with or endorsed by any of the platforms listed above.
+          {PLATFORM_DISCLAIMER}{' '}
+          <Link
+            href="/ehr-integrations"
+            className="text-[12px] font-bold text-[#0B3C5D] hover:text-[#0a756c] underline underline-offset-2 whitespace-nowrap max-md:inline-flex max-md:min-h-[44px] max-md:items-center"
+          >
+            See how we work with your EHR
+          </Link>
         </p>
       </div>
 

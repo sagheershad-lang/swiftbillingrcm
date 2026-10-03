@@ -6,7 +6,7 @@ const steps = [
   {
     time: 'Same Day',
     title: 'Submit Data',
-    desc: 'Securely share patient encounter data and charge sheets through your EHR or our portal. We integrate with all major systems, so there is no disruption to your workflow.',
+    desc: 'Securely share patient encounter data and charge sheets through your EHR or a secure method we agree on with you. We integrate with all major systems, so there is no disruption to your workflow.',
     outcome: 'HIPAA-Secure Transfer',
     icon: (
       <svg width="26" height="26" viewBox="0 0 24 24" fill="none">

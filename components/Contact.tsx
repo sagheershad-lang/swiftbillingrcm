@@ -286,7 +286,7 @@ export default function Contact() {
               ) : (
                 <>
                   <h3 className="text-[20px] font-extrabold text-[#0F172A] mb-1 leading-tight">
-                    Book Free Consultation
+                    Get Your Free Audit
                   </h3>
                   <p className="text-[15px] md:text-[13.5px] text-[#64748B] mb-5 sm:mb-7">
                     Fill out the form and we&apos;ll get back to you within 24 hours with a free revenue audit.

@@ -6,17 +6,17 @@ import Link from 'next/link'
 // mobileOnly: shown in the mobile menu only (the desktop bar has no room for it at 1280px)
 const links = [
   { href: '/services',       label: 'Services' },
+  { href: '/pricing',        label: 'Pricing' },
   { href: '/#specialties',   label: 'Specialties' },
   { href: '/#process',       label: 'Process' },
   { href: '/#why-us',        label: 'Why Us' },
   { href: '/#testimonials',  label: 'Our Approach', mobileOnly: true },
-  { href: '/pricing',        label: 'Pricing',      mobileOnly: true },
   { href: '/#faq',           label: 'FAQ' },
 ]
 
 function Logo({ scrolled }: { scrolled: boolean }) {
   return (
-    <Link href="/" className="flex items-center gap-2.5 group shrink-0">
+    <Link href="/" className="flex items-center gap-2.5 group shrink-0 min-h-[44px]">
       <div className="w-8 h-8 rounded-lg bg-[#0B3C5D] flex items-center justify-center shadow-md group-hover:shadow-[0_0_16px_rgba(46,196,182,0.4)] transition-shadow duration-300">
         <svg width="18" height="18" viewBox="0 0 20 20" fill="none">
           <path d="M3 14L7.5 8.5L11 11.5L17 4.5" stroke="#2EC4B6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -67,12 +67,13 @@ export default function Nav() {
         ? 'bg-white/97 backdrop-blur-xl border-b border-[#E2E8F0] shadow-[0_1px_12px_rgba(11,60,93,0.06)]'
         : 'bg-transparent'
     }`}>
-      <div className="max-w-[1200px] mx-auto px-6 h-[68px] flex items-center gap-8">
+      {/* Tighter gaps below xl so the 6 desktop links + phone + CTA also fit at 1024px */}
+      <div className="max-w-[1200px] mx-auto px-6 h-[68px] flex items-center gap-6 xl:gap-8">
 
         <Logo scrolled={scrolled} />
 
         {/* Nav links */}
-        <ul className="hidden lg:flex items-center gap-9 list-none flex-1">
+        <ul className="hidden lg:flex items-center gap-6 xl:gap-9 list-none flex-1">
           {links.filter(l => !l.mobileOnly).map(l => (
             <li key={l.href}>
               <a
@@ -90,22 +91,8 @@ export default function Nav() {
         {/* Right section */}
         <div className="hidden lg:flex items-center gap-5 shrink-0">
 
-          {/* Contact — inline, no labels, no boxes */}
+          {/* Phone, inline (the email address lives in the Contact section and Footer) */}
           <div className={`flex items-center gap-4 text-[13px] pr-5 border-r ${scrolled ? 'border-[#E2E8F0]' : 'border-white/15'}`}>
-            {/* Email — hidden on smaller lg screens, visible on xl+ */}
-            <a
-              href="mailto:info@swiftbillingrcm.com"
-              className={`hidden xl:flex items-center gap-1.5 font-medium transition-all duration-200 hover:bg-[#2EC4B6]/10 rounded-lg px-2 py-1 -mx-2 -my-1 ${scrolled ? 'text-[#64748B] hover:text-[#0a756c]' : 'text-white/65 hover:text-[#2EC4B6]'}`}
-            >
-              <svg width="13" height="13" viewBox="0 0 14 14" fill="none">
-                <rect x="1" y="2.5" width="12" height="9" rx="1.5" stroke="currentColor" strokeWidth="1.3"/>
-                <path d="M1 5l6 3.5L13 5" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round"/>
-              </svg>
-              info@swiftbillingrcm.com
-            </a>
-
-            <span className={`hidden xl:inline select-none ${scrolled ? 'text-[#CBD5E1]' : 'text-white/20'}`}>·</span>
-
             <a
               href="tel:+15127377488"
               className={`flex items-center gap-1.5 font-semibold transition-all duration-200 hover:bg-[#2EC4B6]/10 rounded-lg px-2 py-1 -mx-2 -my-1 ${scrolled ? 'text-[#0B3C5D] hover:text-[#0a756c]' : 'text-white/90 hover:text-[#2EC4B6]'}`}

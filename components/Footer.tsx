@@ -3,8 +3,11 @@ import Link from 'next/link'
 import { showHubSpotCookieBanner } from './HubSpotLoader'
 
 const quickLinks = [
+  { label: 'About',          href: '/about' },
   { label: 'Services',       href: '/services' },
   { label: 'Pricing',        href: '/pricing' },
+  { label: 'EHR Integrations', href: '/ehr-integrations' },
+  { label: 'Security',       href: '/security' },
   { label: 'Why Choose Us',  href: '/#why-us' },
   { label: 'How It Works',   href: '/#process' },
   { label: 'Specialties',    href: '/#specialties' },
@@ -349,7 +352,7 @@ export default function Footer() {
             <a href="/privacy-policy" className="text-[15px] md:text-[12px] text-white/30 hover:text-[#2EC4B6] font-medium transition-colors duration-200 max-md:min-h-[44px] max-md:inline-flex max-md:items-center">Privacy Policy</a>
             <a href="/terms" className="text-[15px] md:text-[12px] text-white/30 hover:text-[#2EC4B6] font-medium transition-colors duration-200 max-md:min-h-[44px] max-md:inline-flex max-md:items-center">Terms &amp; Conditions</a>
             <button type="button" onClick={showHubSpotCookieBanner} className="text-[15px] md:text-[12px] text-white/30 hover:text-[#2EC4B6] font-medium transition-colors duration-200 max-md:min-h-[44px] max-md:inline-flex max-md:items-center cursor-pointer">Cookie Settings</button>
-            <span className="text-[15px] md:text-[12px] text-white/25 font-medium">HIPAA Compliant</span>
+            <Link href="/security" className="text-[15px] md:text-[12px] text-white/30 hover:text-[#2EC4B6] font-medium transition-colors duration-200 max-md:min-h-[44px] max-md:inline-flex max-md:items-center">HIPAA Compliant</Link>
             <span className="text-[15px] md:text-[12px] text-white/25 font-medium">BAA Signed With Every Client</span>
           </div>
         </div>

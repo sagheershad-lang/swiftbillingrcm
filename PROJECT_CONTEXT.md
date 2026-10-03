@@ -63,6 +63,9 @@ app/
   services/page.tsx     Services hub (uses ServicesHero)
   services/<slug>/page.tsx   11 service pages, each renders <ServicePageLayout service={getService(SLUG)} heroImage=... />
   book-a-call/page.tsx  Book a Call page: PageHero + HubSpot meetings scheduler in a light card
+  about/page.tsx        About page: company story (Clink Nexus LLC, Austin, 50 states, 20+ specialties), how we work, values, CTA to /book-a-call and /#audit. No names or team photos
+  security/page.tsx     Security and HIPAA page: workflows, BAA, system access, who sees data, what never to email, 4 question FAQ (FAQPage JSON-LD), CTA to /book-a-call. No SOC 2 / HITRUST / certification claims
+  ehr-integrations/page.tsx  "Works With Your EHR": how we work inside existing systems, platform grid from lib/platforms.ts with the not-affiliated disclaimer, CTA to /book-a-call
   pricing/page.tsx      Pricing page: PageHero, how pricing works, what affects your rate, core services included, no setup fee / no contracts, 4 question FAQ (FAQPage JSON-LD), audit CTA
   privacy-policy/page.tsx, terms/page.tsx
   not-found.tsx         Branded 404: Nav, "Page not found", Back to Home + View Our Services, Footer (noindex)
@@ -71,7 +74,9 @@ components/
   Nav, Hero, TrustStrip, TrustBar, Results, Services, Specialties, About,
   BelowFold (Process, Switching, Testimonials, FAQ, Audit, Contact: server-rendered, each in its own code chunk),
   Process, Switching ("Switching Billing Companies?" section), Testimonials, FAQ, Audit, Contact, Footer, FadeIn,
-  PageHero (dark services-hub style hero for simple pages: Book a Call, Pricing), PricingFAQ (pricing page accordion),
+  PageHero (dark services-hub style hero for content pages: Book a Call, Pricing, Security, EHR Integrations, About),
+  PageSections (shared blocks for content pages: SectionHeader, LightCard, IconTile, CheckBadge, CtaBand with optional secondary button, faqJsonLd()),
+  PageFAQ (accordion for content page FAQs; takes faqs + idPrefix),
   ServicePageLayout (template for all service pages), ServicesHero (services hub hero),
   AccordionItem (single FAQ accordion item, used by the homepage FAQ and service page FAQs),
   BreakpointImage (next/image that only downloads at one breakpoint via <picture>; used for the homepage and service heroes),
@@ -81,6 +86,7 @@ components/
 lib/services-data.ts    Single source of truth for all 11 services (copy, features, process, stats, FAQs, meta)
 lib/seo.ts              pageMetadata(): per-page title, description, canonical, Open Graph and Twitter tags (use it on every new page)
 lib/home-faqs.ts        Homepage FAQ data, used by the visible FAQ and the homepage FAQPage JSON-LD (keeps them identical)
+lib/platforms.ts        Shared list of the 11 "compatible with" platforms (name, type, logo) + PLATFORM_DISCLAIMER; used by TrustStrip and /ehr-integrations
 lib/form-options.ts     Contact form select options (monthly collections ranges, 50 states) and pickOption(), shared by the form and the API
 public/                 Hero images, about photo, logos/, signature.png
 next.config.ts          Image formats/sizes, remotePatterns (images.pexels.com), security headers
@@ -92,20 +98,20 @@ next.config.ts          Image formats/sizes, remotePatterns (images.pexels.com),
 
 | # | Component | Section id | Notes |
 |---|---|---|---|
-| 1 | `Nav` | — | Fixed; transparent → white on scroll. Desktop links: Services (`/services`), Specialties, Process, Why Us (`/#why-us`), FAQ. Mobile menu also has Our Approach (`/#testimonials`) and Pricing (`/pricing`); the desktop bar has only about 8px spare at 1280px. Email + phone + "Get Started" CTA → `#audit`. |
+| 1 | `Nav` | — | Fixed; transparent → white on scroll. Desktop links: Services (`/services`), Pricing (`/pricing`), Specialties, Process, Why Us (`/#why-us`), FAQ; about 108px spare at 1280px, tight but fitting at 1024px (gaps shrink below xl). Mobile menu also has Our Approach (`/#testimonials`). Phone + "Get Started" CTA → `#audit` (no email in the desktop Nav). |
 | 2 | `Hero` | — | Full-bleed `/hero-home.png` (+ mobile version) |
-| 3 | `TrustStrip` | — | "Compatible With Leading Healthcare Platforms": infinite logo marquee of 11 EHR/clearinghouse platforms, grayscale → color on hover, fallback letter badge, disclaimer |
+| 3 | `TrustStrip` | — | "Compatible With Leading Healthcare Platforms": infinite logo marquee of the 11 platforms in `lib/platforms.ts`, grayscale → color on hover, fallback letter badge, disclaimer + "See how we work with your EHR" link to `/ehr-integrations` |
 | 4 | `TrustBar` | `stats` | Stat cards |
 | 5 | `Results` | — | Dark navy results band |
 | 6 | `Services` | `services` | 6 numbered service cards + "Not sure where your revenue is leaking?" CTA strip |
 | 7 | `Specialties` | `specialties` | Specialty cards + textured dark CTA banner (medical cross grid, EKG line, circuit rings) |
-| 8 | `About` | `why-us` | "Experienced Billing Professionals You Can Trust": 5 bullet points, `/about-photo.png` with stat overlay + floating HIPAA/CPC badges |
+| 8 | `About` | `why-us` | "Experienced Billing Professionals You Can Trust": 5 bullet points, `/about-photo.png` with stat overlay + floating HIPAA/CPC badges (the HIPAA badge links to `/security`) |
 | 9 | `Process` | `process` | 4 steps with time badges (Same Day / 24–48 Hours / Ongoing / < 30 Days), connector line, CTA strip |
 | 10 | `Switching` | `switching` | "Switching Billing Companies?": 4 light cards (existing AR covered, planned handoff, 5 to 7 business days, no long-term contracts) + dark CTA strip → `/#audit` |
 | 11 | `Testimonials` | `testimonials` | **Not testimonials anymore.** "Built Around Transparency & Performance": 6 trust cards (Reporting, Account Mgmt, Faster Claims, Specialty Expertise, HIPAA, Denial Reduction) + dark philosophy strip with founder line and 4 stat tiles |
 | 12 | `FAQ` | `faq` | Sticky left column + 9-item accordion (last 3 are about switching) |
 | 13 | `Audit` | `audit` | Free audit CTA, dark gradient |
-| 14 | `Contact` | `contact` | Contact cards + guarantees strip + form (name, practice_name, email, phone required; specialty, state, monthly_collections, message optional) → `/api/contact`; "Get My Free Audit" submit; "Book a 30 minute call" link |
+| 14 | `Contact` | `contact` | Contact cards + guarantees strip + form titled "Get Your Free Audit" (name, practice_name, email, phone required; specialty, state, monthly_collections, message optional) → `/api/contact`; "Get My Free Audit" submit; "Book a 30 minute call" link |
 | 15 | `Footer` | — | Pre-footer CTA band, links, socials, Privacy/Terms, HIPAA · BAA · 50 States |
 
 Sections 9 to 14 are loaded through `BelowFold.tsx`: server-rendered (in the initial HTML), but each section's JS is in its own chunk.
@@ -211,6 +217,7 @@ The **Services hub** (`/services`) uses `ServicesHero` with `/Service.png` and t
 - Footer "Cookie Settings" button (`showHubSpotCookieBanner` in components/HubSpotLoader.tsx) loads HubSpot if needed and reopens the consent banner. The HubSpot cookie banner is restyled in app/globals.css (frosted navy, teal accent, site buttons; selectors #hs-banner-parent #hs-eu-cookie-confirmation ...). HubSpot only shows the banner on the live domain, not on localhost. Under 960px it sits 104px from the bottom so it clears the chat bubble.
 - Book a Call page (`/book-a-call`): HubSpot meetings scheduler (30 minutes, Google Meet, visitor's time zone). Every "Book a Free Consultation" link (Hero, Services CTA strip, FAQ, Footer contact column) now goes there; "Get Free Audit" buttons still go to the audit form; the Contact form submit button is unchanged. Contact has a "Prefer to talk? Book a 30 minute call" line, the Footer has a "Book a Call" link, and the page is in the sitemap. CSP report-only allows static.hsappstatic.net (script) and meetings-na2.hubspot.com (frame). The HubSpot iframe has a fixed 756px height because HubSpot's auto resize does not accept the na2 domain.
 - Phase 7 Round 1: removed the unsourced "Versus 14 to 18% in-house" line from Results (Cost to Collect card now explains the percentage model); new homepage "Switching Billing Companies?" section after Process plus 3 switching FAQs (FAQ JSON-LD follows automatically); new `/pricing` page (Footer link, sitemap, mobile menu only because the desktop Nav has no room at 1280px); contact form has optional State and Monthly Collections selects, included in the owner email and validated against fixed lists on the server; Privacy Policy lists the two new optional fields; shared `PageHero` now used by Book a Call and Pricing. Contact submit button reads "Get My Free Audit".
+- Phase 7 Round 2: desktop Nav drops the email and adds Pricing; new `/security`, `/ehr-integrations` and `/about` pages built from shared `PageSections` + `PageHero` (PricingFAQ renamed `PageFAQ`); TrustStrip and the EHR page share `lib/platforms.ts`; sitemap and Footer list About, Pricing, EHR Integrations and Security; Footer "HIPAA Compliant" and the About HIPAA badge link to `/security`, TrustStrip disclaimer links to `/ehr-integrations`. Copy: "our portal" replaced with "a secure method we agree on with you"; security wording is now "encrypted connections, access limited to the billing staff assigned to your account, and access you can revoke at any time" (no 256-bit, audit logging or security review claims); "Most EHRs work with our process. Ask us about yours."; Contact form heading "Get Your Free Audit". Fixed 3 mobile tap targets under 44px (Nav logo, Specialties and Why Choose Us text links).
 
 ---
 

@@ -92,6 +92,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.85,
     },
     {
+      url: 'https://www.swiftbillingrcm.com/about',
+      lastModified: LAST_MODIFIED,
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: 'https://www.swiftbillingrcm.com/security',
+      lastModified: LAST_MODIFIED,
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: 'https://www.swiftbillingrcm.com/ehr-integrations',
+      lastModified: LAST_MODIFIED,
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
       url: 'https://www.swiftbillingrcm.com/book-a-call',
       lastModified: LAST_MODIFIED,
       changeFrequency: 'monthly',
