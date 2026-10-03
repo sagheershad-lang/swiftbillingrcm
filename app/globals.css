@@ -109,6 +109,173 @@ footer {
 .hero-fade-up  { animation: hero-fade-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) both; }
 .hero-slide-up { animation: hero-slide-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) both; }
 
+/* ── HubSpot cookie consent banner ───────────────────────────────
+   HubSpot injects its own stylesheet after ours, with two-ID selectors
+   (#hs-banner-parent #hs-eu-cookie-confirmation ...) and a reset on
+   #hs-banner-parent *. Every rule here starts with #hs-banner-parent and has
+   one more ID than HubSpot's, so it wins without !important (no inline styles
+   to beat). The doubled #hs-eu-cookie-confirmation also beats HubSpot's
+   .hs-banner-optimization-animation rule. Selectors checked on the live site. */
+#hs-banner-parent #hs-eu-cookie-confirmation#hs-eu-cookie-confirmation {
+  inset: auto 16px 16px 16px;
+  width: auto;
+  max-width: 760px;
+  max-height: calc(100% - 32px);
+  margin: 0 auto;
+  overflow: hidden auto;
+  background: rgba(11, 60, 93, 0.85);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 16px;
+  box-shadow: 0 20px 50px rgba(6, 29, 46, 0.35);
+  color: rgba(255, 255, 255, 0.85);
+  font-family: var(--font-manrope), sans-serif;
+  font-size: 14px;
+  opacity: 1;
+  transform: none;
+  animation: sb-cookie-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+/* 2px teal top accent line */
+#hs-banner-parent #hs-eu-cookie-confirmation#hs-eu-cookie-confirmation::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, #2EC4B6 30%, #2EC4B6 70%, transparent 100%);
+  pointer-events: none;
+}
+@keyframes sb-cookie-in {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* Desktop: text on the left, buttons on the right */
+#hs-banner-parent #hs-eu-cookie-confirmation #hs-eu-cookie-confirmation-inner {
+  flex-direction: row;
+  align-items: center;
+  gap: 24px;
+  padding: 22px 24px;
+}
+#hs-banner-parent #hs-eu-cookie-confirmation #hs-eu-policy-wording {
+  flex: 1 1 auto;
+  min-width: 0;
+  font-size: 14px;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.85);
+}
+#hs-banner-parent #hs-eu-cookie-confirmation #hs-eu-policy-wording * {
+  line-height: 1.65;
+}
+#hs-banner-parent #hs-eu-cookie-confirmation #hs-eu-policy-wording a {
+  color: #2EC4B6;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+#hs-banner-parent #hs-eu-cookie-confirmation #hs-eu-policy-wording a:hover {
+  color: #3dd9cb;
+}
+#hs-banner-parent #hs-eu-cookie-confirmation #hs-eu-cookie-confirmation-buttons-area {
+  flex: 0 0 auto;
+  align-items: center;
+}
+#hs-banner-parent #hs-eu-cookie-confirmation #hs-eu-opt-in-buttons {
+  flex-wrap: nowrap;
+  gap: 10px;
+}
+
+/* Buttons: shared size and shape */
+#hs-banner-parent #hs-eu-cookie-confirmation #hs-eu-confirmation-button,
+#hs-banner-parent #hs-eu-cookie-confirmation #hs-eu-decline-button {
+  flex: 1 1 0;
+  min-width: 112px;
+  height: auto;
+  min-height: 44px;
+  padding: 10px 22px;
+  border-radius: 12px;
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 1.2;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+/* "Got it": primary button */
+#hs-banner-parent #hs-eu-cookie-confirmation #hs-eu-confirmation-button {
+  background: #2EC4B6;
+  border: 1px solid #2EC4B6;
+  color: #0B3C5D;
+  font-weight: 800;
+  box-shadow: 0 0 24px rgba(46, 196, 182, 0.35);
+}
+#hs-banner-parent #hs-eu-cookie-confirmation #hs-eu-confirmation-button:hover {
+  background: #3dd9cb;
+  border-color: #3dd9cb;
+  transform: translateY(-2px);
+}
+/* "Decline": outline button */
+#hs-banner-parent #hs-eu-cookie-confirmation #hs-eu-decline-button {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  color: #FFFFFF;
+  font-weight: 700;
+}
+#hs-banner-parent #hs-eu-cookie-confirmation #hs-eu-decline-button:hover {
+  border-color: #2EC4B6;
+}
+/* Keyboard focus ring (HubSpot's reset removes the global box-shadow ring) */
+#hs-banner-parent #hs-eu-cookie-confirmation #hs-eu-confirmation-button:focus-visible,
+#hs-banner-parent #hs-eu-cookie-confirmation #hs-eu-decline-button:focus-visible {
+  outline: 2px solid #2EC4B6;
+  outline-offset: 3px;
+}
+
+/* Under 960px the centered banner would reach the HubSpot chat bubble
+   (100x96 in the bottom right corner), so it sits above it instead */
+@media (max-width: 959px) {
+  #hs-banner-parent #hs-eu-cookie-confirmation#hs-eu-cookie-confirmation {
+    inset: auto 16px 104px 16px;
+    max-height: calc(100% - 120px);
+  }
+}
+/* Mobile: text above, buttons side by side below */
+@media (max-width: 767px) {
+  #hs-banner-parent #hs-eu-cookie-confirmation #hs-eu-cookie-confirmation-inner {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+    padding: 20px;
+  }
+  #hs-banner-parent #hs-eu-cookie-confirmation #hs-eu-policy-wording {
+    font-size: 15px;
+  }
+  #hs-banner-parent #hs-eu-cookie-confirmation #hs-eu-cookie-confirmation-buttons-area,
+  #hs-banner-parent #hs-eu-cookie-confirmation #hs-eu-confirmation-button-group {
+    width: 100%;
+  }
+  #hs-banner-parent #hs-eu-cookie-confirmation #hs-eu-confirmation-button,
+  #hs-banner-parent #hs-eu-cookie-confirmation #hs-eu-decline-button {
+    min-width: 0;
+    font-size: 15px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  #hs-banner-parent #hs-eu-cookie-confirmation#hs-eu-cookie-confirmation {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+  #hs-banner-parent #hs-eu-cookie-confirmation #hs-eu-confirmation-button,
+  #hs-banner-parent #hs-eu-cookie-confirmation #hs-eu-decline-button {
+    transition: none;
+  }
+  #hs-banner-parent #hs-eu-cookie-confirmation #hs-eu-confirmation-button:hover {
+    transform: none;
+  }
+}
+
 /* ── Global card hover effects ─────────────────────────────────── */
 .card,
 [class*="card"],
