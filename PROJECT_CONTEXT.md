@@ -11,12 +11,13 @@
 | Item | Value |
 |---|---|
 | Company | **SwiftBilling RCM** (never write "SwiftBilling RCM RCM") |
+| Legal entity | Clink Nexus LLC (Texas) |
 | What it does | Medical billing & revenue cycle management (RCM) for independent US healthcare practices |
 | Website | https://www.swiftbillingrcm.com |
 | Email | info@swiftbillingrcm.com |
 | Phone | +1 (512) 737-7488 → `tel:+15127377488` |
 | Address | 5900 Balcones Dr #7192, Austin, TX 78731, USA |
-| Hours | Mon–Fri · 8am–6pm CST |
+| Hours | Mon to Fri · 8am to 6pm Central Time |
 | Coverage | All 50 US states, 20+ specialties |
 | Pricing (for copy/FAQ) | 4–9% of collections, no setup fee, no long-term contracts |
 | Key claims used in copy | 98% clean claim rate · free 24-hour revenue audit · 5–7 day onboarding · HIPAA compliant, BAA signed with every client · CPC-certified coders · CAQH credentialing |
@@ -200,6 +201,7 @@ The **Services hub** (`/services`) uses `ServicesHero` with `/Service.png` and t
 - QA Phase 6 Round C: all em/en dashes removed from copy, metadata, JSON-LD, alt text and emails (218 before, 0 after; dashes remain only in code comments); ranges written with "to"; stock phrases ("nothing falls through the cracks", "leaving on the table", "No black boxes", "from day one", the multi-state enrollment line) kept to one use each.
 - QA Phase 6 Round A: "HIPAA Compliant" wording (no "certified"); Central Time; "No long-term contracts"; onboarding 5 to 7 business days; names Provider Credentialing, OB/GYN, athenahealth; Footer "Why Us" link; TrustBar counter server-renders its final value; JSON-LD now LocalBusiness + ProfessionalService with sameAs, image and openingHoursSpecification; sitemap lastModified fixed at 2026-10-03 (update `LAST_MODIFIED` in app/sitemap.ts after real content changes); neutral hero image alt (AI-generated image).
 - Nav cleanup: "Why Us" now links to #why-us (About section); "Our Approach" links to #testimonials and is in the mobile menu only (`mobileOnly` in components/Nav.tsx) because the desktop bar overflows at 1280px with it; Footer has "Why Choose Us" (#why-us) and "Our Approach" (#testimonials); About badge reads "HIPAA Compliant / BAA with every client"; JSON-LD uses only openingHoursSpecification.
+- Privacy Policy and Terms rewritten in plain English (text only, same layout): Clink Nexus LLC named as the operator; "Originally published 2023. Last updated October 3, 2026."; Privacy now covers the contact form, HubSpot chat and cookies, Google Analytics, Vercel Analytics, server logs, service providers, state privacy rights and children under 13; Terms list all 11 services (rendered from lib/services-data.ts), 4 to 9% fees with the service agreement governing, results wording, Texas law and Travis County courts.
 
 ---
 

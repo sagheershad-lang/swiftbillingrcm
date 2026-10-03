@@ -6,18 +6,20 @@ import { pageMetadata } from '@/lib/seo'
 
 export const metadata: Metadata = {
   ...pageMetadata({
-    title: 'Privacy Policy: How We Protect Your Data | SwiftBilling RCM',
-    description: 'Privacy Policy for SwiftBilling RCM: how we collect, use, and protect your information when you visit our website or contact us about our services.',
+    title: 'Privacy Policy: How We Use Your Data | SwiftBilling RCM',
+    description: 'How SwiftBilling RCM (Clink Nexus LLC) collects, uses and protects information from our website, contact form, chat and analytics, and your privacy rights.',
     path: '/privacy-policy',
   }),
   robots: { index: true, follow: true },
 }
 
-const LAST_UPDATED = 'May 17, 2026'
+const LAST_UPDATED = 'October 3, 2026'
 const COMPANY = 'SwiftBilling RCM'
+const LEGAL_ENTITY = 'Clink Nexus LLC'
 const EMAIL = 'info@swiftbillingrcm.com'
 const PHONE = '+1 (512) 737-7488'
 const ADDRESS = '5900 Balcones Dr #7192, Austin, TX 78731'
+const HOURS = 'Monday to Friday, 8am to 6pm Central Time'
 
 export default function PrivacyPolicy() {
   return (
@@ -34,7 +36,7 @@ export default function PrivacyPolicy() {
             Back to SwiftBilling RCM
           </Link>
           <h1 className="text-3xl font-extrabold tracking-tight mb-2">Privacy Policy</h1>
-          <p className="text-white/60 text-sm">Last updated: {LAST_UPDATED}</p>
+          <p className="text-white/60 text-sm">Originally published 2023. Last updated {LAST_UPDATED}.</p>
         </div>
       </div>
 
@@ -44,215 +46,259 @@ export default function PrivacyPolicy() {
 
           <section>
             <p>
-              {COMPANY} (&quot;we,&quot; &quot;us,&quot; or &quot;our&quot;) is committed to protecting your privacy. This Privacy Policy
-              explains how we collect, use, disclose, and safeguard your information when you visit our website
-              at <strong>www.swiftbillingrcm.com</strong> or contact us regarding our medical billing and revenue
-              cycle management services.
-            </p>
-            <p className="mt-4">
-              Please read this policy carefully. If you disagree with its terms, please discontinue use of our site.
+              This Privacy Policy explains what information we collect through our website at{' '}
+              <strong>www.swiftbillingrcm.com</strong>, how we use it, who helps us process it, and the
+              choices you have. It applies to this website only. Patient information we handle for our
+              clients is covered by separate agreements, as explained in Section 7.
             </p>
           </section>
 
           <hr className="border-[#E4EDF5]" />
 
           <section>
-            <h2 className="text-[18px] font-extrabold text-[#0B3C5D] mb-3">1. Information We Collect</h2>
-            <h3 className="text-[15px] font-bold text-[#0F172A] mb-2">Information You Provide Directly</h3>
-            <p>When you submit our contact or consultation form, we collect:</p>
+            <h2 className="text-[18px] font-extrabold text-[#0B3C5D] mb-3">1. Who We Are</h2>
+            <p>
+              {COMPANY} is a medical billing and revenue cycle management company operated by{' '}
+              <strong>{LEGAL_ENTITY}</strong>, a Texas limited liability company (&quot;we,&quot; &quot;us,&quot;
+              or &quot;our&quot;). You can reach us at:
+            </p>
             <ul className="list-disc ml-5 mt-2 space-y-1">
-              <li>Full name</li>
-              <li>Email address</li>
-              <li>Practice or organization name</li>
-              <li>Medical specialty</li>
-              <li>Message or billing challenge description</li>
+              <li>Address: {ADDRESS}</li>
+              <li>
+                Email:{' '}
+                <a href={`mailto:${EMAIL}`} className="text-[#2EC4B6] underline hover:opacity-80">{EMAIL}</a>
+              </li>
+              <li>
+                Phone:{' '}
+                <a href="tel:+15127377488" className="text-[#2EC4B6] underline hover:opacity-80">{PHONE}</a>
+              </li>
+              <li>Hours: {HOURS}</li>
+            </ul>
+          </section>
+
+          <hr className="border-[#E4EDF5]" />
+
+          <section>
+            <h2 className="text-[18px] font-extrabold text-[#0B3C5D] mb-3">2. Information You Give Us</h2>
+            <h3 className="text-[15px] font-bold text-[#0F172A] mb-2">Contact form</h3>
+            <p>When you fill out the contact form on our website, we collect:</p>
+            <ul className="list-disc ml-5 mt-2 space-y-1">
+              <li>Your name</li>
+              <li>Your practice name</li>
+              <li>Your email address</li>
+              <li>Your phone number</li>
+              <li>Your medical specialty (optional)</li>
+              <li>Your message (optional)</li>
             </ul>
 
-            <h3 className="text-[15px] font-bold text-[#0F172A] mt-5 mb-2">Automatically Collected Information</h3>
-            <p>When you visit our website, we may automatically collect:</p>
-            <ul className="list-disc ml-5 mt-2 space-y-1">
-              <li>IP address and general geographic location</li>
-              <li>Browser type and version</li>
-              <li>Pages visited and time spent on each page</li>
-              <li>Referring URL</li>
-              <li>Device type (desktop, mobile, tablet)</li>
-            </ul>
-            <p className="mt-3">
-              This data is collected via <strong>Google Analytics</strong> (see Section 5 below).
+            <h3 className="text-[15px] font-bold text-[#0F172A] mt-5 mb-2">Website chat</h3>
+            <p>
+              If you use the chat window on our website, we also collect anything you type into the chat,
+              including any contact details you choose to share. The chat is provided by{' '}
+              <strong>HubSpot</strong>.
             </p>
           </section>
 
           <hr className="border-[#E4EDF5]" />
 
           <section>
-            <h2 className="text-[18px] font-extrabold text-[#0B3C5D] mb-3">2. How We Use Your Information</h2>
+            <h2 className="text-[18px] font-extrabold text-[#0B3C5D] mb-3">3. Information Collected Automatically</h2>
+            <p>Some information is collected automatically when you visit our website:</p>
+            <ul className="list-disc ml-5 mt-2 space-y-1">
+              <li>
+                <strong>Google Analytics</strong> uses cookies to collect usage data, such as the pages you
+                view, how long you stay, the website that referred you, your browser and device type, and
+                your approximate location based on your IP address.
+              </li>
+              <li>
+                <strong>HubSpot</strong> uses cookies to recognize returning visitors, record the pages you
+                view, and run the chat window.
+              </li>
+              <li>
+                <strong>Vercel Analytics</strong> collects aggregated visit data, such as page views and
+                referring websites. It does not use cookies.
+              </li>
+              <li>
+                <strong>Server logs:</strong> our hosting provider automatically records standard technical
+                details, such as your IP address, browser type, the page requested, and the time of the
+                request. These logs are used to run and secure the website.
+              </li>
+            </ul>
+          </section>
+
+          <hr className="border-[#E4EDF5]" />
+
+          <section>
+            <h2 className="text-[18px] font-extrabold text-[#0B3C5D] mb-3">4. How We Use Your Information</h2>
             <p>We use the information we collect to:</p>
             <ul className="list-disc ml-5 mt-2 space-y-1">
-              <li>Respond to your inquiry and provide a free revenue cycle audit</li>
-              <li>Send you a confirmation email acknowledging receipt of your message</li>
-              <li>Communicate with you about our medical billing services</li>
-              <li>Improve our website content and user experience</li>
-              <li>Comply with legal and regulatory obligations</li>
+              <li>Reply to your inquiries and chat messages</li>
+              <li>Prepare and deliver your free revenue audit</li>
+              <li>Improve our website and its content</li>
+              <li>Understand how visitors find and use our website</li>
+              <li>Keep the website secure and meet our legal obligations</li>
             </ul>
             <p className="mt-3">
-              We do <strong>not</strong> sell, rent, or share your personal information with third parties for
-              their marketing purposes.
+              We do <strong>not</strong> sell your personal information, and we do <strong>not</strong> share
+              it for cross-context behavioral advertising.
             </p>
           </section>
 
           <hr className="border-[#E4EDF5]" />
 
           <section>
-            <h2 className="text-[18px] font-extrabold text-[#0B3C5D] mb-3">3. HIPAA Notice</h2>
+            <h2 className="text-[18px] font-extrabold text-[#0B3C5D] mb-3">5. Service Providers</h2>
             <p>
-              Our website contact form is designed for <strong>business inquiries only</strong>, not for the
-              transmission of Protected Health Information (PHI). Please do not submit any patient names,
-              diagnoses, insurance IDs, dates of service, or other PHI through the website contact form.
-            </p>
-            <p className="mt-3">
-              When you engage {COMPANY} as a medical billing service provider, a <strong>Business Associate
-              Agreement (BAA)</strong> is signed before any PHI is accessed or processed. All PHI shared within
-              the scope of our services is handled in compliance with the Health Insurance Portability and
-              Accountability Act of 1996 (HIPAA) and its implementing regulations.
-            </p>
-          </section>
-
-          <hr className="border-[#E4EDF5]" />
-
-          <section>
-            <h2 className="text-[18px] font-extrabold text-[#0B3C5D] mb-3">4. How We Share Your Information</h2>
-            <p>We may share your information with the following categories of third parties:</p>
-            <ul className="list-disc ml-5 mt-2 space-y-1">
-              <li>
-                <strong>Email service providers:</strong> We use <strong>Resend</strong> to deliver
-                transactional emails (inquiry notifications and auto-replies). Resend receives your name and
-                email address for this purpose only.
-              </li>
-              <li>
-                <strong>Analytics providers:</strong> Google Analytics processes anonymized usage data as
-                described in Section 5.
-              </li>
-              <li>
-                <strong>Legal requirements:</strong> We may disclose your information if required by law,
-                court order, or government authority.
-              </li>
-            </ul>
-          </section>
-
-          <hr className="border-[#E4EDF5]" />
-
-          <section>
-            <h2 className="text-[18px] font-extrabold text-[#0B3C5D] mb-3">5. Cookies & Analytics</h2>
-            <p>
-              Our website uses <strong>Google Analytics</strong> to understand how visitors interact with our
-              site. Google Analytics collects anonymized data about page views, session duration, and traffic
-              sources using cookies. This data does not personally identify you.
-            </p>
-            <p className="mt-3">
-              You can opt out of Google Analytics tracking by installing the{' '}
-              <a
-                href="https://tools.google.com/dlpage/gaoptout"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[#2EC4B6] underline hover:opacity-80"
-              >
-                Google Analytics Opt-out Browser Add-on
-              </a>.
-            </p>
-            <p className="mt-3">
-              We do not use advertising cookies, cross-site tracking cookies, or any cookies that store
-              personal information beyond what is described above.
-            </p>
-          </section>
-
-          <hr className="border-[#E4EDF5]" />
-
-          <section>
-            <h2 className="text-[18px] font-extrabold text-[#0B3C5D] mb-3">6. Data Security</h2>
-            <p>
-              We implement industry-standard technical and organizational measures to protect your information
-              from unauthorized access, alteration, disclosure, or destruction. These include:
+              We use the following companies to run our website and handle inquiries. They process
+              information on our behalf for the purposes described in this policy:
             </p>
             <ul className="list-disc ml-5 mt-2 space-y-1">
-              <li>HTTPS encryption for all data transmitted to and from our website</li>
-              <li>Secure email transmission via Resend (TLS-encrypted)</li>
-              <li>Access controls limiting who within our organization can view submitted inquiries</li>
+              <li><strong>Resend:</strong> delivers emails from our website, including inquiry notifications to our team and the confirmation email sent to you.</li>
+              <li><strong>Vercel:</strong> hosts our website and provides Vercel Analytics.</li>
+              <li><strong>Google:</strong> provides Google Analytics, which measures website traffic.</li>
+              <li><strong>HubSpot:</strong> provides our customer relationship management (CRM) system, the website chat, and the related cookies.</li>
             </ul>
             <p className="mt-3">
-              No method of transmission over the Internet is 100% secure. While we strive to protect your
-              information, we cannot guarantee absolute security.
+              We may also disclose information when the law requires it, for example in response to a
+              court order or a request from a government authority.
             </p>
           </section>
 
           <hr className="border-[#E4EDF5]" />
 
           <section>
-            <h2 className="text-[18px] font-extrabold text-[#0B3C5D] mb-3">7. Data Retention</h2>
+            <h2 className="text-[18px] font-extrabold text-[#0B3C5D] mb-3">6. Cookies</h2>
             <p>
-              Contact form submissions are retained in our email system for as long as necessary to fulfill the
-              purpose for which they were collected (responding to your inquiry and maintaining business records),
-              and in accordance with applicable law. If you wish to have your information deleted, please contact
-              us using the information in Section 10.
+              Cookies are small text files that a website stores in your browser. They help the website
+              remember your visit and measure how it is used. On our website, cookies are set by:
             </p>
+            <ul className="list-disc ml-5 mt-2 space-y-1">
+              <li><strong>Google Analytics</strong>, to measure visits and usage</li>
+              <li><strong>HubSpot</strong>, to recognize returning visitors, record page views, and keep the chat working</li>
+            </ul>
+            <p className="mt-3">Vercel Analytics does not use cookies.</p>
+
+            <h3 className="text-[15px] font-bold text-[#0F172A] mt-5 mb-2">How to control cookies</h3>
+            <ul className="list-disc ml-5 mt-2 space-y-1">
+              <li>
+                <strong>Browser settings:</strong> you can block or delete cookies in your browser. Some
+                features, such as the chat, may not work without them.
+              </li>
+              <li>
+                <strong>HubSpot cookie banner:</strong> when the banner appears, you can use it to accept or
+                decline cookies.
+              </li>
+              <li>
+                <strong>Google Analytics opt out:</strong> you can install the{' '}
+                <a
+                  href="https://tools.google.com/dlpage/gaoptout"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#2EC4B6] underline hover:opacity-80"
+                >
+                  Google Analytics Opt-out Browser Add-on
+                </a>.
+              </li>
+            </ul>
           </section>
 
           <hr className="border-[#E4EDF5]" />
 
           <section>
-            <h2 className="text-[18px] font-extrabold text-[#0B3C5D] mb-3">8. Third-Party Links</h2>
+            <h2 className="text-[18px] font-extrabold text-[#0B3C5D] mb-3">7. Patient Information and HIPAA</h2>
             <p>
-              Our website may contain links to third-party websites (such as EHR platform websites listed in our
-              integrations section). We are not responsible for the privacy practices of those sites and encourage
-              you to review their privacy policies.
+              Please <strong>do not</strong> submit patient health information through the website contact
+              form or chat. This includes patient names, dates of birth, diagnoses, insurance ID numbers, and
+              dates of service. The website is for business inquiries only.
+            </p>
+            <p className="mt-3">
+              When a practice becomes our client, we handle protected health information (PHI) only under a
+              signed <strong>Business Associate Agreement (BAA)</strong> and the client&apos;s service
+              agreement, as required by the Health Insurance Portability and Accountability Act (HIPAA). That
+              information is not handled through this website.
             </p>
           </section>
 
           <hr className="border-[#E4EDF5]" />
 
           <section>
-            <h2 className="text-[18px] font-extrabold text-[#0B3C5D] mb-3">9. Children&apos;s Privacy</h2>
+            <h2 className="text-[18px] font-extrabold text-[#0B3C5D] mb-3">8. Data Retention</h2>
             <p>
-              Our website is not directed to individuals under the age of 18. We do not knowingly collect
-              personal information from children. If you believe we have inadvertently collected such information,
-              please contact us immediately.
+              We keep inquiry and chat details for as long as we need them to respond to you and to maintain
+              our business records. After that, we delete them. You can ask us to delete your information
+              sooner by following the steps in Section 10.
             </p>
           </section>
 
           <hr className="border-[#E4EDF5]" />
 
           <section>
-            <h2 className="text-[18px] font-extrabold text-[#0B3C5D] mb-3">10. Your Rights</h2>
-            <p>Depending on your jurisdiction, you may have the right to:</p>
+            <h2 className="text-[18px] font-extrabold text-[#0B3C5D] mb-3">9. Security</h2>
+            <p>
+              We use reasonable safeguards to protect your information. These include HTTPS encryption for all
+              data sent to and from our website, encrypted email delivery, and access limits so that only
+              authorized team members can see inquiries.
+            </p>
+            <p className="mt-3">
+              No website or system is 100% secure, so we cannot guarantee absolute security.
+            </p>
+          </section>
+
+          <hr className="border-[#E4EDF5]" />
+
+          <section>
+            <h2 className="text-[18px] font-extrabold text-[#0B3C5D] mb-3">10. Your Privacy Rights</h2>
+            <p>
+              Depending on the state where you live (for example, California or Texas), you may have the
+              right to:
+            </p>
             <ul className="list-disc ml-5 mt-2 space-y-1">
               <li>Access the personal information we hold about you</li>
-              <li>Request correction of inaccurate information</li>
-              <li>Request deletion of your personal information</li>
-              <li>Opt out of certain data processing activities</li>
+              <li>Correct information that is inaccurate</li>
+              <li>Delete your personal information</li>
+              <li>Opt out of certain uses of your information, such as the sale of personal information or targeted advertising (we do neither)</li>
             </ul>
             <p className="mt-3">
-              To exercise any of these rights, please contact us at{' '}
-              <a href={`mailto:${EMAIL}`} className="text-[#2EC4B6] underline hover:opacity-80">{EMAIL}</a>.
+              To make a request, email us at{' '}
+              <a href={`mailto:${EMAIL}`} className="text-[#2EC4B6] underline hover:opacity-80">{EMAIL}</a>{' '}
+              with the subject line &quot;Privacy Request&quot; and tell us what you would like us to do. We may
+              need to confirm your identity before we act on your request, and we will respond within the time
+              required by law.
+            </p>
+            <p className="mt-3">
+              We will not discriminate against anyone for using these rights.
             </p>
           </section>
 
           <hr className="border-[#E4EDF5]" />
 
           <section>
-            <h2 className="text-[18px] font-extrabold text-[#0B3C5D] mb-3">11. Changes to This Policy</h2>
+            <h2 className="text-[18px] font-extrabold text-[#0B3C5D] mb-3">11. Children&apos;s Privacy</h2>
             <p>
-              We may update this Privacy Policy from time to time. When we do, we will update the &quot;Last updated&quot;
-              date at the top of this page. We encourage you to review this policy periodically for any changes.
-              Continued use of our website after changes constitutes your acceptance of the updated policy.
+              Our website is for businesses and is not directed to children under 13. We do not knowingly
+              collect personal information from children under 13. If you believe a child has given us
+              information, please contact us and we will delete it.
             </p>
           </section>
 
           <hr className="border-[#E4EDF5]" />
 
           <section>
-            <h2 className="text-[18px] font-extrabold text-[#0B3C5D] mb-3">12. Contact Us</h2>
-            <p>If you have questions or concerns about this Privacy Policy, please contact us:</p>
+            <h2 className="text-[18px] font-extrabold text-[#0B3C5D] mb-3">12. Changes to This Policy</h2>
+            <p>
+              We may update this Privacy Policy from time to time. When we do, we will change the &quot;Last
+              updated&quot; date at the top of this page. Please check this page from time to time to stay
+              informed.
+            </p>
+          </section>
+
+          <hr className="border-[#E4EDF5]" />
+
+          <section>
+            <h2 className="text-[18px] font-extrabold text-[#0B3C5D] mb-3">13. Contact Us</h2>
+            <p>If you have questions about this Privacy Policy or want to make a privacy request, contact us:</p>
             <div className="mt-3 space-y-1">
-              <p><strong>{COMPANY}</strong></p>
+              <p><strong>{COMPANY}</strong>, operated by {LEGAL_ENTITY}</p>
               <p>{ADDRESS}</p>
               <p>
                 Email:{' '}
@@ -262,6 +308,7 @@ export default function PrivacyPolicy() {
                 Phone:{' '}
                 <a href="tel:+15127377488" className="text-[#2EC4B6] underline hover:opacity-80">{PHONE}</a>
               </p>
+              <p>Hours: {HOURS}</p>
             </div>
           </section>
 
