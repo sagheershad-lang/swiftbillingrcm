@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from 'next'
 import { Manrope } from 'next/font/google'
 import Script from 'next/script'
 import { Analytics } from '@vercel/analytics/next'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 import MotionProvider from '@/components/MotionProvider'
 import HubSpotLoader from '@/components/HubSpotLoader'
 import './globals.css'
@@ -148,6 +149,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <a href="#main-content" className="skip-link">Skip to content</a>
         <MotionProvider>{children}</MotionProvider>
         <Analytics />
+        <SpeedInsights />
         {/* Google Analytics — lazyOnload: gtag.js loads after the page has finished loading, so its
             174 KB download and execution no longer sit before first paint (~2s of mobile LCP).
             Page views are still sent; only visitors who leave before load completes are missed. */}

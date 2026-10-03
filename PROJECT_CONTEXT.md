@@ -42,7 +42,7 @@
 | Hosting | **Vercel** (`vercel.json` → `framework: nextjs`) |
 | Rate limiting | Vercel Firewall rule on `/api/contact`: 5 requests/min per IP on the live site (added Oct 2026). `route.ts` also keeps its own in-memory limit as a backup |
 | Repo | GitHub, private: https://github.com/sagheershad-lang/swiftbillingrcm (branch main) |
-| Analytics | Google Analytics `G-PHYRLHP00K` (next/script `lazyOnload`: loads after the page finishes loading) · HubSpot `js-na2.hs-scripts.com/246275410.js` (loaded by `components/HubSpotLoader.tsx` on the first scroll, click, touch or keypress, or after 8 seconds) · **Vercel Analytics** (`@vercel/analytics`, `<Analytics />` in layout — added Oct 2026; must be enabled in the Vercel dashboard) |
+| Analytics | Google Analytics `G-PHYRLHP00K` (next/script `lazyOnload`: loads after the page finishes loading) · HubSpot `js-na2.hs-scripts.com/246275410.js` (loaded by `components/HubSpotLoader.tsx` on the first scroll, click, touch or keypress, or after 8 seconds) · **Vercel Analytics** (`@vercel/analytics`, `<Analytics />` in layout — added Oct 2026; must be enabled in the Vercel dashboard) · **Vercel Speed Insights** (`@vercel/speed-insights`, `<SpeedInsights />` next to `<Analytics />` in layout; real-user Core Web Vitals; enable Speed Insights in the Vercel dashboard; loads `/_vercel/speed-insights/script.js` and posts to `/_vercel/speed-insights/vitals`, both same-origin, so the CSP needed no change) |
 | Env vars | `RESEND_API_KEY` (in `.env.local` locally and in Vercel project settings) |
 
 | Linting | **ESLint 9** + `eslint-config-next` (flat config `eslint.config.mjs`; ignores `.next`, `out`, `node_modules`, `.claude`) |
@@ -56,7 +56,7 @@
 
 ```
 app/
-  layout.tsx            Root layout: default metadata, JSON-LD (LocalBusiness + WebSite), GA, HubSpot, Vercel Analytics
+  layout.tsx            Root layout: default metadata, JSON-LD (LocalBusiness + WebSite), GA, HubSpot, Vercel Analytics, Vercel Speed Insights
   page.tsx              Homepage (section order below), homepage canonical + FAQPage JSON-LD
   globals.css
   api/contact/route.ts  Contact form → Resend (owner notification + auto-reply), rate limit 5/min/IP, honeypot field "website", sanitize + email validation; state and monthly collections accepted only if they match lib/form-options.ts
