@@ -5,7 +5,7 @@ import Link from 'next/link'
 
 const stats = [
   { value: '98%+', label: 'Clean Claim Rate' },
-  { value: '24–48h', label: 'Submission Speed' },
+  { value: '24 to 48h', label: 'Submission Speed' },
   { value: '11',   label: 'Services' },
   { value: '50+',  label: 'Payer Networks' },
 ]
@@ -164,8 +164,8 @@ export default function ServicesHero() {
               variants={textItem}
               className="text-[15px] md:text-[14.5px] leading-[1.75] text-white/52 max-w-[360px] mb-10"
             >
-              One partner for your complete revenue cycle — from charge entry to
-              practice growth — so you focus entirely on care.
+              One partner for your complete revenue cycle, from charge entry to
+              practice growth, so you can focus entirely on care.
             </m.p>
 
             {/* Feature checklist */}

@@ -6,7 +6,7 @@ const steps = [
   {
     time: 'Same Day',
     title: 'Submit Data',
-    desc: 'Securely share patient encounter data and charge sheets through your EHR or our portal. We integrate with all major systems — zero disruption.',
+    desc: 'Securely share patient encounter data and charge sheets through your EHR or our portal. We integrate with all major systems, so there is no disruption to your workflow.',
     outcome: 'HIPAA-Secure Transfer',
     icon: (
       <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
@@ -16,9 +16,9 @@ const steps = [
     ),
   },
   {
-    time: '24–48 Hours',
+    time: '24 to 48 Hours',
     title: 'Process Claims',
-    desc: 'Our certified coders review, scrub, and electronically submit clean claims within 24–48 hours for maximum first-pass acceptance.',
+    desc: 'Our certified coders review, scrub, and electronically submit clean claims within 24 to 48 hours for maximum first-pass acceptance.',
     outcome: '98% First-Pass Rate',
     icon: (
       <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
@@ -87,7 +87,7 @@ export default function Process() {
               </h2>
             </div>
             <p className="text-[15px] text-[#64748B] leading-relaxed max-w-[360px] lg:text-right lg:pb-1">
-              A streamlined, transparent process that keeps you informed and your revenue flowing from day one.
+              A streamlined, transparent process that keeps you informed and keeps your revenue flowing.
             </p>
           </div>
           <div

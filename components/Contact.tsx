@@ -7,7 +7,7 @@ const contactDetails = [
   {
     title: 'Email Us',
     value: 'info@swiftbillingrcm.com',
-    sub: 'We typically reply within 2–4 business hours',
+    sub: 'We typically reply within 2 to 4 business hours',
     href: 'mailto:info@swiftbillingrcm.com',
     icon: (
       <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
@@ -19,7 +19,7 @@ const contactDetails = [
   {
     title: 'Call Us',
     value: '+1 (512) 737-7488',
-    sub: 'Mon–Fri · 8am–6pm CST',
+    sub: 'Mon to Fri · 8am to 6pm CST',
     href: 'tel:+15127377488',
     icon: (
       <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
@@ -162,7 +162,7 @@ export default function Contact() {
               </h2>
             </div>
             <p className="text-[15px] text-[#64748B] leading-relaxed max-w-[360px] lg:text-right lg:pb-1">
-              Free revenue audit within 24 hours. No obligation, no sales pressure — just a clear look at where your revenue stands.
+              Free revenue audit within 24 hours. No obligation and no sales pressure, just a clear look at where your revenue stands.
             </p>
           </div>
           <div className="mt-7 h-px" style={{ background: 'linear-gradient(90deg, #2EC4B6, rgba(46,196,182,0.15), transparent)' }} />

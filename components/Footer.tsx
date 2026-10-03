@@ -303,7 +303,7 @@ export default function Footer() {
 
               {/* Hours + Coverage (non-link) */}
               {[
-                { label: 'Hours',    value: 'Mon–Fri · 8am–6pm CST' },
+                { label: 'Hours',    value: 'Mon to Fri · 8am to 6pm CST' },
                 { label: 'Coverage', value: 'All 50 US States' },
               ].map(({ label, value }) => (
                 <div key={label} className="flex items-start gap-3">

@@ -77,14 +77,14 @@ const supportingStats = [
     desc: 'Industry-leading first-pass acceptance rate, reducing costly denials.',
   },
   {
-    value: '4–9%',
+    value: '4 to 9%',
     label: 'Cost to Collect',
-    desc: 'Versus 14–18% in-house. You keep far more of every dollar collected.',
+    desc: 'Versus 14 to 18% in-house. You keep far more of every dollar collected.',
   },
   {
     value: '20+',
     label: 'Specialties Supported',
-    desc: 'From internal medicine to surgery — specialty-specific billing expertise for every claim.',
+    desc: 'Specialty-specific billing expertise for every claim, from internal medicine to surgery.',
   },
   {
     value: 'CAQH',
@@ -110,7 +110,7 @@ export default function Results() {
             Numbers That Speak for Themselves
           </h2>
           <p className="text-[16px] text-white/50 max-w-[480px] mx-auto leading-relaxed">
-            Based on our billing team&apos;s results across multiple practices — measurable improvements from the very first month.
+            Based on our billing team&apos;s results across multiple practices, with measurable improvements from the very first month.
           </p>
         </FadeIn>
 

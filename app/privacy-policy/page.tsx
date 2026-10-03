@@ -6,8 +6,8 @@ import { pageMetadata } from '@/lib/seo'
 
 export const metadata: Metadata = {
   ...pageMetadata({
-    title: 'Privacy Policy — How We Protect Your Data | SwiftBilling RCM',
-    description: 'Privacy Policy for SwiftBilling RCM — how we collect, use, and protect your information when you visit our website or contact us about our services.',
+    title: 'Privacy Policy: How We Protect Your Data | SwiftBilling RCM',
+    description: 'Privacy Policy for SwiftBilling RCM: how we collect, use, and protect your information when you visit our website or contact us about our services.',
     path: '/privacy-policy',
   }),
   robots: { index: true, follow: true },
@@ -105,7 +105,7 @@ export default function PrivacyPolicy() {
           <section>
             <h2 className="text-[18px] font-extrabold text-[#0B3C5D] mb-3">3. HIPAA Notice</h2>
             <p>
-              Our website contact form is designed for <strong>business inquiries only</strong> — not for the
+              Our website contact form is designed for <strong>business inquiries only</strong>, not for the
               transmission of Protected Health Information (PHI). Please do not submit any patient names,
               diagnoses, insurance IDs, dates of service, or other PHI through the website contact form.
             </p>
@@ -124,16 +124,16 @@ export default function PrivacyPolicy() {
             <p>We may share your information with the following categories of third parties:</p>
             <ul className="list-disc ml-5 mt-2 space-y-1">
               <li>
-                <strong>Email service providers</strong> — We use <strong>Resend</strong> to deliver
+                <strong>Email service providers:</strong> We use <strong>Resend</strong> to deliver
                 transactional emails (inquiry notifications and auto-replies). Resend receives your name and
                 email address for this purpose only.
               </li>
               <li>
-                <strong>Analytics providers</strong> — Google Analytics processes anonymized usage data as
+                <strong>Analytics providers:</strong> Google Analytics processes anonymized usage data as
                 described in Section 5.
               </li>
               <li>
-                <strong>Legal requirements</strong> — We may disclose your information if required by law,
+                <strong>Legal requirements:</strong> We may disclose your information if required by law,
                 court order, or government authority.
               </li>
             </ul>

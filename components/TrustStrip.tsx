@@ -146,7 +146,7 @@ export default function TrustStrip() {
         </h2>
 
         <p className="text-[15px] md:text-[13.5px] text-[#5A7A96] font-medium leading-relaxed max-w-[480px] mx-auto">
-          We work seamlessly across all major EHR, EMR, and clearinghouse systems — no migration required.
+          We work seamlessly across all major EHR, EMR, and clearinghouse systems, with no migration required.
         </p>
 
         <div

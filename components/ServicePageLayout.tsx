@@ -109,7 +109,7 @@ function ServiceHeroGraphic({ service, heroImage, heroImageDesktop, heroImageTab
         <BreakpointImage
           media="(max-width: 767px)"
           src={effectiveMobile!}
-          alt={`${service.name} services — SwiftBilling RCM medical billing`}
+          alt={`${service.name} services from SwiftBilling RCM`}
           fill
           loading="eager"
           fetchPriority="high"
@@ -132,7 +132,7 @@ function ServiceHeroGraphic({ service, heroImage, heroImageDesktop, heroImageTab
         <BreakpointImage
           media="(min-width: 768px) and (max-width: 1023px)"
           src={effectiveTablet!}
-          alt={`${service.name} services — SwiftBilling RCM medical billing`}
+          alt={`${service.name} services from SwiftBilling RCM`}
           fill
           loading="eager"
           fetchPriority="high"
@@ -429,7 +429,7 @@ export default function ServicePageLayout({ service, heroImage, heroImageDesktop
               <BreakpointImage
                 media="(min-width: 1024px)"
                 src={(heroImageDesktop ?? heroImage)!}
-                alt={`${service.name} services — SwiftBilling RCM medical billing`}
+                alt={`${service.name} services from SwiftBilling RCM`}
                 fill
                 loading="eager"
                 fetchPriority="high"
@@ -601,7 +601,7 @@ export default function ServicePageLayout({ service, heroImage, heroImageDesktop
               Everything Included in {service.name}
             </h2>
             <p className="text-[15px] mt-2 max-w-[520px]" style={{ color: 'rgba(255,255,255,0.5)' }}>
-              Complete coverage of every step — nothing falls through the cracks.
+              Every step of the process, covered from start to finish.
             </p>
           </m.div>
 
@@ -814,7 +814,7 @@ export default function ServicePageLayout({ service, heroImage, heroImageDesktop
             >
               <span className="w-[7px] h-[7px] rounded-full bg-[#2EC4B6] animate-pulse shrink-0" />
               <span className="text-[10.5px] font-extrabold uppercase tracking-[0.2em] text-[#2EC4B6]">
-                Free — No Obligation
+                Free · No Obligation
               </span>
             </div>
 
@@ -836,8 +836,8 @@ export default function ServicePageLayout({ service, heroImage, heroImageDesktop
             </h2>
 
             <p className="text-[15px] leading-relaxed mb-8" style={{ color: 'rgba(255,255,255,0.5)' }}>
-              Get a free audit and see exactly how much revenue you&apos;re leaving on the table.
-              Response within 24 hours — no pitch, just data.
+              Get a free audit that shows exactly where your practice is losing revenue.
+              We respond within 24 hours with clear data, not a sales pitch.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3">

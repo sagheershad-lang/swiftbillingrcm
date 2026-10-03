@@ -37,15 +37,15 @@ export default function FAQ() {
               </span>
             </h2>
             <p className="text-[15px] text-[#64748B] leading-relaxed mb-8">
-              Common questions from practices considering SwiftBilling RCM — answered clearly, no fluff.
+              Common questions from practices considering SwiftBilling RCM, answered clearly and without fluff.
             </p>
 
             {/* Trust pills */}
             <div className="flex flex-col gap-2.5 mb-8">
               {[
-                { icon: '🔒', text: 'HIPAA compliant — BAA signed with every client' },
+                { icon: '🔒', text: 'HIPAA compliant, with a BAA signed for every client' },
                 { icon: '📋', text: 'No contracts, no upfront fees' },
-                { icon: '⚡', text: 'Onboarding in 5–7 business days' },
+                { icon: '⚡', text: 'Onboarding in 5 to 7 business days' },
                 { icon: '📞', text: 'Dedicated account manager for every practice' },
               ].map((t) => (
                 <div key={t.text} className="flex items-center gap-2.5">

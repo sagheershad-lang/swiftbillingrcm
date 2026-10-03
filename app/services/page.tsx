@@ -90,7 +90,7 @@ export default function ServicesHub() {
           <div className="mb-10">
             <p className="text-[11.5px] font-extrabold uppercase tracking-[0.16em] mb-2" style={{ color: '#2EC4B6' }}>Foundation</p>
             <h2 className="text-[clamp(22px,3vw,32px)] font-extrabold text-white tracking-tight">Core Billing Services</h2>
-            <p className="text-[15px] mt-2 max-w-[500px]" style={{ color: 'rgba(255,255,255,0.5)' }}>The complete billing cycle — from the moment care is delivered to the moment payment is posted.</p>
+            <p className="text-[15px] mt-2 max-w-[500px]" style={{ color: 'rgba(255,255,255,0.5)' }}>The complete billing cycle, from the moment care is delivered to the moment payment is posted.</p>
           </div>
           <div className="flex flex-col gap-5">
             {/* Row 1 — 4 cards */}
@@ -118,7 +118,7 @@ export default function ServicesHub() {
               <span className="text-[10px] font-extrabold uppercase tracking-[0.14em]" style={{ color: '#2EC4B6' }}>Newly Added</span>
             </div>
             <h2 className="text-[clamp(22px,3vw,32px)] font-extrabold text-white tracking-tight">Extended Services</h2>
-            <p className="text-[15px] mt-2 max-w-[560px]" style={{ color: 'rgba(255,255,255,0.5)' }}>Beyond billing — the front-end and patient-facing services most billing companies don&apos;t offer but every practice needs.</p>
+            <p className="text-[15px] mt-2 max-w-[560px]" style={{ color: 'rgba(255,255,255,0.5)' }}>Beyond billing: the front-end and patient-facing services most billing companies don&apos;t offer but every practice needs.</p>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {extendedServices.map(s => (
@@ -139,7 +139,7 @@ export default function ServicesHub() {
               </h2>
               <p className="text-[15px] leading-relaxed max-w-[600px]" style={{ color: 'rgba(255,255,255,0.5)' }}>
                 Most practices use one company for billing, another for credentialing, and a third for patient calling.
-                SwiftBilling RCM handles your entire revenue cycle under one roof — one contact, one dashboard, one monthly report.
+                SwiftBilling RCM handles your entire revenue cycle under one roof, with one contact, one dashboard, and one monthly report.
               </p>
             </div>
             <div className="flex flex-col gap-3 shrink-0">

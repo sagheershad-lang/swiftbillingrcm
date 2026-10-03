@@ -46,7 +46,7 @@ export const metadata: Metadata = {
         url: '/opengraph-image',
         width: 1200,
         height: 630,
-        alt: 'SwiftBilling RCM — Medical Billing Experts',
+        alt: 'SwiftBilling RCM: Medical Billing Experts',
       },
     ],
   },
@@ -95,7 +95,7 @@ const jsonLd = {
         name: 'United States',
       },
       serviceType: 'Medical Billing & Revenue Cycle Management',
-      priceRange: '4%–9% of collections',
+      priceRange: '4% to 9% of collections',
       openingHours: 'Mo-Fr 08:00-18:00',
       hasOfferCatalog: {
         '@type': 'OfferCatalog',

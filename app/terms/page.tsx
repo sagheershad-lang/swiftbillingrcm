@@ -6,8 +6,8 @@ import { pageMetadata } from '@/lib/seo'
 
 export const metadata: Metadata = {
   ...pageMetadata({
-    title: 'Terms & Conditions — Website and Services | SwiftBilling RCM',
-    description: 'Terms and Conditions for SwiftBilling RCM — the rules governing use of our website, our free revenue audit, and our medical billing and RCM services.',
+    title: 'Terms & Conditions: Website and Services | SwiftBilling RCM',
+    description: 'Terms and Conditions for SwiftBilling RCM: the rules governing use of our website, our free revenue audit, and our medical billing and RCM services.',
     path: '/terms',
   }),
   robots: { index: true, follow: true },
@@ -145,7 +145,7 @@ export default function Terms() {
           <section>
             <h2 className="text-[18px] font-extrabold text-[#0B3C5D] mb-3">6. Intellectual Property</h2>
             <p>
-              All content on this Site — including text, graphics, logos, icons, images, and software — is
+              All content on this Site, including text, graphics, logos, icons, images, and software, is
               the property of {COMPANY} or its content suppliers and is protected by applicable copyright,
               trademark, and other intellectual property laws.
             </p>
@@ -183,8 +183,8 @@ export default function Terms() {
             <h2 className="text-[18px] font-extrabold text-[#0B3C5D] mb-3">8. Limitation of Liability</h2>
             <p>
               To the maximum extent permitted by applicable law, {COMPANY} shall not be liable for any
-              indirect, incidental, special, consequential, or punitive damages — including loss of revenue,
-              loss of profits, loss of data, or business interruption — arising from your use of or inability
+              indirect, incidental, special, consequential, or punitive damages, including loss of revenue,
+              loss of profits, loss of data, or business interruption, arising from your use of or inability
               to use this Site or our services, even if we have been advised of the possibility of such damages.
             </p>
             <p className="mt-3">

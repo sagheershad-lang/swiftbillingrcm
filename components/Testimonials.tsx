@@ -5,7 +5,7 @@ import FadeIn from './FadeIn'
 const trustCards = [
   {
     title: 'Transparent Monthly Reporting',
-    desc: 'Clear KPI dashboards delivered every month — collections, denial rates, AR aging, and claim status. No black boxes. You always know exactly where your revenue stands.',
+    desc: 'Clear KPI dashboards every month covering collections, denial rates, AR aging, and claim status, so you always know exactly where your revenue stands.',
     icon: (
       <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
         <rect x="2" y="12" width="4" height="8" rx="1" stroke="#2EC4B6" strokeWidth="1.5"/>
@@ -17,7 +17,7 @@ const trustCards = [
   },
   {
     title: 'Dedicated Account Management',
-    desc: 'A single named account manager who knows your practice, your payers, and your billing patterns. One contact, full accountability — every step of the way.',
+    desc: 'A single named account manager who knows your practice, your payers, and your billing patterns. One contact with full accountability at every step.',
     icon: (
       <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
         <circle cx="11" cy="7" r="4" stroke="#2EC4B6" strokeWidth="1.5"/>
@@ -29,7 +29,7 @@ const trustCards = [
   },
   {
     title: 'Faster Claim Resolution',
-    desc: 'Systematic AR follow-up and proactive denial management keep claims moving through the cycle — so revenue reaches your account faster, not months later.',
+    desc: 'Systematic AR follow-up and proactive denial management keep claims moving through the cycle, so revenue reaches your account faster instead of months later.',
     icon: (
       <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
         <circle cx="11" cy="11" r="8.5" stroke="#2EC4B6" strokeWidth="1.5"/>
@@ -40,7 +40,7 @@ const trustCards = [
   },
   {
     title: 'Specialty-Specific Expertise',
-    desc: 'Certified coders trained in your specialty\'s exact CPT and ICD-10 code sets. Accurate coding from day one means fewer rejections and maximum reimbursement.',
+    desc: 'Certified coders trained in your specialty\'s exact CPT and ICD-10 code sets. Accurate coding up front means fewer rejections and maximum reimbursement.',
     icon: (
       <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
         <path d="M11 2L4 5.5v5c0 4.42 3.13 8.56 7 9.5 3.87-.94 7-5.08 7-9.5v-5L11 2z" stroke="#2EC4B6" strokeWidth="1.5" strokeLinejoin="round"/>
@@ -50,7 +50,7 @@ const trustCards = [
   },
   {
     title: 'HIPAA-Compliant Workflows',
-    desc: 'Every process, system, and team member operates under strict HIPAA standards. A signed BAA is provided with every client engagement — no exceptions.',
+    desc: 'Every process, system, and team member operates under strict HIPAA standards. A signed BAA is provided with every client engagement, without exception.',
     icon: (
       <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
         <rect x="5" y="9" width="12" height="10" rx="2" stroke="#2EC4B6" strokeWidth="1.5"/>
@@ -62,7 +62,7 @@ const trustCards = [
   },
   {
     title: 'Denial Reduction Focus',
-    desc: 'Every denied claim is reviewed, corrected, and resubmitted with a documented appeal — plus root cause tracking to prevent the same denial from recurring.',
+    desc: 'Every denied claim is reviewed, corrected, and resubmitted with a documented appeal. We also track root causes to stop the same denial from recurring.',
     icon: (
       <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
         <path d="M6 3h7l4 4v12a1 1 0 01-1 1H6a1 1 0 01-1-1V4a1 1 0 011-1z" stroke="#2EC4B6" strokeWidth="1.5" strokeLinejoin="round"/>
@@ -112,7 +112,7 @@ export default function Testimonials() {
               </h2>
             </div>
             <p className="text-[15px] text-[#64748B] leading-relaxed max-w-[380px] lg:text-right lg:pb-1">
-              Focused on long-term provider relationships, operational clarity, and reliable billing workflows — not just short-term metrics.
+              Focused on long-term provider relationships, operational clarity, and reliable billing workflows, not just short-term metrics.
             </p>
           </div>
           <div className="mt-7 h-px" style={{ background: 'linear-gradient(90deg, #2EC4B6, rgba(46,196,182,0.15), transparent)' }} />
@@ -198,10 +198,10 @@ export default function Testimonials() {
                 </div>
                 <div>
                   <p className="text-[15px] font-medium text-white/85 leading-[1.70] max-w-[600px]">
-                    We don&apos;t measure success by how many clients we sign — we measure it by how consistently we improve their collections, reduce their administrative burden, and earn their long-term trust.
+                    We don&apos;t measure success by how many clients we sign. We measure it by how consistently we improve their collections, reduce their administrative burden, and earn their long-term trust.
                   </p>
                   <p className="text-[11.5px] text-[#2EC4B6] font-bold mt-2.5 uppercase tracking-[0.10em]">
-                    — Sam S., Founder · SwiftBilling RCM
+                    Sam S., Founder · SwiftBilling RCM
                   </p>
                 </div>
               </div>

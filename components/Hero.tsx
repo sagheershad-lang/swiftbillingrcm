@@ -7,9 +7,9 @@ const HERO_BLUR =
 
 const inlineStats = [
   { value: '98%+',  label: 'Clean Claim Rate'  },
-  { value: '24–48h', label: 'Claim Submission' },
+  { value: '24 to 48h', label: 'Claim Submission' },
   { value: '20+',   label: 'Specialties'       },
-  { value: '4–9%',  label: 'Cost to Collect'   },
+  { value: '4 to 9%',  label: 'Cost to Collect'   },
 ]
 
 const specialties = [
@@ -120,7 +120,7 @@ export default function Hero() {
               }}
             >
               Stop Losing Revenue<br />
-              to Unpaid Claims —<br />
+              to Unpaid Claims.<br />
               <span
                 style={{
                   background: 'linear-gradient(92deg, #2EC4B6 0%, #7eeee6 100%)',
@@ -145,8 +145,8 @@ export default function Hero() {
                 maxWidth: '520px',
               }}
             >
-              From charge entry to payment posting — we manage your entire revenue cycle
-              so you focus on patients, not paperwork.
+              From charge entry to payment posting, we manage your entire revenue cycle
+              so you can focus on patients, not paperwork.
             </p>
 
             {/* ── Stats row — more prominent ── */}

@@ -197,6 +197,7 @@ The **Services hub** (`/services`) uses `ServicesHero` with `/Service.png` and t
 - QA Phase 5 (accessibility): skip link, visible focus rings, Escape closes the mobile menu, reduced-motion support, announced form errors, 44px mobile tap targets, 15px minimum mobile body text, `#0a756c` hover text on light backgrounds, marquee copies hidden from screen readers and descriptive hero alt text on all breakpoints.
 - QA Phase 6 (content and SEO): every page now has its own canonical, Open Graph and Twitter tags (they all pointed to the homepage before); titles 50–60 and descriptions 140–160 characters with no duplicates; homepage FAQ JSON-LD now matches the visible FAQ; JSON-LD logo fixed (old `/og-image.png` was a 404) and "Charge Entry" renamed to "Medical Billing"; grammar and brand-name fixes; auto-reply email now replies to info@. Numbers, claims, pricing, CST and legal text left for the owner.
 - QA Phase 6 Round B (owner-approved): pricing 4–9% everywhere incl. Terms; claim submission 24–48 hours everywhere; headline stats reworded as the billing team's own results (not company-wide client data); absolute stat cards in services-data.ts replaced with process statements; About photo alt made neutral (AI-generated image, not the real team); Facebook URL now facebook.com/swiftbilling.
+- QA Phase 6 Round C: all em/en dashes removed from copy, metadata, JSON-LD, alt text and emails (218 before, 0 after; dashes remain only in code comments); ranges written with "to"; stock phrases ("nothing falls through the cracks", "leaving on the table", "No black boxes", "from day one", the multi-state enrollment line) kept to one use each.
 
 ---
 
@@ -215,3 +216,4 @@ The **Services hub** (`/services`) uses `ServicesHero` with `/Service.png` and t
 - After every change, run `npx tsc --noEmit --skipLibCheck` and report the result.
 - Don't add fake testimonials, invented clients or unverifiable stats.
 - Make only the change requested; ask before larger restructures.
+- No em dashes or en dashes in any copy. Write number ranges with 'to'. Avoid repeated stock phrases.

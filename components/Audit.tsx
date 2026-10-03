@@ -16,7 +16,7 @@ export default function Audit() {
         <FadeIn>
           <div className="inline-flex items-center gap-2 text-[10px] sm:text-[12px] font-bold tracking-[0.06em] uppercase text-[#2EC4B6] bg-[#2EC4B6]/10 border border-[#2EC4B6]/25 rounded-full px-3 sm:px-4 py-1.5 sm:py-2 mb-5 sm:mb-7">
             <span className="w-1.5 h-1.5 rounded-full bg-[#2EC4B6] animate-pulse" />
-            Free — No Obligation · Response Within 24 Hours
+            Free · No Obligation · Response Within 24 Hours
           </div>
 
           <h2 className="text-[clamp(30px,4.5vw,52px)] font-extrabold text-white leading-tight tracking-tight mb-6 max-w-[680px] mx-auto">
@@ -27,7 +27,7 @@ export default function Audit() {
           </h2>
 
           <p className="text-[17px] text-white/60 font-light leading-relaxed max-w-[500px] mx-auto mb-10">
-            Start with a free revenue audit. We&apos;ll show you exactly how much you&apos;re leaving on the table — no pitch, just clear data.
+            Start with a free revenue audit. We&apos;ll show you exactly how much you&apos;re leaving on the table. No pitch, just clear data.
           </p>
 
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-4 mb-10 sm:mb-14 max-w-sm sm:max-w-none mx-auto w-full sm:w-auto px-0">
@@ -55,7 +55,7 @@ export default function Audit() {
             {[
               { icon: <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="2" y="6" width="10" height="7" rx="1.5" stroke="#2EC4B6" strokeWidth="1.3"/><path d="M4.5 6V4.5a2.5 2.5 0 015 0V6" stroke="#2EC4B6" strokeWidth="1.3" strokeLinecap="round"/></svg>, text: 'HIPAA Compliant' },
               { icon: <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="5.5" stroke="#2EC4B6" strokeWidth="1.3"/><path d="M7 4v3l2 2" stroke="#2EC4B6" strokeWidth="1.3" strokeLinecap="round"/></svg>, text: 'Response Within 24 Hours' },
-              { icon: <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1L1.5 3.5v4c0 3.04 2.23 5.88 5.5 6.62C10.27 13.38 12.5 10.54 12.5 7.5v-4L7 1z" stroke="#2EC4B6" strokeWidth="1.3" strokeLinejoin="round"/><path d="M5 7l1.5 1.5 3-3" stroke="#2EC4B6" strokeWidth="1.3" strokeLinecap="round"/></svg>, text: '100% Free — No Obligation' },
+              { icon: <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1L1.5 3.5v4c0 3.04 2.23 5.88 5.5 6.62C10.27 13.38 12.5 10.54 12.5 7.5v-4L7 1z" stroke="#2EC4B6" strokeWidth="1.3" strokeLinejoin="round"/><path d="M5 7l1.5 1.5 3-3" stroke="#2EC4B6" strokeWidth="1.3" strokeLinecap="round"/></svg>, text: '100% Free, No Obligation' },
               { icon: <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="5.5" stroke="#2EC4B6" strokeWidth="1.3"/><path d="M2 7h10M7 2c-1.5 2-2 3.5-2 5s.5 3 2 5M7 2c1.5 2 2 3.5 2 5s-.5 3-2 5" stroke="#2EC4B6" strokeWidth="1.1" strokeLinecap="round"/></svg>, text: 'Serving All US States' },
             ].map(t => (
               <div key={t.text} className="flex items-center gap-2 text-[13px] font-medium text-white/55">

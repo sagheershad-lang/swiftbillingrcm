@@ -6,7 +6,7 @@ const OG_IMAGE = {
   url: '/opengraph-image',
   width: 1200,
   height: 630,
-  alt: 'SwiftBilling RCM — Medical Billing & Revenue Cycle Management',
+  alt: 'SwiftBilling RCM: Medical Billing & Revenue Cycle Management',
 }
 
 /** Per-page metadata: full title, description, own canonical URL, Open Graph and Twitter tags */

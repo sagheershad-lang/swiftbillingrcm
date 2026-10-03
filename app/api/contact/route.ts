@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from 'next/server'
 
 // ─── Guard: catch missing API key before any request hits Resend ───
 if (!process.env.RESEND_API_KEY) {
-  console.error('RESEND_API_KEY is not set — contact form emails will not send.')
+  console.error('RESEND_API_KEY is not set, so contact form emails will not send.')
 }
 
 const resend = new Resend(process.env.RESEND_API_KEY ?? '')
@@ -100,7 +100,7 @@ export async function POST(req: NextRequest) {
   }
 
   if (!process.env.RESEND_API_KEY) {
-    console.error('RESEND_API_KEY missing — cannot send email')
+    console.error('RESEND_API_KEY missing, cannot send email')
     return NextResponse.json({ error: 'Email service is not configured. Please contact us directly.' }, { status: 500 })
   }
 
@@ -119,20 +119,20 @@ export async function POST(req: NextRequest) {
     from: FROM,
     to: OWNER_EMAIL,
     replyTo: email,
-    subject: `New Lead: ${name} — ${practice_name || 'SwiftBilling RCM Website'}`,
+    subject: `New Lead: ${name} from ${practice_name || 'SwiftBilling RCM Website'}`,
     html: `
       <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;background:#f8fafc;padding:32px;border-radius:12px;">
         <div style="background:#0B3C5D;padding:24px 28px;border-radius:10px 10px 0 0;margin-bottom:0;">
-          <h1 style="color:#2EC4B6;margin:0;font-size:22px;">New Lead — SwiftBilling RCM</h1>
+          <h1 style="color:#2EC4B6;margin:0;font-size:22px;">New Lead from the SwiftBilling RCM Website</h1>
         </div>
         <div style="background:#ffffff;padding:28px;border:1px solid #e2e8f0;border-top:none;border-radius:0 0 10px 10px;">
           <table style="width:100%;border-collapse:collapse;">
             <tr><td style="padding:10px 0;border-bottom:1px solid #f1f5f9;color:#64748b;font-size:13px;width:140px;">Name</td><td style="padding:10px 0;border-bottom:1px solid #f1f5f9;font-weight:bold;color:#0f172a;">${safe.name}</td></tr>
             <tr><td style="padding:10px 0;border-bottom:1px solid #f1f5f9;color:#64748b;font-size:13px;">Email</td><td style="padding:10px 0;border-bottom:1px solid #f1f5f9;font-weight:bold;color:#0f172a;"><a href="mailto:${safe.email}" style="color:#2EC4B6;">${safe.email}</a></td></tr>
-            <tr><td style="padding:10px 0;border-bottom:1px solid #f1f5f9;color:#64748b;font-size:13px;">Phone</td><td style="padding:10px 0;border-bottom:1px solid #f1f5f9;font-weight:bold;color:#0f172a;">${safe.phone || '—'}</td></tr>
-            <tr><td style="padding:10px 0;border-bottom:1px solid #f1f5f9;color:#64748b;font-size:13px;">Practice</td><td style="padding:10px 0;border-bottom:1px solid #f1f5f9;font-weight:bold;color:#0f172a;">${safe.practice_name || '—'}</td></tr>
-            <tr><td style="padding:10px 0;border-bottom:1px solid #f1f5f9;color:#64748b;font-size:13px;">Specialty</td><td style="padding:10px 0;border-bottom:1px solid #f1f5f9;font-weight:bold;color:#0f172a;">${safe.specialty || '—'}</td></tr>
-            <tr><td style="padding:10px 0;color:#64748b;font-size:13px;vertical-align:top;">Message</td><td style="padding:10px 0;color:#0f172a;">${safe.message || '—'}</td></tr>
+            <tr><td style="padding:10px 0;border-bottom:1px solid #f1f5f9;color:#64748b;font-size:13px;">Phone</td><td style="padding:10px 0;border-bottom:1px solid #f1f5f9;font-weight:bold;color:#0f172a;">${safe.phone || 'Not provided'}</td></tr>
+            <tr><td style="padding:10px 0;border-bottom:1px solid #f1f5f9;color:#64748b;font-size:13px;">Practice</td><td style="padding:10px 0;border-bottom:1px solid #f1f5f9;font-weight:bold;color:#0f172a;">${safe.practice_name || 'Not provided'}</td></tr>
+            <tr><td style="padding:10px 0;border-bottom:1px solid #f1f5f9;color:#64748b;font-size:13px;">Specialty</td><td style="padding:10px 0;border-bottom:1px solid #f1f5f9;font-weight:bold;color:#0f172a;">${safe.specialty || 'Not provided'}</td></tr>
+            <tr><td style="padding:10px 0;color:#64748b;font-size:13px;vertical-align:top;">Message</td><td style="padding:10px 0;color:#0f172a;">${safe.message || 'Not provided'}</td></tr>
           </table>
           <a href="mailto:${safe.email}" style="display:inline-block;margin-top:24px;background:#2EC4B6;color:#0B3C5D;font-weight:bold;padding:12px 28px;border-radius:8px;text-decoration:none;font-size:15px;">Reply to Lead</a>
         </div>

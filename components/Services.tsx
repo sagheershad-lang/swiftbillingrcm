@@ -22,7 +22,7 @@ const services = [
     title: 'AR Follow-Up',
     slug: 'ar-follow-up',
     linkLabel: 'AR Follow-Up',
-    desc: 'Our dedicated AR specialists pursue every unpaid claim — 30, 60, 90+ day buckets — systematically until you are fully reimbursed.',
+    desc: 'Our dedicated AR specialists systematically work every unpaid claim in the 30, 60, and 90+ day buckets until you are fully reimbursed.',
     tag: 'No Claim Left Behind',
     icon: (
       <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
@@ -64,7 +64,7 @@ const services = [
     title: 'Credentialing',
     slug: 'credentialing',
     linkLabel: 'Credentialing',
-    desc: 'Complete provider enrollment with all major commercial payers and Medicare/Medicaid. We handle all paperwork so you can start billing from day one.',
+    desc: 'Complete provider enrollment with all major commercial payers and Medicare/Medicaid. We handle all the paperwork so you can start billing sooner.',
     tag: 'All Major Payers',
     icon: (
       <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
@@ -79,7 +79,7 @@ const services = [
     title: 'Reporting & Analytics',
     slug: 'reporting-analytics',
     linkLabel: 'Reporting & Analytics',
-    desc: 'Monthly dashboards on every KPI: days in AR, denial rates, collection rate, and net revenue per visit. Full transparency — always.',
+    desc: 'Monthly dashboards on every KPI: days in AR, denial rates, collection rate, and net revenue per visit, with full transparency.',
     tag: 'Full Transparency',
     icon: (
       <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
@@ -125,7 +125,7 @@ export default function Services() {
               </h2>
             </div>
             <p className="text-[15px] text-[#64748B] leading-relaxed max-w-[360px] lg:text-right lg:pb-1">
-              From patient registration to final payment — every step managed so your team can focus entirely on patient care.
+              We manage every step from patient registration to final payment, so your team can focus entirely on patient care.
             </p>
           </div>
           {/* Hairline */}
@@ -244,7 +244,7 @@ export default function Services() {
                   Not sure where your revenue is leaking?
                 </p>
                 <p className="text-[15px] md:text-[13px] text-white/55">
-                  Get a free audit in 24 hours — we&apos;ll show you exactly what&apos;s being left on the table.
+                  Get a free audit in 24 hours and we&apos;ll show you exactly where it&apos;s going.
                 </p>
               </div>
 

@@ -5,11 +5,11 @@ import { useInView, useReducedMotion, m } from 'framer-motion'
 import FadeIn from './FadeIn'
 
 const bullets = [
-  { title: 'CAQH Credentialing',    desc: 'Multi-state provider enrollment & insurance panel setup across all major payers.' },
-  { title: 'Transparent Reporting', desc: 'Monthly KPI dashboards with full visibility into claims, payments, and AR — delivered every month.' },
+  { title: 'CAQH Credentialing',    desc: 'Enrollment with all major payers in each state where your providers practice.' },
+  { title: 'Transparent Reporting', desc: 'KPI dashboards delivered every month, with full visibility into claims, payments, and AR.' },
   { title: 'Dedicated Manager',     desc: 'A single point of contact who knows your practice, your payers, and your goals.' },
   { title: 'Proven Track Record',   desc: '98% clean claim rate and measurable revenue improvements from the first month.' },
-  { title: 'Fast Onboarding',       desc: 'Actively billing within 5 business days of sign-up. Credentialing handled in parallel from day one.' },
+  { title: 'Fast Onboarding',       desc: 'Actively billing within 5 business days of sign-up. Credentialing is handled in parallel.' },
 ]
 
 function CountUp({ target, prefix = '', suffix = '', isStatic = false, staticVal = '' }: {
@@ -91,7 +91,7 @@ export default function About() {
             />
 
             <p className="text-[15.5px] text-[#64748B] leading-[1.8] mb-4">
-              Our certified billing team specializes in CAQH credentialing, multi-state provider enrollment, and insurance panel setup — helping practices get contracted and start billing faster across all major payers.
+              Our certified billing team specializes in CAQH credentialing, multi-state enrollment, and insurance panel setup. We help practices get contracted and start billing faster with all major payers.
             </p>
             <p className="text-[15.5px] text-[#64748B] leading-[1.8] mb-9">
               We&apos;re committed to one goal: maximizing your revenue. Every client gets a dedicated account manager, transparent monthly reporting, and a billing team that treats your practice like their own.
@@ -122,8 +122,8 @@ export default function About() {
 
                   {/* Text */}
                   <div>
-                    <span className="text-[15px] md:text-[14.5px] font-bold text-[#0F172A]">{b.title}</span>
-                    <span className="text-[15px] md:text-[14.5px] text-[#64748B] font-normal"> — {b.desc}</span>
+                    <span className="text-[15px] md:text-[14.5px] font-bold text-[#0F172A]">{b.title}:</span>
+                    <span className="text-[15px] md:text-[14.5px] text-[#64748B] font-normal"> {b.desc}</span>
                   </div>
                 </m.div>
               ))}
