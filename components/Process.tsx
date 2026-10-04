@@ -99,25 +99,28 @@ export default function Process() {
         {/* ── Steps ──────────────────────────────────────────────────── */}
         <div className="relative mb-12">
 
-          {/* ── Desktop connector line (behind icons) ── */}
-          <div
-            className="hidden lg:block absolute top-[32px] z-0 pointer-events-none"
-            style={{ left: 'calc(12.5% + 28px)', right: 'calc(12.5% + 28px)', height: '2px' }}
-          >
-            <div
-              className="w-full h-full rounded-full"
-              style={{ background: 'linear-gradient(90deg, #2EC4B6 0%, rgba(46,196,182,0.6) 33%, rgba(46,196,182,0.6) 66%, #2EC4B6 100%)' }}
-            />
-            {/* Animated chevron dots along the line */}
-            {[25, 50, 75].map((pct) => (
-              <div
-                key={pct}
-                className="absolute top-1/2 -translate-y-1/2"
-                style={{ left: `${pct}%`, transform: 'translate(-50%, -50%)' }}
-              >
-                <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-                  <path d="M4 2.5l4 3.5-4 3.5" stroke="#2EC4B6" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
+          {/* ── Desktop connector (behind icons) ──
+              Same 4 column grid and gap as the steps below, so each segment belongs to its own gap:
+              it runs from the right edge of one 64px icon to the left edge of the next
+              (50% + 32px of the column, width = column + 20px gap - 64px), and its arrow sits at
+              the segment's midpoint. Stays centred at every desktop width; hidden below lg. */}
+          <div className="hidden lg:grid grid-cols-4 gap-5 absolute inset-x-0 top-[31px] z-0 pointer-events-none" aria-hidden="true">
+            {[
+              'linear-gradient(90deg, #2EC4B6 0%, rgba(46,196,182,0.6) 100%)',
+              'rgba(46,196,182,0.6)',
+              'linear-gradient(90deg, rgba(46,196,182,0.6) 0%, #2EC4B6 100%)',
+            ].map((bg, i) => (
+              <div key={i} className="relative h-[2px]">
+                <div
+                  className="absolute top-0 h-[2px] rounded-full"
+                  style={{ left: 'calc(50% + 32px)', width: 'calc(100% + 20px - 64px)', background: bg }}
+                >
+                  <div className="absolute left-1/2 top-1/2" style={{ transform: 'translate(-50%, -50%)' }}>
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" className="block">
+                      <path d="M4 2.5l4 3.5-4 3.5" stroke="#2EC4B6" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  </div>
+                </div>
               </div>
             ))}
           </div>
