@@ -154,7 +154,7 @@ export default function Process() {
                 <m.div
                   whileHover={{ y: -4, boxShadow: '0 18px 44px rgba(11,60,93,0.11), 0 0 0 1px rgba(46,196,182,0.16)' }}
                   transition={{ duration: 0.25 }}
-                  className="group w-full bg-white border border-[#E4EDF5] rounded-2xl px-5 pt-5 pb-5 flex flex-col
+                  className="group w-full flex-1 bg-white border border-[#E4EDF5] rounded-2xl px-5 pt-5 pb-5 flex flex-col
                     shadow-[0_1px_14px_rgba(11,60,93,0.06)]
                     hover:border-[#2EC4B6]/35
                     transition-colors duration-300 overflow-hidden relative"

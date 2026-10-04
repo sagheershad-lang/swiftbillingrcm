@@ -108,11 +108,12 @@ export default function TrustBar() {
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {stats.map((s, i) => (
-            <FadeIn key={s.label} delay={i * 0.08}>
+            // h-full on the FadeIn wrapper and the card: every card stretches to the tallest one in its row
+            <FadeIn key={s.label} delay={i * 0.08} className="h-full">
               <m.div
                 whileHover={{ y: -5, boxShadow: '0 16px 40px rgba(11,60,93,0.13)' }}
                 transition={{ duration: 0.2 }}
-                className="group bg-[#F8FAFC] border-2 border-[#E2E8F0] rounded-2xl p-5 sm:p-7 text-center cursor-default hover:border-[#2EC4B6]/40 transition-colors duration-300"
+                className="group h-full flex flex-col bg-[#F8FAFC] border-2 border-[#E2E8F0] rounded-2xl p-5 sm:p-7 text-center cursor-default hover:border-[#2EC4B6]/40 transition-colors duration-300"
               >
                 <div className="w-[52px] h-[52px] rounded-2xl bg-white shadow-sm border border-[#E2E8F0] flex items-center justify-center mx-auto mb-5 group-hover:scale-110 group-hover:border-[#2EC4B6]/30 transition-all duration-300">
                   {s.icon}
