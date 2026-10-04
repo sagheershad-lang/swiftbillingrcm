@@ -111,7 +111,7 @@ export default function Testimonials() {
                 </span>
               </h2>
             </div>
-            <p className="text-[15px] text-[#64748B] leading-relaxed max-w-[380px] lg:text-right lg:pb-1">
+            <p className="text-[15px] text-[#64748B] leading-relaxed max-w-[380px] lg:text-right lg:pb-1 text-balance">
               Focused on long-term provider relationships, operational clarity, and reliable billing workflows, not just short-term metrics.
             </p>
           </div>

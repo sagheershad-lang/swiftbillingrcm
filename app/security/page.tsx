@@ -1,12 +1,11 @@
 import type { Metadata } from 'next'
 import type { ReactNode } from 'react'
-import Link from 'next/link'
 import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
 import FadeIn from '@/components/FadeIn'
 import PageHero from '@/components/PageHero'
 import PageFAQ from '@/components/PageFAQ'
-import { SectionHeader, LightCard, IconTile, CtaBand, faqJsonLd } from '@/components/PageSections'
+import { SectionHeader, HeaderLink, LightCard, IconTile, CtaBand, faqJsonLd } from '@/components/PageSections'
 import { pageMetadata } from '@/lib/seo'
 
 export const metadata: Metadata = pageMetadata({
@@ -161,7 +160,7 @@ export default function Security() {
             eyebrow="System Access"
             title="How We Access"
             accent="Your Systems"
-            desc={<>We work inside the systems you already use. <Link href="/ehr-integrations" className="font-bold text-[#0B3C5D] hover:text-[#0a756c] underline underline-offset-2 max-md:inline-flex max-md:min-h-[44px] max-md:items-center">See the platforms we work with</Link>.</>}
+            desc={<>We work inside the systems you already use. <HeaderLink href="/ehr-integrations">See the platforms we work with</HeaderLink></>}
           />
           <div className="grid md:grid-cols-3 gap-5">
             {access.map((c, i) => (

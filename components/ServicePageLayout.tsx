@@ -270,7 +270,7 @@ function ServiceFAQ({ service }: { service: ServiceData }) {
                 </span>
               </h2>
             </div>
-            <p className="text-[15px] text-[#64748B] leading-relaxed max-w-[360px] lg:text-right lg:pb-1">
+            <p className="text-[15px] text-[#64748B] leading-relaxed max-w-[360px] lg:text-right lg:pb-1 text-balance">
               Straight answers to what practices ask us most about {service.name}.
             </p>
           </div>

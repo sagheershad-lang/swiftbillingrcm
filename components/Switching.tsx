@@ -78,7 +78,7 @@ export default function Switching() {
                 </span>
               </h2>
             </div>
-            <p className="text-[15px] text-[#64748B] leading-relaxed max-w-[360px] lg:text-right lg:pb-1">
+            <p className="text-[15px] text-[#64748B] leading-relaxed max-w-[360px] lg:text-right lg:pb-1 text-balance">
               Moving your billing should not interrupt your cash flow. Here is how we keep the switch smooth.
             </p>
           </div>

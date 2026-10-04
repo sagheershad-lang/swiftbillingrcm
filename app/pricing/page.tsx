@@ -5,7 +5,7 @@ import Footer from '@/components/Footer'
 import FadeIn from '@/components/FadeIn'
 import PageHero from '@/components/PageHero'
 import PageFAQ from '@/components/PageFAQ'
-import { SectionHeader, CheckBadge, LightCard, CtaBand, faqJsonLd } from '@/components/PageSections'
+import { SectionHeader, HeaderLink, CheckBadge, LightCard, CtaBand, faqJsonLd } from '@/components/PageSections'
 import { coreServices } from '@/lib/services-data'
 import { pageMetadata } from '@/lib/seo'
 
@@ -109,7 +109,7 @@ export default function Pricing() {
             eyebrow="What Is Included"
             title="Core Billing"
             accent="Services"
-            desc={<>Every core service below is part of our billing work. <Link href="/services" className="font-bold text-[#0B3C5D] hover:text-[#0a756c] underline underline-offset-2 max-md:inline-flex max-md:min-h-[44px] max-md:items-center">See all services</Link>.</>}
+            desc={<>Every core service below is part of our billing work. <HeaderLink href="/services">See all services</HeaderLink></>}
           />
           <FadeIn>
             <ul className="grid sm:grid-cols-2 gap-3">

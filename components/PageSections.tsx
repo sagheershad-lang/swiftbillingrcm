@@ -5,7 +5,20 @@ import FadeIn from './FadeIn'
 /* Shared building blocks for the simple content pages (Pricing, Security, EHR Integrations),
    following the design system in PROJECT_CONTEXT.md section 6. */
 
-/** Section header: teal eyebrow, H2 with a navy to teal gradient span, description on the right, teal hairline */
+/** Inline link at the end of a SectionHeader description: never breaks mid link, and sits on its own
+ *  line on desktop (right aligned), e.g. desc={<>Sentence. <HeaderLink href="/x">See more</HeaderLink></>} */
+export function HeaderLink({ href, children }: { href: string; children: ReactNode }) {
+  return (
+    <span className="whitespace-nowrap lg:block">
+      <Link href={href} className="font-bold text-[#0B3C5D] hover:text-[#0a756c] underline underline-offset-2 max-md:inline-flex max-md:min-h-[44px] max-md:items-center">
+        {children}
+      </Link>.
+    </span>
+  )
+}
+
+/** Section header: teal eyebrow, H2 with a navy to teal gradient span, description on the right, teal hairline.
+ *  The description uses text-balance so no line ends with a single word left alone. */
 export function SectionHeader({ eyebrow, title, accent, desc }: { eyebrow: string; title: string; accent: string; desc: ReactNode }) {
   return (
     <FadeIn className="mb-10 sm:mb-12">
@@ -24,7 +37,7 @@ export function SectionHeader({ eyebrow, title, accent, desc }: { eyebrow: strin
             </span>
           </h2>
         </div>
-        <p className="text-[15px] text-[#64748B] leading-relaxed max-w-[380px] lg:text-right lg:pb-1">{desc}</p>
+        <p className="text-[15px] text-[#64748B] leading-relaxed max-w-[380px] lg:text-right lg:pb-1 text-balance">{desc}</p>
       </div>
       <div className="mt-7 h-px" style={{ background: 'linear-gradient(90deg, #2EC4B6, rgba(46,196,182,0.15), transparent)' }} />
     </FadeIn>

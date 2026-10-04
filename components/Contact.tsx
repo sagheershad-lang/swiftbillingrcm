@@ -165,7 +165,7 @@ export default function Contact() {
                 </span>
               </h2>
             </div>
-            <p className="text-[15px] text-[#64748B] leading-relaxed max-w-[360px] lg:text-right lg:pb-1">
+            <p className="text-[15px] text-[#64748B] leading-relaxed max-w-[360px] lg:text-right lg:pb-1 text-balance">
               Free revenue audit within 24 hours. No obligation and no sales pressure, just a clear look at where your revenue stands.
             </p>
           </div>

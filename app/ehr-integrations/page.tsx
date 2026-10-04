@@ -1,11 +1,10 @@
 import type { Metadata } from 'next'
 import type { ReactNode } from 'react'
-import Link from 'next/link'
 import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
 import FadeIn from '@/components/FadeIn'
 import PageHero from '@/components/PageHero'
-import { SectionHeader, LightCard, IconTile, CtaBand } from '@/components/PageSections'
+import { SectionHeader, HeaderLink, LightCard, IconTile, CtaBand } from '@/components/PageSections'
 import { platforms, PLATFORM_DISCLAIMER } from '@/lib/platforms'
 import { pageMetadata } from '@/lib/seo'
 
@@ -53,7 +52,7 @@ export default function EhrIntegrations() {
             eyebrow="How We Work"
             title="Inside the Systems"
             accent="You Already Use"
-            desc={<>No migration and no new software. <Link href="/security" className="font-bold text-[#0B3C5D] hover:text-[#0a756c] underline underline-offset-2 max-md:inline-flex max-md:min-h-[44px] max-md:items-center">How we keep access secure</Link>.</>}
+            desc={<>No migration and no new software. <HeaderLink href="/security">How we keep access secure</HeaderLink></>}
           />
           <div className="grid md:grid-cols-3 gap-5">
             {steps.map((c, i) => (
