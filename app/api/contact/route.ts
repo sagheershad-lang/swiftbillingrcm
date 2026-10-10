@@ -1,6 +1,7 @@
 import { Resend } from 'resend'
 import { NextRequest, NextResponse } from 'next/server'
 import { MONTHLY_COLLECTIONS, US_STATES, pickOption } from '@/lib/form-options'
+import { FORM_SPECIALTIES, OTHER_SPECIALTY } from '@/lib/specialties'
 
 // ─── Guard: catch missing API key before any request hits Resend ───
 if (!process.env.RESEND_API_KEY) {
@@ -90,7 +91,10 @@ export async function POST(req: NextRequest) {
   const email         = sanitizeLine(body.email, 254)
   const phone         = sanitizeLine(body.phone, 30)
   const practice_name = sanitizeLine(body.practice_name, 150)
-  const specialty     = sanitizeLine(body.specialty, 100)
+  // Specialty: only a value from the dropdown list; "Other" may carry its own text (max 100 chars)
+  const specialtyChoice = pickOption(sanitizeLine(body.specialty, 100), FORM_SPECIALTIES)
+  const specialtyOther  = specialtyChoice === OTHER_SPECIALTY ? sanitizeLine(body.specialty_other, 100) : ''
+  const specialty       = specialtyOther ? `${OTHER_SPECIALTY}: ${specialtyOther}` : specialtyChoice
   const message       = sanitize(body.message, 2000)
   // Optional selects: anything that is not one of the listed options is dropped
   const state               = pickOption(sanitizeLine(body.state, 30), US_STATES)

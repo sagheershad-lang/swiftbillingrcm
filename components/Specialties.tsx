@@ -2,8 +2,12 @@
 import { useState } from 'react'
 import { m } from 'framer-motion'
 import FadeIn from './FadeIn'
+import type { SectionSpecialty } from '@/lib/specialties'
 
-const featured = [
+// Card names are typed against lib/specialties.ts (also used by the contact form dropdown)
+type SpecialtyItem = { name: SectionSpecialty; desc: string; icon: React.ReactNode }
+
+const featured: SpecialtyItem[] = [
   {
     name: 'Family Practice',
     desc: 'Comprehensive billing support for primary care providers.',
@@ -96,7 +100,7 @@ const featured = [
   },
 ]
 
-const extra = [
+const extra: SpecialtyItem[] = [
   {
     name: 'Dermatology',
     desc: 'Accurate billing for skin procedures, biopsies, and cosmetic treatments.',

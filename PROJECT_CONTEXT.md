@@ -87,6 +87,7 @@ lib/services-data.ts    Single source of truth for all 11 services (copy, featur
 lib/seo.ts              pageMetadata(): per-page title, description, canonical, Open Graph and Twitter tags (use it on every new page)
 lib/home-faqs.ts        Homepage FAQ data, used by the visible FAQ and the homepage FAQPage JSON-LD (keeps them identical)
 lib/platforms.ts        Shared list of the 11 "compatible with" platforms (name, type, logo) + PLATFORM_DISCLAIMER; used by TrustStrip and /ehr-integrations
+lib/specialties.ts      Specialty names: SECTION_SPECIALTIES (homepage Specialties cards are type checked against it) + extras = FORM_SPECIALTIES for the contact form dropdown (sorted, "Other" last); the API accepts only these
 lib/form-options.ts     Contact form select options (monthly collections ranges, 50 states) and pickOption(), shared by the form and the API
 public/                 Hero images, about photo, logos/, signature.png
 next.config.ts          Image formats/sizes, remotePatterns (images.pexels.com), security headers
@@ -111,7 +112,7 @@ next.config.ts          Image formats/sizes, remotePatterns (images.pexels.com),
 | 11 | `Testimonials` | `testimonials` | **Not testimonials anymore.** "Built Around Transparency & Performance": 6 trust cards (Reporting, Account Mgmt, Faster Claims, Specialty Expertise, HIPAA, Denial Reduction) + dark philosophy strip with founder line and 4 stat tiles |
 | 12 | `FAQ` | `faq` | Sticky left column + 9-item accordion (last 3 are about switching) |
 | 13 | `Audit` | `audit` | Free audit CTA, dark gradient |
-| 14 | `Contact` | `contact` | Contact cards + guarantees strip + form titled "Get Your Free Audit" (name, practice_name, email, phone required; specialty, state, monthly_collections, message optional) → `/api/contact`; "Get My Free Audit" submit; "Book a 30 minute call" link |
+| 14 | `Contact` | `contact` | Contact cards + guarantees strip + form titled "Get Your Free Audit" (name, practice_name, email, phone required; specialty, state, monthly_collections, message optional; specialty is a dropdown from lib/specialties.ts, "Other" shows a "Your Specialty" text field) → `/api/contact`; "Get My Free Audit" submit; "Book a 30 minute call" link |
 | 15 | `Footer` | — | Pre-footer CTA band, links, socials, Privacy/Terms, HIPAA · BAA · 50 States |
 
 Sections 9 to 14 are loaded through `BelowFold.tsx`: server-rendered (in the initial HTML), but each section's JS is in its own chunk.
@@ -219,6 +220,7 @@ The **Services hub** (`/services`) uses `ServicesHero` with `/Service.png` and t
 - Phase 7 Round 1: removed the unsourced "Versus 14 to 18% in-house" line from Results (Cost to Collect card now explains the percentage model); new homepage "Switching Billing Companies?" section after Process plus 3 switching FAQs (FAQ JSON-LD follows automatically); new `/pricing` page (Footer link, sitemap, mobile menu only because the desktop Nav has no room at 1280px); contact form has optional State and Monthly Collections selects, included in the owner email and validated against fixed lists on the server; Privacy Policy lists the two new optional fields; shared `PageHero` now used by Book a Call and Pricing. Contact submit button reads "Get My Free Audit".
 - Phase 7 Round 2: desktop Nav drops the email and adds Pricing; new `/security`, `/ehr-integrations` and `/about` pages built from shared `PageSections` + `PageHero` (PricingFAQ renamed `PageFAQ`); TrustStrip and the EHR page share `lib/platforms.ts`; sitemap and Footer list About, Pricing, EHR Integrations and Security; Footer "HIPAA Compliant" and the About HIPAA badge link to `/security`, TrustStrip disclaimer links to `/ehr-integrations`. Copy: "our portal" replaced with "a secure method we agree on with you"; security wording is now "encrypted connections, access limited to the billing staff assigned to your account, and access you can revoke at any time" (no 256-bit, audit logging or security review claims); "Most EHRs work with our process. Ask us about yours."; Contact form heading "Get Your Free Audit". Fixed 3 mobile tap targets under 44px (Nav logo, Specialties and Why Choose Us text links).
 
+- Contact form Specialty is now a dropdown (`lib/specialties.ts`): the 20 Specialties section names + Family Medicine, Mental and Behavioral Health, Chiropractic, Urology, Podiatry, Multi Specialty, sorted, "Other" last; "Other" reveals a "Your Specialty" field (max 100). The API accepts only list values or "Other: <text>" (escaped). Also: equal height TrustBar and Process cards, Process connector arrows centred per gap, section header links kept whole with balanced description text, Vercel Speed Insights.
 ---
 
 ## 8. Known issues / to-do

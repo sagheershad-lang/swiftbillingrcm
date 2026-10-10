@@ -3,6 +3,7 @@ import { useState, FormEvent, useRef } from 'react'
 import FadeIn from './FadeIn'
 import { m } from 'framer-motion'
 import { MONTHLY_COLLECTIONS, US_STATES } from '@/lib/form-options'
+import { FORM_SPECIALTIES, OTHER_SPECIALTY } from '@/lib/specialties'
 
 const contactDetails = [
   {
@@ -69,6 +70,8 @@ export default function Contact() {
   const [errorMsg, setErrorMsg] = useState('')
   // Fields flagged with aria-invalid (and pointed at the error message) after a failed submit
   const [invalidFields, setInvalidFields] = useState<string[]>([])
+  // Selected specialty; "Other" reveals a free text field below the dropdown
+  const [specialty, setSpecialty] = useState('')
   const formRef = useRef<HTMLFormElement>(null)
   // Set synchronously so a fast double click can't send twice before the button re-renders as disabled
   const sendingRef = useRef(false)
@@ -95,6 +98,7 @@ export default function Contact() {
     if (honeypot) {
       setStatus('success')
       formRef.current?.reset()
+      setSpecialty('')
       return
     }
     sendingRef.current = true
@@ -105,7 +109,9 @@ export default function Contact() {
       email:         (form.elements.namedItem('email')         as HTMLInputElement).value,
       phone:         (form.elements.namedItem('phone')         as HTMLInputElement).value,
       practice_name: (form.elements.namedItem('practice_name') as HTMLInputElement).value,
-      specialty:     (form.elements.namedItem('specialty')     as HTMLInputElement).value,
+      specialty:     (form.elements.namedItem('specialty')     as HTMLSelectElement).value,
+      // Only sent when "Other" is chosen
+      specialty_other: specialty === OTHER_SPECIALTY ? (form.elements.namedItem('specialty_other') as HTMLInputElement)?.value ?? '' : '',
       state:         (form.elements.namedItem('state')         as HTMLSelectElement).value,
       monthly_collections: (form.elements.namedItem('monthly_collections') as HTMLSelectElement).value,
       message:       (form.elements.namedItem('message')       as HTMLTextAreaElement).value,
@@ -120,6 +126,7 @@ export default function Contact() {
       if (res.ok) {
         setStatus('success')
         formRef.current?.reset()
+        setSpecialty('')
       } else {
         const json = await res.json().catch(() => ({}))
         const msg: string = json?.error || 'Something went wrong. Please try again or email us directly.'
@@ -300,7 +307,12 @@ export default function Contact() {
                       <CField label="Practice Name *" name="practice_name" type="text"  placeholder="Smith Medical Group"    maxLength={150} required invalid={invalidFields.includes('practice_name')} />
                       <CField label="Work Email *"    name="email"         type="email" placeholder="jane@practice.com"      maxLength={254} required invalid={invalidFields.includes('email')} />
                       <CField label="Phone Number *"  name="phone"         type="tel"   placeholder="+1 (512) 000-0000"      maxLength={30}  required invalid={invalidFields.includes('phone')} />
-                      <CField label="Specialty"       name="specialty"     type="text"  placeholder="e.g. Internal Medicine" maxLength={100} />
+                      <div className="flex flex-col gap-3">
+                        <CSelect label="Specialty" name="specialty" placeholder="Select your specialty" options={FORM_SPECIALTIES} value={specialty} onChange={setSpecialty} />
+                        {specialty === OTHER_SPECIALTY && (
+                          <CField label="Your Specialty" name="specialty_other" type="text" placeholder="e.g. Allergy and Immunology" maxLength={100} />
+                        )}
+                      </div>
                       <CSelect label="State" name="state" placeholder="Select a state" options={US_STATES} />
                       <div className="sm:col-span-2">
                         <CSelect label="Monthly Collections" name="monthly_collections" placeholder="Select a range" options={MONTHLY_COLLECTIONS} />
@@ -375,23 +387,27 @@ export default function Contact() {
 }
 
 /* ── Optional select (same look as CField; the API accepts only these options) ── */
-function CSelect({ label, name, placeholder, options }: {
+function CSelect({ label, name, placeholder, options, value, onChange }: {
   label: string
   name: string
   placeholder: string
   options: readonly string[]
+  /** Pass value + onChange to control the select (e.g. to react to "Other"); otherwise it is uncontrolled */
+  value?: string
+  onChange?: (value: string) => void
 }) {
+  const controlled = value !== undefined
   return (
     <div className="flex flex-col gap-1.5">
       <label htmlFor={name} className="text-[11.5px] font-bold text-[#0F172A] uppercase tracking-[0.08em]">
         {label}
       </label>
-      <div className="relative">
+      <div className="relative text-[#64748B]">
         <select
           id={name}
           name={name}
-          defaultValue=""
-          className="w-full appearance-none bg-[#F8FAFC] border border-[#D1DBE8] rounded-xl pl-4 pr-10 py-3
+          {...(controlled ? { value, onChange: e => onChange?.(e.target.value) } : { defaultValue: '' })}
+          className="w-full min-h-[44px] appearance-none bg-[#F8FAFC] border border-[#D1DBE8] rounded-xl pl-4 pr-10 py-3
             text-[16px] sm:text-[14px] text-[#0F172A]
             outline-none focus:border-[#2EC4B6] focus:ring-2 focus:ring-[#2EC4B6]/10
             transition-all duration-200 font-medium cursor-pointer"
@@ -399,9 +415,10 @@ function CSelect({ label, name, placeholder, options }: {
           <option value="">{placeholder}</option>
           {options.map(o => <option key={o} value={o}>{o}</option>)}
         </select>
+        {/* Chevron uses currentColor, so it follows the text colour around it */}
         <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"
           className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2">
-          <path d="M3 4.5l3 3 3-3" stroke="#64748B" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+          <path d="M3 4.5l3 3 3-3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
         </svg>
       </div>
     </div>
