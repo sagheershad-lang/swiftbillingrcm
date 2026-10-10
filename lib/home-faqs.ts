@@ -6,7 +6,7 @@ export const homeFaqs = [
   },
   {
     q: 'Do you work with my specialty?',
-    a: 'Yes. We work with over 20 medical specialties including internal medicine, family practice, cardiology, orthopedics, psychiatry, OB/GYN, pediatrics, urgent care, nephrology, and more. Our certified coders are trained in the specific CPT and ICD-10 codes relevant to your specialty so claims are always coded accurately for maximum reimbursement.',
+    a: 'Yes. We work with over 20 medical specialties including internal medicine, family medicine, cardiology, orthopedics, psychiatry, OB/GYN, pediatrics, urgent care, nephrology, and more. Our certified coders are trained in the specific CPT and ICD-10 codes relevant to your specialty so claims are always coded accurately for maximum reimbursement.',
   },
   {
     q: 'How quickly can I see results?',

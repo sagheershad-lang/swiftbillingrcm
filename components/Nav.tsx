@@ -3,6 +3,9 @@ import { useState, useEffect, useRef } from 'react'
 import { m, AnimatePresence } from 'framer-motion'
 import Link from 'next/link'
 
+// Mobile drawer open/close animation length (also how long closeMenu waits before a same-page jump)
+const MENU_CLOSE_MS = 220
+
 // mobileOnly: shown in the mobile menu only (the desktop bar has no room for it at 1280px)
 const links = [
   { href: '/services',       label: 'Services' },
@@ -48,6 +51,27 @@ export default function Nav() {
     html.style.overflow = 'hidden'
     return () => { html.style.overflow = '' }
   }, [open])
+
+  // Mobile menu links. Release the scroll lock straight away, then close the drawer.
+  // For a #section on the current page (e.g. Get Started → /#contact-form on the homepage) the jump has
+  // to wait until the drawer has finished closing: framer-motion measures the drawer's height: auto
+  // exit and restores window.scrollY afterwards, which cancels a scroll started during the animation.
+  // Links to another page navigate normally.
+  const closeMenu = (e?: React.MouseEvent<HTMLAnchorElement>) => {
+    document.documentElement.style.overflow = ''
+    setOpen(false)
+    const href = e?.currentTarget.getAttribute('href') ?? ''
+    const hashAt = href.indexOf('#')
+    if (!e || hashAt === -1) return
+    const path = href.slice(0, hashAt) || window.location.pathname
+    const target = document.getElementById(href.slice(hashAt + 1))
+    if (path !== window.location.pathname || !target) return
+    e.preventDefault()
+    window.setTimeout(() => {
+      history.pushState(null, '', href.slice(hashAt))
+      target.scrollIntoView() // CSS scroll-behavior (smooth, or instant with reduced motion) and scroll-margin apply
+    }, MENU_CLOSE_MS + 40)
+  }
 
   // Escape closes the mobile menu and returns focus to the menu button
   useEffect(() => {
@@ -106,7 +130,7 @@ export default function Nav() {
 
           {/* Primary CTA */}
           <Link
-            href="/#audit"
+            href="/#contact-form"
             className="inline-flex items-center gap-1.5 bg-[#2EC4B6] text-[#0B3C5D] font-extrabold text-[14px] px-5 py-[10px] rounded-xl hover:bg-[#3dd9cb] hover:-translate-y-0.5 transition-all duration-200 shadow-[0_4px_14px_rgba(46,196,182,0.35)] whitespace-nowrap"
           >
             Get Started
@@ -138,7 +162,7 @@ export default function Nav() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.22, ease: 'easeInOut' }}
+            transition={{ duration: MENU_CLOSE_MS / 1000, ease: 'easeInOut' }}
             className="lg:hidden overflow-hidden bg-white border-t border-[#E2E8F0]"
           >
             <div className="px-6 py-4 flex flex-col gap-0.5">
@@ -146,7 +170,7 @@ export default function Nav() {
                 <a
                   key={l.href}
                   href={l.href}
-                  onClick={() => setOpen(false)}
+                  onClick={closeMenu}
                   className="flex items-center gap-2.5 text-[15px] font-semibold text-[#475569] hover:text-[#0B3C5D] hover:bg-[#F1F5F9] py-3 px-3 -mx-3 rounded-xl transition-all duration-200 border-b border-[#F8FAFC] last:border-0 group/mlink"
                 >
                   <span className="w-0 h-[14px] bg-[#2EC4B6] rounded-full group-hover/mlink:w-[3px] transition-all duration-200 shrink-0" />
@@ -156,7 +180,7 @@ export default function Nav() {
               <div className="mt-4 flex flex-col gap-3">
                 <a
                   href="tel:+15127377488"
-                  onClick={() => setOpen(false)}
+                  onClick={closeMenu}
                   className="flex items-center gap-2 text-[14px] font-semibold text-[#0B3C5D] hover:text-[#0a756c] transition-colors duration-200 min-h-[44px]"
                 >
                   <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
@@ -165,8 +189,8 @@ export default function Nav() {
                   +1 (512) 737-7488
                 </a>
                 <Link
-                  href="/#audit"
-                  onClick={() => setOpen(false)}
+                  href="/#contact-form"
+                  onClick={closeMenu}
                   className="text-center bg-[#2EC4B6] text-[#0B3C5D] font-bold text-[14px] px-5 py-3.5 rounded-xl shadow-[0_4px_14px_rgba(46,196,182,0.3)] hover:bg-[#3dd9cb] hover:shadow-[0_6px_20px_rgba(46,196,182,0.45)] active:scale-[0.98] transition-all duration-200"
                 >
                   Get Started

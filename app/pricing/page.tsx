@@ -182,7 +182,7 @@ export default function Pricing() {
           <CtaBand
             title="Get a clear rate for your practice"
             text="Start with a free revenue audit. We reply within 24 hours, with no obligation."
-            href="/#audit"
+            href="/#contact-form"
             label="Get Your Free Audit"
           />
         </div>

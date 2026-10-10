@@ -5,7 +5,7 @@
 // The API route accepts only these values.
 
 export const SECTION_SPECIALTIES = [
-  'Family Practice', 'Cardiology', 'Psychiatry', 'Internal Medicine', 'Orthopedics', 'Urgent Care',
+  'Family Medicine', 'Cardiology', 'Psychiatry', 'Internal Medicine', 'Orthopedics', 'Urgent Care',
   'Pediatrics', 'Nephrology', 'Dermatology', 'Neurology', 'Gastroenterology', 'Pain Management',
   'Radiology', 'Oncology', 'Pulmonology', 'OB/GYN', 'Endocrinology', 'Physical Therapy',
   'Occupational Therapy', 'General Surgery',
@@ -15,7 +15,7 @@ export type SectionSpecialty = (typeof SECTION_SPECIALTIES)[number]
 
 /** Specialties offered in the form that don't have a card in the Specialties section */
 export const EXTRA_FORM_SPECIALTIES = [
-  'Family Medicine', 'Mental and Behavioral Health', 'Chiropractic', 'Urology', 'Podiatry', 'Multi Specialty',
+  'Mental and Behavioral Health', 'Chiropractic', 'Urology', 'Podiatry', 'Multi Specialty',
 ] as const
 
 export const OTHER_SPECIALTY = 'Other'

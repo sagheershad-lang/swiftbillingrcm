@@ -842,7 +842,7 @@ export default function ServicePageLayout({ service, heroImage, heroImageDesktop
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
               <Link
-                href="/#contact"
+                href="/#contact-form"
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 font-extrabold text-[15px] px-8 py-4 rounded-2xl transition-all duration-200 hover:-translate-y-0.5"
                 style={{ background: '#2EC4B6', color: '#0B3C5D', boxShadow: '0 6px 28px rgba(46,196,182,0.42)' }}
               >

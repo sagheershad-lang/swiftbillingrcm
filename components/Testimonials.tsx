@@ -233,7 +233,7 @@ export default function Testimonials() {
                 </svg>
               </div>
               <p className="text-[15px] md:text-[13px] text-[#64748B] font-medium">
-                Serving internal medicine, cardiology, family practice, urgent care, psychiatry, and 15+ other specialties.
+                Serving internal medicine, cardiology, family medicine, urgent care, psychiatry, and 15+ other specialties.
               </p>
             </div>
             <a

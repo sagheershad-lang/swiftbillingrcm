@@ -133,7 +133,7 @@ export default function About() {
             {/* CTA buttons */}
             <div className="flex flex-col sm:flex-row flex-wrap gap-3">
               <a
-                href="#contact"
+                href="#contact-form"
                 className="inline-flex items-center gap-2 bg-[#2EC4B6] text-[#0B3C5D] font-extrabold text-[15px]
                   px-7 py-3.5 rounded-xl hover:bg-[#3dd9cb] hover:-translate-y-0.5
                   transition-all duration-200"

@@ -265,8 +265,12 @@ export default function Contact() {
 
           {/* ── Right: form ──────────────────────────────────────────── */}
           <FadeIn direction="right" delay={0.1}>
+            {/* id="contact-form": target of every Get Started / free audit button, so visitors land on the
+                form itself (on mobile the contact cards sit above it). scroll-mt clears the 68px fixed Nav.
+                The older #contact (section) and #audit anchors still work. */}
             <div
-              className="bg-white border border-[#E4EDF5] rounded-2xl p-5 sm:p-8
+              id="contact-form"
+              className="scroll-mt-[84px] bg-white border border-[#E4EDF5] rounded-2xl p-5 sm:p-8
                 shadow-[0_4px_32px_rgba(11,60,93,0.08)]"
             >
               {/* Top accent */}

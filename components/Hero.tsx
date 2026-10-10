@@ -184,7 +184,7 @@ export default function Hero() {
             <div className="hero-fade-up flex flex-col gap-3" style={{ animationDelay: '0.44s' }}>
               <div className="flex flex-col sm:flex-row gap-3">
                 <a
-                  href="#audit"
+                  href="#contact-form"
                   className="inline-flex items-center justify-center gap-2.5 bg-[#2EC4B6] text-[#071e2e] font-extrabold text-[15px] sm:text-[16px] px-7 py-[15px] rounded-xl transition-all duration-200 hover:bg-[#3dd9cb] hover:-translate-y-0.5 shadow-[0_0_48px_rgba(46,196,182,0.55)] hover:shadow-[0_0_80px_rgba(46,196,182,0.75)] w-full sm:w-auto"
                 >
                   Get Free Audit in 24 Hours

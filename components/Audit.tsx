@@ -32,7 +32,7 @@ export default function Audit() {
 
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-4 mb-10 sm:mb-14 max-w-sm sm:max-w-none mx-auto w-full sm:w-auto px-0">
             <m.a
-              href="#contact"
+              href="#contact-form"
               whileHover={{ scale: 1.03, y: -2 }}
               whileTap={{ scale: 0.98 }}
               transition={{ duration: 0.2 }}

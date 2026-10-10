@@ -148,7 +148,7 @@ export default function Switching() {
                 Thinking about switching? Start with a free audit of your current billing.
               </p>
               <Link
-                href="/#audit"
+                href="/#contact-form"
                 className="inline-flex items-center justify-center gap-2 bg-[#2EC4B6] text-[#0B3C5D] font-extrabold text-[14px]
                   px-6 py-3 rounded-xl hover:bg-[#3dd9cb] hover:-translate-y-0.5 transition-all duration-200
                   w-full sm:w-auto shrink-0"

@@ -161,7 +161,7 @@ export default function About() {
             text="Book a free 30 minute call, or start with a free revenue audit."
             href="/book-a-call"
             label="Book a Call"
-            secondary={{ href: '/#audit', label: 'Get Your Free Audit' }}
+            secondary={{ href: '/#contact-form', label: 'Get Your Free Audit' }}
           />
         </div>
       </section>

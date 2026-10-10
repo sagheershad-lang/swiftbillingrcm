@@ -251,7 +251,7 @@ export default function Services() {
               {/* CTA buttons */}
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto">
                 <a
-                  href="#audit"
+                  href="#contact-form"
                   className="inline-flex items-center justify-center gap-2 bg-[#2EC4B6] text-[#0B3C5D] font-extrabold text-[14px]
                     px-6 py-3 rounded-xl hover:bg-[#3dd9cb] hover:-translate-y-0.5 transition-all duration-200"
                   style={{ boxShadow: '0 0 24px rgba(46,196,182,0.40)' }}

@@ -12,7 +12,7 @@ const quickLinks = [
   { label: 'How It Works',   href: '/#process' },
   { label: 'Specialties',    href: '/#specialties' },
   { label: 'Our Approach',   href: '/#testimonials' },
-  { label: 'Free Audit',     href: '/#audit' },
+  { label: 'Free Audit',     href: '/#contact-form' },
   { label: 'Book a Call',    href: '/book-a-call' },
 ]
 

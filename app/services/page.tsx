@@ -143,7 +143,7 @@ export default function ServicesHub() {
               </p>
             </div>
             <div className="flex flex-col gap-3 shrink-0">
-              <Link href="/#contact"
+              <Link href="/#contact-form"
                 className="inline-flex items-center justify-center gap-2 text-white font-extrabold text-[14px] px-7 py-4 rounded-xl hover:-translate-y-0.5 transition-all duration-200"
                 style={{ background: '#2EC4B6', color: '#0a1e33', boxShadow: '0 4px 20px rgba(46,196,182,0.3)' }}>
                 Get Free Audit

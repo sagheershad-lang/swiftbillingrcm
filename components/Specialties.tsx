@@ -9,7 +9,7 @@ type SpecialtyItem = { name: SectionSpecialty; desc: string; icon: React.ReactNo
 
 const featured: SpecialtyItem[] = [
   {
-    name: 'Family Practice',
+    name: 'Family Medicine',
     desc: 'Comprehensive billing support for primary care providers.',
     icon: (
       <svg width="26" height="26" viewBox="0 0 28 28" fill="none">
