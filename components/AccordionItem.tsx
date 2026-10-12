@@ -45,7 +45,7 @@ export default function AccordionItem({
         {/* Question number */}
         <span
           className={`text-[11px] font-black tracking-[0.1em] mt-[3px] shrink-0 transition-colors duration-200 ${
-            isOpen ? 'text-[#2EC4B6]' : 'text-[#CBD5E1]'
+            isOpen ? 'text-[#0a756c]' : 'text-[#64748B]'
           }`}
         >
           {num}
@@ -94,7 +94,7 @@ export default function AccordionItem({
             className="overflow-hidden"
           >
             <div className="px-5 sm:px-6 pl-8 sm:pl-[52px] pb-5 sm:pb-6 border-t border-[#EEF2F7]">
-              <p className="pt-4 text-[15px] md:text-[14px] text-[#64748B] leading-[1.8]">{faq.a}</p>
+              <p className="pt-4 text-[15px] md:text-[14px] text-[#475569] leading-[1.8]">{faq.a}</p>
             </div>
           </m.div>
         )}

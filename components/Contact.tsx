@@ -1,9 +1,11 @@
 'use client'
 import { useState, FormEvent, useRef } from 'react'
 import FadeIn from './FadeIn'
+import ParticleNetwork from './ParticleNetwork'
 import { m } from 'framer-motion'
 import { MONTHLY_COLLECTIONS, US_STATES } from '@/lib/form-options'
 import { FORM_SPECIALTIES, OTHER_SPECIALTY } from '@/lib/specialties'
+import AmbientGlows from './AmbientGlows'
 
 const contactDetails = [
   {
@@ -143,40 +145,29 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="py-16 md:py-24 bg-[#F8FAFC] border-t border-[#E2E8F0] relative overflow-hidden">
-
-      {/* Ambient glow */}
-      <div
-        className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[300px] opacity-40"
-        style={{ background: 'radial-gradient(ellipse at top, rgba(46,196,182,0.09) 0%, transparent 65%)' }}
-      />
-
+    <section id="contact" className="py-16 md:py-24 bg-sb-light border-t border-[#E2E8F0] relative overflow-hidden">
+      <AmbientGlows variant="b" />
       <div className="relative z-10 max-w-[1200px] mx-auto px-6">
 
         {/* ── Section header ─────────────────────────────────────────── */}
         <FadeIn className="mb-8 sm:mb-12">
           <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
             <div>
-              <p className="text-[11.5px] font-extrabold uppercase tracking-[0.16em] text-[#2EC4B6] mb-3">
+              <p className="text-[11.5px] font-extrabold uppercase tracking-[0.16em] text-[#07655E] mb-3">
                 Get in Touch
               </p>
               <h2 className="text-[clamp(28px,3.5vw,44px)] font-extrabold text-[#0F172A] leading-[1.08] tracking-tight">
                 Let&apos;s Talk About{' '}
-                <span style={{
-                  background: 'linear-gradient(90deg, #0B3C5D 0%, #2EC4B6 100%)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text',
-                }}>
+                <span className="text-sb-grad">
                   Your Practice Revenue
                 </span>
               </h2>
             </div>
-            <p className="text-[15px] text-[#64748B] leading-relaxed max-w-[360px] lg:text-right lg:pb-1 text-balance">
+            <p className="text-[15px] text-[#475569] leading-relaxed max-w-[360px] lg:text-right lg:pb-1 text-balance">
               Free revenue audit within 24 hours. No obligation and no sales pressure, just a clear look at where your revenue stands.
             </p>
           </div>
-          <div className="mt-7 h-px" style={{ background: 'linear-gradient(90deg, #2EC4B6, rgba(46,196,182,0.15), transparent)' }} />
+          <div className="mt-7 h-px" style={{ background: 'linear-gradient(90deg, #2EC4B6, rgba(56,189,248,0.3), transparent)' }} />
         </FadeIn>
 
         <div className="grid lg:grid-cols-[1fr_1.3fr] gap-8 sm:gap-10 items-start">
@@ -191,7 +182,7 @@ export default function Contact() {
                   key={c.title}
                   whileHover={{ x: 4 }}
                   transition={{ duration: 0.2 }}
-                  className="flex items-start gap-4 bg-white border border-[#E4EDF5] rounded-2xl p-4
+                  className="flex items-start gap-4 bg-white/[0.82] backdrop-blur-[6px] border border-[#38BDF8]/[0.18] rounded-2xl p-4
                     shadow-[0_1px_10px_rgba(11,60,93,0.05)]
                     hover:border-[#2EC4B6]/35
                     hover:shadow-[0_8px_28px_rgba(11,60,93,0.09)]
@@ -199,14 +190,13 @@ export default function Contact() {
                 >
                   {/* Icon */}
                   <div
-                    className="w-11 h-11 rounded-xl flex items-center justify-center shrink-0 border border-[#BAE8E4]"
-                    style={{ background: 'linear-gradient(135deg, #EBF9F8 0%, #DFF6F4 100%)' }}
+                    className="sb-icon-badge w-11 h-11 rounded-xl flex items-center justify-center shrink-0"
                   >
                     {c.icon}
                   </div>
 
                   <div>
-                    <p className="text-[10.5px] font-bold uppercase tracking-[0.11em] text-[#94A3B8] mb-0.5">{c.title}</p>
+                    <p className="text-[10.5px] font-bold uppercase tracking-[0.11em] text-[#475569] mb-0.5">{c.title}</p>
                     {c.href ? (
                       <a
                         href={c.href}
@@ -218,7 +208,7 @@ export default function Contact() {
                     ) : (
                       <p className="text-[14.5px] font-bold text-[#0F172A] leading-tight">{c.value}</p>
                     )}
-                    <p className="text-[15px] md:text-[12.5px] text-[#64748B] mt-0.5">{c.sub}</p>
+                    <p className="text-[15px] md:text-[12.5px] text-[#475569] mt-0.5">{c.sub}</p>
                   </div>
                 </m.div>
               ))}
@@ -226,36 +216,27 @@ export default function Contact() {
 
             {/* Guarantees */}
             <div
-              className="relative rounded-2xl overflow-hidden"
-              style={{ background: 'linear-gradient(115deg, #061d2e 0%, #0B3C5D 60%, #0e4f73 100%)' }}
+              className="relative rounded-2xl overflow-hidden bg-sb-dark"
             >
-              {/* Dot texture */}
+              <ParticleNetwork />
               <div
-                className="absolute inset-0 pointer-events-none"
-                style={{
-                  backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24'%3E%3Ccircle cx='12' cy='12' r='1' fill='rgba(255%2C255%2C255%2C0.045)'/%3E%3C/svg%3E")`,
-                  backgroundSize: '24px 24px',
-                }}
-              />
-              <div
-                className="absolute top-0 left-0 right-0 h-[2px]"
-                style={{ background: 'linear-gradient(90deg, #2EC4B6, rgba(46,196,182,0.2), transparent)' }}
+                className="absolute top-0 left-0 right-0 h-[2px] bg-sb-accent"
               />
 
               <div className="relative z-10 px-6 py-5">
-                <p className="text-[10.5px] font-black uppercase tracking-[0.14em] text-[#2EC4B6] mb-4">
+                <p className="text-[10.5px] font-black uppercase tracking-[0.14em] text-[#5EF2E3] mb-4">
                   Our Guarantees
                 </p>
                 <div className="grid grid-cols-2 gap-x-5 gap-y-2.5">
                   {guarantees.map((b) => (
                     <div key={b} className="flex items-center gap-2">
-                      <div className="w-4 h-4 rounded-full bg-[#2EC4B6]/15 border border-[#2EC4B6]/30
+                      <div className="w-4 h-4 rounded-full bg-[#5EF2E3]/15 border border-[#5EF2E3]/40
                         flex items-center justify-center shrink-0">
                         <svg width="8" height="8" viewBox="0 0 10 10" fill="none">
-                          <path d="M2 5l2.5 2.5 4-4" stroke="#2EC4B6" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                          <path d="M2 5l2.5 2.5 4-4" stroke="#5EF2E3" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                         </svg>
                       </div>
-                      <span className="text-[15px] md:text-[12.5px] font-medium text-white/65">{b}</span>
+                      <span className="text-[15px] md:text-[12.5px] font-medium text-white">{b}</span>
                     </div>
                   ))}
                 </div>
@@ -270,27 +251,27 @@ export default function Contact() {
                 The older #contact (section) and #audit anchors still work. */}
             <div
               id="contact-form"
-              className="scroll-mt-[84px] bg-white border border-[#E4EDF5] rounded-2xl p-5 sm:p-8
+              className="scroll-mt-[84px] bg-white/[0.82] backdrop-blur-[6px] border border-[#38BDF8]/[0.18] rounded-2xl p-5 sm:p-8
                 shadow-[0_4px_32px_rgba(11,60,93,0.08)]"
             >
               {/* Top accent */}
               <div
                 className="h-[3px] -mx-5 -mt-5 sm:-mx-8 sm:-mt-8 mb-6 sm:mb-7 rounded-t-2xl"
-                style={{ background: 'linear-gradient(90deg, #2EC4B6 0%, rgba(46,196,182,0.3) 60%, transparent 100%)' }}
+                style={{ background: 'linear-gradient(90deg, #2EC4B6 0%, #38BDF8 60%, transparent 100%)' }}
               />
 
               {status === 'success' ? (
                 <div className="text-center py-10">
                   <div
                     className="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-5"
-                    style={{ background: 'linear-gradient(135deg, #EBF9F8, #DFF6F4)', border: '1px solid #BAE8E4' }}
+                    style={{ background: 'linear-gradient(135deg, #E6FAF8, #E3F3FE)', border: '1px solid #B6E6F3' }}
                   >
                     <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
                       <path d="M5 14l7 7 11-11" stroke="#2EC4B6" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
                   </div>
                   <h3 className="text-[22px] font-extrabold text-[#0F172A] mb-3">Thank You!</h3>
-                  <p className="text-[15px] md:text-[14.5px] text-[#64748B] leading-relaxed max-w-[320px] mx-auto">
+                  <p className="text-[15px] md:text-[14.5px] text-[#475569] leading-relaxed max-w-[320px] mx-auto">
                     We&apos;ll review your information and reach out within 24 hours with your free revenue audit findings.
                   </p>
                 </div>
@@ -299,7 +280,7 @@ export default function Contact() {
                   <h3 className="text-[20px] font-extrabold text-[#0F172A] mb-1 leading-tight">
                     Get Your Free Audit
                   </h3>
-                  <p className="text-[15px] md:text-[13.5px] text-[#64748B] mb-5 sm:mb-7">
+                  <p className="text-[15px] md:text-[13.5px] text-[#475569] mb-5 sm:mb-7">
                     Fill out the form and we&apos;ll get back to you within 24 hours with a free revenue audit.
                   </p>
 
@@ -349,11 +330,9 @@ export default function Contact() {
                     <button
                       type="submit"
                       disabled={status === 'submitting'}
-                      className="w-full bg-[#2EC4B6] text-[#0B3C5D] font-extrabold text-[16px]
-                        py-4 rounded-xl hover:bg-[#3dd9cb] hover:-translate-y-0.5
-                        transition-all duration-200 mt-1
+                      className="sb-btn-primary w-full bg-[#2EC4B6] text-[#0B3C5D] font-extrabold text-[16px]
+                        py-4 rounded-xl mt-1
                         disabled:opacity-60 disabled:cursor-not-allowed disabled:translate-y-0"
-                      style={{ boxShadow: '0 0 30px rgba(46,196,182,0.30)' }}
                     >
                       {status === 'submitting' ? 'Sending…' : (
                         <span className="inline-flex items-center justify-center gap-2">
@@ -365,12 +344,12 @@ export default function Contact() {
                       )}
                     </button>
 
-                    <p className="text-[12px] text-[#94A3B8] text-center font-medium">
+                    <p className="text-[12px] text-[#475569] text-center font-medium">
                       🔒 HIPAA Compliant · No spam · No obligation whatsoever
                     </p>
                   </form>
 
-                  <p className="mt-4 pt-4 border-t border-[#E4EDF5] text-center text-[15px] md:text-[13.5px] text-[#64748B]">
+                  <p className="mt-4 pt-4 border-t border-[#E4EDF5] text-center text-[15px] md:text-[13.5px] text-[#475569]">
                     Prefer to talk?{' '}
                     <a
                       href="/book-a-call"
@@ -406,7 +385,7 @@ function CSelect({ label, name, placeholder, options, value, onChange }: {
       <label htmlFor={name} className="text-[11.5px] font-bold text-[#0F172A] uppercase tracking-[0.08em]">
         {label}
       </label>
-      <div className="relative text-[#64748B]">
+      <div className="relative text-[#475569]">
         <select
           id={name}
           name={name}

@@ -19,6 +19,78 @@
 
 *, *::before, *::after { box-sizing: border-box; }
 
+/* ── Brighter theme (approved preview, Oct 2026) ─────────────────
+   Tokens and classes shared by every section. See PROJECT_CONTEXT.md section 6. */
+:root {
+  /* Top layer: a faint navy veil on the lower right half (where the gradient is brightest) so small
+     white text stays WCAG AA. The three layers under it are the approved gradient, unchanged. */
+  --sb-dark:
+    linear-gradient(135deg, transparent 40%, rgba(7, 42, 66, 0.28)),
+    radial-gradient(60% 80% at 88% 0%, rgba(94, 242, 227, 0.28), transparent 70%),
+    radial-gradient(50% 70% at 0% 100%, rgba(56, 189, 248, 0.25), transparent 70%),
+    linear-gradient(135deg, #0B3C5D, #0E6FA8 55%, #129C9E);
+  --sb-footer: linear-gradient(135deg, #072A42, #0B3C5D);
+  --sb-light: linear-gradient(180deg, #F2FAFC, #EEF6FD);
+  --sb-white: linear-gradient(180deg, #FFFFFF, #F4FBFB);
+  --sb-hgrad: linear-gradient(90deg, #0B3C5D, #0E8FB8 55%, #2EC4B6);
+  --sb-hgrad-dark: linear-gradient(90deg, #5EF2E3, #7DD3FC);
+  --sb-stat: linear-gradient(90deg, #0B3C5D, #0E8FB8);
+  --sb-accent-line: linear-gradient(90deg, #2EC4B6, #38BDF8);
+  --sb-icon-bg: linear-gradient(135deg, #E6FAF8, #E3F3FE);
+}
+.bg-sb-dark   { background: var(--sb-dark); }
+.bg-sb-footer { background: var(--sb-footer); }
+.bg-sb-light  { background: var(--sb-light); }
+.bg-sb-white  { background: var(--sb-white); }
+/* Gradient text: light sections, dark sections, big stat numbers */
+.text-sb-grad, .text-sb-grad-dark, .text-sb-stat {
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent; color: transparent;
+}
+.text-sb-grad      { background-image: var(--sb-hgrad); }
+.text-sb-grad-dark { background-image: var(--sb-hgrad-dark); }
+.text-sb-stat      { background-image: var(--sb-stat); }
+/* Teal to sky accent line (card hover line, CTA strip top line) */
+.bg-sb-accent { background-image: var(--sb-accent-line); }
+/* Icon badge on light backgrounds */
+.sb-icon-badge { background: var(--sb-icon-bg); border: 1px solid #B6E6F3; }
+/* Primary button: teal gradient + sky glow; hover lifts, brightens and slides the arrow */
+.sb-btn-primary {
+  background-image: linear-gradient(90deg, #2EC4B6, #3DD9CB);
+  box-shadow: 0 0 28px rgba(56, 189, 248, 0.35);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-image 0.2s ease;
+}
+.sb-btn-primary > svg:last-child { transition: transform 0.2s ease; }
+@media (hover: hover) {
+  .sb-btn-primary:hover {
+    background-image: linear-gradient(90deg, #3DD9CB, #5EF2E3);
+    box-shadow: 0 0 38px rgba(56, 189, 248, 0.5), 0 8px 22px rgba(11, 60, 93, 0.2);
+    transform: translateY(-2px);
+  }
+  .sb-btn-primary:hover > svg:last-child { transform: translateX(3px); }
+}
+
+/* ── Drifting glows for light sections (components/AmbientGlows.tsx) ──
+   Soft radial gradients moved with transform only (no filter blur, so phones stay fast).
+   Sizes include the soft edge the preview got from blur(60px). */
+.sb-glows { position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 0; }
+.sb-glow  { position: absolute; border-radius: 50%; will-change: transform; }
+@media (max-width: 767px) { .sb-glow-3 { display: none; } }
+.sb-glow-teal { background: radial-gradient(circle, rgba(46, 196, 182, 0.45) 0%, rgba(46, 196, 182, 0.2) 35%, transparent 65%); }
+.sb-glow-sky  { background: radial-gradient(circle, rgba(56, 189, 248, 0.45) 0%, rgba(56, 189, 248, 0.2) 35%, transparent 65%); }
+.sb-glow-pale { background: radial-gradient(circle, rgba(125, 211, 252, 0.28) 0%, rgba(125, 211, 252, 0.12) 35%, transparent 65%); }
+.sb-glow-1 { width: 580px; height: 580px; animation: sb-drift-1 16s ease-in-out infinite alternate; }
+.sb-glow-2 { width: 540px; height: 540px; animation: sb-drift-2 20s ease-in-out infinite alternate; }
+.sb-glow-3 { width: 460px; height: 460px; animation: sb-drift-3 24s ease-in-out infinite alternate; }
+@keyframes sb-drift-1 { to { transform: translate(180px, 90px) scale(1.15); } }
+@keyframes sb-drift-2 { to { transform: translate(-200px, -70px) scale(1.1); } }
+@keyframes sb-drift-3 { to { transform: translate(-160px, 60px) scale(1.2); } }
+@media (prefers-reduced-motion: reduce) {
+  .sb-glow { animation: none !important; }
+  .sb-btn-primary, .sb-btn-primary > svg:last-child { transition: none; }
+  .sb-btn-primary:hover, .sb-btn-primary:hover > svg:last-child { transform: none; }
+}
+
 html {
   scroll-behavior: smooth;
   overflow-x: hidden;
@@ -92,6 +164,19 @@ footer {
 }
 @media (min-width: 1024px) {
   .hero-image { object-position: 72% 35%; }
+}
+
+/* Homepage hero photo: fades out to the left (behind the text) and at the bottom, so the
+   brighter section gradient shows through instead of a navy overlay. The photo itself is not recoloured. */
+.hero-image-mask {
+  -webkit-mask-image:
+    linear-gradient(to right, transparent 0%, transparent 26%, rgba(0,0,0,0.08) 40%, rgba(0,0,0,0.4) 54%, rgba(0,0,0,0.8) 68%, rgba(0,0,0,0.96) 82%, #000 94%),
+    linear-gradient(to top, transparent 0%, #000 32%);
+  -webkit-mask-composite: source-in;
+  mask-image:
+    linear-gradient(to right, transparent 0%, transparent 26%, rgba(0,0,0,0.08) 40%, rgba(0,0,0,0.4) 54%, rgba(0,0,0,0.8) 68%, rgba(0,0,0,0.96) 82%, #000 94%),
+    linear-gradient(to top, transparent 0%, #000 32%);
+  mask-composite: intersect;
 }
 
 /* ── Homepage hero text entrance ─────────────────────────────────

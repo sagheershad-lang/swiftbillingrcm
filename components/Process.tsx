@@ -1,6 +1,8 @@
 'use client'
 import { m } from 'framer-motion'
 import FadeIn from './FadeIn'
+import ParticleNetwork from './ParticleNetwork'
+import AmbientGlows from './AmbientGlows'
 
 const steps = [
   {
@@ -57,42 +59,31 @@ const steps = [
 
 export default function Process() {
   return (
-    <section id="process" className="py-16 md:py-24 bg-[#F8FAFC] border-b border-[#E2E8F0] relative overflow-hidden">
-
-      {/* Ambient bottom-left glow */}
-      <div
-        className="pointer-events-none absolute -bottom-24 -left-24 w-[500px] h-[400px] opacity-40"
-        style={{ background: 'radial-gradient(ellipse at bottom left, rgba(46,196,182,0.10) 0%, transparent 65%)' }}
-      />
-
+    <section id="process" className="py-16 md:py-24 bg-sb-light border-b border-[#E2E8F0] relative overflow-hidden">
+      <AmbientGlows variant="b" />
       <div className="relative z-10 max-w-[1200px] mx-auto px-6">
 
         {/* ── Section header ─────────────────────────────────────────── */}
         <FadeIn className="mb-10 sm:mb-14">
           <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
             <div>
-              <p className="text-[11.5px] font-extrabold uppercase tracking-[0.16em] text-[#2EC4B6] mb-3">
+              <p className="text-[11.5px] font-extrabold uppercase tracking-[0.16em] text-[#07655E] mb-3">
                 How It Works
               </p>
               <h2 className="text-[clamp(28px,3.5vw,44px)] font-extrabold text-[#0F172A] leading-[1.08] tracking-tight">
                 From Data to{' '}
-                <span style={{
-                  background: 'linear-gradient(90deg, #0B3C5D 0%, #2EC4B6 100%)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text',
-                }}>
+                <span className="text-sb-grad">
                   Dollars in 4 Steps
                 </span>
               </h2>
             </div>
-            <p className="text-[15px] text-[#64748B] leading-relaxed max-w-[360px] lg:text-right lg:pb-1 text-balance">
+            <p className="text-[15px] text-[#475569] leading-relaxed max-w-[360px] lg:text-right lg:pb-1 text-balance">
               A streamlined, transparent process that keeps you informed and keeps your revenue flowing.
             </p>
           </div>
           <div
             className="mt-7 h-px"
-            style={{ background: 'linear-gradient(90deg, #2EC4B6, rgba(46,196,182,0.15), transparent)' }}
+            style={{ background: 'linear-gradient(90deg, #2EC4B6, rgba(56,189,248,0.3), transparent)' }}
           />
         </FadeIn>
 
@@ -157,13 +148,13 @@ export default function Process() {
                 <m.div
                   whileHover={{ y: -4, boxShadow: '0 18px 44px rgba(11,60,93,0.11), 0 0 0 1px rgba(46,196,182,0.16)' }}
                   transition={{ duration: 0.25 }}
-                  className="group w-full flex-1 bg-white border border-[#E4EDF5] rounded-2xl px-5 pt-5 pb-5 flex flex-col
+                  className="group w-full flex-1 bg-white/[0.82] backdrop-blur-[6px] border border-[#38BDF8]/[0.18] rounded-2xl px-5 pt-5 pb-5 flex flex-col
                     shadow-[0_1px_14px_rgba(11,60,93,0.06)]
                     hover:border-[#2EC4B6]/35
                     transition-colors duration-300 overflow-hidden relative"
                 >
                   {/* Top accent reveal */}
-                  <div className="absolute top-0 left-1/2 -translate-x-1/2 h-[2px] w-0 rounded-full bg-[#2EC4B6]
+                  <div className="absolute top-0 left-1/2 -translate-x-1/2 h-[2px] w-0 rounded-full bg-sb-accent
                     group-hover:w-12 transition-all duration-500 ease-out" />
 
                   {/* Time badge */}
@@ -183,7 +174,7 @@ export default function Process() {
                   </h3>
 
                   {/* Description */}
-                  <p className="text-[15px] md:text-[12.5px] text-[#64748B] leading-relaxed flex-1 mb-4 relative z-10">
+                  <p className="text-[15px] md:text-[12.5px] text-[#475569] leading-relaxed flex-1 mb-4 relative z-10">
                     {s.desc}
                   </p>
 
@@ -205,26 +196,12 @@ export default function Process() {
         {/* ── CTA strip ──────────────────────────────────────────────── */}
         <FadeIn delay={0.3}>
           <div
-            className="relative rounded-2xl overflow-hidden"
-            style={{ background: 'linear-gradient(110deg, #051926 0%, #0B3C5D 55%, #0e4f73 100%)' }}
+            className="relative rounded-2xl overflow-hidden bg-sb-dark"
           >
-            {/* Dot texture */}
-            <div
-              className="absolute inset-0 pointer-events-none"
-              style={{
-                backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28'%3E%3Ccircle cx='14' cy='14' r='1.1' fill='rgba(255%2C255%2C255%2C0.04)'/%3E%3C/svg%3E")`,
-                backgroundSize: '28px 28px',
-              }}
-            />
-            {/* Teal glow */}
-            <div
-              className="absolute right-0 top-0 w-[300px] h-[150px] pointer-events-none"
-              style={{ background: 'radial-gradient(ellipse, rgba(46,196,182,0.20) 0%, transparent 65%)' }}
-            />
+            <ParticleNetwork />
             {/* Top accent */}
             <div
-              className="absolute top-0 left-0 right-0 h-[2px] pointer-events-none"
-              style={{ background: 'linear-gradient(90deg, #2EC4B6 0%, rgba(46,196,182,0.2) 60%, transparent 100%)' }}
+              className="absolute top-0 left-0 right-0 h-[2px] pointer-events-none bg-sb-accent"
             />
 
             <div className="relative z-10 flex flex-col sm:flex-row items-center justify-between gap-5 px-5 py-5 sm:px-8 sm:py-6">
@@ -232,9 +209,9 @@ export default function Process() {
               <div className="hidden sm:flex flex-wrap items-center gap-2">
                 {steps.map((s, i) => (
                   <div key={s.title} className="flex items-center gap-1.5">
-                    <span className="text-[12px] font-semibold text-white/60">{s.title}</span>
+                    <span className="text-[12px] font-semibold text-white/90">{s.title}</span>
                     {i < steps.length - 1 && (
-                      <svg width="10" height="10" viewBox="0 0 10 10" fill="none" className="shrink-0 opacity-30">
+                      <svg width="10" height="10" viewBox="0 0 10 10" fill="none" className="shrink-0 opacity-70">
                         <path d="M3 2l4 3-4 3" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                       </svg>
                     )}
@@ -245,10 +222,9 @@ export default function Process() {
               {/* CTA */}
               <a
                 href="#contact-form"
-                className="inline-flex items-center justify-center gap-2 bg-[#2EC4B6] text-[#0B3C5D] font-extrabold text-[14px]
-                  px-6 py-3 rounded-xl hover:bg-[#3dd9cb] hover:-translate-y-0.5 transition-all duration-200
+                className="sb-btn-primary inline-flex items-center justify-center gap-2 bg-[#2EC4B6] text-[#0B3C5D] font-extrabold text-[14px]
+                  px-6 py-3 rounded-xl
                   w-full sm:w-auto shrink-0"
-                style={{ boxShadow: '0 0 24px rgba(46,196,182,0.40)' }}
               >
                 Start Your Free Audit
                 <svg width="14" height="14" viewBox="0 0 16 16" fill="none">

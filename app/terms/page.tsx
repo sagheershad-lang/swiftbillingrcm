@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
+import ParticleNetwork from '@/components/ParticleNetwork'
 import { pageMetadata } from '@/lib/seo'
 import { servicesData } from '@/lib/services-data'
 
@@ -28,16 +29,17 @@ export default function Terms() {
       <Nav />
 
       {/* Header */}
-      <div id="main-content" className="bg-[#0B3C5D] text-white py-12 px-6 pt-[100px]">
-        <div className="max-w-[800px] mx-auto">
-          <Link href="/" className="inline-flex items-center gap-2 text-[#2EC4B6] text-sm font-semibold mb-6 hover:opacity-80 transition-opacity">
+      <div id="main-content" className="relative overflow-hidden bg-sb-dark text-white py-12 px-6 pt-[100px]">
+        <ParticleNetwork />
+        <div className="relative z-10 max-w-[800px] mx-auto">
+          <Link href="/" className="inline-flex items-center gap-2 text-[#5EF2E3] text-sm font-semibold mb-6 hover:opacity-80 transition-opacity">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
               <path d="M10.5 3L5.5 8l5 5" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
             Back to SwiftBilling RCM
           </Link>
           <h1 className="text-3xl font-extrabold tracking-tight mb-2">Terms &amp; Conditions</h1>
-          <p className="text-white/60 text-sm">Originally published 2023. Last updated {LAST_UPDATED}.</p>
+          <p className="text-white/90 text-sm">Originally published 2023. Last updated {LAST_UPDATED}.</p>
         </div>
       </div>
 
@@ -168,7 +170,7 @@ export default function Terms() {
               The Site links to other websites and uses third-party tools, such as the HubSpot chat and Google
               Analytics. We do not control these services and are not responsible for their content,
               availability, or privacy practices. Your use of them is also subject to their own terms. Our{' '}
-              <Link href="/privacy-policy" className="text-[#2EC4B6] underline hover:opacity-80">Privacy Policy</Link>{' '}
+              <Link href="/privacy-policy" className="text-[#0a756c] underline hover:opacity-80">Privacy Policy</Link>{' '}
               explains how these tools handle data.
             </p>
           </section>
@@ -233,11 +235,11 @@ export default function Terms() {
               <p>{ADDRESS}</p>
               <p>
                 Email:{' '}
-                <a href={`mailto:${EMAIL}`} className="text-[#2EC4B6] underline hover:opacity-80">{EMAIL}</a>
+                <a href={`mailto:${EMAIL}`} className="text-[#0a756c] underline hover:opacity-80">{EMAIL}</a>
               </p>
               <p>
                 Phone:{' '}
-                <a href="tel:+15127377488" className="text-[#2EC4B6] underline hover:opacity-80">{PHONE}</a>
+                <a href="tel:+15127377488" className="text-[#0a756c] underline hover:opacity-80">{PHONE}</a>
               </p>
               <p>Hours: {HOURS}</p>
             </div>

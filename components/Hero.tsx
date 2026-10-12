@@ -1,5 +1,6 @@
 'use client'
 import { m } from 'framer-motion'
+import ParticleNetwork from './ParticleNetwork'
 import BreakpointImage from './BreakpointImage'
 
 const HERO_BLUR =
@@ -19,7 +20,7 @@ const specialties = [
 
 export default function Hero() {
   return (
-    <section id="main-content" className="relative w-full min-h-screen overflow-hidden" style={{ background: '#071e2e' }}>
+    <section id="main-content" className="relative w-full min-h-screen overflow-hidden bg-sb-dark">
 
       {/* ════════════════════════════════════════════════
           FULL-BLEED BACKGROUND IMAGE
@@ -35,59 +36,14 @@ export default function Hero() {
           fetchPriority="high"
           placeholder="blur"
           blurDataURL={HERO_BLUR}
-          className="object-cover hero-image hidden md:block"
+          className="object-cover hero-image hero-image-mask hidden md:block"
           sizes="100vw"
           style={{ filter: 'brightness(1.08) contrast(1.06) saturate(1.18)' }}
         />
 
 
-        {/* Left-to-right overlay — solid on left (readable), fades out to reveal image on right */}
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              'linear-gradient(to right, #071e2e 0%, #071e2e 26%, rgba(11,60,93,0.94) 40%, rgba(11,60,93,0.65) 54%, rgba(11,60,93,0.22) 68%, rgba(11,60,93,0.04) 82%, transparent 94%)',
-          }}
-        />
-
-        {/* Cool-blue wash — neutralises warm/brown tones in the gradient transition zone */}
-        <div
-          className="absolute inset-0"
-          style={{
-            background: 'linear-gradient(to right, transparent 25%, rgba(10,45,80,0.38) 42%, rgba(10,45,80,0.22) 60%, transparent 78%)',
-          }}
-        />
-
-        {/* Bottom fade — merges into wave */}
-        <div
-          className="absolute bottom-0 left-0 right-0"
-          style={{ height: '32%', background: 'linear-gradient(to top, #082d46 0%, transparent 100%)' }}
-        />
-
-        {/* Top vignette */}
-        <div
-          className="absolute top-0 left-0 right-0"
-          style={{ height: '18%', background: 'linear-gradient(to bottom, rgba(7,30,46,0.55) 0%, transparent 100%)' }}
-        />
-
-        {/* Subtle dot grid */}
-        <div
-          className="absolute inset-0 opacity-[0.03]"
-          style={{
-            backgroundImage: 'radial-gradient(circle, rgba(255,255,255,1) 1px, transparent 1px)',
-            backgroundSize: '34px 34px',
-          }}
-        />
-
-        {/* Teal ambient glow — mid-left */}
-        <div
-          className="absolute pointer-events-none"
-          style={{
-            top: '20%', left: '0', width: '45%', height: '60%',
-            background: 'radial-gradient(ellipse at 30% 50%, rgba(46,196,182,0.12) 0%, transparent 65%)',
-          }}
-        />
-
+        {/* Particle network (shared component, desktop and mobile) */}
+        <ParticleNetwork />
       </div>
 
       {/* ════════════════════════════════════════════════
@@ -101,9 +57,9 @@ export default function Hero() {
 
             {/* Badge */}
             <div
-              className="hero-fade-up inline-flex items-center gap-2 text-[11px] sm:text-[12px] font-bold tracking-[0.06em] uppercase text-[#2EC4B6] bg-[#2EC4B6]/10 border border-[#2EC4B6]/28 rounded-full px-4 py-2 mb-7"
+              className="hero-fade-up inline-flex items-center gap-2 text-[11px] sm:text-[12px] font-bold tracking-[0.06em] uppercase text-[#5EF2E3] bg-[#5EF2E3]/10 border border-[#7FF5EA]/45 rounded-full px-4 py-2 mb-7"
             >
-              <span className="w-1.5 h-1.5 rounded-full bg-[#2EC4B6] animate-pulse shrink-0" />
+              <span className="w-1.5 h-1.5 rounded-full bg-[#5EF2E3] animate-pulse shrink-0" />
               <span className="sm:hidden">HIPAA Compliant · US Billing Experts</span>
               <span className="hidden sm:inline">HIPAA Compliant · US Healthcare Billing Experts</span>
             </div>
@@ -121,14 +77,7 @@ export default function Hero() {
             >
               Stop Losing Revenue<br />
               to Unpaid Claims.<br />
-              <span
-                style={{
-                  background: 'linear-gradient(92deg, #2EC4B6 0%, #7eeee6 100%)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text',
-                }}
-              >
+              <span className="text-sb-grad-dark">
                 We Recover It Fast.
               </span>
             </h1>
@@ -141,7 +90,7 @@ export default function Hero() {
                 fontSize: 'clamp(15px, 1.55vw, 18px)',
                 lineHeight: 1.75,
                 fontWeight: 400,
-                color: 'rgba(255,255,255,0.70)',
+                color: 'rgba(255,255,255,0.86)',
                 maxWidth: '520px',
               }}
             >
@@ -159,13 +108,13 @@ export default function Hero() {
                   <div className="flex flex-col px-5 py-1 first:pl-0">
                     <span
                       className="font-extrabold leading-none tabular-nums"
-                      style={{ fontSize: 'clamp(20px, 2.4vw, 28px)', color: '#2EC4B6' }}
+                      style={{ fontSize: 'clamp(20px, 2.4vw, 28px)', color: '#5EF2E3' }}
                     >
                       {s.value}
                     </span>
                     <span
                       className="mt-1 font-semibold uppercase tracking-[0.07em]"
-                      style={{ fontSize: '10.5px', color: 'rgba(255,255,255,0.42)' }}
+                      style={{ fontSize: '10.5px', color: '#FFFFFF' }}
                     >
                       {s.label}
                     </span>
@@ -173,7 +122,7 @@ export default function Hero() {
                   {i < inlineStats.length - 1 && (
                     <div
                       className="self-stretch shrink-0 hidden sm:block"
-                      style={{ width: '1px', background: 'rgba(255,255,255,0.15)', margin: '6px 0' }}
+                      style={{ width: '1px', background: 'rgba(255,255,255,0.2)', margin: '6px 0' }}
                     />
                   )}
                 </div>
@@ -185,7 +134,7 @@ export default function Hero() {
               <div className="flex flex-col sm:flex-row gap-3">
                 <a
                   href="#contact-form"
-                  className="inline-flex items-center justify-center gap-2.5 bg-[#2EC4B6] text-[#071e2e] font-extrabold text-[15px] sm:text-[16px] px-7 py-[15px] rounded-xl transition-all duration-200 hover:bg-[#3dd9cb] hover:-translate-y-0.5 shadow-[0_0_48px_rgba(46,196,182,0.55)] hover:shadow-[0_0_80px_rgba(46,196,182,0.75)] w-full sm:w-auto"
+                  className="sb-btn-primary inline-flex items-center justify-center gap-2.5 bg-[#2EC4B6] text-[#071e2e] font-extrabold text-[15px] sm:text-[16px] px-7 py-[15px] rounded-xl w-full sm:w-auto"
                 >
                   Get Free Audit in 24 Hours
                   <svg width="17" height="17" viewBox="0 0 17 17" fill="none">
@@ -194,11 +143,11 @@ export default function Hero() {
                 </a>
                 <a
                   href="/book-a-call"
-                  className="inline-flex items-center justify-center gap-2 font-bold text-[14px] sm:text-[15px] transition-all duration-200 hover:-translate-y-0.5 w-full sm:w-auto"
+                  className="inline-flex items-center justify-center gap-2 font-bold text-[14px] sm:text-[15px] transition-all duration-200 hover:-translate-y-0.5 hover:!border-[#5EF2E3] hover:!bg-[rgba(94,242,227,0.14)] w-full sm:w-auto"
                   style={{
-                    background: 'rgba(255,255,255,0.08)',
-                    border: '1px solid rgba(255,255,255,0.22)',
-                    color: 'rgba(255,255,255,0.88)',
+                    background: 'rgba(7,42,66,0.3)',
+                    border: '1px solid rgba(255,255,255,0.3)',
+                    color: '#FFFFFF',
                     padding: '15px 26px',
                     borderRadius: '12px',
                     backdropFilter: 'blur(10px)',
@@ -207,7 +156,7 @@ export default function Hero() {
                   Book a Free Consultation
                 </a>
               </div>
-              <p className="text-[12px] text-white/32 font-medium pl-1 leading-relaxed">
+              <p className="text-[12px] text-white font-medium pl-1 leading-relaxed">
                 {/* Each item stays whole so narrow screens only break between items */}
                 <span className="whitespace-nowrap">No long-term contracts</span> · <span className="whitespace-nowrap">No upfront fees</span> · <span className="whitespace-nowrap">Response within 24 hours</span>
               </p>
@@ -218,7 +167,7 @@ export default function Hero() {
         {/* ── Trust row — anchors the bottom ── */}
         <div className="hero-fade-up" style={{ animationDelay: '0.62s' }}>
           <div className="h-px mb-5" style={{ background: 'linear-gradient(90deg, rgba(255,255,255,0.13) 0%, transparent 60%)' }} />
-          <p className="text-[10.5px] font-bold uppercase tracking-[0.14em] mb-3" style={{ color: 'rgba(255,255,255,0.28)' }}>
+          <p className="text-[10.5px] font-bold uppercase tracking-[0.14em] mb-3" style={{ color: '#FFFFFF' }}>
             Serving practices across all 50 states
           </p>
           <div className="flex flex-wrap gap-2">
@@ -227,9 +176,9 @@ export default function Hero() {
                 key={s}
                 className="text-[11.5px] font-medium px-3 py-[5px] rounded-full"
                 style={{
-                  background: 'rgba(255,255,255,0.07)',
-                  border: '1px solid rgba(255,255,255,0.12)',
-                  color: 'rgba(255,255,255,0.52)',
+                  background: 'rgba(7,42,66,0.3)',
+                  border: '1px solid rgba(255,255,255,0.2)',
+                  color: '#FFFFFF',
                 }}
               >
                 {s}
@@ -258,13 +207,13 @@ export default function Hero() {
           padding: '16px 22px',
         }}
       >
-        <div className="text-[24px] font-extrabold leading-none tabular-nums mb-1.5" style={{ color: '#2EC4B6' }}>
+        <div className="text-[24px] font-extrabold leading-none tabular-nums mb-1.5" style={{ color: '#5EF2E3' }}>
           &lt;30 Days
         </div>
-        <div className="text-[11.5px] font-semibold" style={{ color: 'rgba(255,255,255,0.52)', letterSpacing: '0.04em' }}>
+        <div className="text-[11.5px] font-semibold" style={{ color: '#FFFFFF', letterSpacing: '0.04em' }}>
           Avg Reimbursement
         </div>
-        <div className="text-[10px] mt-0.5" style={{ color: 'rgba(255,255,255,0.28)' }}>
+        <div className="text-[10px] mt-0.5" style={{ color: 'rgba(255,255,255,0.7)' }}>
           Fastest claims: 14 business days
         </div>
       </m.div>

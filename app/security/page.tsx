@@ -7,6 +7,7 @@ import PageHero from '@/components/PageHero'
 import PageFAQ from '@/components/PageFAQ'
 import { SectionHeader, HeaderLink, LightCard, IconTile, CtaBand, faqJsonLd } from '@/components/PageSections'
 import { pageMetadata } from '@/lib/seo'
+import AmbientGlows from '@/components/AmbientGlows'
 
 export const metadata: Metadata = pageMetadata({
   title: 'Security and HIPAA Compliance for Billing | SwiftBilling RCM',
@@ -102,8 +103,9 @@ export default function Security() {
       </PageHero>
 
       {/* ── HIPAA compliant workflows ─────────────────────────────────── */}
-      <section className="py-16 md:py-24 bg-white border-b border-[#E2E8F0]">
-        <div className="max-w-[1200px] mx-auto px-6">
+      <section className="py-16 md:py-24 bg-sb-white border-b border-[#E2E8F0] relative overflow-hidden">
+        <AmbientGlows />
+        <div className="relative z-10 max-w-[1200px] mx-auto px-6">
           <SectionHeader
             eyebrow="HIPAA Compliant Workflows"
             title="Built Around"
@@ -116,7 +118,7 @@ export default function Security() {
                 <LightCard className="h-full">
                   <IconTile><Icon>{c.icon}</Icon></IconTile>
                   <h3 className="text-[16px] font-extrabold text-[#0F172A] mb-2 leading-tight">{c.title}</h3>
-                  <p className="text-[15px] md:text-[13.5px] text-[#64748B] leading-relaxed">{c.desc}</p>
+                  <p className="text-[15px] md:text-[13.5px] text-[#475569] leading-relaxed">{c.desc}</p>
                 </LightCard>
               </FadeIn>
             ))}
@@ -125,24 +127,24 @@ export default function Security() {
       </section>
 
       {/* ── Business Associate Agreement ──────────────────────────────── */}
-      <section className="py-16 md:py-20 bg-[#F8FAFC] border-b border-[#E2E8F0]">
-        <div className="max-w-[1200px] mx-auto px-6">
+      <section className="py-16 md:py-20 bg-sb-light border-b border-[#E2E8F0] relative overflow-hidden">
+        <AmbientGlows variant="b" />
+        <div className="relative z-10 max-w-[1200px] mx-auto px-6">
           <FadeIn>
-            <div className="relative bg-white border border-[#E4EDF5] rounded-2xl p-6 sm:p-10 shadow-[0_1px_14px_rgba(11,60,93,0.06)] overflow-hidden">
+            <div className="relative bg-white/[0.82] backdrop-blur-[6px] border border-[#38BDF8]/[0.18] rounded-2xl p-6 sm:p-10 shadow-[0_1px_14px_rgba(11,60,93,0.06)] overflow-hidden">
               <div className="absolute top-0 left-0 right-0 h-[3px]" style={{ background: 'linear-gradient(90deg, #2EC4B6 0%, rgba(46,196,182,0.3) 60%, transparent 100%)' }} />
               <div className="flex flex-col md:flex-row md:items-center gap-6 md:gap-10">
                 <div
-                  className="w-16 h-16 rounded-2xl flex items-center justify-center shrink-0 border border-[#BAE8E4] text-[#0a756c]"
-                  style={{ background: 'linear-gradient(135deg, #EBF9F8 0%, #DFF6F4 100%)' }}
+                  className="sb-icon-badge w-16 h-16 rounded-2xl flex items-center justify-center shrink-0 text-[#0a756c]"
                 >
                   <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                     <path d="M14 3H6a2 2 0 00-2 2v14a2 2 0 002 2h12a2 2 0 002-2V9zM14 3v6h6M8 13h8M8 17h5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
                 </div>
                 <div>
-                  <p className="text-[11.5px] font-extrabold uppercase tracking-[0.16em] text-[#2EC4B6] mb-2">Business Associate Agreement</p>
+                  <p className="text-[11.5px] font-extrabold uppercase tracking-[0.16em] text-[#07655E] mb-2">Business Associate Agreement</p>
                   <h2 className="text-[clamp(22px,2.6vw,30px)] font-extrabold text-[#0F172A] leading-tight mb-3">A Signed BAA With Every Client</h2>
-                  <p className="text-[15px] md:text-[14.5px] text-[#64748B] leading-relaxed max-w-[720px]">
+                  <p className="text-[15px] md:text-[14.5px] text-[#475569] leading-relaxed max-w-[720px]">
                     Before we access or process any protected health information (PHI), we sign a Business Associate
                     Agreement with your practice, as HIPAA requires. Every client engagement includes one, without exception.
                   </p>
@@ -154,8 +156,9 @@ export default function Security() {
       </section>
 
       {/* ── How we access your systems ────────────────────────────────── */}
-      <section className="py-16 md:py-24 bg-white border-b border-[#E2E8F0]">
-        <div className="max-w-[1200px] mx-auto px-6">
+      <section className="py-16 md:py-24 bg-sb-white border-b border-[#E2E8F0] relative overflow-hidden">
+        <AmbientGlows />
+        <div className="relative z-10 max-w-[1200px] mx-auto px-6">
           <SectionHeader
             eyebrow="System Access"
             title="How We Access"
@@ -168,7 +171,7 @@ export default function Security() {
                 <LightCard className="h-full">
                   <IconTile><Icon>{c.icon}</Icon></IconTile>
                   <h3 className="text-[16px] font-extrabold text-[#0F172A] mb-2 leading-tight">{c.title}</h3>
-                  <p className="text-[15px] md:text-[13.5px] text-[#64748B] leading-relaxed">{c.desc}</p>
+                  <p className="text-[15px] md:text-[13.5px] text-[#475569] leading-relaxed">{c.desc}</p>
                 </LightCard>
               </FadeIn>
             ))}
@@ -177,8 +180,9 @@ export default function Security() {
       </section>
 
       {/* ── Who can see your data + what not to email ─────────────────── */}
-      <section className="py-16 md:py-24 bg-[#F8FAFC] border-b border-[#E2E8F0]">
-        <div className="max-w-[1200px] mx-auto px-6">
+      <section className="py-16 md:py-24 bg-sb-light border-b border-[#E2E8F0] relative overflow-hidden">
+        <AmbientGlows variant="b" />
+        <div className="relative z-10 max-w-[1200px] mx-auto px-6">
           <SectionHeader
             eyebrow="Your Data"
             title="Who Can See"
@@ -192,7 +196,7 @@ export default function Security() {
                   <Icon><path d="M12 12a4 4 0 100-8 4 4 0 000 8zM4 21c0-4 3.6-6 8-6s8 2 8 6" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/></Icon>
                 </IconTile>
                 <h3 className="text-[18px] font-extrabold text-[#0F172A] mb-2 leading-tight">Only Your Assigned Billing Staff</h3>
-                <p className="text-[15px] md:text-[14px] text-[#64748B] leading-relaxed">
+                <p className="text-[15px] md:text-[14px] text-[#475569] leading-relaxed">
                   Only the billing staff assigned to your account can see your practice&apos;s data. Your dedicated
                   account manager is your single point of contact.
                 </p>
@@ -207,13 +211,13 @@ export default function Security() {
                 <h3 className="text-[18px] font-extrabold text-[#0F172A] mb-3 leading-tight">Please Never Send Us by Email</h3>
                 <ul className="flex flex-col gap-2.5">
                   {neverEmail.map(item => (
-                    <li key={item} className="flex items-start gap-3 text-[15px] md:text-[14px] text-[#64748B] leading-relaxed">
+                    <li key={item} className="flex items-start gap-3 text-[15px] md:text-[14px] text-[#475569] leading-relaxed">
                       <CrossBadge />
                       <span>{item}</span>
                     </li>
                   ))}
                 </ul>
-                <p className="text-[15px] md:text-[13.5px] text-[#64748B] leading-relaxed mt-4">
+                <p className="text-[15px] md:text-[13.5px] text-[#475569] leading-relaxed mt-4">
                   Instead, share patient documents through your EHR or a secure method we agree on with you, and we will set
                   up system access with you directly. The website form, chat and booking page are for business questions only.
                 </p>
@@ -224,8 +228,9 @@ export default function Security() {
       </section>
 
       {/* ── FAQ ───────────────────────────────────────────────────────── */}
-      <section className="py-16 md:py-24 bg-white border-b border-[#E2E8F0]">
-        <div className="max-w-[1200px] mx-auto px-6">
+      <section className="py-16 md:py-24 bg-sb-white border-b border-[#E2E8F0] relative overflow-hidden">
+        <AmbientGlows />
+        <div className="relative z-10 max-w-[1200px] mx-auto px-6">
           <SectionHeader
             eyebrow="Security Questions"
             title="Security"
@@ -239,8 +244,9 @@ export default function Security() {
       </section>
 
       {/* ── CTA ───────────────────────────────────────────────────────── */}
-      <section className="py-16 md:py-20 bg-[#F8FAFC]">
-        <div className="max-w-[1200px] mx-auto px-6">
+      <section className="py-16 md:py-20 bg-sb-light relative overflow-hidden">
+        <AmbientGlows variant="b" />
+        <div className="relative z-10 max-w-[1200px] mx-auto px-6">
           <CtaBand
             title="Questions about security?"
             text="Book a free 30 minute call and we will walk you through how we protect your practice."

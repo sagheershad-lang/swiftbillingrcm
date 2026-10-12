@@ -6,6 +6,7 @@ import FadeIn from '@/components/FadeIn'
 import PageHero from '@/components/PageHero'
 import { SectionHeader, LightCard, IconTile, CtaBand } from '@/components/PageSections'
 import { pageMetadata } from '@/lib/seo'
+import AmbientGlows from '@/components/AmbientGlows'
 
 export const metadata: Metadata = pageMetadata({
   title: 'About Our Medical Billing Company | SwiftBilling RCM',
@@ -71,8 +72,9 @@ export default function About() {
       </PageHero>
 
       {/* ── Our story ─────────────────────────────────────────────────── */}
-      <section className="py-16 md:py-24 bg-white border-b border-[#E2E8F0]">
-        <div className="max-w-[1200px] mx-auto px-6">
+      <section className="py-16 md:py-24 bg-sb-white border-b border-[#E2E8F0] relative overflow-hidden">
+        <AmbientGlows />
+        <div className="relative z-10 max-w-[1200px] mx-auto px-6">
           <SectionHeader
             eyebrow="Who We Are"
             title="Billing Built for"
@@ -97,7 +99,7 @@ export default function About() {
               <dl className="grid grid-cols-2 gap-3">
                 {facts.map(f => (
                   <div key={f.label} className="bg-[#F8FAFC] border border-[#E4EDF5] rounded-2xl p-5">
-                    <dt className="text-[11px] font-bold uppercase tracking-[0.11em] text-[#94A3B8] mb-1">{f.label}</dt>
+                    <dt className="text-[11px] font-bold uppercase tracking-[0.11em] text-[#475569] mb-1">{f.label}</dt>
                     <dd className="text-[17px] font-extrabold text-[#0B3C5D] leading-tight">{f.value}</dd>
                   </div>
                 ))}
@@ -108,8 +110,9 @@ export default function About() {
       </section>
 
       {/* ── How we work ───────────────────────────────────────────────── */}
-      <section className="py-16 md:py-24 bg-[#F8FAFC] border-b border-[#E2E8F0]">
-        <div className="max-w-[1200px] mx-auto px-6">
+      <section className="py-16 md:py-24 bg-sb-light border-b border-[#E2E8F0] relative overflow-hidden">
+        <AmbientGlows variant="b" />
+        <div className="relative z-10 max-w-[1200px] mx-auto px-6">
           <SectionHeader
             eyebrow="How We Work"
             title="Simple, Accountable"
@@ -122,7 +125,7 @@ export default function About() {
                 <LightCard className="h-full">
                   <IconTile><Icon>{c.icon}</Icon></IconTile>
                   <h3 className="text-[16px] font-extrabold text-[#0F172A] mb-2 leading-tight">{c.title}</h3>
-                  <p className="text-[15px] md:text-[13.5px] text-[#64748B] leading-relaxed">{c.desc}</p>
+                  <p className="text-[15px] md:text-[13.5px] text-[#475569] leading-relaxed">{c.desc}</p>
                 </LightCard>
               </FadeIn>
             ))}
@@ -131,8 +134,9 @@ export default function About() {
       </section>
 
       {/* ── Our values ────────────────────────────────────────────────── */}
-      <section className="py-16 md:py-24 bg-white border-b border-[#E2E8F0]">
-        <div className="max-w-[1200px] mx-auto px-6">
+      <section className="py-16 md:py-24 bg-sb-white border-b border-[#E2E8F0] relative overflow-hidden">
+        <AmbientGlows />
+        <div className="relative z-10 max-w-[1200px] mx-auto px-6">
           <SectionHeader
             eyebrow="Our Values"
             title="What We"
@@ -145,7 +149,7 @@ export default function About() {
                 <LightCard className="h-full">
                   <IconTile><Icon>{c.icon}</Icon></IconTile>
                   <h3 className="text-[16px] font-extrabold text-[#0F172A] mb-2 leading-tight">{c.title}</h3>
-                  <p className="text-[15px] md:text-[13.5px] text-[#64748B] leading-relaxed">{c.desc}</p>
+                  <p className="text-[15px] md:text-[13.5px] text-[#475569] leading-relaxed">{c.desc}</p>
                 </LightCard>
               </FadeIn>
             ))}
@@ -154,8 +158,9 @@ export default function About() {
       </section>
 
       {/* ── CTA ───────────────────────────────────────────────────────── */}
-      <section className="py-16 md:py-20 bg-[#F8FAFC]">
-        <div className="max-w-[1200px] mx-auto px-6">
+      <section className="py-16 md:py-20 bg-sb-light relative overflow-hidden">
+        <AmbientGlows variant="b" />
+        <div className="relative z-10 max-w-[1200px] mx-auto px-6">
           <CtaBand
             title="Let's talk about your practice"
             text="Book a free 30 minute call, or start with a free revenue audit."

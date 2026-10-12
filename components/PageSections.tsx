@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import type { ReactNode } from 'react'
 import FadeIn from './FadeIn'
+import ParticleNetwork from './ParticleNetwork'
 
 /* Shared building blocks for the simple content pages (Pricing, Security, EHR Integrations),
    following the design system in PROJECT_CONTEXT.md section 6. */
@@ -24,22 +25,15 @@ export function SectionHeader({ eyebrow, title, accent, desc }: { eyebrow: strin
     <FadeIn className="mb-10 sm:mb-12">
       <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
         <div>
-          <p className="text-[11.5px] font-extrabold uppercase tracking-[0.16em] text-[#2EC4B6] mb-3">{eyebrow}</p>
+          <p className="text-[11.5px] font-extrabold uppercase tracking-[0.16em] text-[#07655E] mb-3">{eyebrow}</p>
           <h2 className="text-[clamp(28px,3.5vw,44px)] font-extrabold text-[#0F172A] leading-[1.08] tracking-tight">
             {title}{' '}
-            <span style={{
-              background: 'linear-gradient(90deg, #0B3C5D 0%, #2EC4B6 100%)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text',
-            }}>
-              {accent}
-            </span>
+            <span className="text-sb-grad">{accent}</span>
           </h2>
         </div>
-        <p className="text-[15px] text-[#64748B] leading-relaxed max-w-[380px] lg:text-right lg:pb-1 text-balance">{desc}</p>
+        <p className="text-[15px] text-[#475569] leading-relaxed max-w-[380px] lg:text-right lg:pb-1 text-balance">{desc}</p>
       </div>
-      <div className="mt-7 h-px" style={{ background: 'linear-gradient(90deg, #2EC4B6, rgba(46,196,182,0.15), transparent)' }} />
+      <div className="mt-7 h-px" style={{ background: 'linear-gradient(90deg, #2EC4B6, rgba(56,189,248,0.3), transparent)' }} />
     </FadeIn>
   )
 }
@@ -58,8 +52,8 @@ export function CheckBadge() {
 /** Light card: white, card border, resting shadow; on hover lifts, teal border, teal top line grows */
 export function LightCard({ children, className = '' }: { children: ReactNode; className?: string }) {
   return (
-    <div className={`group relative bg-white border border-[#E4EDF5] rounded-2xl p-6 overflow-hidden shadow-[0_1px_14px_rgba(11,60,93,0.06)] hover:-translate-y-[5px] hover:border-[#2EC4B6]/35 hover:shadow-[0_18px_44px_rgba(11,60,93,0.11)] transition-all duration-300 ${className}`}>
-      <div className="absolute top-0 left-6 h-[2px] w-0 rounded-full bg-[#2EC4B6] group-hover:w-14 transition-all duration-500 ease-out" />
+    <div className={`group relative bg-white/[0.82] backdrop-blur-[6px] border border-[#38BDF8]/[0.18] rounded-2xl p-6 overflow-hidden shadow-[0_1px_14px_rgba(11,60,93,0.06)] hover:-translate-y-[5px] hover:border-[#2EC4B6]/35 hover:shadow-[0_18px_44px_rgba(11,60,93,0.11)] transition-all duration-300 ${className}`}>
+      <div className="absolute top-0 left-6 h-[2px] w-0 rounded-full bg-sb-accent group-hover:w-14 transition-all duration-500 ease-out" />
       {children}
     </div>
   )
@@ -69,8 +63,7 @@ export function LightCard({ children, className = '' }: { children: ReactNode; c
 export function IconTile({ children }: { children: ReactNode }) {
   return (
     <div
-      className="w-12 h-12 rounded-xl flex items-center justify-center mb-5 border border-[#BAE8E4] text-[#0a756c]"
-      style={{ background: 'linear-gradient(135deg, #EBF9F8 0%, #DFF6F4 100%)' }}
+      className="sb-icon-badge w-12 h-12 rounded-xl flex items-center justify-center mb-5 text-[#0a756c]"
     >
       {children}
     </div>
@@ -89,35 +82,20 @@ export function CtaBand({ title, text, href, label, secondary }: {
   return (
     <FadeIn>
       <div
-        className="relative rounded-2xl overflow-hidden"
-        style={{ background: 'linear-gradient(115deg, #061d2e 0%, #0B3C5D 55%, #0e4f73 100%)' }}
+        className="relative rounded-2xl overflow-hidden bg-sb-dark"
       >
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28'%3E%3Ccircle cx='14' cy='14' r='1.1' fill='rgba(255%2C255%2C255%2C0.04)'/%3E%3C/svg%3E")`,
-            backgroundSize: '28px 28px',
-          }}
-        />
-        <div
-          className="absolute right-0 top-0 w-[300px] h-[150px] pointer-events-none"
-          style={{ background: 'radial-gradient(ellipse, rgba(46,196,182,0.20) 0%, transparent 65%)' }}
-        />
-        <div
-          className="absolute top-0 left-0 right-0 h-[2px] pointer-events-none"
-          style={{ background: 'linear-gradient(90deg, #2EC4B6 0%, rgba(46,196,182,0.2) 60%, transparent 100%)' }}
-        />
+        <ParticleNetwork />
+        <div className="absolute top-0 left-0 right-0 h-[2px] pointer-events-none bg-sb-accent" />
         <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6 px-6 py-8 sm:px-10 sm:py-10">
           <div className="text-center md:text-left">
             <h2 className="text-[clamp(22px,2.6vw,30px)] font-extrabold text-white leading-tight mb-2">{title}</h2>
-            <p className="text-[15px] text-white/60">{text}</p>
+            <p className="text-[15px] text-white/90">{text}</p>
           </div>
           <div className="flex flex-col sm:flex-row gap-3 w-full md:w-auto shrink-0">
             <Link
               href={href}
-              className="inline-flex items-center justify-center gap-2 bg-[#2EC4B6] text-[#0B3C5D] font-extrabold text-[15px]
-                px-7 py-4 rounded-xl hover:bg-[#3dd9cb] hover:-translate-y-0.5 transition-all duration-200"
-              style={{ boxShadow: '0 0 24px rgba(46,196,182,0.35)' }}
+              className="sb-btn-primary inline-flex items-center justify-center gap-2 bg-[#2EC4B6] text-[#0B3C5D] font-extrabold text-[15px]
+                px-7 py-4 rounded-xl"
             >
               {label}
               <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
@@ -127,8 +105,8 @@ export function CtaBand({ title, text, href, label, secondary }: {
             {secondary && (
               <Link
                 href={secondary.href}
-                className="inline-flex items-center justify-center gap-2 bg-white/10 text-white font-bold text-[15px]
-                  px-7 py-4 rounded-xl border border-white/20 hover:bg-white/[0.16] hover:border-white/35 hover:-translate-y-0.5 transition-all duration-200"
+                className="inline-flex items-center justify-center gap-2 bg-[#072A42]/30 text-white font-bold text-[15px]
+                  px-7 py-4 rounded-xl border border-white/30 hover:bg-[rgba(94,242,227,0.14)] hover:border-[#5EF2E3] hover:-translate-y-0.5 transition-all duration-200"
               >
                 {secondary.label}
               </Link>

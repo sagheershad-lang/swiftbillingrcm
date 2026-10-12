@@ -8,6 +8,8 @@ import Footer from './Footer'
 import AccordionItem from './AccordionItem'
 import type { ServiceData } from '@/lib/services-data'
 import { servicesData } from '@/lib/services-data'
+import AmbientGlows from './AmbientGlows'
+import ParticleNetwork from './ParticleNetwork'
 
 /* ─── Feature card icon renderer ────────────────────────────────── */
 function Icon({ name, size = 20 }: { name: string; size?: number }) {
@@ -123,7 +125,7 @@ function ServiceHeroGraphic({ service, heroImage, heroImageDesktop, heroImageTab
         {/* Floating stat badge */}
         <div className="absolute px-3 py-2 rounded-xl" style={{ top: '16px', right: '16px', zIndex: 20, background: 'rgba(5,18,38,0.85)', border: '1px solid rgba(46,196,182,0.3)', backdropFilter: 'blur(16px)' }}>
           <div className="text-[18px] font-extrabold leading-none" style={{ color: '#2EC4B6' }}>{stat1.value}</div>
-          <div className="text-[10px] font-medium mt-0.5" style={{ color: 'rgba(255,255,255,0.45)' }}>{stat1.label}</div>
+          <div className="text-[10px] font-medium mt-0.5" style={{ color: 'rgba(255,255,255,0.78)' }}>{stat1.label}</div>
         </div>
       </div>
 
@@ -146,7 +148,7 @@ function ServiceHeroGraphic({ service, heroImage, heroImageDesktop, heroImageTab
         {/* Floating stat badge */}
         <div className="absolute px-3 py-2 rounded-xl" style={{ top: '16px', right: '16px', zIndex: 20, background: 'rgba(5,18,38,0.85)', border: '1px solid rgba(46,196,182,0.3)', backdropFilter: 'blur(16px)' }}>
           <div className="text-[18px] font-extrabold leading-none" style={{ color: '#2EC4B6' }}>{stat1.value}</div>
-          <div className="text-[10px] font-medium mt-0.5" style={{ color: 'rgba(255,255,255,0.45)' }}>{stat1.label}</div>
+          <div className="text-[10px] font-medium mt-0.5" style={{ color: 'rgba(255,255,255,0.78)' }}>{stat1.label}</div>
         </div>
       </div>
 
@@ -199,7 +201,7 @@ function ServiceHeroGraphic({ service, heroImage, heroImageDesktop, heroImageTab
             >
               {icon}
             </div>
-            <span className="text-[11px] font-extrabold uppercase tracking-[0.18em]" style={{ color: 'rgba(255,255,255,0.35)' }}>
+            <span className="text-[11px] font-extrabold uppercase tracking-[0.18em]" style={{ color: 'rgba(255,255,255,0.78)' }}>
               {service.badge}
             </span>
           </div>
@@ -214,7 +216,7 @@ function ServiceHeroGraphic({ service, heroImage, heroImageDesktop, heroImageTab
           style={{ background: 'rgba(5,18,38,0.9)', border: '1px solid rgba(46,196,182,0.3)', backdropFilter: 'blur(16px)', boxShadow: '0 8px 24px rgba(0,0,0,0.4)' }}
         >
           <div className="text-[22px] font-extrabold leading-none" style={{ color: '#2EC4B6' }}>{stat1.value}</div>
-          <div className="text-[11px] font-medium mt-0.5" style={{ color: 'rgba(255,255,255,0.45)' }}>{stat1.label}</div>
+          <div className="text-[11px] font-medium mt-0.5" style={{ color: 'rgba(255,255,255,0.78)' }}>{stat1.label}</div>
         </m.div>
 
         {/* Floating stat — bottom left */}
@@ -226,7 +228,7 @@ function ServiceHeroGraphic({ service, heroImage, heroImageDesktop, heroImageTab
           style={{ background: 'rgba(5,18,38,0.9)', border: '1px solid rgba(46,196,182,0.3)', backdropFilter: 'blur(16px)', boxShadow: '0 8px 24px rgba(0,0,0,0.4)' }}
         >
           <div className="text-[22px] font-extrabold leading-none" style={{ color: '#2EC4B6' }}>{stat2.value}</div>
-          <div className="text-[11px] font-medium mt-0.5" style={{ color: 'rgba(255,255,255,0.45)' }}>{stat2.label}</div>
+          <div className="text-[11px] font-medium mt-0.5" style={{ color: 'rgba(255,255,255,0.78)' }}>{stat2.label}</div>
         </m.div>
       </m.div>
     </div>
@@ -238,13 +240,8 @@ function ServiceFAQ({ service }: { service: ServiceData }) {
   const [open, setOpen] = useState<number | null>(0)
 
   return (
-    <section id="service-faq" className="py-16 md:py-24 bg-[#F8FAFC] relative overflow-hidden">
-      {/* Ambient glow top-right */}
-      <div
-        className="pointer-events-none absolute -top-16 right-0 w-[500px] h-[360px] opacity-40"
-        style={{ background: 'radial-gradient(ellipse at top right, rgba(46,196,182,0.09) 0%, transparent 65%)' }}
-      />
-
+    <section id="service-faq" className="py-16 md:py-24 bg-sb-light relative overflow-hidden">
+      <AmbientGlows />
       <div className="relative z-10 max-w-[1200px] mx-auto px-6">
         <m.div
           initial={{ opacity: 0, y: 16 }}
@@ -255,26 +252,21 @@ function ServiceFAQ({ service }: { service: ServiceData }) {
         >
           <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
             <div>
-              <p className="text-[11.5px] font-extrabold uppercase tracking-[0.16em] text-[#2EC4B6] mb-3">
+              <p className="text-[11.5px] font-extrabold uppercase tracking-[0.16em] text-[#07655E] mb-3">
                 Common Questions
               </p>
               <h2 className="text-[clamp(28px,3.5vw,44px)] font-extrabold text-[#0F172A] leading-[1.08] tracking-tight">
                 Questions About{' '}
-                <span style={{
-                  background: 'linear-gradient(90deg, #0B3C5D 0%, #2EC4B6 100%)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text',
-                }}>
+                <span className="text-sb-grad">
                   {service.name}
                 </span>
               </h2>
             </div>
-            <p className="text-[15px] text-[#64748B] leading-relaxed max-w-[360px] lg:text-right lg:pb-1 text-balance">
+            <p className="text-[15px] text-[#475569] leading-relaxed max-w-[360px] lg:text-right lg:pb-1 text-balance">
               Straight answers to what practices ask us most about {service.name}.
             </p>
           </div>
-          <div className="mt-7 h-px" style={{ background: 'linear-gradient(90deg, #2EC4B6, rgba(46,196,182,0.15), transparent)' }} />
+          <div className="mt-7 h-px" style={{ background: 'linear-gradient(90deg, #2EC4B6, rgba(56,189,248,0.3), transparent)' }} />
         </m.div>
 
         <div className="flex flex-col gap-3 max-w-[880px]">
@@ -486,9 +478,9 @@ export default function ServicePageLayout({ service, heroImage, heroImageDesktop
               >
                 <Link
                   href="/"
-                  style={{ color: 'rgba(255,255,255,0.45)', transition: 'color 0.2s ease' }}
+                  style={{ color: 'rgba(255,255,255,0.78)', transition: 'color 0.2s ease' }}
                   onMouseEnter={e => (e.currentTarget.style.color = '#2EC4B6')}
-                  onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.45)')}
+                  onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.78)')}
                 >
                   Home
                 </Link>
@@ -497,9 +489,9 @@ export default function ServicePageLayout({ service, heroImage, heroImageDesktop
                 </svg>
                 <Link
                   href="/services"
-                  style={{ color: 'rgba(255,255,255,0.45)', transition: 'color 0.2s ease' }}
+                  style={{ color: 'rgba(255,255,255,0.78)', transition: 'color 0.2s ease' }}
                   onMouseEnter={e => (e.currentTarget.style.color = '#2EC4B6')}
-                  onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.45)')}
+                  onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.78)')}
                 >
                   Services
                 </Link>
@@ -551,7 +543,7 @@ export default function ServicePageLayout({ service, heroImage, heroImageDesktop
               <m.p
                 variants={textItem}
                 className="text-[15px] md:text-[14.5px] leading-[1.75] max-w-[320px] mb-10"
-                style={{ color: 'rgba(255,255,255,0.52)' }}
+                style={{ color: 'rgba(255,255,255,0.78)' }}
               >
                 {service.description}
               </m.p>
@@ -600,7 +592,7 @@ export default function ServicePageLayout({ service, heroImage, heroImageDesktop
             <h2 className="text-[clamp(22px,3vw,32px)] font-extrabold text-white tracking-tight">
               Everything Included in {service.name}
             </h2>
-            <p className="text-[15px] mt-2 max-w-[520px]" style={{ color: 'rgba(255,255,255,0.5)' }}>
+            <p className="text-[15px] mt-2 max-w-[520px]" style={{ color: 'rgba(255,255,255,0.78)' }}>
               Every step of the process, covered from start to finish.
             </p>
           </m.div>
@@ -624,7 +616,7 @@ export default function ServicePageLayout({ service, heroImage, heroImageDesktop
                 </div>
                 <div>
                   <h3 className="text-[15px] font-extrabold text-white mb-2">{f.title}</h3>
-                  <p className="text-[15px] md:text-[13.5px] leading-[1.7]" style={{ color: 'rgba(255,255,255,0.55)' }}>
+                  <p className="text-[15px] md:text-[13.5px] leading-[1.7]" style={{ color: 'rgba(255,255,255,0.78)' }}>
                     {f.description}
                   </p>
                 </div>
@@ -681,7 +673,7 @@ export default function ServicePageLayout({ service, heroImage, heroImageDesktop
                   {step.step}
                 </div>
                 <h3 className="text-[15px] font-extrabold text-white mb-2">{step.title}</h3>
-                <p className="text-[15px] md:text-[13px] leading-[1.7]" style={{ color: 'rgba(255,255,255,0.5)' }}>
+                <p className="text-[15px] md:text-[13px] leading-[1.7]" style={{ color: 'rgba(255,255,255,0.78)' }}>
                   {step.description}
                 </p>
               </m.div>
@@ -722,7 +714,7 @@ export default function ServicePageLayout({ service, heroImage, heroImageDesktop
                 >
                   {service.stats[0].value}
                 </div>
-                <div className="text-[13px] font-semibold mt-1" style={{ color: 'rgba(255,255,255,0.45)' }}>
+                <div className="text-[13px] font-semibold mt-1" style={{ color: 'rgba(255,255,255,0.78)' }}>
                   {service.stats[0].label}
                 </div>
               </div>
@@ -741,7 +733,7 @@ export default function ServicePageLayout({ service, heroImage, heroImageDesktop
                 >
                   {service.tagline}
                 </h3>
-                <p className="text-[15px] leading-[1.75] max-w-[540px]" style={{ color: 'rgba(255,255,255,0.5)' }}>
+                <p className="text-[15px] leading-[1.75] max-w-[540px]" style={{ color: 'rgba(255,255,255,0.78)' }}>
                   {service.problem}
                 </p>
               </div>
@@ -770,7 +762,7 @@ export default function ServicePageLayout({ service, heroImage, heroImageDesktop
                     <p className="text-[14px] font-extrabold text-white group-hover:text-[#2EC4B6] transition-colors duration-200">
                       {s.name}
                     </p>
-                    <p className="text-[15px] md:text-[12px] mt-1 leading-[1.5]" style={{ color: 'rgba(255,255,255,0.6)' }}>
+                    <p className="text-[15px] md:text-[12px] mt-1 leading-[1.5]" style={{ color: 'rgba(255,255,255,0.78)' }}>
                       {s.shortDescription.slice(0, 58)}…
                     </p>
                   </div>
@@ -791,16 +783,9 @@ export default function ServicePageLayout({ service, heroImage, heroImageDesktop
       {service.faqs.length > 0 && <ServiceFAQ service={service} />}
 
       {/* ══ 7. CTA BANNER ════════════════════════════════════════════ */}
-      <section
-        className="py-[60px] relative overflow-hidden"
-        style={{ background: '#0a1e33', borderTop: '1px solid rgba(255,255,255,0.06)' }}
-      >
-        <div className="pointer-events-none absolute inset-0">
-          <div
-            className="absolute -top-40 -right-40 w-[700px] h-[700px]"
-            style={{ background: 'radial-gradient(circle, rgba(46,196,182,0.09) 0%, transparent 60%)' }}
-          />
-        </div>
+      <section className="py-[60px] relative overflow-hidden bg-sb-dark">
+        <ParticleNetwork />
+        <div className="absolute top-0 left-0 right-0 h-[2px] pointer-events-none bg-sb-accent" />
         <div className="relative z-10 max-w-[620px] mx-auto px-6 text-center">
           <m.div
             initial={{ opacity: 0, y: 20 }}
@@ -810,10 +795,10 @@ export default function ServicePageLayout({ service, heroImage, heroImageDesktop
           >
             <div
               className="inline-flex items-center gap-2 rounded-full px-4 py-[7px] mb-6"
-              style={{ background: 'rgba(46,196,182,0.10)', border: '1px solid rgba(46,196,182,0.26)' }}
+              style={{ background: 'rgba(7,42,66,0.3)', border: '1px solid rgba(127,245,234,0.45)' }}
             >
-              <span className="w-[7px] h-[7px] rounded-full bg-[#2EC4B6] animate-pulse shrink-0" />
-              <span className="text-[10.5px] font-extrabold uppercase tracking-[0.2em] text-[#2EC4B6]">
+              <span className="w-[7px] h-[7px] rounded-full bg-[#5EF2E3] animate-pulse shrink-0" />
+              <span className="text-[10.5px] font-extrabold uppercase tracking-[0.2em] text-[#5EF2E3]">
                 Free · No Obligation
               </span>
             </div>
@@ -823,19 +808,12 @@ export default function ServicePageLayout({ service, heroImage, heroImageDesktop
               style={{ fontSize: 'clamp(26px, 4vw, 38px)' }}
             >
               Ready to get started with{' '}
-              <span
-                style={{
-                  background: 'linear-gradient(90deg, #2EC4B6, #80ece5)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text',
-                }}
-              >
+              <span className="text-sb-grad-dark">
                 {service.name}?
               </span>
             </h2>
 
-            <p className="text-[15px] leading-relaxed mb-8" style={{ color: 'rgba(255,255,255,0.5)' }}>
+            <p className="text-[15px] leading-relaxed mb-8" style={{ color: 'rgba(255,255,255,0.9)' }}>
               Get a free audit that shows exactly where your practice is losing revenue.
               We respond within 24 hours with clear data, not a sales pitch.
             </p>
@@ -843,8 +821,7 @@ export default function ServicePageLayout({ service, heroImage, heroImageDesktop
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
               <Link
                 href="/#contact-form"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 font-extrabold text-[15px] px-8 py-4 rounded-2xl transition-all duration-200 hover:-translate-y-0.5"
-                style={{ background: '#2EC4B6', color: '#0B3C5D', boxShadow: '0 6px 28px rgba(46,196,182,0.42)' }}
+                className="sb-btn-primary w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-[#2EC4B6] text-[#0B3C5D] font-extrabold text-[15px] px-8 py-4 rounded-2xl"
               >
                 Get Free Audit in 24 Hours
                 <svg width="16" height="16" viewBox="0 0 18 18" fill="none">
@@ -853,8 +830,7 @@ export default function ServicePageLayout({ service, heroImage, heroImageDesktop
               </Link>
               <Link
                 href="/services"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 font-bold text-[14px] px-7 py-4 rounded-2xl text-white hover:bg-white/10 transition-all duration-200"
-                style={{ background: 'rgba(255,255,255,0.07)', border: '1px solid rgba(255,255,255,0.13)' }}
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 font-bold text-[14px] px-7 py-4 rounded-2xl text-white bg-white/[0.08] border border-white/30 hover:bg-[rgba(94,242,227,0.14)] hover:border-[#5EF2E3] transition-all duration-200"
               >
                 View All Services
               </Link>

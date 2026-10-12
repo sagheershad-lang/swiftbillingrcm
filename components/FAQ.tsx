@@ -3,40 +3,30 @@ import { useState } from 'react'
 import FadeIn from './FadeIn'
 import AccordionItem from './AccordionItem'
 import { homeFaqs as faqs } from '@/lib/home-faqs'
+import AmbientGlows from './AmbientGlows'
 
 export default function FAQ() {
   const [open, setOpen] = useState<number | null>(0)
 
   return (
-    <section id="faq" className="py-16 md:py-24 bg-white border-b border-[#E2E8F0] relative overflow-hidden">
-
-      {/* Ambient glow top-right */}
-      <div
-        className="pointer-events-none absolute -top-16 right-0 w-[500px] h-[360px] opacity-40"
-        style={{ background: 'radial-gradient(ellipse at top right, rgba(46,196,182,0.09) 0%, transparent 65%)' }}
-      />
-
+    <section id="faq" className="py-16 md:py-24 bg-sb-white border-b border-[#E2E8F0] relative overflow-hidden">
+      <AmbientGlows />
       <div className="relative z-10 max-w-[1200px] mx-auto px-6">
 
         <div className="grid lg:grid-cols-[1fr_1.55fr] gap-10 lg:gap-14 xl:gap-20 items-start">
 
           {/* ── Left: sticky header ──────────────────────────────────── */}
           <FadeIn className="lg:sticky lg:top-[100px]">
-            <p className="text-[11.5px] font-extrabold uppercase tracking-[0.16em] text-[#2EC4B6] mb-3">
+            <p className="text-[11.5px] font-extrabold uppercase tracking-[0.16em] text-[#07655E] mb-3">
               Common Questions
             </p>
             <h2 className="text-[clamp(26px,3vw,40px)] font-extrabold text-[#0F172A] leading-[1.1] tracking-tight mb-4">
               Everything You{' '}
-              <span style={{
-                background: 'linear-gradient(90deg, #0B3C5D 0%, #2EC4B6 100%)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                backgroundClip: 'text',
-              }}>
+              <span className="text-sb-grad">
                 Need to Know
               </span>
             </h2>
-            <p className="text-[15px] text-[#64748B] leading-relaxed mb-8">
+            <p className="text-[15px] text-[#475569] leading-relaxed mb-8">
               Common questions from practices considering SwiftBilling RCM, answered clearly and without fluff.
             </p>
 
@@ -63,7 +53,7 @@ export default function FAQ() {
             <div className="h-px mb-7" style={{ background: 'linear-gradient(90deg, rgba(46,196,182,0.4), transparent)' }} />
 
             {/* CTA */}
-            <p className="text-[15px] md:text-[13px] text-[#64748B] mb-3">Still have questions? We&apos;re happy to help.</p>
+            <p className="text-[15px] md:text-[13px] text-[#475569] mb-3">Still have questions? We&apos;re happy to help.</p>
             <a
               href="/book-a-call"
               className="inline-flex items-center gap-2 bg-[#0B3C5D] text-white font-bold text-[14px]

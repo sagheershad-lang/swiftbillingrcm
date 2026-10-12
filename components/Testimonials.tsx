@@ -1,6 +1,8 @@
 'use client'
 import { m } from 'framer-motion'
 import FadeIn from './FadeIn'
+import ParticleNetwork from './ParticleNetwork'
+import AmbientGlows from './AmbientGlows'
 
 const trustCards = [
   {
@@ -82,40 +84,29 @@ const pillars = [
 
 export default function Testimonials() {
   return (
-    <section id="testimonials" className="py-16 md:py-24 bg-[#F8FAFC] border-b border-[#E2E8F0] relative overflow-hidden">
-
-      {/* Ambient glow */}
-      <div
-        className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[300px] opacity-35"
-        style={{ background: 'radial-gradient(ellipse at top, rgba(46,196,182,0.10) 0%, transparent 65%)' }}
-      />
-
+    <section id="testimonials" className="py-16 md:py-24 bg-sb-light border-b border-[#E2E8F0] relative overflow-hidden">
+      <AmbientGlows variant="b" />
       <div className="relative z-10 max-w-[1200px] mx-auto px-6">
 
         {/* ── Section header ─────────────────────────────────────────── */}
         <FadeIn className="mb-8 sm:mb-12">
           <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
             <div>
-              <p className="text-[11.5px] font-extrabold uppercase tracking-[0.16em] text-[#2EC4B6] mb-3">
+              <p className="text-[11.5px] font-extrabold uppercase tracking-[0.16em] text-[#07655E] mb-3">
                 Why Practices Choose Us
               </p>
               <h2 className="text-[clamp(28px,3.5vw,44px)] font-extrabold text-[#0F172A] leading-[1.08] tracking-tight">
                 Built Around{' '}
-                <span style={{
-                  background: 'linear-gradient(90deg, #0B3C5D 0%, #2EC4B6 100%)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text',
-                }}>
+                <span className="text-sb-grad">
                   Transparency &amp; Performance
                 </span>
               </h2>
             </div>
-            <p className="text-[15px] text-[#64748B] leading-relaxed max-w-[380px] lg:text-right lg:pb-1 text-balance">
+            <p className="text-[15px] text-[#475569] leading-relaxed max-w-[380px] lg:text-right lg:pb-1 text-balance">
               Focused on long-term provider relationships, operational clarity, and reliable billing workflows, not just short-term metrics.
             </p>
           </div>
-          <div className="mt-7 h-px" style={{ background: 'linear-gradient(90deg, #2EC4B6, rgba(46,196,182,0.15), transparent)' }} />
+          <div className="mt-7 h-px" style={{ background: 'linear-gradient(90deg, #2EC4B6, rgba(56,189,248,0.3), transparent)' }} />
         </FadeIn>
 
         {/* ── Trust cards 3×2 grid ───────────────────────────────────── */}
@@ -128,22 +119,20 @@ export default function Testimonials() {
               viewport={{ once: true, margin: '-30px' }}
               transition={{ duration: 0.5, delay: i * 0.07, ease: [0.16, 1, 0.3, 1] }}
               whileHover={{ y: -5 }}
-              className="group relative bg-white border border-[#E4EDF5] rounded-2xl p-6 flex flex-col cursor-default
+              className="group relative bg-white/[0.82] backdrop-blur-[6px] border border-[#38BDF8]/[0.18] rounded-2xl p-6 flex flex-col cursor-default
                 shadow-[0_1px_12px_rgba(11,60,93,0.05)]
                 hover:border-[#2EC4B6]/35
                 hover:shadow-[0_16px_40px_rgba(11,60,93,0.10),0_0_0_1px_rgba(46,196,182,0.13)]
                 transition-all duration-300 overflow-hidden"
             >
               {/* Top teal reveal */}
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 h-[2px] w-0 rounded-full bg-[#2EC4B6]
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 h-[2px] w-0 rounded-full bg-sb-accent
                 group-hover:w-14 transition-all duration-500 ease-out" />
 
               {/* Icon badge */}
               <div
-                className="w-[50px] h-[50px] rounded-xl flex items-center justify-center mb-4 shrink-0
-                  border border-[#BAE8E4] transition-all duration-300
+                className="sb-icon-badge w-[50px] h-[50px] rounded-xl flex items-center justify-center mb-4 shrink-0 transition-all duration-300
                   group-hover:shadow-[0_0_0_5px_rgba(46,196,182,0.07)]"
-                style={{ background: 'linear-gradient(135deg, #EBF9F8 0%, #DFF6F4 100%)' }}
               >
                 {c.icon}
               </div>
@@ -152,7 +141,7 @@ export default function Testimonials() {
               <h3 className="text-[15px] font-extrabold text-[#0F172A] leading-snug mb-2.5 relative z-10">
                 {c.title}
               </h3>
-              <p className="text-[15px] md:text-[13.5px] text-[#64748B] leading-[1.75] flex-1 relative z-10">
+              <p className="text-[15px] md:text-[13.5px] text-[#475569] leading-[1.75] flex-1 relative z-10">
                 {c.desc}
               </p>
             </m.div>
@@ -162,26 +151,12 @@ export default function Testimonials() {
         {/* ── Philosophy strip ───────────────────────────────────────── */}
         <FadeIn delay={0.1} className="mb-7 sm:mb-10">
           <div
-            className="relative rounded-2xl overflow-hidden"
-            style={{ background: 'linear-gradient(115deg, #061d2e 0%, #0B3C5D 55%, #0e4f73 100%)' }}
+            className="relative rounded-2xl overflow-hidden bg-sb-dark"
           >
-            {/* Dot texture */}
-            <div
-              className="absolute inset-0 pointer-events-none"
-              style={{
-                backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28'%3E%3Ccircle cx='14' cy='14' r='1.1' fill='rgba(255%2C255%2C255%2C0.04)'/%3E%3C/svg%3E")`,
-                backgroundSize: '28px 28px',
-              }}
-            />
-            {/* Glow */}
-            <div
-              className="absolute right-0 top-0 w-[340px] h-[160px] pointer-events-none"
-              style={{ background: 'radial-gradient(ellipse, rgba(46,196,182,0.16) 0%, transparent 65%)' }}
-            />
+            <ParticleNetwork />
             {/* Top accent */}
             <div
-              className="absolute top-0 left-0 right-0 h-[2px]"
-              style={{ background: 'linear-gradient(90deg, #2EC4B6 0%, rgba(46,196,182,0.2) 55%, transparent 100%)' }}
+              className="absolute top-0 left-0 right-0 h-[2px] bg-sb-accent"
             />
 
             <div className="relative z-10 grid lg:grid-cols-[1fr_auto] items-center gap-6 sm:gap-8 px-5 py-5 sm:px-8 sm:py-7">
@@ -189,18 +164,18 @@ export default function Testimonials() {
               {/* Left: philosophy quote */}
               <div className="flex items-start gap-4">
                 <div
-                  className="w-[42px] h-[42px] rounded-xl flex items-center justify-center shrink-0 border border-[#2EC4B6]/30"
-                  style={{ background: 'rgba(46,196,182,0.10)' }}
+                  className="w-[42px] h-[42px] rounded-xl flex items-center justify-center shrink-0 border border-[#5EF2E3]/40"
+                  style={{ background: 'rgba(7,42,66,0.3)' }}
                 >
                   <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-                    <path d="M3 9.5C3 6.46 5.46 4 8.5 4H9v2h-.5C6.57 6 5 7.57 5 9.5V10h3v4H3v-4.5zM10 9.5C10 6.46 12.46 4 15.5 4H16v2h-.5C13.57 6 12 7.57 12 9.5V10h3v4h-5v-4.5z" fill="#2EC4B6" opacity=".7"/>
+                    <path d="M3 9.5C3 6.46 5.46 4 8.5 4H9v2h-.5C6.57 6 5 7.57 5 9.5V10h3v4H3v-4.5zM10 9.5C10 6.46 12.46 4 15.5 4H16v2h-.5C13.57 6 12 7.57 12 9.5V10h3v4h-5v-4.5z" fill="#5EF2E3" opacity=".85"/>
                   </svg>
                 </div>
                 <div>
                   <p className="text-[15px] font-medium text-white/85 leading-[1.70] max-w-[600px]">
                     We don&apos;t measure success by how many clients we sign. We measure it by how consistently we improve their collections, reduce their administrative burden, and earn their long-term trust.
                   </p>
-                  <p className="text-[11.5px] text-[#2EC4B6] font-bold mt-2.5 uppercase tracking-[0.10em]">
+                  <p className="text-[11.5px] text-[#7FF5EA] font-bold mt-2.5 uppercase tracking-[0.10em]">
                     Sam S., Founder · SwiftBilling RCM
                   </p>
                 </div>
@@ -211,11 +186,11 @@ export default function Testimonials() {
                 {pillars.map(p => (
                   <div
                     key={p.label}
-                    className="bg-white/[0.06] border border-white/[0.10] rounded-xl px-4 py-3 text-center
-                      hover:bg-white/[0.09] transition-colors duration-200"
+                    className="bg-[#072A42]/40 border border-white/[0.14] rounded-xl px-4 py-3 text-center
+                      hover:bg-[#072A42]/40 transition-colors duration-200"
                   >
-                    <p className="text-[18px] font-extrabold text-[#2EC4B6] leading-none mb-1">{p.n}</p>
-                    <p className="text-[10.5px] text-white/45 font-medium uppercase tracking-wide">{p.label}</p>
+                    <p className="text-[18px] font-extrabold text-[#5EF2E3] leading-none mb-1">{p.n}</p>
+                    <p className="text-[10.5px] text-white/85 font-medium uppercase tracking-wide">{p.label}</p>
                   </div>
                 ))}
               </div>
@@ -232,7 +207,7 @@ export default function Testimonials() {
                   <path d="M2 5l2.5 2.5 4-4" stroke="#2EC4B6" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
               </div>
-              <p className="text-[15px] md:text-[13px] text-[#64748B] font-medium">
+              <p className="text-[15px] md:text-[13px] text-[#475569] font-medium">
                 Serving internal medicine, cardiology, family medicine, urgent care, psychiatry, and 15+ other specialties.
               </p>
             </div>

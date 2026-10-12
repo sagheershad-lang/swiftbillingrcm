@@ -115,13 +115,13 @@ export default function ServicesHero() {
             {/* Breadcrumb */}
             <m.div
               variants={textItem}
-              className="flex items-center gap-2 text-[12px] text-white/32 mb-7"
+              className="flex items-center gap-2 text-[12px] text-white/80 mb-7"
             >
               <Link href="/" className="hover:text-[#2EC4B6] transition-colors duration-200">Home</Link>
               <svg width="10" height="10" viewBox="0 0 10 10" fill="none" className="opacity-35">
                 <path d="M3.5 2L6.5 5 3.5 8" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round"/>
               </svg>
-              <span className="text-white/55">Services</span>
+              <span className="text-white/80">Services</span>
             </m.div>
 
             {/* Badge */}
@@ -162,7 +162,7 @@ export default function ServicesHero() {
             {/* Subtext */}
             <m.p
               variants={textItem}
-              className="text-[15px] md:text-[14.5px] leading-[1.75] text-white/52 max-w-[360px] mb-10"
+              className="text-[15px] md:text-[14.5px] leading-[1.75] text-white/80 max-w-[360px] mb-10"
             >
               One partner for your complete revenue cycle, from charge entry to
               practice growth, so you can focus entirely on care.

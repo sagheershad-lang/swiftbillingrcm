@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { useEffect, useRef, useState } from 'react'
 import { useInView, useReducedMotion, m } from 'framer-motion'
 import FadeIn from './FadeIn'
+import AmbientGlows from './AmbientGlows'
 
 const bullets = [
   { title: 'CAQH Credentialing',    desc: 'Enrollment with all major payers in each state where your providers practice.' },
@@ -55,14 +56,8 @@ const highlights = [
 
 export default function About() {
   return (
-    <section id="why-us" className="py-16 md:py-24 bg-white border-b border-[#E2E8F0] relative overflow-hidden">
-
-      {/* Ambient glow — top left */}
-      <div
-        className="pointer-events-none absolute -top-20 -left-20 w-[500px] h-[400px] opacity-40"
-        style={{ background: 'radial-gradient(ellipse at top left, rgba(46,196,182,0.09) 0%, transparent 65%)' }}
-      />
-
+    <section id="why-us" className="py-16 md:py-24 bg-sb-white border-b border-[#E2E8F0] relative overflow-hidden">
+      <AmbientGlows />
       <div className="relative z-10 max-w-[1200px] mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-14 xl:gap-20 items-stretch">
 
@@ -70,17 +65,12 @@ export default function About() {
           <FadeIn direction="left">
 
             {/* Header */}
-            <p className="text-[11.5px] font-extrabold uppercase tracking-[0.16em] text-[#2EC4B6] mb-3">
+            <p className="text-[11.5px] font-extrabold uppercase tracking-[0.16em] text-[#07655E] mb-3">
               Our Experience
             </p>
             <h2 className="text-[clamp(26px,3.2vw,42px)] font-extrabold text-[#0F172A] leading-[1.08] tracking-tight mb-5">
               Experienced Billing{' '}
-              <span style={{
-                background: 'linear-gradient(90deg, #0B3C5D 0%, #2EC4B6 100%)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                backgroundClip: 'text',
-              }}>
+              <span className="text-sb-grad">
                 Professionals You Can Trust
               </span>
             </h2>
@@ -91,10 +81,10 @@ export default function About() {
               style={{ background: 'linear-gradient(90deg, #2EC4B6, transparent)' }}
             />
 
-            <p className="text-[15.5px] text-[#64748B] leading-[1.8] mb-4">
+            <p className="text-[15.5px] text-[#475569] leading-[1.8] mb-4">
               Our certified billing team specializes in CAQH credentialing, multi-state enrollment, and insurance panel setup. We help practices get contracted and start billing faster with all major payers.
             </p>
-            <p className="text-[15.5px] text-[#64748B] leading-[1.8] mb-9">
+            <p className="text-[15.5px] text-[#475569] leading-[1.8] mb-9">
               We&apos;re committed to one goal: maximizing your revenue. Every client gets a dedicated account manager, transparent monthly reporting, and a billing team that treats your practice like their own.
             </p>
 
@@ -124,7 +114,7 @@ export default function About() {
                   {/* Text */}
                   <div>
                     <span className="text-[15px] md:text-[14.5px] font-bold text-[#0F172A]">{b.title}:</span>
-                    <span className="text-[15px] md:text-[14.5px] text-[#64748B] font-normal"> {b.desc}</span>
+                    <span className="text-[15px] md:text-[14.5px] text-[#475569] font-normal"> {b.desc}</span>
                   </div>
                 </m.div>
               ))}
@@ -134,10 +124,8 @@ export default function About() {
             <div className="flex flex-col sm:flex-row flex-wrap gap-3">
               <a
                 href="#contact-form"
-                className="inline-flex items-center gap-2 bg-[#2EC4B6] text-[#0B3C5D] font-extrabold text-[15px]
-                  px-7 py-3.5 rounded-xl hover:bg-[#3dd9cb] hover:-translate-y-0.5
-                  transition-all duration-200"
-                style={{ boxShadow: '0 0 32px rgba(46,196,182,0.35)' }}
+                className="sb-btn-primary inline-flex items-center gap-2 bg-[#2EC4B6] text-[#0B3C5D] font-extrabold text-[15px]
+                  px-7 py-3.5 rounded-xl"
               >
                 Get Free Revenue Audit
                 <svg width="15" height="15" viewBox="0 0 15 15" fill="none">
@@ -182,12 +170,12 @@ export default function About() {
                 <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6">
                   <div className="grid grid-cols-3 gap-2 sm:gap-3">
                     {highlights.map(h => (
-                      <div key={h.label} className="text-center bg-white/10 backdrop-blur-md rounded-xl sm:rounded-2xl py-2.5 sm:py-3.5 border border-white/20
-                        hover:bg-white/15 transition-colors duration-300">
-                        <p className="text-[16px] sm:text-[22px] font-extrabold text-[#2EC4B6] leading-none mb-0.5 sm:mb-1">
+                      <div key={h.label} className="text-center bg-[#072A42]/75 backdrop-blur-md rounded-xl sm:rounded-2xl py-2.5 sm:py-3.5 border border-white/20
+                        hover:bg-[#072A42]/80 transition-colors duration-300">
+                        <p className="text-[16px] sm:text-[22px] font-extrabold text-[#5EF2E3] leading-none mb-0.5 sm:mb-1">
                           <CountUp target={h.target} prefix={h.prefix} suffix={h.suffix} isStatic={h.isStatic} staticVal={h.staticVal} />
                         </p>
-                        <p className="text-[9px] sm:text-[10px] text-white/75 font-semibold uppercase tracking-wide">{h.label}</p>
+                        <p className="text-[9px] sm:text-[10px] text-white font-semibold uppercase tracking-wide">{h.label}</p>
                       </div>
                     ))}
                   </div>
@@ -218,7 +206,7 @@ export default function About() {
                 </div>
                 <div>
                   <p className="text-[12px] font-extrabold text-[#0F172A] leading-tight">HIPAA Compliant</p>
-                  <p className="text-[10px] text-[#64748B] font-medium">BAA with every client</p>
+                  <p className="text-[10px] text-[#475569] font-medium">BAA with every client</p>
                 </div>
               </m.div>
               </Link>
@@ -246,7 +234,7 @@ export default function About() {
                 </div>
                 <div>
                   <p className="text-[12px] font-extrabold text-[#0F172A] leading-tight">CPC Certified</p>
-                  <p className="text-[10px] text-[#64748B] font-medium">ICD-10 · CPT Coders</p>
+                  <p className="text-[10px] text-[#475569] font-medium">ICD-10 · CPT Coders</p>
                 </div>
               </m.div>
               </m.div>

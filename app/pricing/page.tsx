@@ -8,6 +8,7 @@ import PageFAQ from '@/components/PageFAQ'
 import { SectionHeader, HeaderLink, CheckBadge, LightCard, CtaBand, faqJsonLd } from '@/components/PageSections'
 import { coreServices } from '@/lib/services-data'
 import { pageMetadata } from '@/lib/seo'
+import AmbientGlows from '@/components/AmbientGlows'
 
 export const metadata: Metadata = pageMetadata({
   title: 'Medical Billing Pricing and Rates | SwiftBilling RCM',
@@ -58,8 +59,9 @@ export default function Pricing() {
       </PageHero>
 
       {/* ── How our pricing works ─────────────────────────────────────── */}
-      <section className="py-16 md:py-24 bg-white border-b border-[#E2E8F0]">
-        <div className="max-w-[1200px] mx-auto px-6">
+      <section className="py-16 md:py-24 bg-sb-white border-b border-[#E2E8F0] relative overflow-hidden">
+        <AmbientGlows />
+        <div className="relative z-10 max-w-[1200px] mx-auto px-6">
           <SectionHeader
             eyebrow="How Our Pricing Works"
             title="A Percentage of"
@@ -71,7 +73,7 @@ export default function Pricing() {
               <FadeIn key={c.title} delay={i * 0.07} className="h-full">
                 <LightCard className="h-full">
                   <h3 className="text-[17px] font-extrabold text-[#0F172A] mb-2 leading-tight">{c.title}</h3>
-                  <p className="text-[15px] md:text-[13.5px] text-[#64748B] leading-relaxed">{c.desc}</p>
+                  <p className="text-[15px] md:text-[13.5px] text-[#475569] leading-relaxed">{c.desc}</p>
                 </LightCard>
               </FadeIn>
             ))}
@@ -80,8 +82,9 @@ export default function Pricing() {
       </section>
 
       {/* ── What affects your rate ────────────────────────────────────── */}
-      <section className="py-16 md:py-24 bg-[#F8FAFC] border-b border-[#E2E8F0]">
-        <div className="max-w-[1200px] mx-auto px-6">
+      <section className="py-16 md:py-24 bg-sb-light border-b border-[#E2E8F0] relative overflow-hidden">
+        <AmbientGlows variant="b" />
+        <div className="relative z-10 max-w-[1200px] mx-auto px-6">
           <SectionHeader
             eyebrow="Your Rate"
             title="What Affects"
@@ -92,9 +95,9 @@ export default function Pricing() {
             {rateFactors.map((c, i) => (
               <FadeIn key={c.title} delay={i * 0.07} className="h-full">
                 <LightCard className="h-full">
-                  <span className="text-[11px] font-black tracking-[0.1em] text-[#2EC4B6]">{String(i + 1).padStart(2, '0')}</span>
+                  <span className="text-[11px] font-black tracking-[0.1em] text-[#0a756c]">{String(i + 1).padStart(2, '0')}</span>
                   <h3 className="text-[16px] font-extrabold text-[#0F172A] mt-2 mb-2 leading-tight">{c.title}</h3>
-                  <p className="text-[15px] md:text-[13.5px] text-[#64748B] leading-relaxed">{c.desc}</p>
+                  <p className="text-[15px] md:text-[13.5px] text-[#475569] leading-relaxed">{c.desc}</p>
                 </LightCard>
               </FadeIn>
             ))}
@@ -103,8 +106,9 @@ export default function Pricing() {
       </section>
 
       {/* ── What is included ──────────────────────────────────────────── */}
-      <section className="py-16 md:py-24 bg-white border-b border-[#E2E8F0]">
-        <div className="max-w-[1200px] mx-auto px-6">
+      <section className="py-16 md:py-24 bg-sb-white border-b border-[#E2E8F0] relative overflow-hidden">
+        <AmbientGlows />
+        <div className="relative z-10 max-w-[1200px] mx-auto px-6">
           <SectionHeader
             eyebrow="What Is Included"
             title="Core Billing"
@@ -117,12 +121,12 @@ export default function Pricing() {
                 <li key={s.slug}>
                   <Link
                     href={`/services/${s.slug}`}
-                    className="group flex items-start gap-3 bg-white border border-[#E4EDF5] rounded-2xl p-4 shadow-[0_1px_10px_rgba(11,60,93,0.05)] hover:border-[#2EC4B6]/35 transition-colors duration-300 h-full"
+                    className="group flex items-start gap-3 bg-white/[0.82] backdrop-blur-[6px] border border-[#38BDF8]/[0.18] rounded-2xl p-4 shadow-[0_1px_10px_rgba(11,60,93,0.05)] hover:border-[#2EC4B6]/35 transition-colors duration-300 h-full"
                   >
                     <CheckBadge />
                     <span>
                       <span className="block text-[15px] font-extrabold text-[#0F172A] group-hover:text-[#0a756c] transition-colors duration-200">{s.name}</span>
-                      <span className="block text-[15px] md:text-[13px] text-[#64748B] leading-relaxed mt-0.5">{s.shortDescription}</span>
+                      <span className="block text-[15px] md:text-[13px] text-[#475569] leading-relaxed mt-0.5">{s.shortDescription}</span>
                     </span>
                   </Link>
                 </li>
@@ -133,18 +137,18 @@ export default function Pricing() {
       </section>
 
       {/* ── No setup fee, no long-term contracts ──────────────────────── */}
-      <section className="py-16 md:py-20 bg-[#F8FAFC] border-b border-[#E2E8F0]">
-        <div className="max-w-[1200px] mx-auto px-6">
+      <section className="py-16 md:py-20 bg-sb-light border-b border-[#E2E8F0] relative overflow-hidden">
+        <AmbientGlows variant="b" />
+        <div className="relative z-10 max-w-[1200px] mx-auto px-6">
           <FadeIn>
             <div className="grid sm:grid-cols-2 gap-5">
               {[
                 { title: 'No Setup Fee', desc: 'You pay nothing to get started.' },
                 { title: 'No Long-Term Contracts', desc: 'You are never locked in.' },
               ].map(c => (
-                <div key={c.title} className="flex items-start gap-4 bg-white border border-[#E4EDF5] rounded-2xl p-6 shadow-[0_1px_14px_rgba(11,60,93,0.06)]">
+                <div key={c.title} className="flex items-start gap-4 bg-white/[0.82] backdrop-blur-[6px] border border-[#38BDF8]/[0.18] rounded-2xl p-6 shadow-[0_1px_14px_rgba(11,60,93,0.06)]">
                   <span
-                    className="w-12 h-12 rounded-xl flex items-center justify-center shrink-0 border border-[#BAE8E4]"
-                    style={{ background: 'linear-gradient(135deg, #EBF9F8 0%, #DFF6F4 100%)' }}
+                    className="sb-icon-badge w-12 h-12 rounded-xl flex items-center justify-center shrink-0"
                   >
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
                       <path d="M4 10.5l4 4 8-9" stroke="#0a756c" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -152,7 +156,7 @@ export default function Pricing() {
                   </span>
                   <div>
                     <h3 className="text-[18px] font-extrabold text-[#0F172A] leading-tight mb-1">{c.title}</h3>
-                    <p className="text-[15px] md:text-[14px] text-[#64748B]">{c.desc}</p>
+                    <p className="text-[15px] md:text-[14px] text-[#475569]">{c.desc}</p>
                   </div>
                 </div>
               ))}
@@ -162,8 +166,9 @@ export default function Pricing() {
       </section>
 
       {/* ── FAQ ───────────────────────────────────────────────────────── */}
-      <section className="py-16 md:py-24 bg-white border-b border-[#E2E8F0]">
-        <div className="max-w-[1200px] mx-auto px-6">
+      <section className="py-16 md:py-24 bg-sb-white border-b border-[#E2E8F0] relative overflow-hidden">
+        <AmbientGlows />
+        <div className="relative z-10 max-w-[1200px] mx-auto px-6">
           <SectionHeader
             eyebrow="Pricing Questions"
             title="Pricing"
@@ -177,8 +182,9 @@ export default function Pricing() {
       </section>
 
       {/* ── CTA ───────────────────────────────────────────────────────── */}
-      <section className="py-16 md:py-20 bg-[#F8FAFC]">
-        <div className="max-w-[1200px] mx-auto px-6">
+      <section className="py-16 md:py-20 bg-sb-light relative overflow-hidden">
+        <AmbientGlows variant="b" />
+        <div className="relative z-10 max-w-[1200px] mx-auto px-6">
           <CtaBand
             title="Get a clear rate for your practice"
             text="Start with a free revenue audit. We reply within 24 hours, with no obligation."

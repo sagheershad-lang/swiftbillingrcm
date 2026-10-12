@@ -7,6 +7,7 @@ import PageHero from '@/components/PageHero'
 import { SectionHeader, HeaderLink, LightCard, IconTile, CtaBand } from '@/components/PageSections'
 import { platforms, PLATFORM_DISCLAIMER } from '@/lib/platforms'
 import { pageMetadata } from '@/lib/seo'
+import AmbientGlows from '@/components/AmbientGlows'
 
 export const metadata: Metadata = pageMetadata({
   title: 'EHR Integrations: Works With Your EHR | SwiftBilling RCM',
@@ -46,8 +47,9 @@ export default function EhrIntegrations() {
       </PageHero>
 
       {/* ── How we work with your systems ─────────────────────────────── */}
-      <section className="py-16 md:py-24 bg-white border-b border-[#E2E8F0]">
-        <div className="max-w-[1200px] mx-auto px-6">
+      <section className="py-16 md:py-24 bg-sb-white border-b border-[#E2E8F0] relative overflow-hidden">
+        <AmbientGlows />
+        <div className="relative z-10 max-w-[1200px] mx-auto px-6">
           <SectionHeader
             eyebrow="How We Work"
             title="Inside the Systems"
@@ -60,7 +62,7 @@ export default function EhrIntegrations() {
                 <LightCard className="h-full">
                   <IconTile><Icon>{c.icon}</Icon></IconTile>
                   <h3 className="text-[16px] font-extrabold text-[#0F172A] mb-2 leading-tight">{c.title}</h3>
-                  <p className="text-[15px] md:text-[13.5px] text-[#64748B] leading-relaxed">{c.desc}</p>
+                  <p className="text-[15px] md:text-[13.5px] text-[#475569] leading-relaxed">{c.desc}</p>
                 </LightCard>
               </FadeIn>
             ))}
@@ -69,8 +71,9 @@ export default function EhrIntegrations() {
       </section>
 
       {/* ── Platforms ─────────────────────────────────────────────────── */}
-      <section className="py-16 md:py-24 bg-[#F8FAFC] border-b border-[#E2E8F0]">
-        <div className="max-w-[1200px] mx-auto px-6">
+      <section className="py-16 md:py-24 bg-sb-light border-b border-[#E2E8F0] relative overflow-hidden">
+        <AmbientGlows variant="b" />
+        <div className="relative z-10 max-w-[1200px] mx-auto px-6">
           <SectionHeader
             eyebrow="Compatible With"
             title="Platforms We"
@@ -80,7 +83,7 @@ export default function EhrIntegrations() {
           <FadeIn>
             <ul className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
               {platforms.map(p => (
-                <li key={p.name} className="bg-white border border-[#E4EDF5] rounded-2xl p-5 flex flex-col items-center text-center shadow-[0_1px_10px_rgba(11,60,93,0.05)]">
+                <li key={p.name} className="bg-white/[0.82] backdrop-blur-[6px] border border-[#38BDF8]/[0.18] rounded-2xl p-5 flex flex-col items-center text-center shadow-[0_1px_10px_rgba(11,60,93,0.05)]">
                   <div className="h-[72px] w-full flex items-center justify-center mb-3">
                     {/* Local logo files, sized like the homepage TrustStrip */}
                     {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -99,16 +102,17 @@ export default function EhrIntegrations() {
               ))}
             </ul>
           </FadeIn>
-          <p className="mt-6 text-[15px] md:text-[13.5px] text-[#64748B] text-center">
+          <p className="mt-6 text-[15px] md:text-[13.5px] text-[#475569] text-center">
             Don&apos;t see your system? Most EHRs work with our process. Ask us about yours.
           </p>
-          <p className="mt-3 text-[12px] text-[#94A3B8] text-center leading-relaxed">{PLATFORM_DISCLAIMER}</p>
+          <p className="mt-3 text-[12px] text-[#475569] text-center leading-relaxed">{PLATFORM_DISCLAIMER}</p>
         </div>
       </section>
 
       {/* ── CTA ───────────────────────────────────────────────────────── */}
-      <section className="py-16 md:py-20 bg-[#F8FAFC]">
-        <div className="max-w-[1200px] mx-auto px-6">
+      <section className="py-16 md:py-20 bg-sb-light relative overflow-hidden">
+        <AmbientGlows />
+        <div className="relative z-10 max-w-[1200px] mx-auto px-6">
           <CtaBand
             title="Check that we work with your system"
             text="Book a free 30 minute call and tell us which EHR and clearinghouse your practice uses."

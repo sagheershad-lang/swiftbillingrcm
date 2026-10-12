@@ -84,7 +84,7 @@ export default function TrustStrip() {
       {/* Top accent line */}
       <div
         className="h-[3px] w-full"
-        style={{ background: 'linear-gradient(90deg, transparent 0%, #2EC4B6 30%, #0B3C5D 70%, transparent 100%)' }}
+        style={{ background: 'linear-gradient(90deg, transparent 0%, #2EC4B6 30%, #38BDF8 70%, transparent 100%)' }}
       />
 
       {/* ── Premium heading ─────────────────────────────────────────── */}
@@ -100,7 +100,7 @@ export default function TrustStrip() {
           rounded-full px-[14px] py-[6px] mb-5
           shadow-[0_0_0_4px_rgba(46,196,182,0.06)] backdrop-blur-sm">
           <span className="w-[7px] h-[7px] rounded-full bg-[#2EC4B6] animate-pulse shrink-0" />
-          <span className="text-[10.5px] font-extrabold uppercase tracking-[0.22em] text-[#2EC4B6]">
+          <span className="text-[10.5px] font-extrabold uppercase tracking-[0.22em] text-[#0a756c]">
             Platform Integrations
           </span>
         </div>
@@ -109,17 +109,12 @@ export default function TrustStrip() {
         <h2 className="relative text-[clamp(22px,3.2vw,34px)] font-extrabold tracking-[-0.025em] leading-[1.12] mb-3">
           <span className="text-[#0F172A]">Compatible With</span>
           <br />
-          <span style={{
-            background: 'linear-gradient(90deg, #0B3C5D 10%, #2EC4B6 90%)',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-            backgroundClip: 'text',
-          }}>
+          <span className="text-sb-grad">
             Leading Healthcare Platforms
           </span>
         </h2>
 
-        <p className="text-[15px] md:text-[13.5px] text-[#5A7A96] font-medium leading-relaxed max-w-[480px] mx-auto">
+        <p className="text-[15px] md:text-[13.5px] text-[#475569] font-medium leading-relaxed max-w-[480px] mx-auto">
           We work seamlessly across all major EHR, EMR, and clearinghouse systems, with no migration required.
         </p>
 
@@ -175,7 +170,7 @@ export default function TrustStrip() {
 
       {/* Disclaimer */}
       <div className="text-center pb-4 px-6">
-        <p className="text-[10px] text-[#94ABBE] font-medium tracking-wide leading-relaxed">
+        <p className="text-[10px] text-[#475569] font-medium tracking-wide leading-relaxed">
           {PLATFORM_DISCLAIMER}{' '}
           <Link
             href="/ehr-integrations"

@@ -2,7 +2,9 @@
 import { useState } from 'react'
 import { m } from 'framer-motion'
 import FadeIn from './FadeIn'
+import ParticleNetwork from './ParticleNetwork'
 import type { SectionSpecialty } from '@/lib/specialties'
+import AmbientGlows from './AmbientGlows'
 
 // Card names are typed against lib/specialties.ts (also used by the contact form dropdown)
 type SpecialtyItem = { name: SectionSpecialty; desc: string; icon: React.ReactNode }
@@ -266,14 +268,14 @@ function SpecialtyCard({
       {...(useViewport ? viewportProps : controlledProps)}
       whileHover={{ y: -4 }}
       className="group relative flex flex-col items-center text-center
-        bg-white border border-[#E4EDF5] rounded-2xl
+        bg-white/[0.82] backdrop-blur-[6px] border border-[#38BDF8]/[0.18] rounded-2xl
         px-4 pt-5 pb-[18px]
         shadow-[0_1px_12px_rgba(11,60,93,0.07)]
         hover:border-[#2EC4B6]/35
         hover:shadow-[0_12px_32px_rgba(11,60,93,0.11),0_0_0_1px_rgba(46,196,182,0.18)]
         transition-all duration-300 ease-out cursor-default"
     >
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 h-[2px] w-0 rounded-full bg-[#2EC4B6]
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 h-[2px] w-0 rounded-full bg-sb-accent
         group-hover:w-12 transition-all duration-500 ease-out" />
 
       <div className="w-[54px] h-[54px] rounded-full bg-[#EBF9F8] border border-[#C8EFEC]
@@ -288,7 +290,7 @@ function SpecialtyCard({
         group-hover:text-[#0B3C5D] transition-colors duration-300">
         {s.name}
       </p>
-      <p className="text-[15px] md:text-[12px] text-[#64748B] leading-relaxed flex-1 mb-3.5 px-0.5">
+      <p className="text-[15px] md:text-[12px] text-[#475569] leading-relaxed flex-1 mb-3.5 px-0.5">
         {s.desc}
       </p>
 
@@ -306,24 +308,20 @@ export default function Specialties() {
   const [expanded, setExpanded] = useState(false)
 
   return (
-    <section id="specialties" className="py-16 md:py-24 bg-white border-b border-[#E2E8F0]">
-      <div className="max-w-[1200px] mx-auto px-6">
+    <section id="specialties" className="py-16 md:py-24 bg-sb-white border-b border-[#E2E8F0] relative overflow-hidden">
+      <AmbientGlows variant="b" />
+      <div className="relative z-10 max-w-[1200px] mx-auto px-6">
 
         {/* Section header */}
         <FadeIn>
           <div className="grid lg:grid-cols-2 gap-10 items-end mb-8 sm:mb-12">
             <div>
-              <p className="text-[11.5px] font-extrabold uppercase tracking-[0.16em] text-[#2EC4B6] mb-3">
+              <p className="text-[11.5px] font-extrabold uppercase tracking-[0.16em] text-[#07655E] mb-3">
                 Who We Serve
               </p>
               <h2 className="text-[clamp(28px,3.5vw,44px)] font-extrabold text-[#0F172A] leading-[1.08] tracking-tight mb-4">
                 Specialties We{' '}
-                <span style={{
-                  background: 'linear-gradient(90deg, #0B3C5D 0%, #2EC4B6 100%)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text',
-                }}>
+                <span className="text-sb-grad">
                   Serve
                 </span>
               </h2>
@@ -332,7 +330,7 @@ export default function Specialties() {
                 <div className="h-[3px] w-4 rounded-full bg-[#2EC4B6]/30" />
               </div>
             </div>
-            <p className="text-[15.5px] text-[#64748B] leading-[1.75]">
+            <p className="text-[15.5px] text-[#475569] leading-[1.75]">
               We understand the unique billing requirements of each specialty and tailor our approach to maximize reimbursements, reduce denials, and improve revenue performance.
             </p>
           </div>
@@ -361,13 +359,10 @@ export default function Specialties() {
 
         {/* Dark banner */}
         <FadeIn delay={0.15}>
-          <div
-            className="relative rounded-2xl overflow-hidden mb-6"
-            style={{ background: 'linear-gradient(115deg, #051926 0%, #093047 35%, #0B3C5D 65%, #0d4f72 100%)' }}
-          >
+          <div className="relative rounded-2xl overflow-hidden mb-6 bg-sb-dark">
+            <ParticleNetwork />
+            <div className="absolute top-0 left-0 right-0 h-[2px] pointer-events-none bg-sb-accent" />
             {/* Textures */}
-            <div className="absolute inset-0 pointer-events-none" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='52' height='52'%3E%3Cpath d='M22 6h8v16h16v8H30v16h-8V30H6v-8h16V6z' fill='rgba(255%2C255%2C255%2C0.028)'/%3E%3C/svg%3E")`, backgroundSize: '52px 52px' }} />
-            <div className="absolute inset-0 pointer-events-none" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28'%3E%3Ccircle cx='14' cy='14' r='1.2' fill='rgba(255%2C255%2C255%2C0.045)'/%3E%3C/svg%3E")`, backgroundSize: '28px 28px' }} />
             <div className="absolute inset-0 flex items-end pointer-events-none overflow-hidden">
               <svg viewBox="0 0 1200 64" preserveAspectRatio="none" className="w-full" style={{ height: '64px', opacity: 0.06 }}>
                 <polyline points="0,32 100,32 135,6 158,58 181,6 204,58 227,32 420,32 460,4 482,60 504,4 526,60 548,32 780,32 810,10 828,54 846,10 864,54 882,32 1200,32" fill="none" stroke="#2EC4B6" strokeWidth="1.8" strokeLinejoin="round"/>
@@ -380,21 +375,20 @@ export default function Specialties() {
                 <circle cx="90" cy="90" r="5" fill="#2EC4B6"/>
               </svg>
             </div>
-            <div className="absolute right-[-30px] top-[-20px] w-[260px] h-[180px] pointer-events-none" style={{ background: 'radial-gradient(ellipse, rgba(46,196,182,0.22) 0%, transparent 65%)' }} />
-
+            
             {/* Content */}
             <div className="relative z-10 flex flex-col sm:flex-row items-center justify-between gap-5 px-5 py-5 sm:px-7 sm:py-6">
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full flex items-center justify-center shrink-0" style={{ background: 'rgba(46,196,182,0.12)', border: '1.5px solid rgba(46,196,182,0.40)', boxShadow: '0 0 18px rgba(46,196,182,0.15)' }}>
+                <div className="w-12 h-12 rounded-full flex items-center justify-center shrink-0" style={{ background: 'rgba(7,42,66,0.3)', border: '1.5px solid rgba(94,242,227,0.55)', boxShadow: '0 0 18px rgba(94,242,227,0.2)' }}>
                   <svg width="22" height="22" viewBox="0 0 26 26" fill="none">
-                    <path d="M13 3l2.5 6.5H22l-5.5 4 2 6.5L13 16.5 7.5 20l2-6.5L4 9.5h6.5L13 3z" stroke="#2EC4B6" strokeWidth="1.6" strokeLinejoin="round"/>
+                    <path d="M13 3l2.5 6.5H22l-5.5 4 2 6.5L13 16.5 7.5 20l2-6.5L4 9.5h6.5L13 3z" stroke="#5EF2E3" strokeWidth="1.6" strokeLinejoin="round"/>
                   </svg>
                 </div>
                 <div>
                   <p className="text-[17px] font-extrabold text-white leading-tight mb-0.5">
                     {expanded ? `All ${featured.length + extra.length} specialties shown.` : 'Many more specialties.'}
                   </p>
-                  <p className="text-[15px] md:text-[13px] text-white/55">
+                  <p className="text-[15px] md:text-[13px] text-white/90">
                     {expanded ? 'Click below to collapse the list.' : 'We support a wide range of healthcare providers.'}
                   </p>
                 </div>
@@ -404,11 +398,11 @@ export default function Specialties() {
               <button
                 onClick={() => setExpanded(v => !v)}
                 className="inline-flex items-center gap-2.5 whitespace-nowrap shrink-0
-                  border-[1.5px] border-[#2EC4B6] text-white font-bold text-[14px]
+                  border-[1.5px] border-[#5EF2E3] bg-[#072A42]/25 text-white font-bold text-[14px]
                   px-6 py-3 rounded-xl
-                  hover:bg-[#2EC4B6]/15 hover:-translate-y-0.5
+                  hover:bg-[rgba(94,242,227,0.14)] hover:-translate-y-0.5
                   transition-all duration-200 cursor-pointer"
-                style={{ boxShadow: '0 0 22px rgba(46,196,182,0.18)' }}
+                style={{ boxShadow: '0 0 22px rgba(56,189,248,0.25)' }}
               >
                 {expanded ? 'Show Less' : 'View All Specialties'}
                 <m.svg
@@ -438,11 +432,11 @@ export default function Specialties() {
             </div>
             <a
               href="#contact"
-              className="inline-flex items-center gap-1.5 text-[13px] text-[#64748B] font-medium
+              className="inline-flex items-center gap-1.5 text-[13px] text-[#475569] font-medium
                 hover:text-[#0a756c] transition-colors duration-200 whitespace-nowrap max-md:min-h-[44px]"
             >
               Not sure if we support your specialty?{' '}
-              <span className="text-[#2EC4B6] font-semibold">Contact us</span>
+              <span className="text-[#07655E] font-semibold">Contact us</span>
               <svg width="12" height="12" viewBox="0 0 13 13" fill="none">
                 <path d="M2.5 6.5h8M7 3l3.5 3.5L7 10" stroke="#2EC4B6" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>

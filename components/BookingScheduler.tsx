@@ -57,7 +57,7 @@ export default function BookingScheduler() {
       {!ready && (
         <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 bg-white text-center px-6" role="status">
           {!failed && <span className="w-8 h-8 rounded-full border-2 border-[#BAE8E4] border-t-[#2EC4B6] animate-spin motion-reduce:animate-none" aria-hidden="true" />}
-          <p className="text-[15px] md:text-[14px] text-[#64748B]">
+          <p className="text-[15px] md:text-[14px] text-[#475569]">
             {failed ? 'The scheduler could not load here.' : 'Loading available times...'}
           </p>
           <a

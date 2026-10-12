@@ -81,6 +81,7 @@ components/
   AccordionItem (single FAQ accordion item, used by the homepage FAQ and service page FAQs),
   BreakpointImage (next/image that only downloads at one breakpoint via <picture>; used for the homepage and service heroes),
   MotionProvider (LazyMotion + domAnimation wrapper in layout; components use `m.*`, not `motion.*`),
+  AmbientGlows (drifting glows behind light sections) and ParticleNetwork (canvas behind dark sections); see section 6,
   HubSpotLoader (loads HubSpot on first interaction or after 8s; also exports showHubSpotCookieBanner)
   BookingScheduler (HubSpot meetings embed for https://meetings-na2.hubspot.com/michael219; loads MeetingsEmbedCode.js only on /book-a-call, with a loading state and an "open in a new tab" fallback)
 lib/services-data.ts    Single source of truth for all 11 services (copy, features, process, stats, FAQs, meta)
@@ -147,23 +148,39 @@ The **Services hub** (`/services`) uses `ServicesHero` with `/Service.png` and t
 
 ## 6. Design system
 
+**Brighter theme (Oct 2026, approved preview).** Tokens live on `:root` in `app/globals.css` (`--sb-*`), with matching utility classes. Use the classes, not hard coded gradients.
+
 **Colours**
-| Token | Hex | Use |
+| Token / class | Value | Use |
 |---|---|---|
-| Navy | `#0B3C5D` | Brand primary, headings accents, dark sections |
-| Teal | `#2EC4B6` | Accent, CTAs, icons (hover `#3dd9cb`) |
+| Navy | `#0B3C5D` | Brand primary |
+| Teal | `#2EC4B6` | Accent, buttons, icons |
+| Sky (second accent) | `#38BDF8` | Accent lines, button glow, glows |
+| Aqua (on dark) | `#5EF2E3` | Stat numbers, pill/badge text, eyebrows on dark; `#7FF5EA` for badge borders and the small founder line |
 | Dark text | `#0F172A` | Headings |
-| Muted text | `#64748B` | Body copy |
-| Light bg | `#F8FAFC` | Alternating section background |
-| Card border | `#E4EDF5` | All light cards |
-| Teal tint | `#EBF9F8` → `#DFF6F4`, border `#BAE8E4`, text `#0a756c` | Icon badges, pills |
-| Dark gradient | `linear-gradient(115deg, #061d2e, #0B3C5D 55%, #0e4f73)` | CTA strips, featured cards |
+| Muted text | `#475569` | Body copy and small labels on light sections (was `#64748B`; darkened so it stays AA over the drifting glows) |
+| Teal text on light | `#07655E` eyebrows on section backgrounds, `#0a756c` links and numbers inside cards | Never `#2EC4B6` text on light |
+| `bg-sb-dark` | veil + `radial-gradient(60% 80% at 88% 0%, rgba(94,242,227,.28), transparent 70%), radial-gradient(50% 70% at 0% 100%, rgba(56,189,248,.25), transparent 70%), linear-gradient(135deg, #0B3C5D, #0E6FA8 55%, #129C9E)` | Homepage hero, Results, Audit, every dark CTA strip/band, Specialties banner, Contact guarantees, PageHero, service page closing CTA, Privacy/Terms headers, 404. The top "veil" layer `linear-gradient(135deg, transparent 40%, rgba(7,42,66,.28))` darkens the bright lower right a little so white text passes AA |
+| `bg-sb-footer` | `linear-gradient(135deg, #072A42, #0B3C5D)` | Footer |
+| `bg-sb-light` | `linear-gradient(180deg, #F2FAFC, #EEF6FD)` | Replaces the old `#F8FAFC` sections |
+| `bg-sb-white` | `linear-gradient(180deg, #FFFFFF, #F4FBFB)` | Replaces the old white sections |
+| `text-sb-grad` | `linear-gradient(90deg, #0B3C5D, #0E8FB8 55%, #2EC4B6)` | Highlighted part of headings on light |
+| `text-sb-grad-dark` | `linear-gradient(90deg, #5EF2E3, #7DD3FC)` | Highlighted part of headings on dark |
+| `text-sb-stat` | `linear-gradient(90deg, #0B3C5D, #0E8FB8)` | Big stat numbers in light cards (TrustBar) |
+| `bg-sb-accent` | `linear-gradient(90deg, #2EC4B6, #38BDF8)` | Card hover top line, CTA strip top line |
+| `sb-icon-badge` | `linear-gradient(135deg, #E6FAF8, #E3F3FE)`, border `#B6E6F3` | Icon badges on light |
+| `sb-btn-primary` | `linear-gradient(90deg, #2EC4B6, #3DD9CB)`, glow `0 0 28px rgba(56,189,248,.35)` | Every primary button (keep `bg-[#2EC4B6] text-[#0B3C5D]` as the fallback colours). Hover brightens, lifts 2px and slides the arrow; no extra hover/shadow classes needed |
+
+**Moving backgrounds**
+- `components/AmbientGlows.tsx` (`variant="a" | "b"`, alternate them down a page): 3 soft teal/sky radial glows per light section (2 on phones), drifting on 16s / 20s / 24s loops with transform only, no filter blur, `pointer-events: none`, behind content. Parent needs `relative overflow-hidden`, content `relative z-10`.
+- `components/ParticleNetwork.tsx`: one shared canvas for dark sections (dots joined by faint `rgba(127,245,234)` lines). Starts after load on the first idle moment, animates only while on screen (IntersectionObserver), pauses when the tab is hidden, phones get 10 to 16 dots at 30fps and a 1.5x canvas, desktop 18 to 48 dots. Draws nothing with prefers-reduced-motion; the glows stay still too.
+- Dark section cards and pills use navy glass (`bg-[#072A42]/30`, border `white/14`); ghost buttons on dark use `bg-[#072A42]/30 border-white/30`, hover aqua tint. Small white text on dark is full white, not reduced opacity.
 
 **Recurring patterns (reuse these, don't invent new ones)**
-- **Section header:** teal uppercase eyebrow (`text-[11.5px] tracking-[0.16em]`), H2 `clamp(28px,3.5vw,44px)` extrabold with a navy→teal gradient span, description on the right (`lg:text-right`), then a teal hairline: `h-px` with `linear-gradient(90deg, #2EC4B6, rgba(46,196,182,0.15), transparent)`.
-- **Light card:** `bg-white border border-[#E4EDF5] rounded-2xl`, resting shadow `0_1px_14px_rgba(11,60,93,0.06)`. On hover: `y:-5`, teal border at 35%, deeper shadow, and a teal top-edge line that grows from `w-0` to `w-14`.
-- **Dark CTA strip:** dark gradient + dot texture (SVG data URI circles at 4% white) + teal radial glow in the top-right + 2px teal top accent line.
-- **Primary button:** `bg-[#2EC4B6] text-[#0B3C5D] font-extrabold rounded-xl`, glow `0 0 24px rgba(46,196,182,0.35)`, `hover:-translate-y-0.5`.
+- **Section header:** uppercase eyebrow `text-[#07655E]` (`text-[11.5px] tracking-[0.16em]`), H2 `clamp(28px,3.5vw,44px)` extrabold with a `text-sb-grad` span, description on the right (`lg:text-right`), then a hairline: `h-px` with `linear-gradient(90deg, #2EC4B6, rgba(56,189,248,0.3), transparent)`.
+- **Light card:** `bg-white/[0.82] backdrop-blur-[6px] border border-[#38BDF8]/[0.18] rounded-2xl`, resting shadow `0_1px_14px_rgba(11,60,93,0.06)`. On hover: `y:-5`, teal border at 35%, deeper shadow, and a `bg-sb-accent` top line that grows from `w-0` to `w-14`. (Don't put "card" in new class names: a global `[class*="card"]` rule in globals.css styles them.)
+- **Dark CTA strip:** `bg-sb-dark` + `<ParticleNetwork />` + 2px `bg-sb-accent` top line.
+- **Primary button:** `sb-btn-primary` (see table).
 - **Animation:** `FadeIn` wrapper (`direction: 'up' | 'left' | 'right' | 'none'`, `delay`). Cards use `initial / whileInView / viewport={{ once: true }}` with ease `[0.16, 1, 0.3, 1]` and a stagger of `i * 0.07`.
 - Section padding: `py-16 md:py-24`; container: `max-w-[1200px] mx-auto px-6`.
 
@@ -222,12 +239,16 @@ The **Services hub** (`/services`) uses `ServicesHero` with `/Service.png` and t
 
 - Contact form Specialty is now a dropdown (`lib/specialties.ts`): the 20 Specialties section names + Family Medicine, Mental and Behavioral Health, Chiropractic, Urology, Podiatry, Multi Specialty, sorted, "Other" last; "Other" reveals a "Your Specialty" field (max 100). The API accepts only list values or "Other: <text>" (escaped). Also: equal height TrustBar and Process cards, Process connector arrows centred per gap, section header links kept whole with balanced description text, Vercel Speed Insights.
 - Get Started goes straight to the form: the form card has `id="contact-form"`; Nav Get Started (desktop + mobile), hero, Audit, Services, Process, Switching, About section, service page, services hub, Pricing, About page and the Footer "Free Audit" link point to `/#contact-form` (homepage-only sections use `#contact-form`). Book a Call buttons unchanged; `#audit` and `#contact` still work. Fixed mobile menu same-page links not scrolling. "Family Practice" merged into "Family Medicine" everywhere (Specialties card, specialties list, homepage FAQ, Why Choose Us strip).
+- Brighter theme with animated background, site wide (section 6): new dark gradient on the hero, Results, Audit, all dark strips and bands, PageHero, service page closing CTA, Privacy/Terms headers and 404; navy Footer gradient; tinted light section gradients with drifting glows; glass light cards; sky accent; gradient primary buttons; TrustBar HIPAA card shows "BAA". An in-browser contrast audit (text against the real gradients, worst case over a glow centre) found AA failures, fixed by: muted text `#475569`, deep teal eyebrows, full white small text and navy glass under small text on dark, and a faint navy veil on the lower right of `bg-sb-dark`. Lighthouse mobile homepage: Performance median 60 (57, 60, 60), Accessibility 100. Same machine, the commit before the theme: median 54 (46, 71, 54); the theme with all animation removed: median 64. Animation costs about 4 points; the gap to 85 is LCP (about 4s, hero image) and script blocking time.
 ---
 
 ## 8. Known issues / to-do
 
 1. Resend: the `swiftbillingrcm.com` domain must be verified in Resend, or contact form emails fail.
 2. FAQ accordion buttons have no `aria-controls`.
+3. Lighthouse mobile Performance is about 60 (target 85). Not caused by the animation (about 4 points); needs a separate pass on hero LCP and JS blocking time.
+4. Still on the old navy (not the new theme): the service page hero and its navy body sections (What We Do, Process, Problem/Solution, Related Services) and the Services hub sections. Their faint text was raised to AA.
+5. Gradient heading text ends in `#2EC4B6`, which is low contrast on light backgrounds (approved preview gradient; automated tools can't measure gradient text).
 
 ---
 

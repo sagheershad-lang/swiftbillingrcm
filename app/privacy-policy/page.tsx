@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
+import ParticleNetwork from '@/components/ParticleNetwork'
 import { pageMetadata } from '@/lib/seo'
 
 export const metadata: Metadata = {
@@ -27,16 +28,17 @@ export default function PrivacyPolicy() {
       <Nav />
 
       {/* Header */}
-      <div id="main-content" className="bg-[#0B3C5D] text-white py-12 px-6 pt-[100px]">
-        <div className="max-w-[800px] mx-auto">
-          <Link href="/" className="inline-flex items-center gap-2 text-[#2EC4B6] text-sm font-semibold mb-6 hover:opacity-80 transition-opacity">
+      <div id="main-content" className="relative overflow-hidden bg-sb-dark text-white py-12 px-6 pt-[100px]">
+        <ParticleNetwork />
+        <div className="relative z-10 max-w-[800px] mx-auto">
+          <Link href="/" className="inline-flex items-center gap-2 text-[#5EF2E3] text-sm font-semibold mb-6 hover:opacity-80 transition-opacity">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
               <path d="M10.5 3L5.5 8l5 5" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
             Back to SwiftBilling RCM
           </Link>
           <h1 className="text-3xl font-extrabold tracking-tight mb-2">Privacy Policy</h1>
-          <p className="text-white/60 text-sm">Originally published 2023. Last updated {LAST_UPDATED}.</p>
+          <p className="text-white/90 text-sm">Originally published 2023. Last updated {LAST_UPDATED}.</p>
         </div>
       </div>
 
@@ -66,11 +68,11 @@ export default function PrivacyPolicy() {
               <li>Address: {ADDRESS}</li>
               <li>
                 Email:{' '}
-                <a href={`mailto:${EMAIL}`} className="text-[#2EC4B6] underline hover:opacity-80">{EMAIL}</a>
+                <a href={`mailto:${EMAIL}`} className="text-[#0a756c] underline hover:opacity-80">{EMAIL}</a>
               </li>
               <li>
                 Phone:{' '}
-                <a href="tel:+15127377488" className="text-[#2EC4B6] underline hover:opacity-80">{PHONE}</a>
+                <a href="tel:+15127377488" className="text-[#0a756c] underline hover:opacity-80">{PHONE}</a>
               </li>
               <li>Hours: {HOURS}</li>
             </ul>
@@ -201,7 +203,7 @@ export default function PrivacyPolicy() {
                   href="https://tools.google.com/dlpage/gaoptout"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[#2EC4B6] underline hover:opacity-80"
+                  className="text-[#0a756c] underline hover:opacity-80"
                 >
                   Google Analytics Opt-out Browser Add-on
                 </a>.
@@ -267,7 +269,7 @@ export default function PrivacyPolicy() {
             </ul>
             <p className="mt-3">
               To make a request, email us at{' '}
-              <a href={`mailto:${EMAIL}`} className="text-[#2EC4B6] underline hover:opacity-80">{EMAIL}</a>{' '}
+              <a href={`mailto:${EMAIL}`} className="text-[#0a756c] underline hover:opacity-80">{EMAIL}</a>{' '}
               with the subject line &quot;Privacy Request&quot; and tell us what you would like us to do. We may
               need to confirm your identity before we act on your request, and we will respond within the time
               required by law.
@@ -309,11 +311,11 @@ export default function PrivacyPolicy() {
               <p>{ADDRESS}</p>
               <p>
                 Email:{' '}
-                <a href={`mailto:${EMAIL}`} className="text-[#2EC4B6] underline hover:opacity-80">{EMAIL}</a>
+                <a href={`mailto:${EMAIL}`} className="text-[#0a756c] underline hover:opacity-80">{EMAIL}</a>
               </p>
               <p>
                 Phone:{' '}
-                <a href="tel:+15127377488" className="text-[#2EC4B6] underline hover:opacity-80">{PHONE}</a>
+                <a href="tel:+15127377488" className="text-[#0a756c] underline hover:opacity-80">{PHONE}</a>
               </p>
               <p>Hours: {HOURS}</p>
             </div>

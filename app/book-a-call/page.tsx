@@ -4,6 +4,7 @@ import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
 import BookingScheduler from '@/components/BookingScheduler'
 import PageHero from '@/components/PageHero'
+import AmbientGlows from '@/components/AmbientGlows'
 import { pageMetadata } from '@/lib/seo'
 
 export const metadata: Metadata = pageMetadata({
@@ -14,7 +15,7 @@ export const metadata: Metadata = pageMetadata({
 
 export default function BookACall() {
   return (
-    <div className="min-h-screen bg-[#F8FAFC]">
+    <div className="min-h-screen bg-[#F2FAFC]">
       <Nav />
 
       <PageHero crumb="Book a Call" badge="Free · No Obligation" titleTop="Book a Free Billing" titleAccent="Consultation">
@@ -22,14 +23,15 @@ export default function BookACall() {
       </PageHero>
 
       {/* ── Scheduler ─────────────────────────────────────────────────── */}
-      <section className="py-12 md:py-16">
-        <div className="max-w-[1000px] mx-auto px-4 sm:px-6">
-          <div className="bg-white border border-[#E4EDF5] rounded-2xl shadow-[0_1px_14px_rgba(11,60,93,0.06)] p-3 sm:p-6 overflow-hidden">
+      <section className="py-12 md:py-16 bg-sb-light relative overflow-hidden">
+        <AmbientGlows />
+        <div className="relative z-10 max-w-[1000px] mx-auto px-4 sm:px-6">
+          <div className="bg-white/[0.82] backdrop-blur-[6px] border border-[#38BDF8]/[0.18] rounded-2xl shadow-[0_1px_14px_rgba(11,60,93,0.06)] p-3 sm:p-6 overflow-hidden">
             <BookingScheduler />
           </div>
 
           <div className="mt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
-            <p className="flex items-center gap-2 text-[15px] md:text-[13.5px] text-[#64748B]">
+            <p className="flex items-center gap-2 text-[15px] md:text-[13.5px] text-[#475569]">
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none" className="shrink-0" aria-hidden="true">
                 <rect x="2.5" y="6" width="9" height="6.5" rx="1.5" stroke="#64748B" strokeWidth="1.3"/>
                 <path d="M4.5 6V4.5a2.5 2.5 0 015 0V6" stroke="#64748B" strokeWidth="1.3" strokeLinecap="round"/>

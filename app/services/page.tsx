@@ -67,7 +67,7 @@ function ServiceCard({ slug, name, shortDescription, isNew }: { slug: string; na
       </div>
       <div className="flex-1">
         <h3 className="text-[16px] font-extrabold text-white mb-2">{name}</h3>
-        <p className="text-[15px] md:text-[13.5px] leading-[1.7]" style={{ color: 'rgba(255,255,255,0.55)' }}>{shortDescription}</p>
+        <p className="text-[15px] md:text-[13.5px] leading-[1.7]" style={{ color: 'rgba(255,255,255,0.78)' }}>{shortDescription}</p>
       </div>
       <div className="flex items-center gap-1.5 text-[13px] font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-200" style={{ color: '#2EC4B6' }}>
         Learn More
@@ -90,7 +90,7 @@ export default function ServicesHub() {
           <div className="mb-10">
             <p className="text-[11.5px] font-extrabold uppercase tracking-[0.16em] mb-2" style={{ color: '#2EC4B6' }}>Foundation</p>
             <h2 className="text-[clamp(22px,3vw,32px)] font-extrabold text-white tracking-tight">Core Billing Services</h2>
-            <p className="text-[15px] mt-2 max-w-[500px]" style={{ color: 'rgba(255,255,255,0.5)' }}>The complete billing cycle, from the moment care is delivered to the moment payment is posted.</p>
+            <p className="text-[15px] mt-2 max-w-[500px]" style={{ color: 'rgba(255,255,255,0.78)' }}>The complete billing cycle, from the moment care is delivered to the moment payment is posted.</p>
           </div>
           <div className="flex flex-col gap-5">
             {/* Row 1 — 4 cards */}
@@ -118,7 +118,7 @@ export default function ServicesHub() {
               <span className="text-[10px] font-extrabold uppercase tracking-[0.14em]" style={{ color: '#2EC4B6' }}>Newly Added</span>
             </div>
             <h2 className="text-[clamp(22px,3vw,32px)] font-extrabold text-white tracking-tight">Extended Services</h2>
-            <p className="text-[15px] mt-2 max-w-[560px]" style={{ color: 'rgba(255,255,255,0.5)' }}>Beyond billing: the front-end and patient-facing services most billing companies don&apos;t offer but every practice needs.</p>
+            <p className="text-[15px] mt-2 max-w-[560px]" style={{ color: 'rgba(255,255,255,0.78)' }}>Beyond billing: the front-end and patient-facing services most billing companies don&apos;t offer but every practice needs.</p>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {extendedServices.map(s => (
@@ -137,20 +137,19 @@ export default function ServicesHub() {
               <h2 className="text-[clamp(22px,3vw,34px)] font-extrabold text-white tracking-tight mb-3">
                 Stop managing multiple vendors for what one team can do.
               </h2>
-              <p className="text-[15px] leading-relaxed max-w-[600px]" style={{ color: 'rgba(255,255,255,0.5)' }}>
+              <p className="text-[15px] leading-relaxed max-w-[600px]" style={{ color: 'rgba(255,255,255,0.78)' }}>
                 Most practices use one company for billing, another for credentialing, and a third for patient calling.
                 SwiftBilling RCM handles your entire revenue cycle under one roof, with one contact, one dashboard, and one monthly report.
               </p>
             </div>
             <div className="flex flex-col gap-3 shrink-0">
               <Link href="/#contact-form"
-                className="inline-flex items-center justify-center gap-2 text-white font-extrabold text-[14px] px-7 py-4 rounded-xl hover:-translate-y-0.5 transition-all duration-200"
-                style={{ background: '#2EC4B6', color: '#0a1e33', boxShadow: '0 4px 20px rgba(46,196,182,0.3)' }}>
+                className="sb-btn-primary inline-flex items-center justify-center gap-2 bg-[#2EC4B6] text-[#0a1e33] font-extrabold text-[14px] px-7 py-4 rounded-xl">
                 Get Free Audit
                 <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
               </Link>
               <Link href="tel:+15127377488"
-                className="inline-flex items-center justify-center gap-2 text-[14px] font-semibold transition-colors py-2" style={{ color: 'rgba(255,255,255,0.45)' }}>
+                className="inline-flex items-center justify-center gap-2 text-[14px] font-semibold transition-colors py-2" style={{ color: 'rgba(255,255,255,0.78)' }}>
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2.5 2h2.8l1.2 3-1.8 1.1a8 8 0 003.2 3.2L9 7.5l3 1.2V11a1 1 0 01-1 1A10.5 10.5 0 011.5 3a1 1 0 011-1z" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round"/></svg>
                 +1 (512) 737-7488
               </Link>
