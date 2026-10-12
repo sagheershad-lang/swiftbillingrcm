@@ -31,7 +31,7 @@ export default function PrivacyPolicy() {
       <div id="main-content" className="relative overflow-hidden bg-sb-dark text-white py-12 px-6 pt-[100px]">
         <ParticleNetwork />
         <div className="relative z-10 max-w-[800px] mx-auto">
-          <Link href="/" className="inline-flex items-center gap-2 text-[#5EF2E3] text-sm font-semibold mb-6 hover:opacity-80 transition-opacity">
+          <Link href="/" className="sb-link-dark inline-flex items-center gap-2 text-[#5EF2E3] text-sm font-semibold mb-6">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
               <path d="M10.5 3L5.5 8l5 5" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
@@ -68,11 +68,11 @@ export default function PrivacyPolicy() {
               <li>Address: {ADDRESS}</li>
               <li>
                 Email:{' '}
-                <a href={`mailto:${EMAIL}`} className="text-[#0a756c] underline hover:opacity-80">{EMAIL}</a>
+                <a href={`mailto:${EMAIL}`} className="sb-link text-[#0a756c] underline">{EMAIL}</a>
               </li>
               <li>
                 Phone:{' '}
-                <a href="tel:+15127377488" className="text-[#0a756c] underline hover:opacity-80">{PHONE}</a>
+                <a href="tel:+15127377488" className="sb-link text-[#0a756c] underline">{PHONE}</a>
               </li>
               <li>Hours: {HOURS}</li>
             </ul>
@@ -203,7 +203,7 @@ export default function PrivacyPolicy() {
                   href="https://tools.google.com/dlpage/gaoptout"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[#0a756c] underline hover:opacity-80"
+                  className="sb-link text-[#0a756c] underline"
                 >
                   Google Analytics Opt-out Browser Add-on
                 </a>.
@@ -269,7 +269,7 @@ export default function PrivacyPolicy() {
             </ul>
             <p className="mt-3">
               To make a request, email us at{' '}
-              <a href={`mailto:${EMAIL}`} className="text-[#0a756c] underline hover:opacity-80">{EMAIL}</a>{' '}
+              <a href={`mailto:${EMAIL}`} className="sb-link text-[#0a756c] underline">{EMAIL}</a>{' '}
               with the subject line &quot;Privacy Request&quot; and tell us what you would like us to do. We may
               need to confirm your identity before we act on your request, and we will respond within the time
               required by law.
@@ -311,11 +311,11 @@ export default function PrivacyPolicy() {
               <p>{ADDRESS}</p>
               <p>
                 Email:{' '}
-                <a href={`mailto:${EMAIL}`} className="text-[#0a756c] underline hover:opacity-80">{EMAIL}</a>
+                <a href={`mailto:${EMAIL}`} className="sb-link text-[#0a756c] underline">{EMAIL}</a>
               </p>
               <p>
                 Phone:{' '}
-                <a href="tel:+15127377488" className="text-[#0a756c] underline hover:opacity-80">{PHONE}</a>
+                <a href="tel:+15127377488" className="sb-link text-[#0a756c] underline">{PHONE}</a>
               </p>
               <p>Hours: {HOURS}</p>
             </div>
@@ -326,9 +326,9 @@ export default function PrivacyPolicy() {
         <div className="mt-8 text-center">
           <Link
             href="/"
-            className="inline-flex items-center gap-2 bg-[#0B3C5D] text-white font-bold text-sm px-6 py-3 rounded-xl hover:bg-[#082d46] transition-colors duration-200"
+            className="sb-btn-outline inline-flex items-center gap-2 font-bold text-sm px-6 py-3 rounded-xl"
           >
-            <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+            <svg className="sb-icon" width="14" height="14" viewBox="0 0 16 16" fill="none">
               <path d="M10.5 3L5.5 8l5 5" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
             Return to Home

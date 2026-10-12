@@ -134,10 +134,8 @@ export default function About() {
               </a>
               <a
                 href="#services"
-                className="inline-flex items-center gap-2 bg-white text-[#0B3C5D] font-bold text-[15px]
-                  px-7 py-3.5 rounded-xl border border-[#D1DBE8]
-                  hover:border-[#0B3C5D]/30 hover:bg-[#F8FAFC] hover:-translate-y-0.5
-                  transition-all duration-200"
+                className="sb-btn-outline inline-flex items-center gap-2 font-bold text-[15px]
+                  px-7 py-3.5 rounded-xl"
               >
                 View Our Services
               </a>

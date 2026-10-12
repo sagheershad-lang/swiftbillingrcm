@@ -56,9 +56,8 @@ export default function FAQ() {
             <p className="text-[15px] md:text-[13px] text-[#475569] mb-3">Still have questions? We&apos;re happy to help.</p>
             <a
               href="/book-a-call"
-              className="inline-flex items-center gap-2 bg-[#0B3C5D] text-white font-bold text-[14px]
-                px-6 py-3 rounded-xl hover:bg-[#082d46] hover:-translate-y-0.5
-                transition-all duration-200 shadow-[0_4px_20px_rgba(11,60,93,0.22)]"
+              className="sb-btn-primary inline-flex items-center gap-2 bg-[#2EC4B6] text-[#0B3C5D] font-extrabold text-[14px]
+                px-6 py-3 rounded-xl"
             >
               Book Free Consultation
               <svg width="13" height="13" viewBox="0 0 14 14" fill="none">

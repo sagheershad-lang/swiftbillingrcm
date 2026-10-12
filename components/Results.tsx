@@ -184,9 +184,9 @@ export default function Results() {
             </a>
             <a
               href="tel:+15127377488"
-              className="inline-flex items-center justify-center gap-2 bg-[#072A42]/30 text-white font-bold text-[14px] sm:text-[15px] px-7 sm:px-8 py-4 sm:py-[18px] rounded-xl border border-white/30 hover:bg-[rgba(94,242,227,0.14)] hover:border-[#5EF2E3] hover:-translate-y-0.5 transition-all duration-200 backdrop-blur-sm"
+              className="sb-btn-glass inline-flex items-center justify-center gap-2 font-bold text-[14px] sm:text-[15px] px-7 sm:px-8 py-4 sm:py-[18px] rounded-xl backdrop-blur-sm"
             >
-              <svg width="15" height="15" viewBox="0 0 14 14" fill="none"><path d="M2.5 2h2.8l1.2 3-1.8 1.1a8 8 0 003.2 3.2L9 7.5l3 1.2V11a1 1 0 01-1 1A10.5 10.5 0 011.5 3a1 1 0 011-1z" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/></svg>
+              <svg className="sb-icon" width="15" height="15" viewBox="0 0 14 14" fill="none"><path d="M2.5 2h2.8l1.2 3-1.8 1.1a8 8 0 003.2 3.2L9 7.5l3 1.2V11a1 1 0 01-1 1A10.5 10.5 0 011.5 3a1 1 0 011-1z" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/></svg>
               Call Us Now
             </a>
           </div>

@@ -4,6 +4,7 @@ import Link from 'next/link'
 import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
 import ServicesHero from '@/components/ServicesHero'
+import ParticleNetwork from '@/components/ParticleNetwork'
 import { coreServices, extendedServices } from '@/lib/services-data'
 import { pageMetadata } from '@/lib/seo'
 
@@ -53,25 +54,24 @@ function ServiceCard({ slug, name, shortDescription, isNew }: { slug: string; na
   return (
     <Link
       href={`/services/${slug}`}
-      className="group relative p-6 flex flex-col gap-4 transition-all duration-300 border border-[rgba(255,255,255,0.08)] hover:border-[rgba(46,196,182,0.3)] hover:shadow-[0_8px_32px_rgba(46,196,182,0.08)] h-full"
-      style={{ borderRadius: '16px', background: 'rgba(255,255,255,0.12)', backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)', border: '1px solid rgba(255,255,255,0.18)', boxShadow: '0 8px 32px rgba(0,0,0,0.2)' }}
+      className="group relative p-6 flex flex-col gap-4 h-full bg-[#072A42]/30 border border-white/[0.14] rounded-2xl hover:bg-[#072A42]/40 hover:border-[#5EF2E3]/50 transition-colors duration-300"
     >
       {isNew && (
-        <span className="absolute top-4 right-4 text-[9px] font-extrabold uppercase tracking-[0.14em] rounded-full px-2.5 py-1" style={{ color: '#2EC4B6', background: 'rgba(46,196,182,0.1)', border: '1px solid rgba(46,196,182,0.2)' }}>New</span>
+        <span className="absolute top-4 right-4 text-[9px] font-extrabold uppercase tracking-[0.14em] rounded-full px-2.5 py-1" style={{ color: '#5EF2E3', background: 'rgba(7,42,66,0.45)', border: '1px solid rgba(127,245,234,0.45)' }}>New</span>
       )}
       <div
-        className="w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-300 group-hover:bg-[rgba(46,196,182,0.2)]"
-        style={{ background: 'rgba(46,196,182,0.1)', color: '#2EC4B6' }}
+        className="w-12 h-12 rounded-xl flex items-center justify-center transition-colors duration-300 group-hover:bg-[rgba(94,242,227,0.2)]"
+        style={{ background: 'rgba(94,242,227,0.12)', color: '#5EF2E3' }}
       >
         {serviceIcons[slug]}
       </div>
       <div className="flex-1">
         <h3 className="text-[16px] font-extrabold text-white mb-2">{name}</h3>
-        <p className="text-[15px] md:text-[13.5px] leading-[1.7]" style={{ color: 'rgba(255,255,255,0.78)' }}>{shortDescription}</p>
+        <p className="text-[15px] md:text-[13.5px] leading-[1.7] text-white">{shortDescription}</p>
       </div>
-      <div className="flex items-center gap-1.5 text-[13px] font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-200" style={{ color: '#2EC4B6' }}>
+      <div className="flex items-center gap-1.5 text-[13px] font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-[#5EF2E3]">
         Learn More
-        <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
+        <svg className="sb-arrow" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
       </div>
     </Link>
   )
@@ -84,13 +84,15 @@ export default function ServicesHub() {
       <Nav />
       <ServicesHero />
 
+      <div className="relative bg-sb-dark">
       {/* Core Services */}
-      <section className="pt-[60px] pb-[40px]" style={{ background: '#0d2137' }}>
-        <div className="max-w-[1200px] mx-auto px-6">
+      <section className="pt-[60px] pb-[40px] relative overflow-hidden">
+        <ParticleNetwork />
+        <div className="relative z-10 max-w-[1200px] mx-auto px-6">
           <div className="mb-10">
-            <p className="text-[11.5px] font-extrabold uppercase tracking-[0.16em] mb-2" style={{ color: '#2EC4B6' }}>Foundation</p>
+            <p className="text-[11.5px] font-extrabold uppercase tracking-[0.16em] mb-2 text-[#5EF2E3]">Foundation</p>
             <h2 className="text-[clamp(22px,3vw,32px)] font-extrabold text-white tracking-tight">Core Billing Services</h2>
-            <p className="text-[15px] mt-2 max-w-[500px]" style={{ color: 'rgba(255,255,255,0.78)' }}>The complete billing cycle, from the moment care is delivered to the moment payment is posted.</p>
+            <p className="text-[15px] mt-2 max-w-[500px]" style={{ color: '#FFFFFF' }}>The complete billing cycle, from the moment care is delivered to the moment payment is posted.</p>
           </div>
           <div className="flex flex-col gap-5">
             {/* Row 1 — 4 cards */}
@@ -110,15 +112,16 @@ export default function ServicesHub() {
       </section>
 
       {/* Extended Services */}
-      <section className="pt-[40px] pb-[60px]" style={{ background: '#0a1e33' }}>
-        <div className="max-w-[1200px] mx-auto px-6">
+      <section className="pt-[40px] pb-[60px] relative overflow-hidden">
+        <ParticleNetwork />
+        <div className="relative z-10 max-w-[1200px] mx-auto px-6">
           <div className="mb-10">
-            <div className="inline-flex items-center gap-2 rounded-full px-3 py-1.5 mb-3" style={{ background: 'rgba(46,196,182,0.1)', border: '1px solid rgba(46,196,182,0.2)' }}>
-              <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: '#2EC4B6' }} />
-              <span className="text-[10px] font-extrabold uppercase tracking-[0.14em]" style={{ color: '#2EC4B6' }}>Newly Added</span>
+            <div className="inline-flex items-center gap-2 rounded-full px-3 py-1.5 mb-3" style={{ background: 'rgba(7,42,66,0.3)', border: '1px solid rgba(127,245,234,0.45)' }}>
+              <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: '#5EF2E3' }} />
+              <span className="text-[10px] font-extrabold uppercase tracking-[0.14em]" style={{ color: '#5EF2E3' }}>Newly Added</span>
             </div>
             <h2 className="text-[clamp(22px,3vw,32px)] font-extrabold text-white tracking-tight">Extended Services</h2>
-            <p className="text-[15px] mt-2 max-w-[560px]" style={{ color: 'rgba(255,255,255,0.78)' }}>Beyond billing: the front-end and patient-facing services most billing companies don&apos;t offer but every practice needs.</p>
+            <p className="text-[15px] mt-2 max-w-[560px]" style={{ color: '#FFFFFF' }}>Beyond billing: the front-end and patient-facing services most billing companies don&apos;t offer but every practice needs.</p>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {extendedServices.map(s => (
@@ -129,34 +132,36 @@ export default function ServicesHub() {
       </section>
 
       {/* Why SwiftBilling */}
-      <section className="py-[60px]" style={{ background: '#0d2137', borderTop: '1px solid rgba(255,255,255,0.06)' }}>
-        <div className="max-w-[1200px] mx-auto px-6">
+      <section className="py-[60px] relative overflow-hidden" style={{ borderTop: '1px solid rgba(255,255,255,0.1)' }}>
+        <ParticleNetwork />
+        <div className="relative z-10 max-w-[1200px] mx-auto px-6">
           <div className="grid md:grid-cols-[1fr_auto] gap-8 items-center">
             <div>
-              <p className="text-[11.5px] font-extrabold uppercase tracking-[0.16em] mb-3" style={{ color: '#2EC4B6' }}>One Partner. Full Revenue Cycle.</p>
+              <p className="text-[11.5px] font-extrabold uppercase tracking-[0.16em] mb-3 text-white">One Partner. Full Revenue Cycle.</p>
               <h2 className="text-[clamp(22px,3vw,34px)] font-extrabold text-white tracking-tight mb-3">
                 Stop managing multiple vendors for what one team can do.
               </h2>
-              <p className="text-[15px] leading-relaxed max-w-[600px]" style={{ color: 'rgba(255,255,255,0.78)' }}>
+              <p className="text-[15px] leading-relaxed max-w-[600px] text-white">
                 Most practices use one company for billing, another for credentialing, and a third for patient calling.
                 SwiftBilling RCM handles your entire revenue cycle under one roof, with one contact, one dashboard, and one monthly report.
               </p>
             </div>
             <div className="flex flex-col gap-3 shrink-0">
               <Link href="/#contact-form"
-                className="sb-btn-primary inline-flex items-center justify-center gap-2 bg-[#2EC4B6] text-[#0a1e33] font-extrabold text-[14px] px-7 py-4 rounded-xl">
+                className="sb-btn-primary inline-flex items-center justify-center gap-2 bg-[#2EC4B6] text-[#0B3C5D] font-extrabold text-[14px] px-7 py-4 rounded-xl">
                 Get Free Audit
                 <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
               </Link>
               <Link href="tel:+15127377488"
-                className="inline-flex items-center justify-center gap-2 text-[14px] font-semibold transition-colors py-2" style={{ color: 'rgba(255,255,255,0.78)' }}>
-                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2.5 2h2.8l1.2 3-1.8 1.1a8 8 0 003.2 3.2L9 7.5l3 1.2V11a1 1 0 01-1 1A10.5 10.5 0 011.5 3a1 1 0 011-1z" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                className="sb-link-dark inline-flex items-center justify-center gap-2 text-[14px] font-semibold py-2 text-white">
+                <svg className="sb-icon" width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2.5 2h2.8l1.2 3-1.8 1.1a8 8 0 003.2 3.2L9 7.5l3 1.2V11a1 1 0 01-1 1A10.5 10.5 0 011.5 3a1 1 0 011-1z" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round"/></svg>
                 +1 (512) 737-7488
               </Link>
             </div>
           </div>
         </div>
       </section>
+      </div>
 
       <Footer />
     </div>

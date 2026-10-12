@@ -2,6 +2,7 @@
 import { m } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
+import ParticleNetwork from './ParticleNetwork'
 
 const stats = [
   { value: '98%+', label: 'Clean Claim Rate' },
@@ -36,38 +37,8 @@ const textItem = {
 
 export default function ServicesHero() {
   return (
-    <section id="main-content" className="relative overflow-hidden" style={{ background: '#0d2137' }}>
-      {/* ── Background effects ─────────────────────────────────── */}
-      <div className="pointer-events-none absolute inset-0">
-        <div
-          className="absolute inset-0 opacity-[0.025]"
-          style={{
-            backgroundImage: `
-              linear-gradient(rgba(46,196,182,1) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(46,196,182,1) 1px, transparent 1px)
-            `,
-            backgroundSize: '60px 60px',
-          }}
-        />
-        <div
-          className="absolute -top-40 -right-40 w-[900px] h-[900px]"
-          style={{ background: 'radial-gradient(circle, rgba(46,196,182,0.12) 0%, transparent 60%)' }}
-        />
-        <div
-          className="absolute top-0 left-0 right-0 h-[2px]"
-          style={{
-            background:
-              'linear-gradient(90deg, transparent 0%, #2EC4B6 30%, rgba(46,196,182,0.25) 70%, transparent 100%)',
-          }}
-        />
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              'radial-gradient(ellipse 60% 70% at 0% 50%, rgba(0,210,150,0.04) 0%, transparent 100%)',
-          }}
-        />
-      </div>
+    <section id="main-content" className="relative overflow-hidden bg-sb-dark">
+      <ParticleNetwork />
 
       {/* ── Desktop full-bleed hero image — covers right half ───── */}
       <m.div
@@ -81,23 +52,10 @@ export default function ServicesHero() {
           alt="Healthcare professional managing medical billing with SwiftBilling RCM"
           fill
           priority
-          className="object-cover"
+          className="object-cover hero-image-mask"
           sizes="100vw"
           style={{ objectPosition: 'center center', filter: 'brightness(1.05) saturate(1.1)' }}
         />
-        {/* Left → right gradient: dark on left so text is readable, fades to reveal image */}
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              'linear-gradient(to right, #0d2137 0%, #0d2137 30%, rgba(13,33,55,0.94) 45%, rgba(13,33,55,0.55) 60%, rgba(13,33,55,0.15) 78%, transparent 92%)',
-            zIndex: 2,
-          }}
-        />
-        {/* Top vignette */}
-        <div className="absolute inset-x-0 top-0" style={{ height: '15%', background: 'linear-gradient(to bottom, #0d2137 0%, transparent 100%)', zIndex: 2 }} />
-        {/* Bottom fade */}
-        <div className="absolute inset-x-0 bottom-0" style={{ height: '25%', background: 'linear-gradient(to top, #0d2137 0%, transparent 100%)', zIndex: 2 }} />
       </m.div>
 
       {/* ── Main grid ──────────────────────────────────────────── */}
@@ -115,13 +73,13 @@ export default function ServicesHero() {
             {/* Breadcrumb */}
             <m.div
               variants={textItem}
-              className="flex items-center gap-2 text-[12px] text-white/80 mb-7"
+              className="flex items-center gap-2 text-[12px] text-white mb-7"
             >
-              <Link href="/" className="hover:text-[#2EC4B6] transition-colors duration-200">Home</Link>
-              <svg width="10" height="10" viewBox="0 0 10 10" fill="none" className="opacity-35">
+              <Link href="/" className="sb-link-dark">Home</Link>
+              <svg width="10" height="10" viewBox="0 0 10 10" fill="none" className="opacity-70">
                 <path d="M3.5 2L6.5 5 3.5 8" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round"/>
               </svg>
-              <span className="text-white/80">Services</span>
+              <span className="text-white">Services</span>
             </m.div>
 
             {/* Badge */}
@@ -129,12 +87,12 @@ export default function ServicesHero() {
               variants={textItem}
               className="inline-flex self-start items-center gap-2 rounded-full px-3 py-[5px] mb-5"
               style={{
-                background: 'rgba(46,196,182,0.10)',
-                border: '1px solid rgba(46,196,182,0.26)',
+                background: 'rgba(7,42,66,0.3)',
+                border: '1px solid rgba(127,245,234,0.45)',
               }}
             >
-              <span className="w-[6px] h-[6px] rounded-full bg-[#2EC4B6] animate-pulse shrink-0" />
-              <span className="text-[9.5px] font-extrabold uppercase tracking-[0.2em] text-[#2EC4B6]">
+              <span className="w-[6px] h-[6px] rounded-full bg-[#5EF2E3] animate-pulse shrink-0" />
+              <span className="text-[9.5px] font-extrabold uppercase tracking-[0.2em] text-[#5EF2E3]">
                 Full-Service Revenue Cycle Management
               </span>
             </m.div>
@@ -147,14 +105,7 @@ export default function ServicesHero() {
             >
               <span className="text-white">End-to-End Billing,</span>
               <br />
-              <span
-                style={{
-                  background: 'linear-gradient(92deg, #2EC4B6 0%, #80ece5 55%, #2EC4B6 100%)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text',
-                }}
-              >
+              <span className="text-sb-grad-dark">
                 Expertly Managed.
               </span>
             </m.h1>
@@ -162,7 +113,7 @@ export default function ServicesHero() {
             {/* Subtext */}
             <m.p
               variants={textItem}
-              className="text-[15px] md:text-[14.5px] leading-[1.75] text-white/80 max-w-[360px] mb-10"
+              className="text-[15px] md:text-[14.5px] leading-[1.75] text-white max-w-[360px] mb-10"
             >
               One partner for your complete revenue cycle, from charge entry to
               practice growth, so you can focus entirely on care.
@@ -177,13 +128,13 @@ export default function ServicesHero() {
                 <div key={s.label} className="flex items-center gap-3">
                   <div
                     className="shrink-0 w-[22px] h-[22px] rounded-full flex items-center justify-center"
-                    style={{ background: 'rgba(46,196,182,0.15)', border: '1px solid rgba(46,196,182,0.35)' }}
+                    style={{ background: 'rgba(7,42,66,0.3)', border: '1px solid rgba(94,242,227,0.5)' }}
                   >
                     <svg width="11" height="11" viewBox="0 0 12 12" fill="none">
-                      <path d="M2 6l3 3 5-5" stroke="#2EC4B6" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+                      <path d="M2 6l3 3 5-5" stroke="#5EF2E3" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
                   </div>
-                  <span style={{ fontSize: '14px', color: 'rgba(255,255,255,0.75)' }}>
+                  <span style={{ fontSize: '14px', color: '#FFFFFF' }}>
                     <span className="font-extrabold text-white">{s.value}</span>
                     {' '}{s.label}
                   </span>
@@ -203,14 +154,10 @@ export default function ServicesHero() {
             alt="Healthcare professional managing medical billing"
             fill
             priority
-            className="object-cover"
+            className="object-cover hero-image-mask-mobile"
             sizes="100vw"
             style={{ objectPosition: 'center center', filter: 'brightness(1.05) saturate(1.1)' }}
           />
-          {/* Top fade */}
-          <div className="absolute pointer-events-none" style={{ top: 0, left: 0, right: 0, height: '15%', background: 'linear-gradient(to bottom, #0d2137 0%, transparent 100%)' }} />
-          {/* Bottom fade */}
-          <div className="absolute pointer-events-none" style={{ bottom: 0, left: 0, right: 0, height: '25%', background: 'linear-gradient(to top, #0d2137 0%, transparent 100%)' }} />
         </div>
       </div>
     </section>

@@ -11,7 +11,7 @@ import ParticleNetwork from './ParticleNetwork'
 export function HeaderLink({ href, children }: { href: string; children: ReactNode }) {
   return (
     <span className="whitespace-nowrap lg:block">
-      <Link href={href} className="font-bold text-[#0B3C5D] hover:text-[#0a756c] underline underline-offset-2 max-md:inline-flex max-md:min-h-[44px] max-md:items-center">
+      <Link href={href} className="sb-link font-bold text-[#0B3C5D] underline underline-offset-2 max-md:inline-flex max-md:min-h-[44px] max-md:items-center">
         {children}
       </Link>.
     </span>
@@ -105,8 +105,8 @@ export function CtaBand({ title, text, href, label, secondary }: {
             {secondary && (
               <Link
                 href={secondary.href}
-                className="inline-flex items-center justify-center gap-2 bg-[#072A42]/30 text-white font-bold text-[15px]
-                  px-7 py-4 rounded-xl border border-white/30 hover:bg-[rgba(94,242,227,0.14)] hover:border-[#5EF2E3] hover:-translate-y-0.5 transition-all duration-200"
+                className="sb-btn-glass inline-flex items-center justify-center gap-2 font-bold text-[15px]
+                  px-7 py-4 rounded-xl"
               >
                 {secondary.label}
               </Link>

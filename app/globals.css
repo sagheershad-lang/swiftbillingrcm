@@ -32,7 +32,7 @@
   --sb-footer: linear-gradient(135deg, #072A42, #0B3C5D);
   --sb-light: linear-gradient(180deg, #F2FAFC, #EEF6FD);
   --sb-white: linear-gradient(180deg, #FFFFFF, #F4FBFB);
-  --sb-hgrad: linear-gradient(90deg, #0B3C5D, #0E8FB8 55%, #2EC4B6);
+  --sb-hgrad: linear-gradient(90deg, #0B3C5D, #0E8FB8 55%, #0F9E95);
   --sb-hgrad-dark: linear-gradient(90deg, #5EF2E3, #7DD3FC);
   --sb-stat: linear-gradient(90deg, #0B3C5D, #0E8FB8);
   --sb-accent-line: linear-gradient(90deg, #2EC4B6, #38BDF8);
@@ -54,21 +54,47 @@
 .bg-sb-accent { background-image: var(--sb-accent-line); }
 /* Icon badge on light backgrounds */
 .sb-icon-badge { background: var(--sb-icon-bg); border: 1px solid #B6E6F3; }
-/* Primary button: teal gradient + sky glow; hover lifts, brightens and slides the arrow */
+/* ── Buttons and links: one shared set for every page ─────────────
+   sb-btn-primary  teal gradient button (any background)
+   sb-btn-outline  outline button on light backgrounds
+   sb-btn-glass    navy glass button on dark backgrounds
+   sb-link         text link on light backgrounds (arrow svg or .sb-arrow slides)
+   sb-link-dark    text link on dark backgrounds
+   Hover only inside @media (hover: hover), so nothing sticks after a tap.
+   Click: scale 0.98. Focus rings come from :focus-visible below.
+   Don't add Tailwind hover:/translate/transition utilities to these elements. */
+.sb-btn-primary, .sb-btn-outline, .sb-btn-glass, .sb-link, .sb-link-dark { cursor: pointer; }
+.sb-btn-primary, .sb-btn-outline, .sb-btn-glass {
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
 .sb-btn-primary {
   background-image: linear-gradient(90deg, #2EC4B6, #3DD9CB);
   box-shadow: 0 0 28px rgba(56, 189, 248, 0.35);
-  transition: transform 0.2s ease, box-shadow 0.2s ease, background-image 0.2s ease;
 }
-.sb-btn-primary > svg:last-child { transition: transform 0.2s ease; }
+.sb-btn-outline { background-color: #FFFFFF; border: 1.5px solid #D1DBE8; color: #0B3C5D; }
+.sb-btn-glass { background-color: rgba(7, 42, 66, 0.3); border: 1px solid rgba(255, 255, 255, 0.3); color: #FFFFFF; }
+.sb-link, .sb-link-dark { transition: color 0.2s ease; }
+.sb-btn-primary svg:last-child:not(.sb-icon), .sb-btn-outline svg:last-child:not(.sb-icon), .sb-btn-glass svg:last-child:not(.sb-icon), .sb-arrow {
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
 @media (hover: hover) {
   .sb-btn-primary:hover {
+    transform: translateY(-2px);
     background-image: linear-gradient(90deg, #3DD9CB, #5EF2E3);
     box-shadow: 0 0 38px rgba(56, 189, 248, 0.5), 0 8px 22px rgba(11, 60, 93, 0.2);
-    transform: translateY(-2px);
   }
-  .sb-btn-primary:hover > svg:last-child { transform: translateX(3px); }
+  .sb-btn-outline:hover { transform: translateY(-2px); border-color: #2EC4B6; background-color: #EBF9F8; }
+  .sb-btn-glass:hover { transform: translateY(-2px); border-color: #5EF2E3; background-color: rgba(14, 111, 168, 0.45); }
+  .sb-link:hover { color: #07655E; }
+  .sb-link-dark:hover { color: #5EF2E3; }
+  .sb-btn-primary:hover svg:last-child:not(.sb-icon), .sb-btn-outline:hover svg:last-child:not(.sb-icon), .sb-btn-glass:hover svg:last-child:not(.sb-icon),
+  .sb-link:hover .sb-arrow, .sb-link-dark:hover .sb-arrow, .group:hover .sb-arrow { transform: translateX(3px); }
 }
+.sb-btn-primary:active, .sb-btn-outline:active, .sb-btn-glass:active { transform: scale(0.98); }
+.sb-btn-primary:disabled, .sb-btn-primary[aria-disabled="true"] { cursor: not-allowed; transform: none; }
+/* Tailwind's reset gives buttons the default cursor */
+button:not(:disabled), [role="button"], summary { cursor: pointer; }
 
 /* ── Drifting glows for light sections (components/AmbientGlows.tsx) ──
    Soft radial gradients moved with transform only (no filter blur, so phones stay fast).
@@ -87,8 +113,13 @@
 @keyframes sb-drift-3 { to { transform: translate(-160px, 60px) scale(1.2); } }
 @media (prefers-reduced-motion: reduce) {
   .sb-glow { animation: none !important; }
-  .sb-btn-primary, .sb-btn-primary > svg:last-child { transition: none; }
-  .sb-btn-primary:hover, .sb-btn-primary:hover > svg:last-child { transform: none; }
+  /* Buttons and links: colour change only */
+  .sb-btn-primary, .sb-btn-outline, .sb-btn-glass,
+  .sb-btn-primary:hover, .sb-btn-outline:hover, .sb-btn-glass:hover,
+  .sb-btn-primary:active, .sb-btn-outline:active, .sb-btn-glass:active,
+  .sb-btn-primary svg, .sb-btn-outline svg, .sb-btn-glass svg, .sb-arrow {
+    transform: none !important;
+  }
 }
 
 html {
@@ -178,6 +209,11 @@ footer {
     linear-gradient(to top, transparent 0%, #000 32%);
   mask-composite: intersect;
 }
+/* Phone/tablet hero image block (services hub): fades into the gradient at the top and bottom */
+.hero-image-mask-mobile {
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 18%, #000 72%, transparent 100%);
+  mask-image: linear-gradient(to bottom, transparent 0%, #000 18%, #000 72%, transparent 100%);
+}
 
 /* ── Homepage hero text entrance ─────────────────────────────────
    CSS instead of framer-motion so it runs from first paint, before JS.
@@ -229,7 +265,7 @@ footer {
   left: 0;
   right: 0;
   height: 2px;
-  background: linear-gradient(90deg, transparent 0%, #2EC4B6 30%, #2EC4B6 70%, transparent 100%);
+  background: linear-gradient(90deg, transparent 0%, #2EC4B6 30%, #38BDF8 70%, transparent 100%);
   pointer-events: none;
 }
 @keyframes sb-cookie-in {
@@ -259,8 +295,10 @@ footer {
   text-decoration: underline;
   text-underline-offset: 2px;
 }
-#hs-banner-parent #hs-eu-cookie-confirmation #hs-eu-policy-wording a:hover {
-  color: #3dd9cb;
+@media (hover: hover) {
+  #hs-banner-parent #hs-eu-cookie-confirmation #hs-eu-policy-wording a:hover {
+    color: #5EF2E3;
+  }
 }
 #hs-banner-parent #hs-eu-cookie-confirmation #hs-eu-cookie-confirmation-buttons-area {
   flex: 0 0 auto;
@@ -287,28 +325,36 @@ footer {
   cursor: pointer;
   transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
-/* "Got it": primary button */
+/* "Got it": same as .sb-btn-primary */
 #hs-banner-parent #hs-eu-cookie-confirmation #hs-eu-confirmation-button {
-  background: #2EC4B6;
-  border: 1px solid #2EC4B6;
+  background: linear-gradient(90deg, #2EC4B6, #3DD9CB);
+  border: 1px solid transparent;
   color: #0B3C5D;
   font-weight: 800;
-  box-shadow: 0 0 24px rgba(46, 196, 182, 0.35);
+  box-shadow: 0 0 28px rgba(56, 189, 248, 0.35);
 }
-#hs-banner-parent #hs-eu-cookie-confirmation #hs-eu-confirmation-button:hover {
-  background: #3dd9cb;
-  border-color: #3dd9cb;
-  transform: translateY(-2px);
-}
-/* "Decline": outline button */
+/* "Decline": same as .sb-btn-glass (the banner is dark) */
 #hs-banner-parent #hs-eu-cookie-confirmation #hs-eu-decline-button {
-  background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: rgba(7, 42, 66, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   color: #FFFFFF;
   font-weight: 700;
 }
-#hs-banner-parent #hs-eu-cookie-confirmation #hs-eu-decline-button:hover {
-  border-color: #2EC4B6;
+@media (hover: hover) {
+  #hs-banner-parent #hs-eu-cookie-confirmation #hs-eu-confirmation-button:hover {
+    background: linear-gradient(90deg, #3DD9CB, #5EF2E3);
+    box-shadow: 0 0 38px rgba(56, 189, 248, 0.5), 0 8px 22px rgba(11, 60, 93, 0.2);
+    transform: translateY(-2px);
+  }
+  #hs-banner-parent #hs-eu-cookie-confirmation #hs-eu-decline-button:hover {
+    background: rgba(14, 111, 168, 0.45);
+    border-color: #5EF2E3;
+    transform: translateY(-2px);
+  }
+}
+#hs-banner-parent #hs-eu-cookie-confirmation #hs-eu-confirmation-button:active,
+#hs-banner-parent #hs-eu-cookie-confirmation #hs-eu-decline-button:active {
+  transform: scale(0.98);
 }
 /* Keyboard focus ring (HubSpot's reset removes the global box-shadow ring) */
 #hs-banner-parent #hs-eu-cookie-confirmation #hs-eu-confirmation-button:focus-visible,
@@ -356,7 +402,10 @@ footer {
   #hs-banner-parent #hs-eu-cookie-confirmation #hs-eu-decline-button {
     transition: none;
   }
-  #hs-banner-parent #hs-eu-cookie-confirmation #hs-eu-confirmation-button:hover {
+  #hs-banner-parent #hs-eu-cookie-confirmation #hs-eu-confirmation-button:hover,
+  #hs-banner-parent #hs-eu-cookie-confirmation #hs-eu-decline-button:hover,
+  #hs-banner-parent #hs-eu-cookie-confirmation #hs-eu-confirmation-button:active,
+  #hs-banner-parent #hs-eu-cookie-confirmation #hs-eu-decline-button:active {
     transform: none;
   }
 }
@@ -369,14 +418,16 @@ footer {
   transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
-.card:hover,
-[class*="card"]:hover,
-[class*="Card"]:hover {
-  transform: translateY(-8px);
-  border-color: rgba(46, 196, 182, 0.6);
-  box-shadow:
-    0 24px 60px rgba(0, 0, 0, 0.4),
-    0 0 30px rgba(46, 196, 182, 0.2),
-    0 0 60px rgba(46, 196, 182, 0.08);
+@media (hover: hover) {
+  .card:hover,
+  [class*="card"]:hover,
+  [class*="Card"]:hover {
+    transform: translateY(-8px);
+    border-color: rgba(46, 196, 182, 0.6);
+    box-shadow:
+      0 24px 60px rgba(0, 0, 0, 0.4),
+      0 0 30px rgba(46, 196, 182, 0.2),
+      0 0 60px rgba(46, 196, 182, 0.08);
+  }
 }
 

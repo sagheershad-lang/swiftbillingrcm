@@ -19,7 +19,7 @@ export default function PageHero({ crumb, badge, titleTop, titleAccent, children
         <div className="max-w-[720px] py-8 lg:py-10">
           {/* Breadcrumb */}
           <nav aria-label="Breadcrumb" className="hero-fade-up flex items-center gap-2 text-[12px] text-white/80 mb-7" style={{ animationDelay: '0.1s' }}>
-            <Link href="/" className="hover:text-[#5EF2E3] transition-colors duration-200 max-md:min-h-[44px] max-md:inline-flex max-md:items-center">Home</Link>
+            <Link href="/" className="sb-link-dark max-md:min-h-[44px] max-md:inline-flex max-md:items-center">Home</Link>
             <svg width="10" height="10" viewBox="0 0 10 10" fill="none" className="opacity-70" aria-hidden="true">
               <path d="M3.5 2L6.5 5 3.5 8" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round"/>
             </svg>

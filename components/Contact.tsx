@@ -201,7 +201,7 @@ export default function Contact() {
                       <a
                         href={c.href}
                         rel="noopener noreferrer"
-                        className="relative text-[14.5px] font-bold text-[#0B3C5D] hover:text-[#0a756c] transition-colors block leading-tight max-md:py-[13px] max-md:-my-[13px]"
+                        className="sb-link relative text-[14.5px] font-bold text-[#0B3C5D] block leading-tight max-md:py-[13px] max-md:-my-[13px]"
                       >
                         {c.value}
                       </a>
@@ -332,7 +332,7 @@ export default function Contact() {
                       disabled={status === 'submitting'}
                       className="sb-btn-primary w-full bg-[#2EC4B6] text-[#0B3C5D] font-extrabold text-[16px]
                         py-4 rounded-xl mt-1
-                        disabled:opacity-60 disabled:cursor-not-allowed disabled:translate-y-0"
+                        disabled:opacity-60"
                     >
                       {status === 'submitting' ? 'Sending…' : (
                         <span className="inline-flex items-center justify-center gap-2">
@@ -353,7 +353,7 @@ export default function Contact() {
                     Prefer to talk?{' '}
                     <a
                       href="/book-a-call"
-                      className="font-bold text-[#0B3C5D] hover:text-[#0a756c] underline underline-offset-2 transition-colors duration-200 max-md:inline-flex max-md:min-h-[44px] max-md:items-center"
+                      className="sb-link font-bold text-[#0B3C5D] underline underline-offset-2 max-md:inline-flex max-md:min-h-[44px] max-md:items-center"
                     >
                       Book a 30 minute call
                     </a>

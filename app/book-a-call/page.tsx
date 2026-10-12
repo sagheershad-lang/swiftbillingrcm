@@ -40,10 +40,10 @@ export default function BookACall() {
             </p>
             <Link
               href="/#contact"
-              className="inline-flex items-center gap-1.5 text-[15px] md:text-[14px] font-bold text-[#0B3C5D] hover:text-[#0a756c] transition-colors duration-200 max-md:min-h-[44px]"
+              className="sb-link inline-flex items-center gap-1.5 text-[15px] md:text-[14px] font-bold text-[#0B3C5D] max-md:min-h-[44px]"
             >
               Prefer email? Send us a message
-              <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <svg className="sb-arrow" width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true">
                 <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
             </Link>

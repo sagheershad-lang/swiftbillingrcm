@@ -48,8 +48,7 @@ export default function NotFound() {
             </Link>
             <Link
               href="/services"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 font-bold text-[14.5px] px-7 py-3.5 rounded-xl
-                text-white bg-white/[0.08] border border-white/30 hover:bg-[rgba(94,242,227,0.14)] hover:border-[#5EF2E3] transition-all duration-200"
+              className="sb-btn-glass w-full sm:w-auto inline-flex items-center justify-center gap-2 font-bold text-[14.5px] px-7 py-3.5 rounded-xl"
             >
               View Our Services
             </Link>

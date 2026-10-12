@@ -184,18 +184,9 @@ export default function Services() {
               {/* Descriptive link text — visible to Google and screen readers */}
               <Link
                 href={`/services/${s.slug}`}
-                style={{
-                  color: '#0a756c',
-                  fontSize: '13px',
-                  fontWeight: 500,
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '4px',
-                  transition: 'gap 0.2s ease',
-                }}
-                className="hover:underline mt-3 max-md:mt-0 max-md:min-h-[44px]"
+                className="sb-link inline-flex items-center gap-1 text-[13px] font-medium text-[#0a756c] mt-3 max-md:mt-0 max-md:min-h-[44px]"
               >
-                Explore {s.linkLabel} →
+                Explore {s.linkLabel} <span className="sb-arrow">→</span>
               </Link>
             </m.div>
           ))}
@@ -237,10 +228,8 @@ export default function Services() {
                 </a>
                 <Link
                   href="/book-a-call"
-                  className="inline-flex items-center justify-center gap-2 bg-[#072A42]/30 text-white font-bold text-[14px]
-                    px-5 py-3 rounded-xl border border-white/30
-                    hover:bg-[rgba(94,242,227,0.14)] hover:border-[#5EF2E3] hover:-translate-y-0.5
-                    transition-all duration-200"
+                  className="sb-btn-glass inline-flex items-center justify-center gap-2 font-bold text-[14px]
+                    px-5 py-3 rounded-xl"
                 >
                   Book Consultation
                 </Link>

@@ -64,7 +64,7 @@ export default function BookingScheduler() {
             href={MEETINGS_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[15px] md:text-[14px] font-semibold text-[#0B3C5D] hover:text-[#0a756c] underline underline-offset-2 max-md:min-h-[44px] max-md:inline-flex max-md:items-center"
+            className="sb-link text-[15px] md:text-[14px] font-semibold text-[#0B3C5D] underline underline-offset-2 max-md:min-h-[44px] max-md:inline-flex max-md:items-center"
           >
             Open the calendar in a new tab
           </a>

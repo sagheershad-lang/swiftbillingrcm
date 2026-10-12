@@ -124,8 +124,8 @@ function ServiceHeroGraphic({ service, heroImage, heroImageDesktop, heroImageTab
         <div className="absolute pointer-events-none" style={{ top: 0, left: 0, bottom: 0, width: '15%', zIndex: 2, background: 'linear-gradient(to right, #0d2137 0%, transparent 100%)' }} />
         {/* Floating stat badge */}
         <div className="absolute px-3 py-2 rounded-xl" style={{ top: '16px', right: '16px', zIndex: 20, background: 'rgba(5,18,38,0.85)', border: '1px solid rgba(46,196,182,0.3)', backdropFilter: 'blur(16px)' }}>
-          <div className="text-[18px] font-extrabold leading-none" style={{ color: '#2EC4B6' }}>{stat1.value}</div>
-          <div className="text-[10px] font-medium mt-0.5" style={{ color: 'rgba(255,255,255,0.78)' }}>{stat1.label}</div>
+          <div className="text-[18px] font-extrabold leading-none" style={{ color: '#5EF2E3' }}>{stat1.value}</div>
+          <div className="text-[10px] font-medium mt-0.5" style={{ color: '#FFFFFF' }}>{stat1.label}</div>
         </div>
       </div>
 
@@ -147,8 +147,8 @@ function ServiceHeroGraphic({ service, heroImage, heroImageDesktop, heroImageTab
         <div className="absolute pointer-events-none" style={{ top: 0, left: 0, bottom: 0, width: '15%', zIndex: 2, background: 'linear-gradient(to right, #0d2137 0%, transparent 100%)' }} />
         {/* Floating stat badge */}
         <div className="absolute px-3 py-2 rounded-xl" style={{ top: '16px', right: '16px', zIndex: 20, background: 'rgba(5,18,38,0.85)', border: '1px solid rgba(46,196,182,0.3)', backdropFilter: 'blur(16px)' }}>
-          <div className="text-[18px] font-extrabold leading-none" style={{ color: '#2EC4B6' }}>{stat1.value}</div>
-          <div className="text-[10px] font-medium mt-0.5" style={{ color: 'rgba(255,255,255,0.78)' }}>{stat1.label}</div>
+          <div className="text-[18px] font-extrabold leading-none" style={{ color: '#5EF2E3' }}>{stat1.value}</div>
+          <div className="text-[10px] font-medium mt-0.5" style={{ color: '#FFFFFF' }}>{stat1.label}</div>
         </div>
       </div>
 
@@ -201,7 +201,7 @@ function ServiceHeroGraphic({ service, heroImage, heroImageDesktop, heroImageTab
             >
               {icon}
             </div>
-            <span className="text-[11px] font-extrabold uppercase tracking-[0.18em]" style={{ color: 'rgba(255,255,255,0.78)' }}>
+            <span className="text-[11px] font-extrabold uppercase tracking-[0.18em]" style={{ color: '#FFFFFF' }}>
               {service.badge}
             </span>
           </div>
@@ -215,8 +215,8 @@ function ServiceHeroGraphic({ service, heroImage, heroImageDesktop, heroImageTab
           className="absolute -top-5 -right-5 px-4 py-3 rounded-2xl"
           style={{ background: 'rgba(5,18,38,0.9)', border: '1px solid rgba(46,196,182,0.3)', backdropFilter: 'blur(16px)', boxShadow: '0 8px 24px rgba(0,0,0,0.4)' }}
         >
-          <div className="text-[22px] font-extrabold leading-none" style={{ color: '#2EC4B6' }}>{stat1.value}</div>
-          <div className="text-[11px] font-medium mt-0.5" style={{ color: 'rgba(255,255,255,0.78)' }}>{stat1.label}</div>
+          <div className="text-[22px] font-extrabold leading-none" style={{ color: '#5EF2E3' }}>{stat1.value}</div>
+          <div className="text-[11px] font-medium mt-0.5" style={{ color: '#FFFFFF' }}>{stat1.label}</div>
         </m.div>
 
         {/* Floating stat — bottom left */}
@@ -227,8 +227,8 @@ function ServiceHeroGraphic({ service, heroImage, heroImageDesktop, heroImageTab
           className="absolute -bottom-5 -left-5 px-4 py-3 rounded-2xl"
           style={{ background: 'rgba(5,18,38,0.9)', border: '1px solid rgba(46,196,182,0.3)', backdropFilter: 'blur(16px)', boxShadow: '0 8px 24px rgba(0,0,0,0.4)' }}
         >
-          <div className="text-[22px] font-extrabold leading-none" style={{ color: '#2EC4B6' }}>{stat2.value}</div>
-          <div className="text-[11px] font-medium mt-0.5" style={{ color: 'rgba(255,255,255,0.78)' }}>{stat2.label}</div>
+          <div className="text-[22px] font-extrabold leading-none" style={{ color: '#5EF2E3' }}>{stat2.value}</div>
+          <div className="text-[11px] font-medium mt-0.5" style={{ color: '#FFFFFF' }}>{stat2.label}</div>
         </m.div>
       </m.div>
     </div>
@@ -476,29 +476,19 @@ export default function ServicePageLayout({ service, heroImage, heroImageDesktop
                   fontSize: '14px',
                 }}
               >
-                <Link
-                  href="/"
-                  style={{ color: 'rgba(255,255,255,0.78)', transition: 'color 0.2s ease' }}
-                  onMouseEnter={e => (e.currentTarget.style.color = '#2EC4B6')}
-                  onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.78)')}
-                >
+                <Link href="/" className="sb-link-dark text-white">
                   Home
                 </Link>
-                <svg width="10" height="10" viewBox="0 0 10 10" fill="none" style={{ color: '#2EC4B6', flexShrink: 0 }}>
+                <svg width="10" height="10" viewBox="0 0 10 10" fill="none" style={{ color: '#5EF2E3', flexShrink: 0 }}>
                   <path d="M3.5 2L6.5 5 3.5 8" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round"/>
                 </svg>
-                <Link
-                  href="/services"
-                  style={{ color: 'rgba(255,255,255,0.78)', transition: 'color 0.2s ease' }}
-                  onMouseEnter={e => (e.currentTarget.style.color = '#2EC4B6')}
-                  onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.78)')}
-                >
+                <Link href="/services" className="sb-link-dark text-white">
                   Services
                 </Link>
-                <svg width="10" height="10" viewBox="0 0 10 10" fill="none" style={{ color: '#2EC4B6', flexShrink: 0 }}>
+                <svg width="10" height="10" viewBox="0 0 10 10" fill="none" style={{ color: '#5EF2E3', flexShrink: 0 }}>
                   <path d="M3.5 2L6.5 5 3.5 8" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round"/>
                 </svg>
-                <span style={{ color: '#2EC4B6', fontWeight: 600 }}>
+                <span style={{ color: '#5EF2E3', fontWeight: 600 }}>
                   {service.name}
                 </span>
               </m.div>
@@ -507,10 +497,10 @@ export default function ServicePageLayout({ service, heroImage, heroImageDesktop
               <m.div
                 variants={textItem}
                 className="inline-flex self-start items-center gap-2 rounded-full px-3 py-[5px] mb-5"
-                style={{ background: 'rgba(46,196,182,0.10)', border: '1px solid rgba(46,196,182,0.26)' }}
+                style={{ background: 'rgba(7,42,66,0.3)', border: '1px solid rgba(127,245,234,0.45)' }}
               >
-                <span className={`w-[6px] h-[6px] rounded-full shrink-0 bg-[#2EC4B6] ${service.isNew ? 'animate-pulse' : ''}`} />
-                <span className="text-[9.5px] font-extrabold uppercase tracking-[0.2em] text-[#2EC4B6]">
+                <span className={`w-[6px] h-[6px] rounded-full shrink-0 bg-[#5EF2E3] ${service.isNew ? 'animate-pulse' : ''}`} />
+                <span className="text-[9.5px] font-extrabold uppercase tracking-[0.2em] text-[#5EF2E3]">
                   {service.badge}
                 </span>
               </m.div>
@@ -527,14 +517,8 @@ export default function ServicePageLayout({ service, heroImage, heroImageDesktop
               {/* Tagline */}
               <m.p
                 variants={textItem}
-                className="font-bold mb-6"
-                style={{
-                  fontSize: 'clamp(17px, 2vw, 21px)',
-                  background: 'linear-gradient(92deg, #2EC4B6 0%, #80ece5 55%, #2EC4B6 100%)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text',
-                }}
+                className="font-bold mb-6 text-sb-grad-dark"
+                style={{ fontSize: 'clamp(17px, 2vw, 21px)' }}
               >
                 {service.tagline}
               </m.p>
@@ -543,7 +527,7 @@ export default function ServicePageLayout({ service, heroImage, heroImageDesktop
               <m.p
                 variants={textItem}
                 className="text-[15px] md:text-[14.5px] leading-[1.75] max-w-[320px] mb-10"
-                style={{ color: 'rgba(255,255,255,0.78)' }}
+                style={{ color: '#FFFFFF' }}
               >
                 {service.description}
               </m.p>
@@ -557,9 +541,9 @@ export default function ServicePageLayout({ service, heroImage, heroImageDesktop
                   <div key={stat.label} className="flex items-center gap-3">
                     {/* Teal checkmark */}
                     <div className="shrink-0 w-[22px] h-[22px] rounded-full flex items-center justify-center"
-                      style={{ background: 'rgba(46,196,182,0.15)', border: '1px solid rgba(46,196,182,0.35)' }}>
+                      style={{ background: 'rgba(7,42,66,0.3)', border: '1px solid rgba(94,242,227,0.5)' }}>
                       <svg width="11" height="11" viewBox="0 0 12 12" fill="none">
-                        <path d="M2 6l3 3 5-5" stroke="#2EC4B6" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+                        <path d="M2 6l3 3 5-5" stroke="#5EF2E3" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
                       </svg>
                     </div>
                     <span style={{ fontSize: '14px', color: 'rgba(255,255,255,0.75)' }}>
@@ -578,9 +562,11 @@ export default function ServicePageLayout({ service, heroImage, heroImageDesktop
         </div>
       </section>
 
+      <div className="relative bg-sb-dark">
       {/* ══ 2. WHAT WE DO ════════════════════════════════════════════ */}
-      <section className="py-[60px]" style={{ background: '#0a1e33' }}>
-        <div className="max-w-[1200px] mx-auto px-6">
+      <section className="py-[60px] relative overflow-hidden">
+        <ParticleNetwork />
+        <div className="relative z-10 max-w-[1200px] mx-auto px-6">
           <m.div
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -588,11 +574,11 @@ export default function ServicePageLayout({ service, heroImage, heroImageDesktop
             transition={{ duration: 0.5 }}
             className="mb-10"
           >
-            <p className="text-[11.5px] font-extrabold uppercase tracking-[0.16em] mb-2 text-[#2EC4B6]">What We Do</p>
+            <p className="text-[11.5px] font-extrabold uppercase tracking-[0.16em] mb-2 text-[#5EF2E3]">What We Do</p>
             <h2 className="text-[clamp(22px,3vw,32px)] font-extrabold text-white tracking-tight">
               Everything Included in {service.name}
             </h2>
-            <p className="text-[15px] mt-2 max-w-[520px]" style={{ color: 'rgba(255,255,255,0.78)' }}>
+            <p className="text-[15px] mt-2 max-w-[520px]" style={{ color: '#FFFFFF' }}>
               Every step of the process, covered from start to finish.
             </p>
           </m.div>
@@ -605,18 +591,17 @@ export default function ServicePageLayout({ service, heroImage, heroImageDesktop
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.06 }}
-                className="group p-6 flex flex-col gap-4 border border-[rgba(255,255,255,0.08)] hover:border-[rgba(46,196,182,0.3)] hover:shadow-[0_8px_32px_rgba(46,196,182,0.12)] transition-all duration-300"
-                style={{ borderRadius: '16px', background: 'rgba(255,255,255,0.12)', backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)', border: '1px solid rgba(255,255,255,0.18)', boxShadow: '0 8px 32px rgba(0,0,0,0.2)' }}
+                className="group p-6 flex flex-col gap-4 bg-[#072A42]/30 border border-white/[0.14] rounded-2xl hover:bg-[#072A42]/40 hover:border-[#5EF2E3]/50 transition-colors duration-300"
               >
                 <div
-                  className="w-11 h-11 rounded-xl flex items-center justify-center transition-all duration-300 group-hover:bg-[rgba(46,196,182,0.2)]"
-                  style={{ background: 'rgba(46,196,182,0.1)', color: '#2EC4B6' }}
+                  className="w-11 h-11 rounded-xl flex items-center justify-center transition-colors duration-300 group-hover:bg-[rgba(94,242,227,0.2)]"
+                  style={{ background: 'rgba(94,242,227,0.12)', color: '#5EF2E3' }}
                 >
                   <Icon name={f.icon} size={20} />
                 </div>
                 <div>
                   <h3 className="text-[15px] font-extrabold text-white mb-2">{f.title}</h3>
-                  <p className="text-[15px] md:text-[13.5px] leading-[1.7]" style={{ color: 'rgba(255,255,255,0.78)' }}>
+                  <p className="text-[15px] md:text-[13.5px] leading-[1.7]" style={{ color: '#FFFFFF' }}>
                     {f.description}
                   </p>
                 </div>
@@ -627,8 +612,9 @@ export default function ServicePageLayout({ service, heroImage, heroImageDesktop
       </section>
 
       {/* ══ 3. HOW IT WORKS ══════════════════════════════════════════ */}
-      <section className="py-[60px]" style={{ background: '#0d2137' }}>
-        <div className="max-w-[1200px] mx-auto px-6">
+      <section className="py-[60px] relative overflow-hidden">
+        <ParticleNetwork />
+        <div className="relative z-10 max-w-[1200px] mx-auto px-6">
           <m.div
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -636,7 +622,7 @@ export default function ServicePageLayout({ service, heroImage, heroImageDesktop
             transition={{ duration: 0.5 }}
             className="text-center mb-12"
           >
-            <p className="text-[11.5px] font-extrabold uppercase tracking-[0.16em] mb-2 text-[#2EC4B6]">Process</p>
+            <p className="text-[11.5px] font-extrabold uppercase tracking-[0.16em] mb-2 text-[#5EF2E3]">Process</p>
             <h2 className="text-[clamp(22px,3vw,32px)] font-extrabold text-white tracking-tight">How It Works</h2>
           </m.div>
 
@@ -657,7 +643,7 @@ export default function ServicePageLayout({ service, heroImage, heroImageDesktop
                     style={{
                       left: 'calc(50% + 28px)',
                       right: '-50%',
-                      background: 'linear-gradient(90deg, rgba(46,196,182,0.45), transparent)',
+                      background: 'linear-gradient(90deg, rgba(94,242,227,0.6), transparent)',
                     }}
                   />
                 )}
@@ -665,15 +651,15 @@ export default function ServicePageLayout({ service, heroImage, heroImageDesktop
                 <div
                   className="w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-5 text-[13px] font-extrabold"
                   style={{
-                    background: 'rgba(46,196,182,0.12)',
-                    border: '1px solid rgba(46,196,182,0.3)',
-                    color: '#2EC4B6',
+                    background: 'rgba(7,42,66,0.35)',
+                    border: '1px solid rgba(94,242,227,0.5)',
+                    color: '#5EF2E3',
                   }}
                 >
                   {step.step}
                 </div>
                 <h3 className="text-[15px] font-extrabold text-white mb-2">{step.title}</h3>
-                <p className="text-[15px] md:text-[13px] leading-[1.7]" style={{ color: 'rgba(255,255,255,0.78)' }}>
+                <p className="text-[15px] md:text-[13px] leading-[1.7]" style={{ color: '#FFFFFF' }}>
                   {step.description}
                 </p>
               </m.div>
@@ -683,48 +669,37 @@ export default function ServicePageLayout({ service, heroImage, heroImageDesktop
       </section>
 
       {/* ══ 4. WHY IT MATTERS ════════════════════════════════════════ */}
-      <section className="py-[60px]" style={{ background: '#0a1e33' }}>
-        <div className="max-w-[1200px] mx-auto px-6">
+      <section className="py-[60px] relative overflow-hidden">
+        <ParticleNetwork />
+        <div className="relative z-10 max-w-[1200px] mx-auto px-6">
           <m.div
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="relative overflow-hidden rounded-2xl px-8 py-10 md:px-12 md:py-12"
-            style={{ background: 'rgba(255,255,255,0.12)', backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)', border: '1px solid rgba(255,255,255,0.18)', boxShadow: '0 8px 32px rgba(0,0,0,0.2)' }}
+            className="relative overflow-hidden rounded-2xl px-8 py-10 md:px-12 md:py-12 bg-[#072A42]/30 border border-white/[0.14]"
           >
-            {/* Left glow */}
-            <div
-              className="absolute inset-0 pointer-events-none"
-              style={{ background: 'radial-gradient(ellipse 50% 80% at 0% 50%, rgba(46,196,182,0.07) 0%, transparent 70%)' }}
-            />
             <div className="relative z-10 flex flex-col md:flex-row md:items-center gap-8 md:gap-12">
 
               {/* Key stat */}
               <div className="shrink-0 text-center md:text-left">
                 <div
-                  className="font-extrabold leading-none"
-                  style={{
-                    fontSize: 'clamp(52px, 8vw, 88px)',
-                    background: 'linear-gradient(90deg, #2EC4B6, #80ece5)',
-                    WebkitBackgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent',
-                    backgroundClip: 'text',
-                  }}
+                  className="font-extrabold leading-none text-sb-grad-dark"
+                  style={{ fontSize: 'clamp(52px, 8vw, 88px)' }}
                 >
                   {service.stats[0].value}
                 </div>
-                <div className="text-[13px] font-semibold mt-1" style={{ color: 'rgba(255,255,255,0.78)' }}>
+                <div className="text-[13px] font-semibold mt-1" style={{ color: '#FFFFFF' }}>
                   {service.stats[0].label}
                 </div>
               </div>
 
               {/* Vertical rule */}
-              <div className="hidden md:block w-px self-stretch" style={{ background: 'rgba(255,255,255,0.08)' }} />
+              <div className="hidden md:block w-px self-stretch" style={{ background: 'rgba(255,255,255,0.18)' }} />
 
               {/* Text */}
               <div>
-                <p className="text-[11.5px] font-extrabold uppercase tracking-[0.16em] mb-3 text-[#2EC4B6]">
+                <p className="text-[11.5px] font-extrabold uppercase tracking-[0.16em] mb-3 text-[#5EF2E3]">
                   Why It Matters
                 </p>
                 <h3
@@ -733,7 +708,7 @@ export default function ServicePageLayout({ service, heroImage, heroImageDesktop
                 >
                   {service.tagline}
                 </h3>
-                <p className="text-[15px] leading-[1.75] max-w-[540px]" style={{ color: 'rgba(255,255,255,0.78)' }}>
+                <p className="text-[15px] leading-[1.75] max-w-[540px]" style={{ color: '#FFFFFF' }}>
                   {service.problem}
                 </p>
               </div>
@@ -744,10 +719,11 @@ export default function ServicePageLayout({ service, heroImage, heroImageDesktop
 
       {/* ══ 5. RELATED SERVICES ══════════════════════════════════════ */}
       {related.length > 0 && (
-        <section className="py-[60px]" style={{ background: '#0d2137' }}>
-          <div className="max-w-[1200px] mx-auto px-6">
+        <section className="py-[60px] relative overflow-hidden">
+          <ParticleNetwork />
+          <div className="relative z-10 max-w-[1200px] mx-auto px-6">
             <div className="mb-8">
-              <p className="text-[11.5px] font-extrabold uppercase tracking-[0.16em] mb-2 text-[#2EC4B6]">Keep Exploring</p>
+              <p className="text-[11.5px] font-extrabold uppercase tracking-[0.16em] mb-2 text-white">Keep Exploring</p>
               <h2 className="text-[clamp(20px,2.5vw,28px)] font-extrabold text-white tracking-tight">Related Services</h2>
             </div>
             <div className="grid sm:grid-cols-3 gap-5">
@@ -755,20 +731,19 @@ export default function ServicePageLayout({ service, heroImage, heroImageDesktop
                 <Link
                   key={s.slug}
                   href={`/services/${s.slug}`}
-                  className="group flex items-center justify-between gap-4 p-5 border border-[rgba(255,255,255,0.08)] hover:border-[rgba(46,196,182,0.3)] hover:shadow-[0_8px_32px_rgba(46,196,182,0.08)] transition-all duration-300"
-                  style={{ borderRadius: '16px', background: 'rgba(255,255,255,0.12)', backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)', border: '1px solid rgba(255,255,255,0.18)', boxShadow: '0 8px 32px rgba(0,0,0,0.2)' }}
+                  className="group flex items-center justify-between gap-4 p-5 bg-[#072A42]/30 border border-white/[0.14] rounded-2xl hover:bg-[#072A42]/40 hover:border-[#5EF2E3]/50 transition-colors duration-300"
                 >
                   <div>
-                    <p className="text-[14px] font-extrabold text-white group-hover:text-[#2EC4B6] transition-colors duration-200">
+                    <p className="text-[14px] font-extrabold text-white group-hover:text-[#5EF2E3] transition-colors duration-200">
                       {s.name}
                     </p>
-                    <p className="text-[15px] md:text-[12px] mt-1 leading-[1.5]" style={{ color: 'rgba(255,255,255,0.78)' }}>
+                    <p className="text-[15px] md:text-[12px] mt-1 leading-[1.5]" style={{ color: '#FFFFFF' }}>
                       {s.shortDescription.slice(0, 58)}…
                     </p>
                   </div>
                   <svg
                     width="16" height="16" viewBox="0 0 16 16" fill="none"
-                    className="shrink-0 opacity-30 group-hover:opacity-100 group-hover:text-[#2EC4B6] transition-all duration-200"
+                    className="sb-arrow shrink-0 text-white/70 group-hover:text-[#5EF2E3]" style={{ transition: 'color 0.2s ease, transform 0.2s ease' }}
                   >
                     <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
@@ -778,6 +753,7 @@ export default function ServicePageLayout({ service, heroImage, heroImageDesktop
           </div>
         </section>
       )}
+      </div>
 
       {/* ══ 6. FAQ ═══════════════════════════════════════════════════ */}
       {service.faqs.length > 0 && <ServiceFAQ service={service} />}
@@ -830,7 +806,7 @@ export default function ServicePageLayout({ service, heroImage, heroImageDesktop
               </Link>
               <Link
                 href="/services"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 font-bold text-[14px] px-7 py-4 rounded-2xl text-white bg-white/[0.08] border border-white/30 hover:bg-[rgba(94,242,227,0.14)] hover:border-[#5EF2E3] transition-all duration-200"
+                className="sb-btn-glass w-full sm:w-auto inline-flex items-center justify-center gap-2 font-bold text-[14px] px-7 py-4 rounded-2xl"
               >
                 View All Services
               </Link>

@@ -32,7 +32,7 @@ export default function Terms() {
       <div id="main-content" className="relative overflow-hidden bg-sb-dark text-white py-12 px-6 pt-[100px]">
         <ParticleNetwork />
         <div className="relative z-10 max-w-[800px] mx-auto">
-          <Link href="/" className="inline-flex items-center gap-2 text-[#5EF2E3] text-sm font-semibold mb-6 hover:opacity-80 transition-opacity">
+          <Link href="/" className="sb-link-dark inline-flex items-center gap-2 text-[#5EF2E3] text-sm font-semibold mb-6">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
               <path d="M10.5 3L5.5 8l5 5" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
@@ -170,7 +170,7 @@ export default function Terms() {
               The Site links to other websites and uses third-party tools, such as the HubSpot chat and Google
               Analytics. We do not control these services and are not responsible for their content,
               availability, or privacy practices. Your use of them is also subject to their own terms. Our{' '}
-              <Link href="/privacy-policy" className="text-[#0a756c] underline hover:opacity-80">Privacy Policy</Link>{' '}
+              <Link href="/privacy-policy" className="sb-link text-[#0a756c] underline">Privacy Policy</Link>{' '}
               explains how these tools handle data.
             </p>
           </section>
@@ -235,11 +235,11 @@ export default function Terms() {
               <p>{ADDRESS}</p>
               <p>
                 Email:{' '}
-                <a href={`mailto:${EMAIL}`} className="text-[#0a756c] underline hover:opacity-80">{EMAIL}</a>
+                <a href={`mailto:${EMAIL}`} className="sb-link text-[#0a756c] underline">{EMAIL}</a>
               </p>
               <p>
                 Phone:{' '}
-                <a href="tel:+15127377488" className="text-[#0a756c] underline hover:opacity-80">{PHONE}</a>
+                <a href="tel:+15127377488" className="sb-link text-[#0a756c] underline">{PHONE}</a>
               </p>
               <p>Hours: {HOURS}</p>
             </div>
@@ -250,9 +250,9 @@ export default function Terms() {
         <div className="mt-8 text-center">
           <Link
             href="/"
-            className="inline-flex items-center gap-2 bg-[#0B3C5D] text-white font-bold text-sm px-6 py-3 rounded-xl hover:bg-[#082d46] transition-colors duration-200"
+            className="sb-btn-outline inline-flex items-center gap-2 font-bold text-sm px-6 py-3 rounded-xl"
           >
-            <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+            <svg className="sb-icon" width="14" height="14" viewBox="0 0 16 16" fill="none">
               <path d="M10.5 3L5.5 8l5 5" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
             Return to Home

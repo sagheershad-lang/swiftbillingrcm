@@ -143,11 +143,8 @@ export default function Hero() {
                 </a>
                 <a
                   href="/book-a-call"
-                  className="inline-flex items-center justify-center gap-2 font-bold text-[14px] sm:text-[15px] transition-all duration-200 hover:-translate-y-0.5 hover:!border-[#5EF2E3] hover:!bg-[rgba(94,242,227,0.14)] w-full sm:w-auto"
+                  className="sb-btn-glass inline-flex items-center justify-center gap-2 font-bold text-[14px] sm:text-[15px] w-full sm:w-auto"
                   style={{
-                    background: 'rgba(7,42,66,0.3)',
-                    border: '1px solid rgba(255,255,255,0.3)',
-                    color: '#FFFFFF',
                     padding: '15px 26px',
                     borderRadius: '12px',
                     backdropFilter: 'blur(10px)',

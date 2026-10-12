@@ -125,7 +125,7 @@ export default function Pricing() {
                   >
                     <CheckBadge />
                     <span>
-                      <span className="block text-[15px] font-extrabold text-[#0F172A] group-hover:text-[#0a756c] transition-colors duration-200">{s.name}</span>
+                      <span className="block text-[15px] font-extrabold text-[#0F172A] group-hover:text-[#07655E] transition-colors duration-200">{s.name}</span>
                       <span className="block text-[15px] md:text-[13px] text-[#475569] leading-relaxed mt-0.5">{s.shortDescription}</span>
                     </span>
                   </Link>

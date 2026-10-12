@@ -115,7 +115,7 @@ export default function Footer() {
             {/* Contact quick-access */}
             <div className="flex flex-col gap-2 max-md:gap-0 mb-5">
               <a href="mailto:info@swiftbillingrcm.com"
-                className="text-[15px] md:text-[13px] text-white/75 hover:text-[#5EF2E3] transition-colors duration-200 font-medium flex items-center gap-2 max-md:min-h-[44px]">
+                className="text-[15px] md:text-[13px] text-white/75 sb-link-dark font-medium flex items-center gap-2 max-md:min-h-[44px]">
                 <svg width="12" height="12" viewBox="0 0 14 14" fill="none">
                   <rect x="1" y="3" width="12" height="8" rx="1.5" stroke="currentColor" strokeWidth="1.3"/>
                   <path d="M1 5l6 3.5L13 5" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round"/>
@@ -123,7 +123,7 @@ export default function Footer() {
                 info@swiftbillingrcm.com
               </a>
               <a href="tel:+15127377488"
-                className="text-[15px] md:text-[13px] text-white/75 hover:text-[#5EF2E3] transition-colors duration-200 font-medium flex items-center gap-2 max-md:min-h-[44px]">
+                className="text-[15px] md:text-[13px] text-white/75 sb-link-dark font-medium flex items-center gap-2 max-md:min-h-[44px]">
                 <svg width="12" height="12" viewBox="0 0 14 14" fill="none">
                   <path d="M2.5 2.5h2.5l1 2.5-1.5 1a7 7 0 003.5 3.5l1-1.5 2.5 1v2.5A1 1 0 0110 12.5 8.5 8.5 0 011.5 4a1 1 0 011-1z" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
@@ -205,11 +205,11 @@ export default function Footer() {
                 <a
                   key={l.label}
                   href={l.href}
-                  className="text-[15px] md:text-[13.5px] text-white/75 hover:text-[#5EF2E3] transition-colors duration-200 font-medium max-md:min-h-[44px]
+                  className="text-[15px] md:text-[13.5px] text-white/75 sb-link-dark font-medium max-md:min-h-[44px]
                     flex items-center gap-1.5 group"
                 >
                   <svg width="8" height="8" viewBox="0 0 8 8" fill="none"
-                    className="opacity-0 group-hover:opacity-100 transition-opacity duration-200 shrink-0">
+                    className="sb-arrow opacity-0 group-hover:opacity-100 shrink-0" style={{ transition: 'opacity 0.2s ease, transform 0.2s ease' }}>
                     <path d="M1.5 4h5M4 1.5L6.5 4 4 6.5" stroke="#2EC4B6" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
                   {l.label}
@@ -226,11 +226,11 @@ export default function Footer() {
                 <a
                   key={l.label}
                   href={l.href}
-                  className="text-[15px] md:text-[13.5px] text-white/75 hover:text-[#5EF2E3] transition-colors duration-200 font-medium max-md:min-h-[44px]
+                  className="text-[15px] md:text-[13.5px] text-white/75 sb-link-dark font-medium max-md:min-h-[44px]
                     flex items-center gap-1.5 group"
                 >
                   <svg width="8" height="8" viewBox="0 0 8 8" fill="none"
-                    className="opacity-0 group-hover:opacity-100 transition-opacity duration-200 shrink-0">
+                    className="sb-arrow opacity-0 group-hover:opacity-100 shrink-0" style={{ transition: 'opacity 0.2s ease, transform 0.2s ease' }}>
                     <path d="M1.5 4h5M4 1.5L6.5 4 4 6.5" stroke="#2EC4B6" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
                   {l.label}
@@ -247,11 +247,11 @@ export default function Footer() {
                 <a
                   key={s.label}
                   href={s.href}
-                  className="text-[15px] md:text-[13.5px] text-white/75 hover:text-[#5EF2E3] transition-colors duration-200 font-medium max-md:min-h-[44px]
+                  className="text-[15px] md:text-[13.5px] text-white/75 sb-link-dark font-medium max-md:min-h-[44px]
                     flex items-center gap-1.5 group"
                 >
                   <svg width="8" height="8" viewBox="0 0 8 8" fill="none"
-                    className="opacity-0 group-hover:opacity-100 transition-opacity duration-200 shrink-0">
+                    className="sb-arrow opacity-0 group-hover:opacity-100 shrink-0" style={{ transition: 'opacity 0.2s ease, transform 0.2s ease' }}>
                     <path d="M1.5 4h5M4 1.5L6.5 4 4 6.5" stroke="#2EC4B6" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
                   {s.label}
@@ -279,14 +279,14 @@ export default function Footer() {
                   icon: <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M2.5 2.5h2.5l1 2.5-1.5 1a7 7 0 003.5 3.5l1-1.5 2.5 1v2.5A1 1 0 0110 12.5 8.5 8.5 0 011.5 4a1 1 0 011-1z" stroke="#2EC4B6" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/></svg>,
                 },
               ].map(({ href, label, value, icon }) => (
-                <a key={label} href={href} className="flex items-start gap-3 group max-md:min-h-[44px]">
+                <a key={label} href={href} className="sb-link-dark flex items-start gap-3 group max-md:min-h-[44px]">
                   <div className="w-7 h-7 rounded-lg bg-white/[0.06] border border-white/[0.10] flex items-center justify-center shrink-0 mt-0.5
                     group-hover:border-[#2EC4B6]/40 group-hover:bg-[#2EC4B6]/[0.08] transition-all duration-200">
                     {icon}
                   </div>
                   <div>
                     <p className="text-[11px] text-white/70 font-medium mb-0.5">{label}</p>
-                    <p className="text-[15px] md:text-[13px] text-white/85 font-medium group-hover:text-[#5EF2E3] transition-colors duration-200">{value}</p>
+                    <p className="text-[15px] md:text-[13px] text-white/85 font-medium">{value}</p>
                   </div>
                 </a>
               ))}
@@ -331,10 +331,10 @@ export default function Footer() {
             © {new Date().getFullYear()} SwiftBilling RCM. All rights reserved. · Austin, TX
           </p>
           <div className="flex flex-wrap items-center gap-x-4 gap-y-2 max-md:gap-y-0">
-            <a href="/privacy-policy" className="text-[15px] md:text-[12px] text-white/70 hover:text-[#5EF2E3] font-medium transition-colors duration-200 max-md:min-h-[44px] max-md:inline-flex max-md:items-center">Privacy Policy</a>
-            <a href="/terms" className="text-[15px] md:text-[12px] text-white/70 hover:text-[#5EF2E3] font-medium transition-colors duration-200 max-md:min-h-[44px] max-md:inline-flex max-md:items-center">Terms &amp; Conditions</a>
-            <button type="button" onClick={showHubSpotCookieBanner} className="text-[15px] md:text-[12px] text-white/70 hover:text-[#5EF2E3] font-medium transition-colors duration-200 max-md:min-h-[44px] max-md:inline-flex max-md:items-center cursor-pointer">Cookie Settings</button>
-            <Link href="/security" className="text-[15px] md:text-[12px] text-white/70 hover:text-[#5EF2E3] font-medium transition-colors duration-200 max-md:min-h-[44px] max-md:inline-flex max-md:items-center">HIPAA Compliant</Link>
+            <a href="/privacy-policy" className="text-[15px] md:text-[12px] text-white/70 sb-link-dark font-medium max-md:min-h-[44px] max-md:inline-flex max-md:items-center">Privacy Policy</a>
+            <a href="/terms" className="text-[15px] md:text-[12px] text-white/70 sb-link-dark font-medium max-md:min-h-[44px] max-md:inline-flex max-md:items-center">Terms &amp; Conditions</a>
+            <button type="button" onClick={showHubSpotCookieBanner} className="text-[15px] md:text-[12px] text-white/70 sb-link-dark font-medium max-md:min-h-[44px] max-md:inline-flex max-md:items-center">Cookie Settings</button>
+            <Link href="/security" className="text-[15px] md:text-[12px] text-white/70 sb-link-dark font-medium max-md:min-h-[44px] max-md:inline-flex max-md:items-center">HIPAA Compliant</Link>
             <span className="text-[15px] md:text-[12px] text-white/70 font-medium">BAA Signed With Every Client</span>
           </div>
         </div>

@@ -26,7 +26,7 @@ function Logo({ scrolled }: { scrolled: boolean }) {
           <path d="M14 4.5H17V7.5" stroke="#2EC4B6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
         </svg>
       </div>
-      <span className={`font-extrabold text-[17px] tracking-[-0.02em] leading-none transition-colors duration-300 ${scrolled ? 'text-[#0B3C5D] group-hover:text-[#0a756c]' : 'text-white group-hover:text-[#2EC4B6]'}`}>
+      <span className={`font-extrabold text-[17px] tracking-[-0.02em] leading-none transition-colors duration-300 ${scrolled ? 'text-[#0B3C5D] group-hover:text-[#07655E]' : 'text-white group-hover:text-[#5EF2E3]'}`}>
         SwiftBilling<span className="text-[#2EC4B6]"> RCM</span>
       </span>
     </Link>
@@ -102,7 +102,7 @@ export default function Nav() {
             <li key={l.href}>
               <a
                 href={l.href}
-                className={`relative text-[14.5px] font-semibold whitespace-nowrap transition-colors duration-200 group/link ${scrolled ? 'text-[#475569] hover:text-[#0a756c]' : 'text-white/80 hover:text-[#2EC4B6]'}`}
+                className={`relative text-[14.5px] font-semibold whitespace-nowrap group/link ${scrolled ? 'text-[#475569] sb-link' : 'text-white/80 sb-link-dark'}`}
               >
                 {l.label}
                 {/* Animated underline */}
@@ -119,7 +119,7 @@ export default function Nav() {
           <div className={`flex items-center gap-4 text-[13px] pr-5 border-r ${scrolled ? 'border-[#E2E8F0]' : 'border-white/15'}`}>
             <a
               href="tel:+15127377488"
-              className={`flex items-center gap-1.5 font-semibold transition-all duration-200 hover:bg-[#2EC4B6]/10 rounded-lg px-2 py-1 -mx-2 -my-1 ${scrolled ? 'text-[#0B3C5D] hover:text-[#0a756c]' : 'text-white/90 hover:text-[#2EC4B6]'}`}
+              className={`flex items-center gap-1.5 font-semibold rounded-lg px-2 py-1 -mx-2 -my-1 ${scrolled ? 'text-[#0B3C5D] sb-link' : 'text-white/90 sb-link-dark'}`}
             >
               <svg width="13" height="13" viewBox="0 0 14 14" fill="none">
                 <path d="M2.5 2h2.8l1.2 3-1.8 1.1a8 8 0 003.2 3.2L9 7.5l3 1.2V11a1 1 0 01-1 1A10.5 10.5 0 011.5 3a1 1 0 011-1z" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round"/>
@@ -171,7 +171,7 @@ export default function Nav() {
                   key={l.href}
                   href={l.href}
                   onClick={closeMenu}
-                  className="flex items-center gap-2.5 text-[15px] font-semibold text-[#475569] hover:text-[#0B3C5D] hover:bg-[#F1F5F9] py-3 px-3 -mx-3 rounded-xl transition-all duration-200 border-b border-[#F8FAFC] last:border-0 group/mlink"
+                  className="sb-link flex items-center gap-2.5 text-[15px] font-semibold text-[#475569] py-3 px-3 -mx-3 rounded-xl border-b border-[#F8FAFC] last:border-0 group/mlink"
                 >
                   <span className="w-0 h-[14px] bg-[#2EC4B6] rounded-full group-hover/mlink:w-[3px] transition-all duration-200 shrink-0" />
                   {l.label}
@@ -181,7 +181,7 @@ export default function Nav() {
                 <a
                   href="tel:+15127377488"
                   onClick={closeMenu}
-                  className="flex items-center gap-2 text-[14px] font-semibold text-[#0B3C5D] hover:text-[#0a756c] transition-colors duration-200 min-h-[44px]"
+                  className="sb-link flex items-center gap-2 text-[14px] font-semibold text-[#0B3C5D] min-h-[44px]"
                 >
                   <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
                     <path d="M2.5 2h2.8l1.2 3-1.8 1.1a8 8 0 003.2 3.2L9 7.5l3 1.2V11a1 1 0 01-1 1A10.5 10.5 0 011.5 3a1 1 0 011-1z" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round"/>

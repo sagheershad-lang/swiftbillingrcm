@@ -174,7 +174,7 @@ export default function TrustStrip() {
           {PLATFORM_DISCLAIMER}{' '}
           <Link
             href="/ehr-integrations"
-            className="text-[12px] font-bold text-[#0B3C5D] hover:text-[#0a756c] underline underline-offset-2 whitespace-nowrap max-md:inline-flex max-md:min-h-[44px] max-md:items-center"
+            className="sb-link text-[12px] font-bold text-[#0B3C5D] underline underline-offset-2 whitespace-nowrap max-md:inline-flex max-md:min-h-[44px] max-md:items-center"
           >
             See how we work with your EHR
           </Link>

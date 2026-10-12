@@ -164,30 +164,41 @@ The **Services hub** (`/services`) uses `ServicesHero` with `/Service.png` and t
 | `bg-sb-footer` | `linear-gradient(135deg, #072A42, #0B3C5D)` | Footer |
 | `bg-sb-light` | `linear-gradient(180deg, #F2FAFC, #EEF6FD)` | Replaces the old `#F8FAFC` sections |
 | `bg-sb-white` | `linear-gradient(180deg, #FFFFFF, #F4FBFB)` | Replaces the old white sections |
-| `text-sb-grad` | `linear-gradient(90deg, #0B3C5D, #0E8FB8 55%, #2EC4B6)` | Highlighted part of headings on light |
+| `text-sb-grad` | `linear-gradient(90deg, #0B3C5D, #0E8FB8 55%, #0F9E95)` | Highlighted part of headings on light (deeper teal end, about 3.2:1 on the light backgrounds, so large heading text passes AA) |
 | `text-sb-grad-dark` | `linear-gradient(90deg, #5EF2E3, #7DD3FC)` | Highlighted part of headings on dark |
 | `text-sb-stat` | `linear-gradient(90deg, #0B3C5D, #0E8FB8)` | Big stat numbers in light cards (TrustBar) |
 | `bg-sb-accent` | `linear-gradient(90deg, #2EC4B6, #38BDF8)` | Card hover top line, CTA strip top line |
 | `sb-icon-badge` | `linear-gradient(135deg, #E6FAF8, #E3F3FE)`, border `#B6E6F3` | Icon badges on light |
-| `sb-btn-primary` | `linear-gradient(90deg, #2EC4B6, #3DD9CB)`, glow `0 0 28px rgba(56,189,248,.35)` | Every primary button (keep `bg-[#2EC4B6] text-[#0B3C5D]` as the fallback colours). Hover brightens, lifts 2px and slides the arrow; no extra hover/shadow classes needed |
+| `bg-sb-dark` (Services hub, service pages) | same token | Hub hero (image masked into the gradient with `hero-image-mask`, phones use `hero-image-mask-mobile`) and one `bg-sb-dark` wrapper behind the hub's 3 sections and behind the service page body (What We Do, How It Works, Why It Matters, Related), with a `<ParticleNetwork />` per section. The service page hero keeps its images and navy blends; only its badge, tagline, checkmarks and stat chips use the aqua accents |
+
+**Buttons and links (one shared set, `app/globals.css`).** Use these classes and nothing else for hover: no Tailwind `hover:`, `translate`, `transition` utilities and no framer `whileHover`/`whileTap` on buttons or links.
+| Class | Use | Hover (only inside `@media (hover: hover)`) |
+|---|---|---|
+| `sb-btn-primary` | Every primary button, any background (keep `bg-[#2EC4B6] text-[#0B3C5D]` as fallback colours) | Lift 2px, `linear-gradient(90deg, #3DD9CB, #5EF2E3)`, glow `0 0 38px rgba(56,189,248,.5)` + soft shadow |
+| `sb-btn-outline` | Outline button on light backgrounds (white, border `#D1DBE8`, navy text) | Lift 2px, border `#2EC4B6`, background `#EBF9F8` |
+| `sb-btn-glass` | Button on dark backgrounds (navy glass `rgba(7,42,66,.3)`, border white 30%) | Lift 2px, border `#5EF2E3`, brighter glass `rgba(14,111,168,.45)` |
+| `sb-link` / `sb-link-dark` | Text links on light / dark | Text `#07655E` / `#5EF2E3`; an arrow with class `sb-arrow` slides 3px right |
+- A trailing arrow `svg` in a button slides 3px automatically; give a leading icon `className="sb-icon"` so it stays put. Inside a `group` card link, `sb-arrow` slides on card hover.
+- Click: `scale(0.98)` (also on touch). Cursor pointer on all buttons. 200ms transitions. Focus rings unchanged. Reduced motion: colour change only.
+- The HubSpot cookie banner buttons use the same primary and glass styles. The global `[class*="card"]` hover is also inside `@media (hover: hover)`, so nothing stays stuck after a tap.
 
 **Moving backgrounds**
 - `components/AmbientGlows.tsx` (`variant="a" | "b"`, alternate them down a page): 3 soft teal/sky radial glows per light section (2 on phones), drifting on 16s / 20s / 24s loops with transform only, no filter blur, `pointer-events: none`, behind content. Parent needs `relative overflow-hidden`, content `relative z-10`.
 - `components/ParticleNetwork.tsx`: one shared canvas for dark sections (dots joined by faint `rgba(127,245,234)` lines). Starts after load on the first idle moment, animates only while on screen (IntersectionObserver), pauses when the tab is hidden, phones get 10 to 16 dots at 30fps and a 1.5x canvas, desktop 18 to 48 dots. Draws nothing with prefers-reduced-motion; the glows stay still too.
-- Dark section cards and pills use navy glass (`bg-[#072A42]/30`, border `white/14`); ghost buttons on dark use `bg-[#072A42]/30 border-white/30`, hover aqua tint. Small white text on dark is full white, not reduced opacity.
+- Dark section cards and pills use navy glass (`bg-[#072A42]/30`, border `white/14`); buttons on dark use `sb-btn-glass`. Small white text on dark is full white, not reduced opacity.
 
 **Recurring patterns (reuse these, don't invent new ones)**
 - **Section header:** uppercase eyebrow `text-[#07655E]` (`text-[11.5px] tracking-[0.16em]`), H2 `clamp(28px,3.5vw,44px)` extrabold with a `text-sb-grad` span, description on the right (`lg:text-right`), then a hairline: `h-px` with `linear-gradient(90deg, #2EC4B6, rgba(56,189,248,0.3), transparent)`.
 - **Light card:** `bg-white/[0.82] backdrop-blur-[6px] border border-[#38BDF8]/[0.18] rounded-2xl`, resting shadow `0_1px_14px_rgba(11,60,93,0.06)`. On hover: `y:-5`, teal border at 35%, deeper shadow, and a `bg-sb-accent` top line that grows from `w-0` to `w-14`. (Don't put "card" in new class names: a global `[class*="card"]` rule in globals.css styles them.)
 - **Dark CTA strip:** `bg-sb-dark` + `<ParticleNetwork />` + 2px `bg-sb-accent` top line.
-- **Primary button:** `sb-btn-primary` (see table).
+- **Buttons and links:** `sb-btn-primary`, `sb-btn-outline`, `sb-btn-glass`, `sb-link`, `sb-link-dark` (see above).
 - **Animation:** `FadeIn` wrapper (`direction: 'up' | 'left' | 'right' | 'none'`, `delay`). Cards use `initial / whileInView / viewport={{ once: true }}` with ease `[0.16, 1, 0.3, 1]` and a stagger of `i * 0.07`.
 - Section padding: `py-16 md:py-24`; container: `max-w-[1200px] mx-auto px-6`.
 
 **Accessibility rules (keep these on every new component)**
 - **Mobile body text min 15px:** under 768px, body paragraphs, section descriptions, card text, FAQ answers and Footer text are at least 15px. Pattern: `text-[15px] md:text-[13.5px]` (desktop keeps its original size). Headings, eyebrows, badges, pills, stat labels, buttons and fine-print microcopy are not affected.
 - **Tap targets min 44px:** on mobile every link and button is at least 44x44 tappable (`max-md:min-h-[44px]`, or padding plus a matching negative margin when the layout must not move). Visible text and icon sizes stay the same; e.g. the Footer social tiles stay 32px inside a 44px link.
-- **Hover text on light backgrounds:** use `#0a756c`, not `#2EC4B6` (teal text on white is ~2:1 contrast). Teal hover stays on dark backgrounds.
+- **Hover text:** `sb-link` (`#07655E`) on light backgrounds, `sb-link-dark` (`#5EF2E3`) on dark. Never `#2EC4B6` text on light (about 2:1 contrast).
 - **Focus ring:** global `:focus-visible` in `globals.css`: 2px teal `#2EC4B6` outline, 2px offset, plus a 2px navy `#0B3C5D` box-shadow so it shows on light and dark sections. Don't remove outlines.
 - **Skip link:** "Skip to content" (`.skip-link` in `layout.tsx`) is the first focusable element and jumps to `#main-content`; every page's hero/header needs `id="main-content"`.
 - **Reduced motion:** `MotionConfig reducedMotion="user"` for Framer Motion, a `prefers-reduced-motion` rule in `globals.css` for CSS animations and smooth scroll, and counters show the final number straight away (`useReducedMotion`).
@@ -240,6 +251,7 @@ The **Services hub** (`/services`) uses `ServicesHero` with `/Service.png` and t
 - Contact form Specialty is now a dropdown (`lib/specialties.ts`): the 20 Specialties section names + Family Medicine, Mental and Behavioral Health, Chiropractic, Urology, Podiatry, Multi Specialty, sorted, "Other" last; "Other" reveals a "Your Specialty" field (max 100). The API accepts only list values or "Other: <text>" (escaped). Also: equal height TrustBar and Process cards, Process connector arrows centred per gap, section header links kept whole with balanced description text, Vercel Speed Insights.
 - Get Started goes straight to the form: the form card has `id="contact-form"`; Nav Get Started (desktop + mobile), hero, Audit, Services, Process, Switching, About section, service page, services hub, Pricing, About page and the Footer "Free Audit" link point to `/#contact-form` (homepage-only sections use `#contact-form`). Book a Call buttons unchanged; `#audit` and `#contact` still work. Fixed mobile menu same-page links not scrolling. "Family Practice" merged into "Family Medicine" everywhere (Specialties card, specialties list, homepage FAQ, Why Choose Us strip).
 - Brighter theme with animated background, site wide (section 6): new dark gradient on the hero, Results, Audit, all dark strips and bands, PageHero, service page closing CTA, Privacy/Terms headers and 404; navy Footer gradient; tinted light section gradients with drifting glows; glass light cards; sky accent; gradient primary buttons; TrustBar HIPAA card shows "BAA". An in-browser contrast audit (text against the real gradients, worst case over a glow centre) found AA failures, fixed by: muted text `#475569`, deep teal eyebrows, full white small text and navy glass under small text on dark, and a faint navy veil on the lower right of `bg-sb-dark`. Lighthouse mobile homepage: Performance median 60 (57, 60, 60), Accessibility 100. Same machine, the commit before the theme: median 54 (46, 71, 54); the theme with all animation removed: median 64. Animation costs about 4 points; the gap to 85 is LCP (about 4s, hero image) and script blocking time.
+- Theme Part 2: heading gradient ends in deeper teal `#0F9E95`; Services hub (hero + 3 sections) and the service page body sections and bands moved to the new gradient, particles and navy glass cards (service hero images unchanged); one shared set of button and link hover styles (`sb-btn-primary`, `sb-btn-outline`, `sb-btn-glass`, `sb-link`, `sb-link-dark`, hover only on hover devices, click scale 0.98) applied to every button and button styled link, the cookie banner included. Fixed along the way: the Audit buttons used framer scale 1.03, the Hero ghost button used `!important` overrides, the FAQ and Privacy/Terms buttons were solid navy, the Specialties toggle had its own aqua outline and glow, service page breadcrumbs used JS mouse handlers, and arrow links each had their own hover colour or none.
 ---
 
 ## 8. Known issues / to-do
@@ -247,8 +259,8 @@ The **Services hub** (`/services`) uses `ServicesHero` with `/Service.png` and t
 1. Resend: the `swiftbillingrcm.com` domain must be verified in Resend, or contact form emails fail.
 2. FAQ accordion buttons have no `aria-controls`.
 3. Lighthouse mobile Performance is about 60 (target 85). Not caused by the animation (about 4 points); needs a separate pass on hero LCP and JS blocking time.
-4. Still on the old navy (not the new theme): the service page hero and its navy body sections (What We Do, Process, Problem/Solution, Related Services) and the Services hub sections. Their faint text was raised to AA.
-5. Gradient heading text ends in `#2EC4B6`, which is low contrast on light backgrounds (approved preview gradient; automated tools can't measure gradient text).
+4. The service page hero still uses its original navy (#0d2137) image blends by request; everything below it is on the new theme.
+5. Gradient heading text (`text-sb-grad`) ends in `#0F9E95`: about 3.2:1 on the light backgrounds (AA for large text). Directly over the centre of a drifting glow it can dip to about 2.3:1 for a moment. Automated tools can't measure gradient text.
 
 ---
 

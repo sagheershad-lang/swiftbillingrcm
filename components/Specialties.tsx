@@ -397,15 +397,12 @@ export default function Specialties() {
               {/* Toggle button */}
               <button
                 onClick={() => setExpanded(v => !v)}
-                className="inline-flex items-center gap-2.5 whitespace-nowrap shrink-0
-                  border-[1.5px] border-[#5EF2E3] bg-[#072A42]/25 text-white font-bold text-[14px]
-                  px-6 py-3 rounded-xl
-                  hover:bg-[rgba(94,242,227,0.14)] hover:-translate-y-0.5
-                  transition-all duration-200 cursor-pointer"
-                style={{ boxShadow: '0 0 22px rgba(56,189,248,0.25)' }}
+                className="sb-btn-glass inline-flex items-center gap-2.5 whitespace-nowrap shrink-0 font-bold text-[14px]
+                  px-6 py-3 rounded-xl"
               >
                 {expanded ? 'Show Less' : 'View All Specialties'}
                 <m.svg
+                  className="sb-icon"
                   animate={{ rotate: expanded ? 180 : 0 }}
                   transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
                   width="15" height="15" viewBox="0 0 16 16" fill="none"
@@ -432,13 +429,12 @@ export default function Specialties() {
             </div>
             <a
               href="#contact"
-              className="inline-flex items-center gap-1.5 text-[13px] text-[#475569] font-medium
-                hover:text-[#0a756c] transition-colors duration-200 whitespace-nowrap max-md:min-h-[44px]"
+              className="sb-link inline-flex items-center gap-1.5 text-[13px] text-[#475569] font-medium whitespace-nowrap max-md:min-h-[44px]"
             >
               Not sure if we support your specialty?{' '}
               <span className="text-[#07655E] font-semibold">Contact us</span>
-              <svg width="12" height="12" viewBox="0 0 13 13" fill="none">
-                <path d="M2.5 6.5h8M7 3l3.5 3.5L7 10" stroke="#2EC4B6" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
+              <svg className="sb-arrow" width="12" height="12" viewBox="0 0 13 13" fill="none">
+                <path d="M2.5 6.5h8M7 3l3.5 3.5L7 10" stroke="#0a756c" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
             </a>
           </div>
